@@ -1,10 +1,13 @@
 # 🌿 Mena’s Nest — Herbal & Organic Wellness E-Commerce Platform
 
-[![Platform](https://img.shields.io/badge/Platform-Web-purple.svg)](https://github.com/Carthy1/aunt-mosa)
+[![Platform](https://img.shields.io/badge/Platform-Web-purple.svg)](https://carthy1.github.io/aunt-mosa/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success.svg)](https://carthy1.github.io/aunt-mosa/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Live%20MVP-success.svg)](https://github.com/Carthy1/aunt-mosa)
+[![Status](https://img.shields.io/badge/Status-Public%20MVP-blue.svg)](https://github.com/Carthy1/aunt-mosa)
 
 > A modern, responsive e-commerce storefront and educational hub crafted for **Mena’s Nest** — a botanical wellness brand specializing in pure, organic remedies for women, expectant mothers, nursing mothers, and children.
+> 
+> 🌐 **Live Website:** [https://carthy1.github.io/aunt-mosa/](https://carthy1.github.io/aunt-mosa/)
 
 ---
 
