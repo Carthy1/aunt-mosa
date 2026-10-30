@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mena’s Nest | Herbal & Organic Wellness for Mothers, Women & Children</title>
+  <meta name="description" content="Mena’s Nest crafts pure, certified organic herbal remedies, pregnancy teas, lactation elixirs, and calming baby balms. Nurturing wellness for women and growing families.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" id="announcement-bar">
+    <div class="announcement-container">
+      <span class="announcement-badge">Mena's Nest Guarantee</span>
+      <p class="announcement-text">
+        ✨ 100% Certified Organic Botanicals • Midwife & Herbalist Approved • Free Shipping on orders over $50
+      </p>
+      <div class="announcement-controls">
+        <label for="currency-select" class="sr-only">Currency</label>
+        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="USD">USD ($)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="NGN">NGN (₦)</option>
+          <option value="CAD">CAD ($)</option>
+        </select>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo" id="brand-logo" aria-label="Mena's Nest Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" fill="var(--color-lavender-subtle)" stroke="var(--color-lavender-medium)" stroke-width="1.5"/>
+            <!-- Stylized leaf & nest motif -->
+            <path d="M20 7C14 13 11 20 13 27C14.5 32 19 33 22 31C26 28 28 22 26 15C25 11 22 8 20 7Z" fill="var(--color-sage-dark)" opacity="0.85"/>
+            <path d="M19 11C21 16 26 18 29 23C31 26 29 30 25 31C21 32 17 28 17 24C17 19 18 14 19 11Z" fill="var(--color-lavender-dark)" opacity="0.6"/>
+            <circle cx="20" cy="20" r="3" fill="var(--color-cream-warm)"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Mena’s Nest</span>
+          <span class="brand-tagline">Herbal & Organic Wellness</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#shop" class="nav-link">Shop Apothecary</a></li>
+          <li><a href="#about" class="nav-link">Our Story</a></li>
+          <li><a href="#wellness-hub" class="nav-link">Wellness Hub</a></li>
+          <li><a href="#herb-glossary" class="nav-link">Herb Glossary</a></li>
+          <li><a href="#order-tracker" class="nav-link" id="nav-track-link">Track Order</a></li>
+          <li><a href="#faq" class="nav-link">FAQs</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="nav-actions">
+        <button class="icon-btn search-toggle" id="search-toggle-btn" aria-label="Search apothecary" title="Search products">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+
+        <button class="icon-btn wishlist-trigger-btn" id="wishlist-trigger-btn" aria-label="View Wishlist" title="Your Saved Remedies">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="wishlist-count-badge" id="wishlist-count-badge">0</span>
+        </button>
+
+        <a href="https://wa.me/15551234567?text=Hello%20Mena's%20Nest!%20I'd%20love%20to%20learn%20more%20about%20your%20herbal%20products." target="_blank" rel="noopener noreferrer" class="whatsapp-nav-btn" id="whatsapp-nav-btn" title="Chat with a certified herbalist on WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+          <span class="whatsapp-btn-text">Consult</span>
+        </a>
+
+        <button class="cart-trigger-btn" id="cart-trigger-btn" aria-label="View Shopping Cart">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count-badge" id="cart-count-badge">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Search Bar (Dropdown) -->
+    <div class="search-dropdown-bar hidden" id="search-dropdown-bar">
+      <div class="search-input-wrapper">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="global-search-input" placeholder="Search organic teas, lactation drops, baby balms, herbs..." autocomplete="off">
+        <button class="close-search-btn" id="close-search-btn" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-suggestions" id="search-suggestions"></div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <span class="brand-name">Mena’s Nest</span>
+      <button class="close-mobile-nav" id="close-mobile-nav" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-links">
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#shop" class="mobile-link">Shop Apothecary</a></li>
+      <li><a href="#about" class="mobile-link">Our Story & Mission</a></li>
+      <li><a href="#wellness-hub" class="mobile-link">Wellness & Learning Hub</a></li>
+      <li><a href="#herb-glossary" class="mobile-link">Botanical Glossary</a></li>
+      <li><a href="#faq" class="mobile-link">Frequently Asked Questions</a></li>
+      <li><a href="#contact" class="mobile-link">Contact & Support</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="https://wa.me/15551234567" target="_blank" class="btn btn-whatsapp w-full">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+        <span>Message Us on WhatsApp</span>
+      </a>
+      <p class="mobile-care-note">Nurturing consultations available Monday – Saturday.</p>
+    </div>
+  </div>
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span class="badge-dot"></span>
+            <span>Handcrafted Herbal & Organic Remedies</span>
+          </div>
+          <h1 class="hero-title">
+            Nurturing Care for <em>Mothers</em>, Women & <em>Little Nests</em>
+          </h1>
+          <p class="hero-lead">
+            Certified organic herbal teas, restorative lactation drops, and soothing maternal botanicals. Formulated with gentle clinical herbalism for pregnancy, the sacred fourth trimester, and your baby’s delicate skin.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#shop" class="btn btn-primary" id="hero-shop-btn">
+              <span>Explore Products</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
+            <a href="#about" class="btn btn-secondary" id="hero-story-btn">
+              <span>Our Herbal Philosophy</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges Bar -->
+          <div class="hero-trust-row">
+            <div class="trust-badge-item">
+              <span class="trust-icon">🌱</span>
+              <div>
+                <strong>100% Organic</strong>
+                <span>Certified Botanicals</span>
+              </div>
+            </div>
+            <div class="trust-badge-item">
+              <span class="trust-icon">🤱</span>
+              <div>
+                <strong>Mama & Baby Safe</strong>
+                <span>Gentle Formulations</span>
+              </div>
+            </div>
+            <div class="trust-badge-item">
+              <span class="trust-icon">🔬</span>
+              <div>
+                <strong>Evidence-Informed</strong>
+                <span>Clinical Herbalist Crafted</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            <div class="hero-image-frame">
+              <img src="assets/images/hero-mother.jpg" alt="Mena's Nest peaceful mother surrounded by lavender and chamomile botanicals" class="hero-main-img" loading="eager">
+              <div class="hero-gradient-overlay"></div>
+            </div>
+
+            <!-- Floating Micro Cards -->
+            <div class="floating-card floating-card-top">
+              <div class="floating-avatar">🌿</div>
+              <div>
+                <p class="floating-title">Red Raspberry & Chamomile</p>
+                <p class="floating-meta">Cold-Infused Harvest</p>
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-bottom">
+              <div class="floating-stars">★★★★★</div>
+              <p class="floating-quote">“The Golden Flow drops transformed my breastfeeding journey. Gentle, pure, and so effective!”</p>
+              <p class="floating-author">— Amara K., Expectant Mama of Two</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND VALUES & PHILOSOPHY STRIP -->
+    <section class="values-strip">
+      <div class="container">
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Maternal Safety First</h3>
+            <p>Every plant is screened against stringent obstetric herbal monographs. No contraindications or hidden additives.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Nurturing Whole-Body Care</h3>
+            <p>Supportive remedies crafted to soothe postpartum recovery, encourage healthy lactation, and settle growing children.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Ethical Botanical Sourcing</h3>
+            <p>Regeneratively cultivated and ethically wild-harvested herbs, packaged in amber apothecary glass to protect potency.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+            <h3>Educational Empowerment</h3>
+            <p>We provide evidence-informed guides, dosing clarity, and transparent herbal education so you make informed choices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT CATALOG & SHOP SECTION -->
+    <section class="shop-section" id="shop">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Our Botanical Offerings</span>
+          <h2 class="section-title">Handcrafted Herbal Remedies & Apothecary</h2>
+          <p class="section-desc">
+            Explore our gentle remedies formulated for fertility, pregnancy, lactation, women's hormonal balance, and infant skincare.
+          </p>
+        </div>
+
+        <!-- Shop Filters & Category Tabs -->
+        <div class="shop-filter-bar">
+          <div class="category-tabs" id="category-tabs" role="tablist">
+            <button class="category-tab active" data-category="all" role="tab" aria-selected="true">All Formulations</button>
+            <button class="category-tab" data-category="pregnancy" role="tab" aria-selected="false">Pregnancy Care</button>
+            <button class="category-tab" data-category="breastfeeding" role="tab" aria-selected="false">Breastfeeding Support</button>
+            <button class="category-tab" data-category="womens" role="tab" aria-selected="false">Women's Wellness</button>
+            <button class="category-tab" data-category="children" role="tab" aria-selected="false">Little Nest (Baby & Child)</button>
+            <button class="category-tab" data-category="teas" role="tab" aria-selected="false">Herbal Teas & Infusions</button>
+          </div>
+
+          <div class="shop-search-box">
+            <input type="text" id="shop-filter-search" placeholder="Filter by herb, benefit or name..." aria-label="Filter products">
+            <span class="filter-count" id="product-count-display">Showing 6 products</span>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="products-grid" id="products-grid">
+          <!-- Dynamically populated via app.js -->
+        </div>
+
+        <!-- Custom Blend Banner -->
+        <div class="custom-blend-card">
+          <div class="custom-blend-content">
+            <span class="custom-pill">Bespoke Apothecary</span>
+            <h3>Need a Custom Herbal Formulation for Your Trimester?</h3>
+            <p>Our certified herbalist crafts individualized tea blends and topical oils tailored to your unique gestational needs or postpartum recovery.</p>
+            <a href="https://wa.me/15551234567?text=Hi%20Mena's%20Nest!%20I'm%20interested%20in%20a%20bespoke%20herbal%20blend%20for%20my%20wellness%20needs." target="_blank" class="btn btn-whatsapp">
+              <span>Inquire for Custom Blend on WhatsApp</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+            </a>
+          </div>
+          <div class="custom-blend-decoration">
+            <div class="botanical-seal">
+              <span>🌿 Pure • Organic • Safe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT MENA'S NEST SECTION -->
+    <section class="about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-image-card">
+            <img src="assets/images/about-founder.jpg" alt="Mena in her herbal apothecary with wooden shelves of dried herbs and amber glass bottles" class="about-founder-img">
+            <div class="founder-badge">
+              <strong>Mena Adebayo, Dip.Phyt, RH</strong>
+              <span>Clinical Herbalist & Postpartum Care Doula</span>
+            </div>
+          </div>
+          <div class="about-stats-row">
+            <div class="stat-box">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Wild & Organic Herbs</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">4,200+</span>
+              <span class="stat-label">Mothers Nurtured</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">0%</span>
+              <span class="stat-label">Synthetics or Fillers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-content">
+          <span class="section-eyebrow">The Heart of Our Nest</span>
+          <h2 class="section-title">Born from Motherhood, Guided by Plant Wisdom</h2>
+          
+          <div class="about-paragraphs">
+            <p class="lead-quote">
+              “When I was expecting my first child, I struggled to find herbal wellness products that were uncompromising in purity, responsibly formulated for pregnancy, and backed by clinical understanding. Mena’s Nest was created to be that trusted sanctuary.”
+            </p>
+            <p>
+              At Mena’s Nest, we believe that true wellness during womanhood, maternity, and childhood should be rooted in nature’s gentlest, most potent gifts. Every tea, oil, and botanical tincture is formulated in our dedicated workshop following strict safety thresholds for maternal physiology.
+            </p>
+            <p>
+              We source directly from small regenerative organic herb farms and certified ethical wildcrafters. Our plants are harvested at peak potency, slow-infused in organic unrefined oils, and packed in amber apothecary glass to safeguard their bio-active integrity.
+            </p>
+          </div>
+
+          <div class="about-pledges">
+            <div class="pledge-item">
+              <div class="pledge-icon">✓</div>
+              <div>
+                <h4>Midwife-Vetted Formulations</h4>
+                <p>Designed with input from perinatal healthcare providers to guarantee safety across every trimester and lactation stage.</p>
+              </div>
+            </div>
+            <div class="pledge-item">
+              <div class="pledge-icon">✓</div>
+              <div>
+                <h4>Eco-Conscious Apothecary</h4>
+                <p>100% recyclable amber glass, biodegradable tea pouches, and sustainable plant inks that respect the earth our children inherit.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-actions">
+            <a href="#wellness-hub" class="btn btn-secondary">Explore Our Learning Hub</a>
+            <a href="#contact" class="btn btn-text">Have a Question? Contact Us →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WELLNESS AND LEARNING HUB -->
+    <section class="wellness-hub-section" id="wellness-hub">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Evidence-Informed Education</span>
+          <h2 class="section-title">The Maternal & Child Wellness Hub</h2>
+          <p class="section-desc">
+            Empowering mothers and families with reliable, gentle botanical knowledge, trimester guides, and responsible home practices.
+          </p>
+        </div>
+
+        <!-- Article Filter Pills -->
+        <div class="article-filter-pills" id="article-filter-pills">
+          <button class="filter-pill active" data-hub-cat="all">All Articles</button>
+          <button class="filter-pill" data-hub-cat="pregnancy">Pregnancy Care</button>
+          <button class="filter-pill" data-hub-cat="lactation">Breastfeeding & Postpartum</button>
+          <button class="filter-pill" data-hub-cat="children">Children's Wellbeing</button>
+          <button class="filter-pill" data-hub-cat="herbs">Herbal Guides</button>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="articles-grid" id="articles-grid">
+          <!-- Dynamically populated via app.js -->
+        </div>
+
+        <div class="wellness-disclaimer-card">
+          <div class="disclaimer-icon">💡</div>
+          <div class="disclaimer-text">
+            <strong>Responsible Wellness Note:</strong> Educational content and herbal formulations provided by Mena’s Nest are intended for general nutritional and botanical wellbeing. They are not intended to diagnose, treat, cure, or substitute individual medical advice from your OB-GYN, midwife, or pediatrician.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTANICAL HERB GLOSSARY SECTION -->
+    <section class="glossary-section" id="herb-glossary">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Transparent Sourcing</span>
+          <h2 class="section-title">Our Botanical Herb Glossary</h2>
+          <p class="section-desc">
+            Understand the exact plants in our blends: botanical names, primary benefits, historical uses, and safety ratings.
+          </p>
+        </div>
+
+        <!-- Interactive Search & Safety Filters -->
+        <div class="glossary-filters">
+          <div class="glossary-search-wrapper">
+            <input type="text" id="glossary-search" placeholder="Search herb by name (e.g., Chamomile, Red Raspberry Leaf)..." aria-label="Search herbs">
+          </div>
+          <div class="glossary-stage-pills" id="glossary-stage-pills">
+            <button class="stage-pill active" data-stage="all">All Herbs</button>
+            <button class="stage-pill" data-stage="pregnancy">Pregnancy-Friendly</button>
+            <button class="stage-pill" data-stage="lactation">Lactation-Supportive</button>
+            <button class="stage-pill" data-stage="children">Child-Safe</button>
+          </div>
+        </div>
+
+        <!-- Glossary Cards Grid -->
+        <div class="glossary-grid" id="glossary-grid">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / COMMUNITY VOICES -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Community Stories</span>
+          <h2 class="section-title">Loved by Mothers, Trusted by Families</h2>
+          <p class="section-desc">Real experiences from women who made Mena’s Nest part of their maternal wellness ritual.</p>
+        </div>
+
+        <div class="testimonials-carousel" id="testimonials-carousel">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">“The Nurture & Bloom tea became my evening sanctuary during the third trimester. It prepared my body gently and tasted like a field of soothing flowers.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">🌿</div>
+              <div>
+                <strong>Chioma E.</strong>
+                <span>Mother of 2 • Lagos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card featured-testimonial">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">“As a Certified Lactation Consultant, I am extraordinarily particular about what I recommend. Mena’s Nest Golden Flow drops are meticulously balanced with gentle herbs like fennel and fenugreek. My clients adore them.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">🤍</div>
+              <div>
+                <strong>Hannah Davies, IBCLC</strong>
+                <span>Lactation Consultant • London</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">“The Little Nest calming baby balm cleared my son’s dry patches within three days! Knowing every single ingredient is 100% organic gave me absolute peace of mind.”</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">🌸</div>
+              <div>
+                <strong>Elena Rostova</strong>
+                <span>First-time Mama • Toronto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER TRACKING & DISPATCH STATUS SECTION -->
+    <section class="order-tracker-section" id="order-tracker">
+      <div class="container">
+        <div class="tracker-card">
+          <div class="tracker-header text-center">
+            <span class="section-eyebrow">Apothecary Dispatch</span>
+            <h2 class="section-title">Track Your Botanical Order</h2>
+            <p class="section-desc">
+              Enter your Order Reference Number (e.g. <code>#MN-84920</code>) to verify preparation status, laboratory blending, and courier transit.
+            </p>
+          </div>
+
+          <form class="tracker-lookup-form" id="order-tracker-form" onsubmit="event.preventDefault(); window.lookupOrderStatus();">
+            <div class="tracker-input-group">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              <input type="text" id="tracker-order-id-input" placeholder="Enter Order # (e.g. #MN-84920 or try sample #MN-2026)" required>
+              <button type="submit" class="btn btn-primary" id="btn-track-submit">Track Order</button>
+            </div>
+            <div class="tracker-demo-hints">
+              <span>Quick Demo:</span>
+              <button type="button" class="hint-pill" onclick="window.fillDemoTracker('#MN-2026')">Try Sample Order #MN-2026</button>
+              <button type="button" class="hint-pill" onclick="window.fillDemoTracker('#MN-4109')">Try Sample Order #MN-4109</button>
+            </div>
+          </form>
+
+          <!-- Dynamic Tracking Status Display -->
+          <div class="tracker-result-panel hidden" id="tracker-result-panel">
+            <div class="tracker-status-meta">
+              <div>
+                <span class="tracker-meta-label">Order Reference:</span>
+                <strong class="tracker-meta-val" id="track-disp-id">#MN-2026</strong>
+              </div>
+              <div>
+                <span class="tracker-meta-label">Estimated Delivery:</span>
+                <strong class="tracker-meta-val" id="track-disp-eta">Nov 3, 2026</strong>
+              </div>
+              <div>
+                <span class="tracker-meta-label">Courier & Tracking:</span>
+                <strong class="tracker-meta-val" id="track-disp-courier">Botanical Express #BX-99482</strong>
+              </div>
+            </div>
+
+            <!-- Visual Progress Stepper -->
+            <div class="tracker-stepper" id="tracker-stepper">
+              <div class="step-node active" id="step-node-1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Order Received</div>
+                <div class="step-time">Confirmed</div>
+              </div>
+              <div class="step-line active"></div>
+              <div class="step-node active" id="step-node-2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Small-Batch Blended</div>
+                <div class="step-time">Herbal Lab</div>
+              </div>
+              <div class="step-line active"></div>
+              <div class="step-node current" id="step-node-3">
+                <div class="step-circle">3</div>
+                <div class="step-label">In Transit / Courier</div>
+                <div class="step-time">Out on Route</div>
+              </div>
+              <div class="step-line"></div>
+              <div class="step-node" id="step-node-4">
+                <div class="step-circle">4</div>
+                <div class="step-label">Delivered to Nest</div>
+                <div class="step-time">Expected Soon</div>
+              </div>
+            </div>
+
+            <div class="tracker-items-summary" id="tracker-items-summary">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS SECTION -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="faq-intro">
+          <span class="section-eyebrow">Clarity & Confidence</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">
+            We are dedicated to total transparency. Here are answers to the most common questions regarding safety, sourcing, and ordering.
+          </p>
+          <div class="faq-contact-card">
+            <h4>Still have questions?</h4>
+            <p>Speak directly with our clinical herbalist via WhatsApp or send an enquiry message.</p>
+            <a href="https://wa.me/15551234567?text=Hello%20Mena's%20Nest!%20I%20have%20a%20question%20about%20your%20products." target="_blank" class="btn btn-whatsapp btn-sm">
+              <span>Ask on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="faq-accordion" id="faq-accordion">
+          <!-- Accordion items loaded dynamically / accessible HTML -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & ENQUIRY SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info-panel">
+          <span class="section-eyebrow">Get in Touch</span>
+          <h2 class="section-title">We’re Here to Support Your Journey</h2>
+          <p class="contact-lead">
+            Whether you have a question about trimester-specific herbs, need guidance on a bespoke blend, or want to track an existing order, our team is ready to help.
+          </p>
+
+          <div class="contact-channels">
+            <a href="https://wa.me/15551234567" target="_blank" class="contact-card-link">
+              <div class="contact-card-icon whatsapp-bg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+              </div>
+              <div class="contact-card-details">
+                <strong>Instant WhatsApp Consult</strong>
+                <span>+1 (555) 123-4567 • Mon–Sat, 9am–6pm</span>
+              </div>
+            </a>
+
+            <div class="contact-card-link">
+              <div class="contact-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-card-details">
+                <strong>Email Support</strong>
+                <span>hello@menasnest.com • Responses within 24 hours</span>
+              </div>
+            </div>
+
+            <div class="contact-card-link">
+              <div class="contact-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="contact-card-details">
+                <strong>Apothecary Studio</strong>
+                <span>Mena’s Nest Botanical Lab, 14 Lavender Way</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links-bar">
+            <span>Connect with us:</span>
+            <div class="social-icons">
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="Pinterest">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.332 1.365-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Form -->
+        <div class="contact-form-card">
+          <div class="form-header">
+            <h3>Send an Enquiry</h3>
+            <p>Fill out the form below and our botanical care team will reply promptly.</p>
+          </div>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Full Name <span class="required">*</span></label>
+                <input type="text" id="contact-name" name="name" placeholder="e.g. Maya Robinson" required>
+                <span class="field-error" id="name-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address <span class="required">*</span></label>
+                <input type="email" id="contact-email" name="email" placeholder="maya@example.com" required>
+                <span class="field-error" id="email-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-topic">Reason for Enquiry</label>
+                <select id="contact-topic" name="topic">
+                  <option value="product-guidance">Product Guidance / Pregnancy Safety</option>
+                  <option value="order-status">Order Status or Delivery Question</option>
+                  <option value="custom-blend">Request Custom Herbal Blend</option>
+                  <option value="wholesale">Wholesale & Doula Stocking</option>
+                  <option value="other">General Question</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">WhatsApp / Phone (Optional)</label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Your Message or Question <span class="required">*</span></label>
+              <textarea id="contact-message" name="message" rows="4" placeholder="Tell us about your current trimester, postpartum stage, or specific herbal question..." required></textarea>
+              <span class="field-error" id="message-error"></span>
+            </div>
+
+            <div class="form-checkbox-group">
+              <input type="checkbox" id="contact-consent" required checked>
+              <label for="contact-consent">I agree to receive a friendly reply regarding my herbal enquiry.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full" id="submit-contact-btn">
+              <span>Send Message</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP STRIP -->
+    <section class="newsletter-strip">
+      <div class="container newsletter-content text-center">
+        <span class="newsletter-icon">🌸</span>
+        <h2 class="newsletter-title">Join The Nest Maternal Circle</h2>
+        <p class="newsletter-desc">Receive trimester-by-trimester botanical wellness guides, gentle herbal recipes, and exclusive access to new seasonal harvest batches.</p>
+        <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); window.handleNewsletterSubmit(event);">
+          <input type="email" id="newsletter-email" placeholder="Enter your email address..." required aria-label="Email address for newsletter">
+          <button type="submit" class="btn btn-primary">Join Circle</button>
+        </form>
+        <p class="newsletter-privacy">We respect your privacy. No spam, ever. Unsubscribe at any time.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <div class="brand-logo">
+          <span class="brand-name">Mena’s Nest</span>
+          <span class="brand-tagline">Herbal & Organic Wellness</span>
+        </div>
+        <p class="footer-brand-desc">
+          Honoring women, mothers, and little nests through the safe, conscious power of certified organic botanical remedies.
+        </p>
+        <div class="footer-security-badges">
+          <span>🌿 Certified Organic</span>
+          <span>🐰 Cruelty Free</span>
+          <span>♻️ Recyclable Glass</span>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Shop Formulations</h4>
+        <ul>
+          <li><a href="#shop" onclick="window.filterFromFooter('pregnancy')">Pregnancy Care Teas</a></li>
+          <li><a href="#shop" onclick="window.filterFromFooter('breastfeeding')">Lactation & Postpartum</a></li>
+          <li><a href="#shop" onclick="window.filterFromFooter('children')">Little Nest Baby Care</a></li>
+          <li><a href="#shop" onclick="window.filterFromFooter('womens')">Hormonal Balance Elixirs</a></li>
+          <li><a href="#shop" onclick="window.filterFromFooter('teas')">Loose Herbal Infusions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Wellness & Learning</h4>
+        <ul>
+          <li><a href="#wellness-hub">Educational Hub</a></li>
+          <li><a href="#herb-glossary">Botanical Herb Glossary</a></li>
+          <li><a href="#about">About Our Founder</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+          <li><a href="#contact">Consult a Herbalist</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#contact">Order Tracking & Enquiries</a></li>
+          <li><a href="https://wa.me/15551234567" target="_blank">WhatsApp Order Support</a></li>
+          <li><a href="#faq">Shipping & Delivery Policies</a></li>
+          <li><a href="#faq">Safety & Allergen Information</a></li>
+          <li><a href="#contact">Wholesale Partnerships</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="footer-legal-disclaimer">
+        <p><strong>Medical Disclaimer:</strong> The statements made regarding these products have not been evaluated by the Food and Drug Administration or national health authorities. These products are not intended to diagnose, treat, cure, or prevent any disease. Always consult with a qualified physician, midwife, or obstetric healthcare professional before beginning any herbal regimen during pregnancy or while nursing.</p>
+      </div>
+      <div class="footer-copyright-row">
+        <p>© 2026 Mena’s Nest Herbal & Organic Wellness. All rights reserved.</p>
+        <p class="footer-built-note">Crafted with care for mothers and families worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHOPPING CART SLIDE-OVER DRAWER -->
+  <div class="cart-drawer-overlay hidden" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer hidden" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <h3>Your Botanical Nest</h3>
+        <span class="cart-item-count" id="drawer-item-count">0 items</span>
+      </div>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">✕</button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="shipping-progress-box">
+      <p class="shipping-status-text" id="shipping-status-text">Add $50.00 for FREE Shipping & Tea Sample</p>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="shipping-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items List -->
+    <div class="cart-items-container" id="cart-items-container">
+      <!-- Items dynamically populated via app.js -->
+    </div>
+
+    <!-- Cart Upsell & Promo Code Box -->
+    <div class="cart-promo-section">
+      <div class="cart-coupon-row">
+        <input type="text" id="cart-coupon-input" placeholder="Promo code (e.g. MAMA10, NESTLOVE)" uppercase>
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-apply-coupon">Apply</button>
+      </div>
+      <div class="coupon-feedback" id="coupon-feedback"></div>
+
+      <!-- Gift Message Option -->
+      <details class="cart-gift-details">
+        <summary class="cart-gift-summary">🎁 Add a Complimentary Handwritten Gift Note?</summary>
+        <div class="cart-gift-body">
+          <textarea id="cart-gift-note" placeholder="Write a heartwarming message for an expectant mother or postpartum friend... (included on pressed flower card)" rows="2"></textarea>
+        </div>
+      </details>
+    </div>
+
+    <!-- Cart Drawer Footer -->
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-summary-lines">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal-price">$0.00</span>
+        </div>
+        <div class="summary-line discount-line hidden" id="cart-discount-row">
+          <span>Discount Applied (<strong id="applied-coupon-name"></strong>)</span>
+          <span id="cart-discount-amount" class="discount-val">-$0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Eco Packaging</span>
+          <span class="eco-badge">Amber Glass Jar & Seal (Free)</span>
+        </div>
+        <div class="summary-line">
+          <span>Est. Shipping</span>
+          <span id="cart-shipping-price">Calculated at checkout</span>
+        </div>
+        <div class="summary-line total-line">
+          <strong>Estimated Total</strong>
+          <strong id="cart-grand-total">$0.00</strong>
+        </div>
+      </div>
+
+      <div class="cart-action-buttons">
+        <!-- Multi-step Web Checkout -->
+        <button class="btn btn-primary w-full" id="web-checkout-btn">
+          <span>Proceed to Secure Checkout</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+        </button>
+
+        <!-- Direct WhatsApp Order Generator -->
+        <button class="btn btn-whatsapp w-full" id="whatsapp-checkout-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+          <span>Order via WhatsApp Assistant</span>
+        </button>
+      </div>
+
+      <p class="cart-guarantee-note">🔒 256-Bit SSL Encrypted • Small-Batch Freshness Guaranteed</p>
+    </div>
+  </aside>
+
+  <!-- WISHLIST SLIDE-OVER DRAWER -->
+  <div class="cart-drawer-overlay hidden" id="wishlist-overlay"></div>
+  <aside class="cart-drawer wishlist-drawer hidden" id="wishlist-drawer" aria-label="Saved Remedies Wishlist">
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <h3>Your Saved Remedies</h3>
+        <span class="cart-item-count" id="wishlist-item-count">0 items</span>
+      </div>
+      <button class="cart-close-btn" id="wishlist-close-btn" aria-label="Close wishlist">✕</button>
+    </div>
+
+    <div class="cart-items-container" id="wishlist-items-container">
+      <!-- Items dynamically populated via app.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <button class="btn btn-secondary w-full" id="btn-add-all-wishlist">
+        Add All In-Stock to Cart
+      </button>
+    </div>
+  </aside>
+
+  <!-- PRODUCT DETAIL / QUICK VIEW MODAL -->
+  <div class="modal-overlay hidden" id="product-modal-overlay">
+    <div class="modal-card product-modal-card" id="product-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="product-modal-close" aria-label="Close product view">✕</button>
+      <div class="product-modal-layout" id="product-modal-layout">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE READER MODAL (WELLNESS HUB) -->
+  <div class="modal-overlay hidden" id="article-modal-overlay">
+    <div class="modal-card article-modal-card" id="article-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="article-modal-close" aria-label="Close article">✕</button>
+      <article class="article-reader-content" id="article-reader-content">
+        <!-- Injected via app.js -->
+      </article>
+    </div>
+  </div>
+
+  <!-- COMPREHENSIVE 3-STEP E-COMMERCE CHECKOUT MODAL -->
+  <div class="modal-overlay hidden" id="checkout-modal-overlay">
+    <div class="modal-card checkout-modal-card-v2" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="checkout-modal-close" aria-label="Close checkout">✕</button>
+      
+      <div class="checkout-layout-grid">
+        <!-- Left Column: Checkout Stepper & Forms -->
+        <div class="checkout-main-flow">
+          <div class="checkout-stepper-nav">
+            <div class="checkout-step-tab active" data-step="1">
+              <span class="step-num">1</span>
+              <span class="step-txt">Customer & Address</span>
+            </div>
+            <div class="checkout-step-sep">›</div>
+            <div class="checkout-step-tab" data-step="2">
+              <span class="step-num">2</span>
+              <span class="step-txt">Shipping Method</span>
+            </div>
+            <div class="checkout-step-sep">›</div>
+            <div class="checkout-step-tab" data-step="3">
+              <span class="step-num">3</span>
+              <span class="step-txt">Payment & Order</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: Address & Contact Details -->
+          <div class="checkout-step-content active" id="checkout-step-1">
+            <div class="step-heading">
+              <h3>Shipping & Contact Information</h3>
+              <p>Where should we deliver your handcrafted botanical remedies?</p>
+            </div>
+            <form id="step-1-form" onsubmit="event.preventDefault(); window.goToCheckoutStep(2);">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-email">Email for Order Updates *</label>
+                  <input type="email" id="co-email" required placeholder="sarah@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="co-phone">Phone / WhatsApp *</label>
+                  <input type="tel" id="co-phone" required placeholder="+1 555 123 4567">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-fname">First Name *</label>
+                  <input type="text" id="co-fname" required placeholder="Sarah">
+                </div>
+                <div class="form-group">
+                  <label for="co-lname">Last Name *</label>
+                  <input type="text" id="co-lname" required placeholder="Mitchell">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="co-address">Delivery Street Address *</label>
+                <input type="text" id="co-address" required placeholder="House number, street, apartment or suite">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-city">City *</label>
+                  <input type="text" id="co-city" required placeholder="City">
+                </div>
+                <div class="form-group">
+                  <label for="co-postal">Postal Code *</label>
+                  <input type="text" id="co-postal" required placeholder="Postal / ZIP code">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="co-country">Country / Region</label>
+                <select id="co-country">
+                  <option value="US">United States</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="CA">Canada</option>
+                  <option value="NG">Nigeria</option>
+                  <option value="AU">Australia</option>
+                  <option value="EU">European Union</option>
+                </select>
+              </div>
+
+              <div class="checkout-next-row">
+                <button type="submit" class="btn btn-primary w-full">
+                  Continue to Delivery Method →
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 2: Delivery Method Selection -->
+          <div class="checkout-step-content" id="checkout-step-2">
+            <div class="step-heading">
+              <h3>Choose Shipping Speed</h3>
+              <p>All packages are wrapped in recyclable cushioning with amber glass safety seals.</p>
+            </div>
+            <div class="shipping-methods-list">
+              <label class="shipping-method-card active">
+                <input type="radio" name="shippingMethod" value="standard" checked onchange="window.updateCheckoutShipping('standard')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Standard Botanical Ground (3–5 Business Days)</strong>
+                    <span class="shipping-cost" id="ship-cost-standard">FREE (over $50)</span>
+                  </div>
+                  <p class="shipping-desc">Dispatched via carbon-neutral postal carrier. Includes tracking notifications.</p>
+                </div>
+              </label>
+
+              <label class="shipping-method-card">
+                <input type="radio" name="shippingMethod" value="express" onchange="window.updateCheckoutShipping('express')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Priority Herbal Express (1–2 Business Days)</strong>
+                    <span class="shipping-cost">$12.00</span>
+                  </div>
+                  <p class="shipping-desc">Priority batching in our atelier and fast expedited air courier.</p>
+                </div>
+              </label>
+
+              <label class="shipping-method-card">
+                <input type="radio" name="shippingMethod" value="courier" onchange="window.updateCheckoutShipping('courier')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Local Doula & Herbalist Delivery</strong>
+                    <span class="shipping-cost">$6.50</span>
+                  </div>
+                  <p class="shipping-desc">Same-day / next-day hand delivery to your doorstep.</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="checkout-nav-buttons">
+              <button type="button" class="btn btn-secondary" onclick="window.goToCheckoutStep(1)">← Back to Address</button>
+              <button type="button" class="btn btn-primary" onclick="window.goToCheckoutStep(3)">Continue to Payment →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Payment Options & Interactive Card -->
+          <div class="checkout-step-content" id="checkout-step-3">
+            <div class="step-heading">
+              <h3>Payment & Order Finalization</h3>
+              <p>Select your preferred secure payment method.</p>
+            </div>
+
+            <div class="payment-tabs-bar">
+              <button type="button" class="payment-tab active" data-pay="card" onclick="window.switchPaymentTab('card')">
+                <span>💳 Credit / Debit Card</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="transfer" onclick="window.switchPaymentTab('transfer')">
+                <span>🏦 Bank Transfer</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="cod" onclick="window.switchPaymentTab('cod')">
+                <span>📦 Pay on Delivery</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="whatsapp" onclick="window.switchPaymentTab('whatsapp')">
+                <span>💬 WhatsApp Assisted</span>
+              </button>
+            </div>
+
+            <!-- Card Payment Option -->
+            <div class="payment-pane active" id="pane-pay-card">
+              <!-- Interactive Visual Credit Card Preview -->
+              <div class="card-visual-preview">
+                <div class="card-chip"></div>
+                <div class="card-brand-logo" id="preview-card-brand">VISA / MC</div>
+                <div class="card-number-display" id="preview-card-num">•••• •••• •••• 4242</div>
+                <div class="card-bottom-row">
+                  <div>
+                    <span class="card-sub-label">Cardholder</span>
+                    <div class="card-name-display" id="preview-card-name">SARAH MITCHELL</div>
+                  </div>
+                  <div>
+                    <span class="card-sub-label">Expires</span>
+                    <div class="card-exp-display" id="preview-card-exp">08/28</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-inputs-grid">
+                <div class="form-group">
+                  <label for="cc-number">Card Number</label>
+                  <input type="text" id="cc-number" placeholder="4532 •••• •••• 4242" maxlength="19" oninput="window.formatCardNumber(this)">
+                </div>
+                <div class="form-group">
+                  <label for="cc-name">Cardholder Name</label>
+                  <input type="text" id="cc-name" placeholder="Name as printed on card" oninput="window.updateCardHolder(this)">
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cc-expiry">Expiry Date</label>
+                    <input type="text" id="cc-expiry" placeholder="MM/YY" maxlength="5" oninput="window.formatCardExpiry(this)">
+                  </div>
+                  <div class="form-group">
+                    <label for="cc-cvv">Security Code (CVV)</label>
+                    <input type="password" id="cc-cvv" placeholder="123" maxlength="4">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bank Transfer Option -->
+            <div class="payment-pane" id="pane-pay-transfer">
+              <div class="bank-details-card">
+                <h4>Apothecary Settlement Account</h4>
+                <div class="bank-row">
+                  <span>Bank Name:</span>
+                  <strong>Mena’s Nest Wellness Bank</strong>
+                </div>
+                <div class="bank-row">
+                  <span>Account Number:</span>
+                  <strong>1029 4820 9182</strong>
+                  <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText('102948209182'); window.showToast('Account number copied!', 'info');">Copy</button>
+                </div>
+                <div class="bank-row">
+                  <span>Account Name:</span>
+                  <strong>Mena’s Nest Botanical Laboratories Ltd</strong>
+                </div>
+                <div class="bank-row">
+                  <span>Reference:</span>
+                  <strong id="transfer-ref-code">#MN-2026</strong>
+                </div>
+                <p class="bank-note">Please use your Order Number or Surname as transfer reference for instantaneous clearance.</p>
+              </div>
+            </div>
+
+            <!-- Pay on Delivery Option -->
+            <div class="payment-pane" id="pane-pay-cod">
+              <div class="cod-info-box">
+                <span class="cod-icon">🏡</span>
+                <h4>Cash or POS Card Payment on Arrival</h4>
+                <p>Pay safely with cash or contactless card machine when the herbal courier arrives at your doorstep.</p>
+              </div>
+            </div>
+
+            <!-- WhatsApp Express Option -->
+            <div class="payment-pane" id="pane-pay-whatsapp">
+              <div class="cod-info-box whatsapp-box">
+                <span class="cod-icon">💬</span>
+                <h4>Direct WhatsApp Concierge Checkout</h4>
+                <p>Your order details, address, and items will be sent directly to our lead herbalist on WhatsApp for instant confirmation and invoice dispatch.</p>
+              </div>
+            </div>
+
+            <div class="checkout-nav-buttons" style="margin-top: 1.5rem;">
+              <button type="button" class="btn btn-secondary" onclick="window.goToCheckoutStep(2)">← Back to Delivery</button>
+              <button type="button" class="btn btn-primary" id="btn-submit-final-order" onclick="window.finalizeEcommerceOrder()">
+                Place Order & Confirm Dispatch
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Live Order Summary Sidebar -->
+        <div class="checkout-summary-sidebar">
+          <div class="summary-card-header">
+            <h4>Order Summary</h4>
+            <span class="summary-count" id="summary-badge-count">0 items</span>
+          </div>
+
+          <div class="checkout-items-list" id="checkout-items-list">
+            <!-- Populated via app.js -->
+          </div>
+
+          <div class="checkout-coupon-apply-row">
+            <input type="text" id="co-coupon-input" placeholder="Gift or coupon code">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.applyCheckoutCoupon()">Apply</button>
+          </div>
+
+          <div class="checkout-calc-lines">
+            <div class="calc-line">
+              <span>Items Subtotal</span>
+              <span id="co-subtotal">$0.00</span>
+            </div>
+            <div class="calc-line discount-line hidden" id="co-discount-row">
+              <span>Discount</span>
+              <span id="co-discount-amt" class="discount-val">-$0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Shipping Speed</span>
+              <span id="co-shipping-amt">$0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Estimated Tax (5%)</span>
+              <span id="co-tax-amt">$0.00</span>
+            </div>
+            <div class="calc-line grand-total-line">
+              <strong>Grand Total Payable</strong>
+              <strong id="co-grand-total" class="grand-total-val">$0.00</strong>
+            </div>
+          </div>
+
+          <div class="checkout-security-guarantee">
+            <span>🌿 100% Organic & Mama-Safe</span>
+            <span>📦 Eco-Friendly Packaging</span>
+            <span>🛡️ 30-Day Pure Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMATION & DIGITAL RECEIPT MODAL -->
+  <div class="modal-overlay hidden" id="order-receipt-modal">
+    <div class="modal-card receipt-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="receipt-modal-close" aria-label="Close receipt">✕</button>
+      
+      <div class="receipt-header text-center">
+        <div class="receipt-success-badge">✓</div>
+        <span class="section-eyebrow">Order Successfully Placed</span>
+        <h2 id="receipt-order-id">#MN-84920</h2>
+        <p class="receipt-lead">Thank you, <strong id="receipt-customer-name">Valued Customer</strong>! Your botanical remedy package is being lovingly prepared in our apothecary workshop.</p>
+      </div>
+
+      <!-- Live Order Stepper Tracker inside Receipt -->
+      <div class="receipt-tracker-box">
+        <h4>Preparation Timeline</h4>
+        <div class="tracker-stepper">
+          <div class="step-node active">
+            <div class="step-circle">1</div>
+            <div class="step-label">Confirmed</div>
+            <div class="step-time">Just now</div>
+          </div>
+          <div class="step-line active"></div>
+          <div class="step-node current">
+            <div class="step-circle">2</div>
+            <div class="step-label">Handcrafted Batching</div>
+            <div class="step-time">In Progress</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-node">
+            <div class="step-circle">3</div>
+            <div class="step-label">Courier Dispatch</div>
+            <div class="step-time">Estimated Tomorrow</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-node">
+            <div class="step-circle">4</div>
+            <div class="step-label">Delivered</div>
+            <div class="step-time" id="receipt-eta-date">Nov 4, 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Itemized Receipt Details -->
+      <div class="receipt-details-grid">
+        <div class="receipt-box">
+          <h4>Delivery Address</h4>
+          <p id="receipt-address-text">14 Elm Street, Apt 3B, New York, NY</p>
+          <p id="receipt-contact-text">sarah@example.com • +1 555 123 4567</p>
+        </div>
+        <div class="receipt-box">
+          <h4>Payment & Shipping Method</h4>
+          <p id="receipt-payment-method">Credit Card • Paid</p>
+          <p id="receipt-shipping-method">Standard Botanical Ground Delivery</p>
+        </div>
+      </div>
+
+      <!-- Purchased Items Table -->
+      <div class="receipt-items-table" id="receipt-items-table">
+        <!-- Rendered via app.js -->
+      </div>
+
+      <div class="receipt-actions-row">
+        <button type="button" class="btn btn-secondary" onclick="window.print();">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Print / Save Invoice</span>
+        </button>
+        <button type="button" class="btn btn-primary" onclick="window.jumpToOrderTracking();">
+          <span>Track Live Progress</span>
+        </button>
+        <button type="button" class="btn btn-whatsapp" id="btn-receipt-whatsapp">
+          <span>Send Receipt to WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF LIVE RECENT PURCHASE TICKER -->
+  <div class="recent-purchase-ticker hidden" id="recent-purchase-ticker">
+    <div class="ticker-avatar" id="ticker-avatar">🌿</div>
+    <div class="ticker-content">
+      <p class="ticker-text" id="ticker-text"><strong>Amara</strong> from <strong>London</strong> just purchased <em>Nurture & Bloom Tea</em></p>
+      <span class="ticker-time" id="ticker-time">3 minutes ago • Verified Mama</span>
+    </div>
+    <button class="ticker-close" onclick="document.getElementById('recent-purchase-ticker').classList.add('hidden')" aria-label="Dismiss">✕</button>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON WIDGET -->
+  <div class="floating-whatsapp-widget" id="floating-whatsapp-widget">
+    <a href="https://wa.me/15551234567?text=Hello%20Mena's%20Nest!%20I'm%20visiting%20your%20website%20and%20would%20love%20help%20choosing%20the%20right%20herbal%20formula." target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Chat on WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+      <span class="whatsapp-tooltip">Chat with our Herbalist</span>
+      <span class="whatsapp-ping"></span>
+    </a>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- SCRIPT -->
+  <script src="app.js"></script>
+</body>
+</html>
