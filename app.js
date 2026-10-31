@@ -1,11 +1,11 @@
 /**
  * MENA'S NEST — HERBAL & ORGANIC WELLNESS
- * Advanced E-Commerce Architecture & State Engine
+ * Advanced E-Commerce Architecture & State Engine (Ghana Cedis Base)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
-     DATA: PRODUCTS APOTHECARY WITH VARIANTS, STOCK & REVIEWS
+     DATA: PRODUCTS APOTHECARY WITH VARIANTS, STOCK & REVIEWS (GHANA CEDIS BASE)
      ========================================================================== */
   const PRODUCTS = [
     {
@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Nurture & Bloom Pregnancy Tea',
       category: ['pregnancy', 'teas'],
       categoryLabel: 'Pregnancy Care',
-      priceUSD: 28.00,
+      priceGHS: 350.00,
       stock: 7, // Low stock small batch!
       image: 'assets/images/product-pregnancy-tea.jpg',
       badge: 'Trimester 2 & 3 Essential',
       variants: [
-        { id: 'v1-std', name: '8 oz Amber Glass Jar', priceUSD: 28.00, size: '8 oz / 226g' },
-        { id: 'v1-lrg', name: '16 oz Refill Pouch (Save 15%)', priceUSD: 46.00, size: '16 oz / 450g' },
-        { id: 'v1-bndl', name: '3-Month Nesting Bundle (3 Jars)', priceUSD: 72.00, size: '24 oz Total' }
+        { id: 'v1-std', name: '8 oz Amber Glass Jar', priceGHS: 350.00, size: '8 oz / 226g' },
+        { id: 'v1-lrg', name: '16 oz Refill Pouch (Save 15%)', priceGHS: 580.00, size: '16 oz / 450g' },
+        { id: 'v1-bndl', name: '3-Month Nesting Bundle (3 Jars)', priceGHS: 900.00, size: '24 oz Total' }
       ],
       selectedVariantIndex: 0,
       rating: 4.9,
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       precautions: 'Always consult your midwife or OB-GYN before introducing new herbs. Not intended for use during the first trimester.',
       sourcing: 'Hand-blended in small micro-batches. Packed in recyclable UV-protective amber glass jars to protect delicate essential oils.',
       reviews: [
-        { author: 'Chiamaka N.', rating: 5, date: '2 weeks ago', text: 'Drank this religiously from week 28 onwards. My labor was smooth and recovery was amazingly quick. Tastes sweet and comforting!' },
-        { author: 'Emily Watson', rating: 5, date: '1 month ago', text: 'The loose leaf blend is so fresh you can literally see whole chamomile blossoms and dried rose petals. Heavenly.' }
+        { author: 'Akosua Mensah', rating: 5, date: '3 days ago', text: 'Drank this from week 28 in Accra. Delivery was smooth and recovery was so quick. Tastes sweet, floral and very calming!' },
+        { author: 'Emily Watson', rating: 5, date: '2 weeks ago', text: 'The loose leaf blend is so fresh you can literally see whole chamomile blossoms and dried rose petals. Heavenly.' }
       ]
     },
     {
@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Golden Flow Lactation Drops',
       category: ['breastfeeding'],
       categoryLabel: 'Breastfeeding Support',
-      priceUSD: 34.00,
+      priceGHS: 420.00,
       stock: 14,
       image: 'assets/images/product-lactation-drops.jpg',
       badge: 'Bestselling Elixir',
       variants: [
-        { id: 'v2-std', name: '1 fl oz / 30 ml Dropper', priceUSD: 34.00, size: '30 ml (30 servings)' },
-        { id: 'v2-lrg', name: '2 fl oz / 60 ml Family Size', priceUSD: 58.00, size: '60 ml (60 servings)' }
+        { id: 'v2-std', name: '1 fl oz / 30 ml Dropper', priceGHS: 420.00, size: '30 ml (30 servings)' },
+        { id: 'v2-lrg', name: '2 fl oz / 60 ml Family Size', priceGHS: 720.00, size: '60 ml (60 servings)' }
       ],
       selectedVariantIndex: 0,
       rating: 5.0,
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
       precautions: 'For nursing mothers only. Not suitable during pregnancy. Those with peanut allergies or active thyroid conditions should speak to their physician before use.',
       sourcing: 'Extracted slowly for 6 weeks in glass carboys without artificial heat or denatured alcohol to protect bioactive botanical saponins.',
       reviews: [
-        { author: 'Hannah Davies, IBCLC', rating: 5, date: '3 days ago', text: 'I recommend Golden Flow to all my postpartum lactation clients. It works gently without causing stomach upset in baby.' },
-        { author: 'Mariam K.', rating: 5, date: '3 weeks ago', text: 'Within 36 hours I pumped an extra 3 ounces. Absolute lifesaver for my return-to-work pumping stash!' }
+        { author: 'Abena Osei', rating: 5, date: '4 days ago', text: 'Delivered to Kumasi in 24 hours. My milk supply noticeably jumped within 2 days. Gentle on my baby’s tummy too!' },
+        { author: 'Hannah Davies, IBCLC', rating: 5, date: '3 weeks ago', text: 'I recommend Golden Flow to all my postpartum lactation clients. It works gently without causing stomach upset.' }
       ]
     },
     {
@@ -68,13 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Botanical Belly & Stretch Oil',
       category: ['pregnancy', 'womens'],
       categoryLabel: 'Pregnancy Care & Skin',
-      priceUSD: 38.00,
+      priceGHS: 480.00,
       stock: 19,
       image: 'assets/images/product-belly-oil.jpg',
       badge: 'Award-Winning Care',
       variants: [
-        { id: 'v3-std', name: '3.4 fl oz / 100 ml Pump', priceUSD: 38.00, size: '100 ml Bottle' },
-        { id: 'v3-lrg', name: '6.8 fl oz / 200 ml Double Size', priceUSD: 66.00, size: '200 ml Value Pump' }
+        { id: 'v3-std', name: '3.4 fl oz / 100 ml Pump', priceGHS: 480.00, size: '100 ml Bottle' },
+        { id: 'v3-lrg', name: '6.8 fl oz / 200 ml Double Size', priceGHS: 820.00, size: '200 ml Value Pump' }
       ],
       selectedVariantIndex: 0,
       rating: 4.9,
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       precautions: 'Safe from the first trimester through postpartum. 100% natural and edible-grade safe around nursing infants. For external use only.',
       sourcing: 'Made with heirloom organic calendula blossoms hand-picked at dawn and slow solar-infused for 40 sunny days.',
       reviews: [
-        { author: 'Sophie T.', rating: 5, date: '5 days ago', text: 'Zero stretch marks across my entire twin pregnancy! The oil absorbs effortlessly without staining linen or pajamas.' }
+        { author: 'Ama Serwaa', rating: 5, date: '1 week ago', text: 'Not a single stretch mark across my twin pregnancy! The lavender scent is delicate and heavenly.' }
       ]
     },
     {
@@ -94,13 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Little Nest Calming Baby Balm',
       category: ['children'],
       categoryLabel: 'Little Nest (Baby & Child)',
-      priceUSD: 24.00,
+      priceGHS: 300.00,
       stock: 5, // Low stock small batch!
       image: 'assets/images/product-baby-balm.jpg',
       badge: 'Newborn Safe (0m+)',
       variants: [
-        { id: 'v4-std', name: '2 oz / 60 ml Glass Pot', priceUSD: 24.00, size: '60 ml Pot' },
-        { id: 'v4-twin', name: 'Duo Pack (Nursery + Diaper Bag)', priceUSD: 42.00, size: '2 x 60 ml Pots' }
+        { id: 'v4-std', name: '2 oz / 60 ml Glass Pot', priceGHS: 300.00, size: '60 ml Pot' },
+        { id: 'v4-twin', name: 'Duo Pack (Nursery + Diaper Bag)', priceGHS: 520.00, size: '2 x 60 ml Pots' }
       ],
       selectedVariantIndex: 0,
       rating: 5.0,
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       precautions: 'Pediatrician evaluated. 100% gentle and hypoallergenic. Store below 25°C in a cool, shaded environment.',
       sourcing: 'Directly sourced from women’s fair-trade harvesting cooperatives in East Africa and small biodynamic apiaries.',
       reviews: [
-        { author: 'Elena Rostova', rating: 5, date: '1 week ago', text: 'My son had awful teething rash under his chin. This cleared it up in literally two days without any burning or tears.' }
+        { author: 'Efua Appiah', rating: 5, date: '5 days ago', text: 'Cleared my baby girl’s heat rash and teething dribble spots in 48 hours. The whipped texture is so soft!' }
       ]
     },
     {
@@ -120,13 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Vital Balance Women’s Tincture',
       category: ['womens'],
       categoryLabel: 'Women’s Wellness',
-      priceUSD: 36.00,
+      priceGHS: 450.00,
       stock: 12,
       image: 'assets/images/product-balance-tincture.jpg',
       badge: 'Hormonal Harmony',
       variants: [
-        { id: 'v5-std', name: '1.7 fl oz / 50 ml Dropper', priceUSD: 36.00, size: '50 ml Bottle' },
-        { id: 'v5-trio', name: '3-Month Cycle Reset (3 Bottles)', priceUSD: 94.00, size: '3 x 50 ml Bottles' }
+        { id: 'v5-std', name: '1.7 fl oz / 50 ml Dropper', priceGHS: 450.00, size: '50 ml Bottle' },
+        { id: 'v5-trio', name: '3-Month Cycle Reset (3 Bottles)', priceGHS: 1180.00, size: '3 x 50 ml Bottles' }
       ],
       selectedVariantIndex: 0,
       rating: 4.8,
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       precautions: 'Not for use during pregnancy or alongside hormonal medications without consulting a licensed herbal practitioner.',
       sourcing: 'Wildcrafted chasteberries harvested at peak ripeness from organic Mediterranean coastal groves.',
       reviews: [
-        { author: 'Clara M.', rating: 5, date: '2 weeks ago', text: 'Helped my cycle return smoothly after weaning my daughter. My monthly cramps are so much more manageable now.' }
+        { author: 'Yaa Konadu', rating: 5, date: '2 weeks ago', text: 'Helped my monthly cycle return with zero painful cramps. Essential for any woman struggling with hormonal imbalance.' }
       ]
     },
     {
@@ -146,13 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Restful Slumber & Gentle Nest Tea',
       category: ['teas', 'womens', 'children'],
       categoryLabel: 'Herbal Teas & Infusions',
-      priceUSD: 26.00,
+      priceGHS: 320.00,
       stock: 8,
       image: 'assets/images/product-pregnancy-tea.jpg',
       badge: 'Family Evening Ritual',
       variants: [
-        { id: 'v6-std', name: '7 oz / 200g Loose Leaf', priceUSD: 26.00, size: '200g Jar' },
-        { id: 'v6-bndl', name: 'Slumber & Calm Twin Jars', priceUSD: 46.00, size: '2 x 200g Jars' }
+        { id: 'v6-std', name: '7 oz / 200g Loose Leaf', priceGHS: 320.00, size: '200g Jar' },
+        { id: 'v6-bndl', name: 'Slumber & Calm Twin Jars', priceGHS: 580.00, size: '2 x 200g Jars' }
       ],
       selectedVariantIndex: 0,
       rating: 4.9,
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
       precautions: 'Safe for nursing mothers and children aged 1+. If pregnant, consult your care provider before use.',
       sourcing: 'Crafted with certified organic herbs grown on family herb farms in Provence and Oregon.',
       reviews: [
-        { author: 'Khadija B.', rating: 5, date: '4 days ago', text: 'The aroma alone relaxes our entire household every night. My toddler sleeps peacefully through the night.' }
+        { author: 'Khadija Boakye', rating: 5, date: '6 days ago', text: 'Our bedtime tea ritual every evening. The aroma relaxes our whole house and my toddler sleeps soundly.' }
       ]
     }
   ];
@@ -324,8 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
       a: 'Yes! Formulated with 0% essential oils, fragrances, or chemical preservatives. It relies solely on edible-grade organic shea butter, beeswax, and slow-infused calendula, making it completely newborn safe.'
     },
     {
-      q: 'How do discount codes and free shipping work?',
-      a: 'Orders over $50 automatically unlock free standard shipping! You can also enter promo codes like MAMA10 (10% off) or NESTLOVE ($5 off) directly in your cart or checkout.'
+      q: 'How do Mobile Money (MTN MoMo / Telecel) and deliveries in Ghana work?',
+      a: 'You can complete your order using MTN Mobile Money, Telecel Cash, or direct WhatsApp assistant. We offer nationwide delivery across Accra, Tema, Kumasi, Takoradi, and all regions. Orders over GH₵ 600 qualify for free delivery!'
     },
     {
       q: 'How do I track my order once placed?',
@@ -334,20 +334,24 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   /* ==========================================================================
-     CURRENCY RATES & FORMATTER
+     CURRENCY RATES & FORMATTER (GHANA CEDIS BASE)
      ========================================================================== */
   const CURRENCY_RATES = {
-    USD: { symbol: '$', rate: 1.0 },
-    GBP: { symbol: '£', rate: 0.79 },
-    EUR: { symbol: '€', rate: 0.92 },
-    NGN: { symbol: '₦', rate: 1500 },
-    CAD: { symbol: 'CA$', rate: 1.38 }
+    GHS: { symbol: 'GH₵ ', rate: 1.0 },
+    USD: { symbol: '$', rate: 0.065 },
+    GBP: { symbol: '£', rate: 0.052 },
+    EUR: { symbol: '€', rate: 0.061 },
+    NGN: { symbol: '₦', rate: 100 },
+    CAD: { symbol: 'CA$', rate: 0.090 }
   };
-  let currentCurrency = 'USD';
+  let currentCurrency = 'GHS'; // Default Ghana Cedis!
 
-  function formatPrice(amountUSD) {
-    const { symbol, rate } = CURRENCY_RATES[currentCurrency] || CURRENCY_RATES.USD;
-    const converted = amountUSD * rate;
+  function formatPrice(amountGHS) {
+    const { symbol, rate } = CURRENCY_RATES[currentCurrency] || CURRENCY_RATES.GHS;
+    const converted = amountGHS * rate;
+    if (currentCurrency === 'GHS') {
+      return `${symbol}${converted.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
     if (currentCurrency === 'NGN') {
       return `${symbol}${Math.round(converted).toLocaleString()}`;
     }
@@ -355,27 +359,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     STATE: CART, WISHLIST, COUPONS & SHIPPING
+     STATE: CART, WISHLIST, COUPONS & SHIPPING (GHANA CEDIS)
      ========================================================================== */
   let cart = [];
   let wishlist = [];
-  let appliedCoupon = null; // { code: 'MAMA10', type: 'pct', val: 0.10 } or { code: 'NESTLOVE', type: 'fixed', val: 5.0 }
+  let appliedCoupon = null; // { code: 'MAMA10', type: 'pct', val: 0.10 } or { code: 'NESTLOVE', type: 'fixed', val: 50.0 }
   let selectedShippingMethod = 'standard'; // 'standard', 'express', 'courier'
 
   const COUPONS = {
     'MAMA10': { type: 'pct', val: 0.10, desc: '10% Off Your Entire Nest' },
-    'NESTLOVE': { type: 'fixed', val: 5.00, desc: '$5 Off Order' },
-    'FREESHIP': { type: 'freeship', val: 0, desc: 'Complimentary Free Express Shipping' }
+    'NESTLOVE': { type: 'fixed', val: 50.00, desc: 'GH₵ 50 Off Order' },
+    'FREESHIP': { type: 'freeship', val: 0, desc: 'Complimentary Free Nationwide Delivery' }
   };
 
   function loadStorage() {
     try {
-      const savedCart = localStorage.getItem('menas_nest_cart');
+      const savedCart = localStorage.getItem('menas_nest_cart_ghs');
       if (savedCart) cart = JSON.parse(savedCart);
     } catch (e) { cart = []; }
 
     try {
-      const savedWish = localStorage.getItem('menas_nest_wishlist');
+      const savedWish = localStorage.getItem('menas_nest_wishlist_ghs');
       if (savedWish) wishlist = JSON.parse(savedWish);
     } catch (e) { wishlist = []; }
 
@@ -385,14 +389,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function saveCart() {
     try {
-      localStorage.setItem('menas_nest_cart', JSON.stringify(cart));
+      localStorage.setItem('menas_nest_cart_ghs', JSON.stringify(cart));
     } catch (e) {}
     updateCartUI();
   }
 
   function saveWishlist() {
     try {
-      localStorage.setItem('menas_nest_wishlist', JSON.stringify(wishlist));
+      localStorage.setItem('menas_nest_wishlist_ghs', JSON.stringify(wishlist));
     } catch (e) {}
     updateWishlistUI();
   }
@@ -441,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${prod.image}" alt="${prod.name}" class="cart-item-img">
           <div class="cart-item-info">
             <h4 class="cart-item-title">${prod.name}</h4>
-            <p class="cart-item-price">${formatPrice(prod.priceUSD)}</p>
+            <p class="cart-item-price">${formatPrice(prod.priceGHS)}</p>
             <button class="btn btn-primary btn-sm" onclick="window.addToCart('${prod.id}', 1); window.toggleWishlist('${prod.id}');" style="margin-top:0.4rem; padding:0.35rem 0.85rem; font-size:0.75rem;">
               Move to Cart
             </button>
@@ -461,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const variant = product.variants && product.variants[vIdx] ? product.variants[vIdx] : {
       id: `${product.id}-default`,
       name: product.size || 'Standard Size',
-      priceUSD: product.priceUSD,
+      priceGHS: product.priceGHS,
       size: product.size
     };
 
@@ -477,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
         variantId: variant.id,
         variantName: variant.name,
         name: product.name,
-        priceUSD: variant.priceUSD,
+        priceGHS: variant.priceGHS,
         image: product.image,
         size: variant.size || product.size,
         quantity: quantity
@@ -506,12 +510,12 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast('Remedy removed from cart', 'info');
   }
 
-  function getCartSubtotalUSD() {
-    return cart.reduce((sum, item) => sum + (item.priceUSD * item.quantity), 0);
+  function getCartSubtotalGHS() {
+    return cart.reduce((sum, item) => sum + (item.priceGHS * item.quantity), 0);
   }
 
-  function getCartDiscountUSD() {
-    const subtotal = getCartSubtotalUSD();
+  function getCartDiscountGHS() {
+    const subtotal = getCartSubtotalGHS();
     if (!appliedCoupon) return 0;
     if (appliedCoupon.type === 'pct') {
       return subtotal * appliedCoupon.val;
@@ -521,30 +525,30 @@ document.addEventListener('DOMContentLoaded', () => {
     return 0;
   }
 
-  function getShippingCostUSD() {
-    const subtotal = getCartSubtotalUSD();
+  function getShippingCostGHS() {
+    const subtotal = getCartSubtotalGHS();
     if (appliedCoupon && appliedCoupon.type === 'freeship') return 0;
 
     if (selectedShippingMethod === 'standard') {
-      return subtotal >= 50.0 ? 0.00 : 4.99;
+      return subtotal >= 600.0 ? 0.00 : 45.00;
     } else if (selectedShippingMethod === 'express') {
-      return 12.00;
+      return 90.00;
     } else if (selectedShippingMethod === 'courier') {
-      return 6.50;
+      return 55.00;
     }
     return 0.00;
   }
 
-  function getEstimatedTaxUSD() {
-    const discounted = Math.max(0, getCartSubtotalUSD() - getCartDiscountUSD());
-    return discounted * 0.05; // 5% estimated tax
+  function getEstimatedTaxGHS() {
+    const discounted = Math.max(0, getCartSubtotalGHS() - getCartDiscountGHS());
+    return discounted * 0.025; // 2.5% NHIL/GETFund
   }
 
-  function getGrandTotalUSD() {
-    const subtotal = getCartSubtotalUSD();
-    const discount = getCartDiscountUSD();
-    const shipping = getShippingCostUSD();
-    const tax = getEstimatedTaxUSD();
+  function getGrandTotalGHS() {
+    const subtotal = getCartSubtotalGHS();
+    const discount = getCartDiscountGHS();
+    const shipping = getShippingCostGHS();
+    const tax = getEstimatedTaxGHS();
     return Math.max(0, subtotal - discount + shipping + tax);
   }
 
@@ -566,10 +570,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const shippingProgress = document.getElementById('shipping-progress-fill');
 
     const totalCount = getCartTotalItemCount();
-    const subtotal = getCartSubtotalUSD();
-    const discount = getCartDiscountUSD();
-    const shipping = getShippingCostUSD();
-    const grandTotal = getGrandTotalUSD();
+    const subtotal = getCartSubtotalGHS();
+    const discount = getCartDiscountGHS();
+    const shipping = getShippingCostGHS();
+    const grandTotal = getGrandTotalGHS();
 
     if (countBadge) countBadge.textContent = totalCount;
     if (drawerItemCount) drawerItemCount.textContent = `${totalCount} item${totalCount === 1 ? '' : 's'}`;
@@ -591,14 +595,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (grandTotalDisplay) grandTotalDisplay.textContent = formatPrice(grandTotal);
 
-    // Free shipping thermometer ($50 threshold)
-    const threshold = 50.0;
+    // Free shipping thermometer (GH₵ 600 threshold)
+    const threshold = 600.0;
     if (subtotal >= threshold) {
-      if (shippingText) shippingText.innerHTML = '🎉 You unlocked <strong>FREE Shipping & Herbal Sample</strong>!';
+      if (shippingText) shippingText.innerHTML = '🎉 You unlocked <strong>FREE Delivery & Herbal Tea Sample</strong>!';
       if (shippingProgress) shippingProgress.style.width = '100%';
     } else {
       const remaining = threshold - subtotal;
-      if (shippingText) shippingText.innerHTML = `Add <strong>${formatPrice(remaining)}</strong> for FREE Shipping & Tea Sample`;
+      if (shippingText) shippingText.innerHTML = `Add <strong>${formatPrice(remaining)}</strong> for FREE Nationwide Delivery`;
       const pct = Math.min(100, Math.round((subtotal / threshold) * 100));
       if (shippingProgress) shippingProgress.style.width = `${pct}%`;
     }
@@ -623,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="cart-item-info">
           <h4 class="cart-item-title">${item.name}</h4>
           <p style="font-size:0.75rem; color:var(--color-neutral-500);">${item.variantName || item.size}</p>
-          <p class="cart-item-price">${formatPrice(item.priceUSD)}</p>
+          <p class="cart-item-price">${formatPrice(item.priceGHS)}</p>
           <div class="cart-quantity-stepper">
             <button class="qty-btn" onclick="window.updateQuantity('${item.cartKey}', -1)" aria-label="Decrease quantity">−</button>
             <span class="qty-display">${item.quantity}</span>
@@ -820,7 +824,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <div class="product-card-footer">
               <div class="product-price-box">
-                <span class="product-price">${formatPrice(selVariant.priceUSD)}</span>
+                <span class="product-price">${formatPrice(selVariant.priceGHS)}</span>
                 <span style="font-size:0.72rem; color:var(--color-neutral-500);">${selVariant.size}</span>
               </div>
               <button class="btn btn-primary btn-add-cart" onclick="window.addToCart('${prod.id}', 1, ${prod.selectedVariantIndex || 0})">
@@ -888,7 +892,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="product-stars">★★★★★</span>
           <span>${product.rating} Rating (${product.reviewsCount} customer reviews) • <strong style="color:var(--color-sage-dark);">Small Batch Certified</strong></span>
         </div>
-        <div class="modal-product-price" id="modal-price-display">${formatPrice(selVariant.priceUSD)}</div>
+        <div class="modal-product-price" id="modal-price-display">${formatPrice(selVariant.priceGHS)}</div>
         <p class="modal-product-desc">${product.fullDesc}</p>
 
         <!-- Variants on modal -->
@@ -897,7 +901,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="variant-chips-row">
             ${product.variants.map((v, vIdx) => `
               <button type="button" class="variant-chip ${vIdx === (product.selectedVariantIndex || 0) ? 'active' : ''}" onclick="window.selectModalVariant('${product.id}', ${vIdx})">
-                ${v.name} — ${formatPrice(v.priceUSD)}
+                ${v.name} — ${formatPrice(v.priceGHS)}
               </button>
             `).join('')}
           </div>
@@ -939,7 +943,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <form style="margin-top:1.25rem; background:var(--color-cream-warm); padding:1rem; border-radius:var(--radius-sm);" onsubmit="event.preventDefault(); window.submitCustomerReview('${product.id}', this);">
               <h4 style="font-size:0.95rem; margin-bottom:0.5rem;">Add Your Experience</h4>
               <div class="form-row" style="margin-bottom:0.5rem;">
-                <input type="text" name="reviewerName" placeholder="Your name (e.g. Maya)" required style="padding:0.45rem 0.65rem; font-size:0.8rem; border:1px solid var(--color-cream-border); border-radius:4px;">
+                <input type="text" name="reviewerName" placeholder="Your name (e.g. Akosua)" required style="padding:0.45rem 0.65rem; font-size:0.8rem; border:1px solid var(--color-cream-border); border-radius:4px;">
                 <select name="reviewRating" style="padding:0.45rem 0.65rem; font-size:0.8rem; border:1px solid var(--color-cream-border); border-radius:4px;">
                   <option value="5">★★★★★ (5 Stars)</option>
                   <option value="4">★★★★☆ (4 Stars)</option>
@@ -1022,7 +1026,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkoutModalClose = document.getElementById('checkout-modal-close');
 
   let currentCheckoutStep = 1;
-  let currentPaymentMethod = 'card';
+  let currentPaymentMethod = 'momo'; // Default to Mobile Money
 
   function updateCheckoutSummary() {
     const listContainer = document.getElementById('checkout-items-list');
@@ -1035,11 +1039,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const grandTotalDisplay = document.getElementById('co-grand-total');
 
     const totalCount = getCartTotalItemCount();
-    const subtotal = getCartSubtotalUSD();
-    const discount = getCartDiscountUSD();
-    const shipping = getShippingCostUSD();
-    const tax = getEstimatedTaxUSD();
-    const grandTotal = getGrandTotalUSD();
+    const subtotal = getCartSubtotalGHS();
+    const discount = getCartDiscountGHS();
+    const shipping = getShippingCostGHS();
+    const tax = getEstimatedTaxGHS();
+    const grandTotal = getGrandTotalGHS();
 
     if (badgeCount) badgeCount.textContent = `${totalCount} item${totalCount === 1 ? '' : 's'}`;
     if (subtotalDisplay) subtotalDisplay.textContent = formatPrice(subtotal);
@@ -1063,9 +1067,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="${item.image}" alt="${item.name}" class="checkout-item-img">
           <div class="checkout-item-info">
             <h5 class="checkout-item-name">${item.name}</h5>
-            <span class="checkout-item-qty">Qty: ${item.quantity} × ${formatPrice(item.priceUSD)}</span>
+            <span class="checkout-item-qty">Qty: ${item.quantity} × ${formatPrice(item.priceGHS)}</span>
           </div>
-          <span class="checkout-item-price">${formatPrice(item.priceUSD * item.quantity)}</span>
+          <span class="checkout-item-price">${formatPrice(item.priceGHS * item.quantity)}</span>
         </div>
       `).join('');
     }
@@ -1114,7 +1118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.updateCardHolder = function(input) {
     const preview = document.getElementById('preview-card-name');
-    if (preview) preview.textContent = (input.value || 'SARAH MITCHELL').toUpperCase();
+    if (preview) preview.textContent = (input.value || 'AKOSUA MENSAH').toUpperCase();
   };
 
   window.formatCardExpiry = function(input) {
@@ -1150,17 +1154,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Finalize Ecommerce Order Submission */
   window.finalizeEcommerceOrder = function() {
-    const fname = document.getElementById('co-fname')?.value.trim() || 'Elena';
-    const lname = document.getElementById('co-lname')?.value.trim() || 'Williams';
+    const fname = document.getElementById('co-fname')?.value.trim() || 'Akosua';
+    const lname = document.getElementById('co-lname')?.value.trim() || 'Mensah';
     const email = document.getElementById('co-email')?.value.trim() || 'client@example.com';
-    const phone = document.getElementById('co-phone')?.value.trim() || '+1 555 123 4567';
-    const address = document.getElementById('co-address')?.value.trim() || '14 Elm Street';
-    const city = document.getElementById('co-city')?.value.trim() || 'New York';
-    const postal = document.getElementById('co-postal')?.value.trim() || '10001';
+    const phone = document.getElementById('co-phone')?.value.trim() || '+233 24 123 4567';
+    const address = document.getElementById('co-address')?.value.trim() || '14 Independence Avenue';
+    const city = document.getElementById('co-city')?.value.trim() || 'Accra';
+    const postal = document.getElementById('co-postal')?.value.trim() || 'GA-182-9021';
 
     const orderId = `#MN-${Math.floor(10000 + Math.random() * 90000)}`;
-    const grandTotal = getGrandTotalUSD();
+    const grandTotal = getGrandTotalGHS();
     const purchasedItems = [...cart];
+
+    let paymentMethodDisplay = 'MTN Mobile Money (MoMo)';
+    if (currentPaymentMethod === 'momo') {
+      const net = document.getElementById('momo-network')?.value || 'MTN';
+      const momoNum = document.getElementById('momo-user-number')?.value.trim();
+      paymentMethodDisplay = `${net} Mobile Money ${momoNum ? '(' + momoNum + ')' : ''}`;
+    } else if (currentPaymentMethod === 'card') {
+      paymentMethodDisplay = 'Debit / Credit Card';
+    } else if (currentPaymentMethod === 'cod') {
+      paymentMethodDisplay = 'Cash / MoMo on Delivery';
+    } else {
+      paymentMethodDisplay = 'WhatsApp Concierge Checkout';
+    }
 
     // Save order in localStorage for tracking
     const orderData = {
@@ -1169,18 +1186,18 @@ document.addEventListener('DOMContentLoaded', () => {
       email,
       phone,
       address: `${address}, ${city} ${postal}`,
-      paymentMethod: currentPaymentMethod.toUpperCase(),
-      shippingMethod: selectedShippingMethod,
-      totalUSD: grandTotal,
+      paymentMethod: paymentMethodDisplay,
+      shippingMethod: selectedShippingMethod === 'standard' ? 'Standard Delivery' : (selectedShippingMethod === 'express' ? 'Priority Express' : 'Local Courier'),
+      totalGHS: grandTotal,
       items: purchasedItems,
       date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
       status: 'Handcrafted Batching in Apothecary'
     };
 
     try {
-      let orders = JSON.parse(localStorage.getItem('menas_nest_orders') || '[]');
+      let orders = JSON.parse(localStorage.getItem('menas_nest_orders_ghs') || '[]');
       orders.unshift(orderData);
-      localStorage.setItem('menas_nest_orders', JSON.stringify(orders));
+      localStorage.setItem('menas_nest_orders_ghs', JSON.stringify(orders));
     } catch (e) {}
 
     // Reset Cart
@@ -1208,8 +1225,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('receipt-customer-name').textContent = order.customerName;
     document.getElementById('receipt-address-text').textContent = order.address;
     document.getElementById('receipt-contact-text').textContent = `${order.email} • ${order.phone}`;
-    document.getElementById('receipt-payment-method').textContent = `Method: ${order.paymentMethod} • Authorized`;
-    document.getElementById('receipt-shipping-method').textContent = `Speed: ${order.shippingMethod.toUpperCase()} Delivery`;
+    document.getElementById('receipt-payment-method').textContent = `Method: ${order.paymentMethod}`;
+    document.getElementById('receipt-shipping-method').textContent = `Speed: ${order.shippingMethod}`;
 
     const table = document.getElementById('receipt-items-table');
     if (table) {
@@ -1217,12 +1234,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ${order.items.map(it => `
           <div class="receipt-row">
             <span>${it.name} (${it.size}) × ${it.quantity}</span>
-            <strong>${formatPrice(it.priceUSD * it.quantity)}</strong>
+            <strong>${formatPrice(it.priceGHS * it.quantity)}</strong>
           </div>
         `).join('')}
         <div class="receipt-row receipt-total-row">
           <span>Total Paid</span>
-          <span>${formatPrice(order.totalUSD)}</span>
+          <span>${formatPrice(order.totalGHS)}</span>
         </div>
       `;
     }
@@ -1230,7 +1247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnWa = document.getElementById('btn-receipt-whatsapp');
     if (btnWa) {
       btnWa.onclick = () => {
-        let msg = `🌿 *Receipt for Order ${order.orderId}*\nCustomer: ${order.customerName}\nTotal: ${formatPrice(order.totalUSD)}\nDelivery Address: ${order.address}\nPlease share my package tracking link!`;
+        let msg = `🌿 *Receipt for Order ${order.orderId}*\nCustomer: ${order.customerName}\nTotal: ${formatPrice(order.totalGHS)}\nPayment: ${order.paymentMethod}\nDelivery: ${order.address}\nPlease share my dispatch tracking link!`;
         window.open(`https://wa.me/15551234567?text=${encodeURIComponent(msg)}`, '_blank');
       };
     }
@@ -1276,7 +1293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Retrieve from saved orders or demo orders
     let orderMatch = null;
     try {
-      const orders = JSON.parse(localStorage.getItem('menas_nest_orders') || '[]');
+      const orders = JSON.parse(localStorage.getItem('menas_nest_orders_ghs') || '[]');
       orderMatch = orders.find(o => o.orderId.toUpperCase() === orderId);
     } catch (e) {}
 
@@ -1285,18 +1302,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (orderId === '#MN-2026') {
         orderMatch = {
           orderId: '#MN-2026',
-          customerName: 'Sarah Jenkins',
+          customerName: 'Akosua Mensah',
           eta: 'Nov 3, 2026',
-          courier: 'Botanical Express #BX-99482',
+          courier: 'Accra Botanical Express #BX-99482',
           items: [{ name: 'Nurture & Bloom Pregnancy Tea', qty: 1, size: '8 oz' }, { name: 'Botanical Belly & Stretch Oil', qty: 1, size: '100 ml' }],
           step: 3
         };
       } else if (orderId === '#MN-4109') {
         orderMatch = {
           orderId: '#MN-4109',
-          customerName: 'Elena Rostova',
+          customerName: 'Abena Osei',
           eta: 'Nov 5, 2026',
-          courier: 'Royal Herbal Mail #RH-44219',
+          courier: 'Kumasi Courier Logistics #KC-44219',
           items: [{ name: 'Little Nest Calming Baby Balm', qty: 2, size: '60 ml' }],
           step: 2
         };
@@ -1305,7 +1322,7 @@ document.addEventListener('DOMContentLoaded', () => {
           orderId: orderId,
           customerName: 'Valued Client',
           eta: 'Nov 4, 2026',
-          courier: 'Herbal Care Logistics #HC-7718',
+          courier: 'Ghana Herbal Express #GH-7718',
           items: [{ name: 'Handcrafted Small-Batch Remedies', qty: 1, size: 'Standard' }],
           step: 2
         };
@@ -1336,18 +1353,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* ==========================================================================
-     SOCIAL PROOF LIVE TICKER
+     SOCIAL PROOF LIVE TICKER (GHANAIAN VERIFIED ORDERS)
      ========================================================================== */
   const ticker = document.getElementById('recent-purchase-ticker');
   const tickerText = document.getElementById('ticker-text');
   const tickerTime = document.getElementById('ticker-time');
 
   const SOCIAL_PURCHASES = [
-    { name: 'Sarah', city: 'London', item: 'Golden Flow Lactation Drops', time: '2m ago' },
-    { name: 'Chioma', city: 'Lagos', item: 'Nurture & Bloom Pregnancy Tea', time: '5m ago' },
-    { name: 'Elena', city: 'Toronto', item: 'Little Nest Calming Baby Balm', time: '8m ago' },
-    { name: 'Amina', city: 'Nairobi', item: 'Botanical Belly & Stretch Oil', time: '12m ago' },
-    { name: 'Maya', city: 'New York', item: 'Vital Balance Women’s Tincture', time: '15m ago' }
+    { name: 'Akosua', city: 'East Legon, Accra', item: 'Nurture & Bloom Pregnancy Tea', time: '2m ago' },
+    { name: 'Abena', city: 'Kumasi', item: 'Golden Flow Lactation Drops', time: '5m ago' },
+    { name: 'Efua', city: 'Takoradi', item: 'Little Nest Calming Baby Balm', time: '8m ago' },
+    { name: 'Ama', city: 'Tema Community 6', item: 'Botanical Belly & Stretch Oil', time: '12m ago' },
+    { name: 'Yaa', city: 'Osu, Accra', item: 'Vital Balance Women’s Tincture', time: '16m ago' }
   ];
   let tickerIdx = 0;
 
@@ -1370,7 +1387,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(rotateSocialProof, 28000);
 
   /* ==========================================================================
-     WHATSAPP ORDER DIRECT BUTTON
+     WHATSAPP ORDER DIRECT BUTTON (GHANA CEDIS)
      ========================================================================== */
   const whatsappCheckoutBtn = document.getElementById('whatsapp-checkout-btn');
   if (whatsappCheckoutBtn) {
@@ -1380,15 +1397,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const subtotal = getCartSubtotalUSD();
+      const subtotal = getCartSubtotalGHS();
       let message = `🌿 *Hello Mena's Nest!* \nI would like to order the following organic remedies from your website:\n\n`;
 
       cart.forEach((item, index) => {
-        message += `${index + 1}. *${item.name}* (${item.variantName || item.size})\n   Qty: ${item.quantity} × ${formatPrice(item.priceUSD)} = ${formatPrice(item.priceUSD * item.quantity)}\n`;
+        message += `${index + 1}. *${item.name}* (${item.variantName || item.size})\n   Qty: ${item.quantity} × ${formatPrice(item.priceGHS)} = ${formatPrice(item.priceGHS * item.quantity)}\n`;
       });
 
       if (appliedCoupon) {
-        message += `\n🏷️ *Promo Code:* ${appliedCoupon.code} (-${formatPrice(getCartDiscountUSD())})`;
+        message += `\n🏷️ *Promo Code:* ${appliedCoupon.code} (-${formatPrice(getCartDiscountGHS())})`;
       }
 
       const note = document.getElementById('cart-gift-note')?.value.trim();
@@ -1396,8 +1413,9 @@ document.addEventListener('DOMContentLoaded', () => {
         message += `\n🎁 *Gift Card Note:* "${note}"`;
       }
 
-      message += `\n\n📦 *Grand Total:* ${formatPrice(getGrandTotalUSD())}`;
-      message += `\n\nPlease confirm availability and payment details. Thank you!`;
+      message += `\n\n📦 *Grand Total:* ${formatPrice(getGrandTotalGHS())}`;
+      message += `\nPayment Preference: MTN Mobile Money / Cash on Delivery`;
+      message += `\nPlease confirm availability and delivery to my location. Thank you!`;
 
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/15551234567?text=${encoded}`, '_blank');
@@ -1545,7 +1563,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const matched = PRODUCTS.filter(p => p.name.toLowerCase().includes(q) || p.ingredients.toLowerCase().includes(q));
       searchSuggestions.innerHTML = matched.map(p => `
         <button class="btn btn-secondary btn-sm" onclick="window.openProductModal('${p.id}'); document.getElementById('search-dropdown-bar').classList.add('hidden');">
-          🌿 ${p.name} (${formatPrice(p.priceUSD)})
+          🌿 ${p.name} (${formatPrice(p.priceGHS)})
         </button>
       `).join('');
     });

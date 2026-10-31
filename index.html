@@ -18,11 +18,12 @@
     <div class="announcement-container">
       <span class="announcement-badge">Mena's Nest Guarantee</span>
       <p class="announcement-text">
-        ✨ 100% Certified Organic Botanicals • Midwife & Herbalist Approved • Free Shipping on orders over $50
+        ✨ 100% Certified Organic Botanicals • Midwife & Herbalist Approved • Free Nationwide Delivery on orders over GH₵ 600
       </p>
       <div class="announcement-controls">
         <label for="currency-select" class="sr-only">Currency</label>
         <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="GHS" selected>GHS (GH₵)</option>
           <option value="USD">USD ($)</option>
           <option value="GBP">GBP (£)</option>
           <option value="EUR">EUR (€)</option>
@@ -799,7 +800,7 @@
 
     <!-- Free Shipping Progress -->
     <div class="shipping-progress-box">
-      <p class="shipping-status-text" id="shipping-status-text">Add $50.00 for FREE Shipping & Tea Sample</p>
+      <p class="shipping-status-text" id="shipping-status-text">Add GH₵ 600.00 for FREE Nationwide Delivery</p>
       <div class="progress-bar-track">
         <div class="progress-bar-fill" id="shipping-progress-fill" style="width: 0%;"></div>
       </div>
@@ -832,11 +833,11 @@
       <div class="cart-summary-lines">
         <div class="summary-line">
           <span>Subtotal</span>
-          <span id="cart-subtotal-price">$0.00</span>
+          <span id="cart-subtotal-price">GH₵ 0.00</span>
         </div>
         <div class="summary-line discount-line hidden" id="cart-discount-row">
           <span>Discount Applied (<strong id="applied-coupon-name"></strong>)</span>
-          <span id="cart-discount-amount" class="discount-val">-$0.00</span>
+          <span id="cart-discount-amount" class="discount-val">-GH₵ 0.00</span>
         </div>
         <div class="summary-line">
           <span>Eco Packaging</span>
@@ -848,7 +849,7 @@
         </div>
         <div class="summary-line total-line">
           <strong>Estimated Total</strong>
-          <strong id="cart-grand-total">$0.00</strong>
+          <strong id="cart-grand-total">GH₵ 0.00</strong>
         </div>
       </div>
 
@@ -985,11 +986,11 @@
               <div class="form-group">
                 <label for="co-country">Country / Region</label>
                 <select id="co-country">
+                  <option value="GH" selected>Ghana (Accra, Kumasi & Nationwide)</option>
                   <option value="US">United States</option>
                   <option value="UK">United Kingdom</option>
-                  <option value="CA">Canada</option>
                   <option value="NG">Nigeria</option>
-                  <option value="AU">Australia</option>
+                  <option value="CA">Canada</option>
                   <option value="EU">European Union</option>
                 </select>
               </div>
@@ -1013,10 +1014,10 @@
                 <input type="radio" name="shippingMethod" value="standard" checked onchange="window.updateCheckoutShipping('standard')">
                 <div class="shipping-card-info">
                   <div class="shipping-name-row">
-                    <strong>Standard Botanical Ground (3–5 Business Days)</strong>
-                    <span class="shipping-cost" id="ship-cost-standard">FREE (over $50)</span>
+                    <strong>Standard Botanical Dispatch (2–4 Business Days)</strong>
+                    <span class="shipping-cost" id="ship-cost-standard">FREE (over GH₵ 600)</span>
                   </div>
-                  <p class="shipping-desc">Dispatched via carbon-neutral postal carrier. Includes tracking notifications.</p>
+                  <p class="shipping-desc">Dispatched via nationwide courier across Accra, Kumasi, and all regions.</p>
                 </div>
               </label>
 
@@ -1024,10 +1025,10 @@
                 <input type="radio" name="shippingMethod" value="express" onchange="window.updateCheckoutShipping('express')">
                 <div class="shipping-card-info">
                   <div class="shipping-name-row">
-                    <strong>Priority Herbal Express (1–2 Business Days)</strong>
-                    <span class="shipping-cost">$12.00</span>
+                    <strong>Priority Same-Day / Next-Day Express</strong>
+                    <span class="shipping-cost" id="ship-cost-express">GH₵ 90.00</span>
                   </div>
-                  <p class="shipping-desc">Priority batching in our atelier and fast expedited air courier.</p>
+                  <p class="shipping-desc">Priority batching in our atelier and fast expedited dispatch.</p>
                 </div>
               </label>
 
@@ -1035,10 +1036,10 @@
                 <input type="radio" name="shippingMethod" value="courier" onchange="window.updateCheckoutShipping('courier')">
                 <div class="shipping-card-info">
                   <div class="shipping-name-row">
-                    <strong>Local Doula & Herbalist Delivery</strong>
-                    <span class="shipping-cost">$6.50</span>
+                    <strong>Local Doula & Herbalist Doorstep Delivery</strong>
+                    <span class="shipping-cost" id="ship-cost-courier">GH₵ 55.00</span>
                   </div>
-                  <p class="shipping-desc">Same-day / next-day hand delivery to your doorstep.</p>
+                  <p class="shipping-desc">Direct personal courier hand delivery within Greater Accra & Kumasi.</p>
                 </div>
               </label>
             </div>
@@ -1053,15 +1054,15 @@
           <div class="checkout-step-content" id="checkout-step-3">
             <div class="step-heading">
               <h3>Payment & Order Finalization</h3>
-              <p>Select your preferred secure payment method.</p>
+              <p>Select your preferred secure payment method in Ghana Cedis.</p>
             </div>
 
             <div class="payment-tabs-bar">
-              <button type="button" class="payment-tab active" data-pay="card" onclick="window.switchPaymentTab('card')">
-                <span>💳 Credit / Debit Card</span>
+              <button type="button" class="payment-tab active" data-pay="momo" onclick="window.switchPaymentTab('momo')">
+                <span>📱 MTN MoMo / Telecel</span>
               </button>
-              <button type="button" class="payment-tab" data-pay="transfer" onclick="window.switchPaymentTab('transfer')">
-                <span>🏦 Bank Transfer</span>
+              <button type="button" class="payment-tab" data-pay="card" onclick="window.switchPaymentTab('card')">
+                <span>💳 Debit / Credit Card</span>
               </button>
               <button type="button" class="payment-tab" data-pay="cod" onclick="window.switchPaymentTab('cod')">
                 <span>📦 Pay on Delivery</span>
@@ -1069,6 +1070,42 @@
               <button type="button" class="payment-tab" data-pay="whatsapp" onclick="window.switchPaymentTab('whatsapp')">
                 <span>💬 WhatsApp Assisted</span>
               </button>
+            </div>
+
+            <!-- MTN Mobile Money / Telecel Cash Option -->
+            <div class="payment-pane active" id="pane-pay-momo">
+              <div class="bank-details-card" style="border-color: #F59E0B; background: #FFFDF5;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;">
+                  <span style="font-size:1.6rem;">📱</span>
+                  <h4 style="margin:0; font-size:1.15rem;">Mobile Money Payment (Instant)</h4>
+                </div>
+                <div class="bank-row">
+                  <span>Select Network:</span>
+                  <select id="momo-network" style="padding:0.35rem 0.65rem; border-radius:4px; font-weight:600; font-size:0.85rem; border:1px solid #D97706;">
+                    <option value="MTN">MTN Mobile Money</option>
+                    <option value="Telecel">Telecel Cash (Vodafone)</option>
+                    <option value="AT">AT Money (AirtelTigo)</option>
+                  </select>
+                </div>
+                <div class="bank-row">
+                  <span>Merchant / MoMo Number:</span>
+                  <strong>024 123 4567</strong>
+                  <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText('0241234567'); window.showToast('MoMo number copied!', 'info');">Copy</button>
+                </div>
+                <div class="bank-row">
+                  <span>Merchant Account Name:</span>
+                  <strong>Mena’s Nest Botanical Wellness</strong>
+                </div>
+                <div class="bank-row">
+                  <span>Order Reference:</span>
+                  <strong id="momo-ref-code">#MN-2026</strong>
+                </div>
+                <div class="form-group" style="margin-top:1rem;">
+                  <label for="momo-user-number">Your MoMo Number (For Payment Authorization Prompt)</label>
+                  <input type="tel" id="momo-user-number" placeholder="e.g. 024 000 0000" style="padding:0.6rem 0.8rem; font-size:0.9rem; border:1.5px solid var(--color-cream-border); border-radius:6px; background:#fff;">
+                </div>
+                <p class="bank-note" style="color:#92400E;">You will receive an instant push prompt on your mobile phone to enter your MoMo PIN and authorize the transaction, or transfer directly to the Merchant Number above.</p>
+              </div>
             </div>
 
             <!-- Card Payment Option -->
@@ -1183,23 +1220,23 @@
           <div class="checkout-calc-lines">
             <div class="calc-line">
               <span>Items Subtotal</span>
-              <span id="co-subtotal">$0.00</span>
+              <span id="co-subtotal">GH₵ 0.00</span>
             </div>
             <div class="calc-line discount-line hidden" id="co-discount-row">
               <span>Discount</span>
-              <span id="co-discount-amt" class="discount-val">-$0.00</span>
+              <span id="co-discount-amt" class="discount-val">-GH₵ 0.00</span>
             </div>
             <div class="calc-line">
               <span>Shipping Speed</span>
-              <span id="co-shipping-amt">$0.00</span>
+              <span id="co-shipping-amt">GH₵ 0.00</span>
             </div>
             <div class="calc-line">
               <span>Estimated Tax (5%)</span>
-              <span id="co-tax-amt">$0.00</span>
+              <span id="co-tax-amt">GH₵ 0.00</span>
             </div>
             <div class="calc-line grand-total-line">
               <strong>Grand Total Payable</strong>
-              <strong id="co-grand-total" class="grand-total-val">$0.00</strong>
+              <strong id="co-grand-total" class="grand-total-val">GH₵ 0.00</strong>
             </div>
           </div>
 

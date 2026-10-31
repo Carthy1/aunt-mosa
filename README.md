@@ -16,16 +16,16 @@
 ### 🛍️ Full E-Commerce Storefront
 - **Product Variants & Small-Batch Inventory:** Multi-size packaging (e.g. 8 oz Jar, 16 oz Refill, 3-Jar Bundles) with live price updates and real-time inventory scarcity indicators.
 - **Wishlist & Saved Remedies:** Save botanicals with heart icons and manage them via a slide-over Wishlist Drawer.
-- **Dynamic Cart & Promo Engine:** Real-time quantity adjustments, free shipping progress bar ($50 threshold), coupon validation (`MAMA10`, `NESTLOVE`, `FREESHIP`), and personalized gift notes.
+- **Dynamic Cart & Promo Engine:** Real-time quantity adjustments, free nationwide delivery progress bar (GH₵ 600 threshold), coupon validation (`MAMA10`, `NESTLOVE`, `FREESHIP`), and personalized gift notes.
 - **3-Step E-Commerce Checkout:**
-  - **Step 1:** Customer Contact & Delivery Address
-  - **Step 2:** Shipping Speed Selector (Standard, Express, Doula Courier)
-  - **Step 3:** Multi-Payment Gateways (Interactive Credit Card with live card preview, Direct Bank Transfer with copyable details, Cash on Delivery, and WhatsApp Concierge)
-- **Digital Invoice & Receipt Modal:** Itemized receipt with unique Order ID (`#MN-XXXXX`) and printable/save-to-PDF invoice.
+  - **Step 1:** Customer Contact & Delivery Address (Accra, Kumasi & nationwide Ghana)
+  - **Step 2:** Shipping Speed Selector (Standard Botanical Dispatch, Priority Same-Day Express, Local Doorstep Delivery)
+  - **Step 3:** Multi-Payment Gateways (Instant MTN Mobile Money & Telecel Cash, Interactive Debit/Credit Card with live preview, Cash on Delivery, and WhatsApp Concierge)
+- **Digital Invoice & Receipt Modal:** Itemized receipt with unique Order ID (`#MN-XXXXX`) and printable/save-to-PDF invoice in Ghana Cedis.
 - **Order Tracking & Delivery Status:** Search orders to see a 4-stage visual timeline (*Order Confirmed → Small-Batch Blended → Courier In Transit → Delivered*).
 - **Customer Reviews & Ratings:** Verified review submission form with instant live rating updates.
-- **Social Proof Live Ticker:** Real-time toast notifications of purchases made by mothers worldwide.
-- **Multi-Currency Converter:** Convert prices between `USD ($)`, `GBP (£)`, `EUR (€)`, `NGN (₦)`, and `CAD (CA$)`.
+- **Social Proof Live Ticker:** Real-time notifications of verified customer orders from Accra, Kumasi, Takoradi, and Tema.
+- **Multi-Currency Converter:** Default native pricing in **Ghana Cedis (GH₵ / GHS)** with optional live conversion to `USD ($)`, `GBP (£)`, `EUR (€)`, and `CAD (CA$)`.
 
 ### 🌿 Botanical Education & Brand Story
 - **Wellness & Learning Hub:** Trimester wellness guides, fourth trimester lactation science, pediatric botanical safety, and hormonal balance guides.
