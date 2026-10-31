@@ -41,8 +41,8 @@
 | :--- | :--- | :--- |
 | **Email** | `menasnest@gmail.com` | [Send Email](mailto:menasnest@gmail.com) |
 | **WhatsApp / Phone** | `020 838 6301` (`+233 20 838 6301`) | [Chat on WhatsApp](https://wa.me/233208386301) |
-| **Instagram** | `@menasnest` | [instagram.com/menasnest](https://instagram.com/menasnest) |
-| **TikTok** | `Mena's Nest` | [tiktok.com/@menasnest](https://tiktok.com/@menasnest) |
+| **Instagram** | `@menas.nest` | [instagram.com/menas.nest](https://instagram.com/menas.nest) |
+| **TikTok** | `@menas.nest` (Mena's Nest) | [tiktok.com/@menas.nest](https://tiktok.com/@menas.nest) |
 | **Facebook** | `Mena's Nest` | [facebook.com/menasnest](https://facebook.com/menasnest) |
 | **YouTube** | `mena's nest` | [youtube.com/@menasnest](https://youtube.com/@menasnest) |
 
