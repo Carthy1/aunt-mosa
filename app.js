@@ -1590,15 +1590,95 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Article Reader Modal (Wellness Hub) */
+  const articleModalOverlay = document.getElementById('article-modal-overlay');
+  const articleModalClose = document.getElementById('article-modal-close');
+  const articleReaderContent = document.getElementById('article-reader-content');
+
+  function openArticleModal(articleId) {
+    const art = ARTICLES.find(a => a.id === articleId);
+    if (!art || !articleReaderContent || !articleModalOverlay) return;
+
+    articleReaderContent.innerHTML = `
+      <div class="article-modal-header" style="margin-bottom:1.5rem;">
+        <span class="article-category" style="font-size:0.8rem; font-weight:700; color:var(--color-sage-deep); text-transform:uppercase; letter-spacing:0.05em;">${art.categoryLabel}</span>
+        <h2 style="font-family:var(--font-serif); font-size:2rem; color:var(--color-neutral-900); margin:0.4rem 0 0.8rem; line-height:1.2;">${art.title}</h2>
+        <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.82rem; color:var(--color-neutral-500);">
+          <span>⏱️ ${art.readTime}</span>
+          <span>•</span>
+          <span>🌿 Midwife & Clinical Herbalist Reviewed</span>
+        </div>
+      </div>
+      <div class="article-body" style="font-size:0.95rem; line-height:1.75; color:var(--color-neutral-700);">
+        ${art.body}
+      </div>
+      <div style="margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--color-cream-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <span style="font-size:0.82rem; color:var(--color-neutral-500);">Have questions about this guide? Consult our herbal care team.</span>
+        <a href="https://wa.me/233208386301?text=Hello%20Mena's%20Nest!%20I'm%20reading%20your%20article%20on%20${encodeURIComponent(art.title)}" target="_blank" class="btn btn-whatsapp btn-sm">
+          Discuss on WhatsApp
+        </a>
+      </div>
+    `;
+
+    articleModalOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeArticleModal() {
+    if (articleModalOverlay) articleModalOverlay.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  if (articleModalClose) {
+    articleModalClose.addEventListener('click', closeArticleModal);
+  }
+  if (articleModalOverlay) {
+    articleModalOverlay.addEventListener('click', (e) => {
+      if (e.target === articleModalOverlay) closeArticleModal();
+    });
+  }
+
+  window.openArticleModal = openArticleModal;
+  window.closeArticleModal = closeArticleModal;
+
+  /* Filter from footer */
+  window.filterFromFooter = function(catKey) {
+    activeCategory = catKey;
+    categoryTabs.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.category === catKey);
+      btn.setAttribute('aria-selected', btn.dataset.category === catKey ? 'true' : 'false');
+    });
+    renderProducts();
+    const shopSection = document.getElementById('shop');
+    if (shopSection) {
+      shopSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  /* Newsletter submit handler */
+  window.handleNewsletterSubmit = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const input = document.getElementById('newsletter-email');
+    const val = input ? input.value.trim() : '';
+    if (!val || !val.includes('@')) {
+      showToast('Please enter a valid email address.', 'warning');
+      return;
+    }
+    showToast(`Welcome to the Mena's Nest Wellness Circle! 🌿 Check your inbox soon for your 10% welcome gift.`, 'success');
+    if (input) input.value = '';
+  };
+
   // Keyboard escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeCartDrawer();
       closeWishlistDrawer();
       window.closeProductModal();
+      closeArticleModal();
       if (checkoutModal) checkoutModal.classList.add('hidden');
       if (receiptModal) receiptModal.classList.add('hidden');
       if (searchDropdown) searchDropdown.classList.add('hidden');
+      document.body.style.overflow = '';
     }
   });
 
