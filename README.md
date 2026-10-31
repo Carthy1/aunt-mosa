@@ -31,7 +31,20 @@
 - **Wellness & Learning Hub:** Trimester wellness guides, fourth trimester lactation science, pediatric botanical safety, and hormonal balance guides.
 - **Interactive Botanical Herb Glossary:** Searchable profiles of key herbs with life-stage safety ratings (*Pregnancy-Friendly*, *Child-Safe*, *Lactation-Supportive*).
 - **Our Story & Atelier Philosophy:** Founder background, clinical herbalist credentials, and regenerative organic sourcing standards.
-- **WhatsApp Direct Assistance:** Persistent floating widget and one-click direct consultation links.
+- **WhatsApp Direct Assistance:** Persistent floating widget and one-click direct consultation links (`020 838 6301`).
+
+---
+
+## 📬 Official Contact & Social Media
+
+| Channel | Handle / Number | Link |
+| :--- | :--- | :--- |
+| **Email** | `menasnest@gmail.com` | [Send Email](mailto:menasnest@gmail.com) |
+| **WhatsApp / Phone** | `020 838 6301` (`+233 20 838 6301`) | [Chat on WhatsApp](https://wa.me/233208386301) |
+| **Instagram** | `@menasnest` | [instagram.com/menasnest](https://instagram.com/menasnest) |
+| **TikTok** | `Mena's Nest` | [tiktok.com/@menasnest](https://tiktok.com/@menasnest) |
+| **Facebook** | `Mena's Nest` | [facebook.com/menasnest](https://facebook.com/menasnest) |
+| **YouTube** | `mena's nest` | [youtube.com/@menasnest](https://youtube.com/@menasnest) |
 
 ---
 

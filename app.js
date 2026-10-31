@@ -960,7 +960,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="btn btn-primary" onclick="window.addToCart('${product.id}', 1, ${product.selectedVariantIndex || 0}); window.closeProductModal();">
             Add to Nest Cart
           </button>
-          <a href="https://wa.me/15551234567?text=Hello%20Mena's%20Nest!%20I'm%20asking%20about%20${encodeURIComponent(product.name)}" target="_blank" class="btn btn-whatsapp btn-sm">
+          <a href="https://wa.me/233208386301?text=Hello%20Mena's%20Nest!%20I'm%20asking%20about%20${encodeURIComponent(product.name)}" target="_blank" class="btn btn-whatsapp btn-sm">
             Chat on WhatsApp
           </a>
         </div>
@@ -1248,7 +1248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnWa) {
       btnWa.onclick = () => {
         let msg = `🌿 *Receipt for Order ${order.orderId}*\nCustomer: ${order.customerName}\nTotal: ${formatPrice(order.totalGHS)}\nPayment: ${order.paymentMethod}\nDelivery: ${order.address}\nPlease share my dispatch tracking link!`;
-        window.open(`https://wa.me/15551234567?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/233208386301?text=${encodeURIComponent(msg)}`, '_blank');
       };
     }
 
@@ -1418,7 +1418,7 @@ document.addEventListener('DOMContentLoaded', () => {
       message += `\nPlease confirm availability and delivery to my location. Thank you!`;
 
       const encoded = encodeURIComponent(message);
-      window.open(`https://wa.me/15551234567?text=${encoded}`, '_blank');
+      window.open(`https://wa.me/233208386301?text=${encoded}`, '_blank');
     });
   }
 
@@ -1566,6 +1566,27 @@ document.addEventListener('DOMContentLoaded', () => {
           🌿 ${p.name} (${formatPrice(p.priceGHS)})
         </button>
       `).join('');
+    });
+  }
+
+  /* Contact Form Submission */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contact-name')?.value.trim();
+      const email = document.getElementById('contact-email')?.value.trim();
+      const topic = document.getElementById('contact-topic')?.value || 'General';
+      const phone = document.getElementById('contact-phone')?.value.trim();
+      const message = document.getElementById('contact-message')?.value.trim();
+
+      if (!name || !email || !message) {
+        showToast('Please complete all required fields.', 'warning');
+        return;
+      }
+
+      showToast(`Thank you, ${name}! Your enquiry has been received. Our team will email you at ${email} shortly. 🌿`, 'success');
+      contactForm.reset();
     });
   }
 

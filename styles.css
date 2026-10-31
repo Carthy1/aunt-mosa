@@ -2151,6 +2151,22 @@ h1, h2, h3, h4, .brand-name {
   color: var(--color-lavender-light);
 }
 
+.site-footer .social-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-neutral-300);
+}
+
+.site-footer .social-btn:hover {
+  background: var(--color-lavender-primary);
+  color: #FFFFFF;
+  border-color: var(--color-lavender-primary);
+}
+
+.footer-contact-links a:hover {
+  color: var(--color-lavender-light) !important;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 2rem;
