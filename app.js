@@ -418,10 +418,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateWishlistUI() {
     const badge = document.getElementById('wishlist-count-badge');
+    const bottomBadge = document.getElementById('bottom-wishlist-badge');
     const drawerCount = document.getElementById('wishlist-item-count');
     const container = document.getElementById('wishlist-items-container');
 
     if (badge) badge.textContent = wishlist.length;
+    if (bottomBadge) bottomBadge.textContent = wishlist.length;
     if (drawerCount) drawerCount.textContent = `${wishlist.length} saved`;
 
     if (!container) return;
@@ -558,6 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateCartUI() {
     const countBadge = document.getElementById('cart-count-badge');
+    const bottomCartBadge = document.getElementById('bottom-cart-badge');
     const drawerItemCount = document.getElementById('drawer-item-count');
     const container = document.getElementById('cart-items-container');
     const subtotalDisplay = document.getElementById('cart-subtotal-price');
@@ -576,6 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grandTotal = getGrandTotalGHS();
 
     if (countBadge) countBadge.textContent = totalCount;
+    if (bottomCartBadge) bottomCartBadge.textContent = totalCount;
     if (drawerItemCount) drawerItemCount.textContent = `${totalCount} item${totalCount === 1 ? '' : 's'}`;
     if (subtotalDisplay) subtotalDisplay.textContent = formatPrice(subtotal);
 
@@ -719,6 +723,113 @@ document.addEventListener('DOMContentLoaded', () => {
   if (wishlistTriggerBtn) wishlistTriggerBtn.addEventListener('click', openWishlistDrawer);
   if (wishlistCloseBtn) wishlistCloseBtn.addEventListener('click', closeWishlistDrawer);
   if (wishlistOverlay) wishlistOverlay.addEventListener('click', closeWishlistDrawer);
+
+  /* Mobile Navigation Drawer */
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const closeMobileNavBtn = document.getElementById('close-mobile-nav');
+  const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+  const mobileNavLinks = document.querySelectorAll('.mobile-link');
+
+  function openMobileNav() {
+    if (mobileNavDrawer) mobileNavDrawer.classList.add('open');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.add('open');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenuBtn.classList.add('active');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    if (mobileNavDrawer) mobileNavDrawer.classList.remove('open');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.remove('open');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.classList.remove('active');
+    }
+    document.body.style.overflow = '';
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    });
+  }
+  if (closeMobileNavBtn) closeMobileNavBtn.addEventListener('click', closeMobileNav);
+  if (mobileNavBackdrop) mobileNavBackdrop.addEventListener('click', closeMobileNav);
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  });
+
+  window.openMobileNav = openMobileNav;
+  window.closeMobileNav = closeMobileNav;
+
+  /* Mobile Sticky Bottom Bar Interaction */
+  const bottomNavHome = document.getElementById('bottom-nav-home');
+  const bottomNavShop = document.getElementById('bottom-nav-shop');
+  const bottomNavSearch = document.getElementById('bottom-nav-search');
+  const bottomNavWishlist = document.getElementById('bottom-nav-wishlist');
+  const bottomNavCart = document.getElementById('bottom-nav-cart');
+
+  if (bottomNavSearch) {
+    bottomNavSearch.addEventListener('click', (e) => {
+      e.preventDefault();
+      const searchDropdownBar = document.getElementById('search-dropdown-bar');
+      const searchInput = document.getElementById('global-search-input');
+      if (searchDropdownBar) {
+        searchDropdownBar.classList.toggle('hidden');
+        if (!searchDropdownBar.classList.contains('hidden') && searchInput) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => searchInput.focus(), 300);
+        }
+      }
+    });
+  }
+
+  if (bottomNavWishlist) {
+    bottomNavWishlist.addEventListener('click', (e) => {
+      e.preventDefault();
+      openWishlistDrawer();
+    });
+  }
+
+  if (bottomNavCart) {
+    bottomNavCart.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCartDrawer();
+    });
+  }
+
+  // Update active state on mobile bottom bar based on scroll position
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 200;
+    const shopEl = document.getElementById('shop');
+    const homeEl = document.getElementById('home');
+
+    if (shopEl && homeEl) {
+      const shopTop = shopEl.offsetTop;
+      const shopBottom = shopTop + shopEl.offsetHeight;
+
+      if (scrollPos >= shopTop && scrollPos < shopBottom) {
+        if (bottomNavShop) bottomNavShop.classList.add('active');
+        if (bottomNavHome) bottomNavHome.classList.remove('active');
+      } else if (window.scrollY < shopTop - 100) {
+        if (bottomNavHome) bottomNavHome.classList.add('active');
+        if (bottomNavShop) bottomNavShop.classList.remove('active');
+      } else {
+        if (bottomNavShop) bottomNavShop.classList.remove('active');
+        if (bottomNavHome) bottomNavHome.classList.remove('active');
+      }
+    }
+  }, { passive: true });
 
   const btnAddAllWishlist = document.getElementById('btn-add-all-wishlist');
   if (btnAddAllWishlist) {
@@ -1671,6 +1782,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keyboard escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      closeMobileNav();
       closeCartDrawer();
       closeWishlistDrawer();
       window.closeProductModal();

@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#3B2A61">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Mena’s Nest | Herbal & Organic Wellness for Mothers, Women & Children</title>
   <meta name="description" content="Mena’s Nest crafts pure, certified organic herbal remedies, pregnancy teas, lactation elixirs, and calming baby balms. Nurturing wellness for women and growing families.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,6 +126,7 @@
       <li><a href="#about" class="mobile-link">Our Story & Mission</a></li>
       <li><a href="#wellness-hub" class="mobile-link">Wellness & Learning Hub</a></li>
       <li><a href="#herb-glossary" class="mobile-link">Botanical Glossary</a></li>
+      <li><a href="#order-tracker" class="mobile-link">Track Order Status</a></li>
       <li><a href="#faq" class="mobile-link">Frequently Asked Questions</a></li>
       <li><a href="#contact" class="mobile-link">Contact & Support</a></li>
     </ul>
@@ -726,42 +730,42 @@
     </section>
 
     <!-- TIKTOK & MATERNAL WELLNESS COMMUNITY SPOTLIGHT -->
-    <section class="tiktok-spotlight-section" id="community" style="background: var(--color-cream-warm); padding: 4.5rem 0; border-top: 1px solid var(--color-cream-border); border-bottom: 1px solid var(--color-cream-border);">
+    <section class="tiktok-spotlight-section" id="community">
       <div class="container text-center">
-        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#000; color:#fff; padding:0.45rem 1.15rem; border-radius:var(--radius-full); font-size:0.85rem; font-weight:600; margin-bottom:1.25rem;">
+        <div class="tiktok-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298 0 .59.05.86.15V9.42a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34c3.5 0 6.34-2.84 6.34-6.34V8.75a8.28 8.28 0 0 0 4.87 1.57V6.87c-.38-.01-.76-.07-1.1-.18z"/></svg>
           <span>TikTok: Mena’s Nest (@menas.nest)</span>
         </div>
-        <h2 class="section-title" style="margin-bottom:0.75rem;">Follow Mena’s Nest on TikTok</h2>
-        <p class="section-desc" style="max-width:640px; margin:0 auto 2.5rem; color:var(--color-neutral-600); font-size:1.05rem;">
+        <h2 class="section-title">Follow Mena’s Nest on TikTok</h2>
+        <p class="section-desc">
           Join our growing community of expectant mamas and botanical wellness lovers. Watch small-batch apothecary preparations, postpartum lactation tips, trimester tea rituals, and gentle infant care.
         </p>
 
         <!-- 3 Feature Cards -->
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-bottom:2.5rem; text-align:left;">
-          <div style="background:#fff; border:1px solid var(--color-cream-border); border-radius:var(--radius-md); padding:1.75rem; box-shadow:var(--shadow-sm);">
-            <div style="font-size:2.2rem; margin-bottom:0.75rem;">🍵</div>
-            <h4 style="font-family:var(--font-serif); font-size:1.35rem; color:var(--color-neutral-900); margin-bottom:0.4rem;">Trimester Tea Brewing Rituals</h4>
-            <p style="font-size:0.88rem; color:var(--color-neutral-600); line-height:1.6;">How to steep organic red raspberry leaf and chamomile for optimum nutrient release during pregnancy.</p>
+        <div class="tiktok-cards-grid">
+          <div class="tiktok-card">
+            <div class="tiktok-card-icon">🍵</div>
+            <h4>Trimester Tea Brewing Rituals</h4>
+            <p>How to steep organic red raspberry leaf and chamomile for optimum nutrient release during pregnancy.</p>
           </div>
-          <div style="background:#fff; border:1px solid var(--color-cream-border); border-radius:var(--radius-md); padding:1.75rem; box-shadow:var(--shadow-sm);">
-            <div style="font-size:2.2rem; margin-bottom:0.75rem;">💧</div>
-            <h4 style="font-family:var(--font-serif); font-size:1.35rem; color:var(--color-neutral-900); margin-bottom:0.4rem;">Lactation & Milk Flow Science</h4>
-            <p style="font-size:0.88rem; color:var(--color-neutral-600); line-height:1.6;">Real mom guidance on timing Golden Flow drops, managing letdowns, and soothing cluster-feeding exhaustion.</p>
+          <div class="tiktok-card">
+            <div class="tiktok-card-icon">💧</div>
+            <h4>Lactation & Milk Flow Science</h4>
+            <p>Real mom guidance on timing Golden Flow drops, managing letdowns, and soothing cluster-feeding exhaustion.</p>
           </div>
-          <div style="background:#fff; border:1px solid var(--color-cream-border); border-radius:var(--radius-md); padding:1.75rem; box-shadow:var(--shadow-sm);">
-            <div style="font-size:2.2rem; margin-bottom:0.75rem;">👶🏽</div>
-            <h4 style="font-family:var(--font-serif); font-size:1.35rem; color:var(--color-neutral-900); margin-bottom:0.4rem;">Infant Calming & Baby Massage</h4>
-            <p style="font-size:0.88rem; color:var(--color-neutral-600); line-height:1.6;">Gentle touch massage techniques with our soothing calendula balm for colicky evenings and sweet sleep.</p>
+          <div class="tiktok-card">
+            <div class="tiktok-card-icon">👶🏽</div>
+            <h4>Infant Calming & Baby Massage</h4>
+            <p>Gentle touch massage techniques with our soothing calendula balm for colicky evenings and sweet sleep.</p>
           </div>
         </div>
 
-        <div style="display:flex; justify-content:center; align-items:center; gap:1.25rem; flex-wrap:wrap;">
-          <a href="https://www.tiktok.com/@menas.nest" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background:#000; color:#fff; border-color:#000; display:inline-flex; align-items:center; gap:0.6rem; padding:0.85rem 2rem; font-weight:600;">
+        <div class="tiktok-actions">
+          <a href="https://www.tiktok.com/@menas.nest" target="_blank" rel="noopener noreferrer" class="btn btn-tiktok">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298 0 .59.05.86.15V9.42a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34c3.5 0 6.34-2.84 6.34-6.34V8.75a8.28 8.28 0 0 0 4.87 1.57V6.87c-.38-.01-.76-.07-1.1-.18z"/></svg>
             <span>Watch & Follow @menas.nest on TikTok</span>
           </a>
-          <a href="https://wa.me/233208386301" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display:inline-flex; align-items:center; gap:0.6rem; padding:0.85rem 1.85rem;">
+          <a href="https://wa.me/233208386301" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
             <span>Chat on WhatsApp (020 838 6301)</span>
           </a>
         </div>
@@ -1438,6 +1442,36 @@
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- MOBILE STICKY BOTTOM NAVIGATION BAR -->
+  <nav class="mobile-bottom-bar" id="mobile-bottom-bar" aria-label="Mobile Navigation">
+    <a href="#home" class="bottom-nav-item active" id="bottom-nav-home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="#shop" class="bottom-nav-item" id="bottom-nav-shop">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      <span>Shop</span>
+    </a>
+    <button type="button" class="bottom-nav-item" id="bottom-nav-search" aria-label="Search apothecary remedies">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Search</span>
+    </button>
+    <button type="button" class="bottom-nav-item" id="bottom-nav-wishlist" aria-label="View saved remedies">
+      <div class="bottom-nav-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <span class="bottom-badge" id="bottom-wishlist-badge">0</span>
+      </div>
+      <span>Wishlist</span>
+    </button>
+    <button type="button" class="bottom-nav-item" id="bottom-nav-cart" aria-label="View shopping cart">
+      <div class="bottom-nav-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span class="bottom-badge" id="bottom-cart-badge">0</span>
+      </div>
+      <span>Cart</span>
+    </button>
+  </nav>
 
   <!-- SCRIPT -->
   <script src="app.js"></script>
