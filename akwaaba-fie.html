@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#B77B57">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>AKWAABA FIE by Mena’s Nest | Your Home, Our Care. Diaspora Welcome Home & Property Readiness</title>
+  <meta name="description" content="Akwaaba Fie is the dedicated home readiness and diaspora homecoming concierge specialist of Mena’s Nest Group. Pre-arrival deep cleaning, pantry & fridge grocery stocking, guest-room bedding, and warm arrival feasts in Accra, Ghana.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+</head>
+<body data-page-brand="akwaaba">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" id="announcement-bar" style="background: var(--color-terracotta-dark);">
+    <div class="announcement-container">
+      <span class="announcement-badge" style="background: rgba(255,255,255,0.2);">Akwaaba Fie • Home Care</span>
+      <p class="announcement-text">
+        ✨ Pre-Arrival Deep Cleaning • Grocery Stocking • Diaspora Welcome Home Packages • WhatsApp: 020 838 6301
+      </p>
+      <div class="announcement-controls">
+        <label for="currency-select" class="sr-only">Currency</label>
+        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="GHS" selected>GHS (GH₵)</option>
+          <option value="USD">USD ($)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="NGN">NGN (₦)</option>
+          <option value="CAD">CAD ($)</option>
+        </select>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="akwaaba-fie.html" class="brand-logo" id="brand-logo" aria-label="Akwaaba Fie Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" fill="var(--color-cream-warm)" stroke="var(--color-warm-gold)" stroke-width="1.5"/>
+            <path d="M11 20L20 12L29 20V29C29 29.5 28.5 30 28 30H12C11.5 30 11 29.5 11 29V20Z" fill="var(--color-terracotta)" opacity="0.95"/>
+            <rect x="17" y="22" width="6" height="8" rx="1" fill="var(--color-cream-warm)"/>
+            <circle cx="20" cy="9" r="2.5" fill="var(--color-warm-gold)"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name" style="color: var(--color-terracotta-dark);">AKWAABA FIE</span>
+          <span class="brand-tagline">Your Home, Our Care.</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="main-nav" id="main-nav" aria-label="Akwaaba Fie Navigation">
+        <ul class="nav-links">
+          <li><a href="#welcome-home" class="nav-link active">Welcome Home Suite</a></li>
+          <li><a href="#services" class="nav-link">Home Services</a></li>
+          <li><a href="#calculator" class="nav-link">Arrival Calculator</a></li>
+          <li><a href="#packages" class="nav-link">Service Packages</a></li>
+          <li><a href="lacuizinee.html" class="nav-link" style="color: var(--color-forest-green-dark); font-weight: 700;">🍲 Lacuizinee (Food) ↗</a></li>
+          <li><a href="index.html" class="nav-link" style="color: var(--color-neutral-600);">Mena's Nest Group</a></li>
+          <li><a href="#contact" class="nav-link">Concierge Desk</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions & Switcher -->
+      <div class="nav-actions">
+        <div class="brand-nav-switcher">
+          <a href="index.html" class="brand-switch-pill">Group</a>
+          <a href="lacuizinee.html" class="brand-switch-pill">🍲 Lacuizinee</a>
+          <a href="akwaaba-fie.html" class="brand-switch-pill active" style="background: var(--color-terracotta); color: #fff;">🏡 Akwaaba Fie</a>
+        </div>
+
+        <button class="icon-btn search-toggle" id="search-toggle-btn" aria-label="Search services" title="Search services">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+
+        <button class="icon-btn wishlist-trigger-btn" id="wishlist-trigger-btn" aria-label="View Wishlist" title="Saved Services">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="wishlist-count-badge" id="wishlist-count-badge">0</span>
+        </button>
+
+        <a href="https://wa.me/233208386301?text=Hello%20Akwaaba%20Fie!%20I'd%20love%20to%20inquire%20about%20the%20Diaspora%20Welcome%20Home%20concierge%20and%20home%20cleaning%20services." target="_blank" rel="noopener noreferrer" class="whatsapp-nav-btn" id="whatsapp-nav-btn" title="WhatsApp Concierge: 020 838 6301" style="background: #25D366;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+          <span class="whatsapp-btn-text">Concierge</span>
+        </a>
+
+        <button class="cart-trigger-btn" id="cart-trigger-btn" aria-label="View Shopping Cart">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count-badge" id="cart-count-badge">0</span>
+        </button>
+
+        <button class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Open Mobile Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-title">Akwaaba Fie • Home Care</span>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-brand-pills">
+      <a href="index.html" class="mobile-brand-pill">Mena's Nest Group</a>
+      <a href="lacuizinee.html" class="mobile-brand-pill">🍲 Lacuizinee (Food)</a>
+      <a href="akwaaba-fie.html" class="mobile-brand-pill active">🏡 Akwaaba Fie (Home)</a>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="#welcome-home" class="mobile-nav-item">✨ Welcome Home Suite</a></li>
+      <li><a href="#services" class="mobile-nav-item">🧼 Home Care Services</a></li>
+      <li><a href="#calculator" class="mobile-nav-item">🧮 Arrival Cost Calculator</a></li>
+      <li><a href="#packages" class="mobile-nav-item">📦 Service Packages & Rates</a></li>
+      <li><a href="lacuizinee.html" class="mobile-nav-item" style="color: var(--color-forest-green);">🍲 Visit Lacuizinee Food & Drinks ↗</a></li>
+      <li><a href="index.html" class="mobile-nav-item">🌐 Mena's Nest Group Portal</a></li>
+      <li><a href="#contact" class="mobile-nav-item">📞 Contact & Concierge Desk</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="https://wa.me/233208386301?text=Hello%20Akwaaba%20Fie!%20I'd%20love%20to%20book%20a%20home%20readiness%20package." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full">
+        Chat Concierge on WhatsApp (020 838 6301)
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero" style="background: linear-gradient(135deg, #FAF6EE 0%, #F5EDE0 100%); padding: 4rem 1rem 5rem;">
+    <div class="container hero-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+      <div class="hero-content">
+        <div class="hero-badge" style="background: rgba(183,123,87,0.12); color: var(--color-terracotta-dark); border: 1px solid var(--color-terracotta);">
+          ✨ AKWAABA FIE • DIASPORA HOMECOMING & HOME CONCIERGE
+        </div>
+        <h1 class="hero-title" style="font-size: clamp(2.3rem, 4.5vw, 3.8rem); line-height: 1.15; margin-bottom: 1.25rem;">
+          Your Home, Our Care.<br>
+          <span style="font-style: italic; color: var(--color-terracotta);">Step into comfort from the very first breath.</span>
+        </h1>
+        <p class="hero-lead" style="font-size: 1.1rem; line-height: 1.7; color: var(--color-neutral-700); margin-bottom: 2rem;">
+          Returning home to Ghana after months abroad? Hosting international family or VIP delegates? Akwaaba Fie ensures your home is deep-cleaned, bathrooms sanitized, guest beds made with crisp hotel linens, refrigerator and pantry stocked with fresh groceries, and a warm arrival meal waiting on the table.
+        </p>
+
+        <div class="hero-actions" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;">
+          <a href="#welcome-home" class="btn btn-primary" style="background: var(--color-terracotta); border-color: var(--color-terracotta);">
+            <span>Explore Welcome Home Suite</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#calculator" class="btn btn-secondary">
+            <span>Calculate Arrival Cost</span>
+          </a>
+          <a href="https://wa.me/233208386301?text=Hello%20Akwaaba%20Fie!%20I'm%20arriving%20in%20Accra%20soon%20and%20would%20love%20to%20arrange%20the%20Welcome%20Home%20package." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+            <span>WhatsApp 020 838 6301</span>
+          </a>
+        </div>
+
+        <div class="hero-stats-row" style="display: flex; gap: 2rem; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 1.5rem;">
+          <div>
+            <strong style="font-size: 1.4rem; color: var(--color-terracotta-dark); display: block;">100%</strong>
+            <span style="font-size: 0.85rem; color: var(--color-neutral-600);">Pre-Arrival Inspected</span>
+          </div>
+          <div>
+            <strong style="font-size: 1.4rem; color: var(--color-terracotta-dark); display: block;">Kotoka (ACC)</strong>
+            <span style="font-size: 0.85rem; color: var(--color-neutral-600);">Flight Coordination</span>
+          </div>
+          <div>
+            <strong style="font-size: 1.4rem; color: var(--color-terracotta-dark); display: block;">Greater Accra</strong>
+            <span style="font-size: 0.85rem; color: var(--color-neutral-600);">Full City Coverage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap" style="position: relative;">
+        <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 45px rgba(183,123,87,0.18); border: 4px solid #fff;">
+          <img src="assets/images/akwaaba-welcome-suite.jpg" alt="Akwaaba Fie Welcome Home Suite - Luxury Bedding and Fresh Flowers" style="width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 4/3;">
+        </div>
+
+        <!-- Floating Testimonial/Trust Badge -->
+        <div style="position: absolute; bottom: -20px; left: -15px; background: #fff; padding: 1rem 1.25rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-left: 4px solid var(--color-terracotta); max-width: 280px;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+            <span style="color: #F59E0B; font-size: 0.9rem;">★★★★★</span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-neutral-800);">London to East Legon</span>
+          </div>
+          <p style="font-size: 0.8rem; margin: 0; color: var(--color-neutral-600); line-height: 1.4;">
+            "Walking into clean sheets, a chilled fridge, and warm food after a 7-hour flight was priceless."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP FEATURE: WELCOME HOME DIASPORA SUITE DEEP DIVE -->
+  <section class="section-welcome-home" id="welcome-home" style="padding: 5rem 1rem; background: #fff;">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 780px; margin: 0 auto 3.5rem;">
+        <span class="section-eyebrow" style="color: var(--color-terracotta);">Flagship Homecoming Experience</span>
+        <h2 class="section-title">The Akwaaba "Welcome Home" Suite</h2>
+        <p class="section-desc">
+          Designed specifically for Ghanaians living in the UK, USA, Europe, and Canada visiting home. Avoid the stress of landing at Kotoka Airport only to face dusty rooms, empty refrigerators, unmade beds, and dead AC remote batteries. We handle everything 48 hours prior.
+        </p>
+      </div>
+
+      <div class="suite-pillars-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3.5rem;">
+        
+        <div class="pillar-card" style="background: var(--color-cream-warm); padding: 2rem; border-radius: 16px; border: 1px solid var(--color-cream-border);">
+          <div class="pillar-icon" style="font-size: 2.2rem; margin-bottom: 1rem;">🧼</div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--color-terracotta-dark);">1. Deep Scrubbing & Sanitization</h3>
+          <p style="font-size: 0.95rem; color: var(--color-neutral-700); line-height: 1.6;">
+            Thorough cleaning of tiles, deep scrubbing of bathrooms and water heaters, descaling faucets, wiping cobwebs, sanitizing AC air filters, and opening windows for fresh airflow before sealing with welcoming scents.
+          </p>
+          <ul style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-neutral-600); list-style: disc; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Kitchen degreasing & appliance sanitization</li>
+            <li>Dusting all blinds, shutters & ceiling fans</li>
+            <li>Floor polishing and patio pressure wash</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card" style="background: var(--color-cream-warm); padding: 2rem; border-radius: 16px; border: 1px solid var(--color-cream-border);">
+          <div class="pillar-icon" style="font-size: 2.2rem; margin-bottom: 1rem;">🧺</div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--color-terracotta-dark);">2. Hotel-Grade Bedding & Linens</h3>
+          <p style="font-size: 0.95rem; color: var(--color-neutral-700); line-height: 1.6;">
+            We wash, sun-dry, iron, and expertly dress your master bedroom and guest suites with crisp cotton linens, plush pillows, fresh towels, bath mats, and luxury botanical toiletries ready in each bathroom.
+          </p>
+          <ul style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-neutral-600); list-style: disc; padding-left: 1.25rem; line-height: 1.6;">
+            <li>High thread-count duvet & pillow dressing</li>
+            <li>Freshly laundered bath and hand towels</li>
+            <li>Natural lemongrass & lavender room scenting</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card" style="background: var(--color-cream-warm); padding: 2rem; border-radius: 16px; border: 1px solid var(--color-cream-border);">
+          <div class="pillar-icon" style="font-size: 2.2rem; margin-bottom: 1rem;">🥭</div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--color-terracotta-dark);">3. Fresh Market & Pantry Stocking</h3>
+          <p style="font-size: 0.95rem; color: var(--color-neutral-700); line-height: 1.6;">
+            Send us your shopping list or let our concierges source fresh Ghanaian staples: fresh eggs, tea bread, organic butter, cold milk, seasonal mangoes/pineapples, bottled spring water, and snacks waiting in the pantry.
+          </p>
+          <ul style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-neutral-600); list-style: disc; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Bottled mineral water chilled in fridge</li>
+            <li>Fresh local tropical fruits & plantain chips</li>
+            <li>Custom supermarket & market list fulfillment</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card" style="background: var(--color-cream-warm); padding: 2rem; border-radius: 16px; border: 1px solid var(--color-cream-border);">
+          <div class="pillar-icon" style="font-size: 2.2rem; margin-bottom: 1rem;">🍲</div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem; color: var(--color-terracotta-dark);">4. Hot Arrival Feast & Artisanal Drinks</h3>
+          <p style="font-size: 0.95rem; color: var(--color-neutral-700); line-height: 1.6;">
+            Powered by our sister kitchen <strong>LACUIZINEE</strong>: A warm pot of authentic Ghanaian Jollof rice with grilled chicken, light goat soup, or spicy kelewele, plus chilled bottles of handcrafted hibiscus Sobolo.
+          </p>
+          <ul style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-neutral-600); list-style: disc; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Small-batch clove-infused chilled Sobolo</li>
+            <li>Fresh gourmet meal ready upon arrival</li>
+            <li>No midnight supermarket or takeaway scramble</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Welcome Home Callout Box -->
+      <div style="background: linear-gradient(135deg, var(--color-terracotta-dark) 0%, #8A4F32 100%); color: #fff; padding: 2.5rem; border-radius: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem;">
+        <div style="max-width: 600px;">
+          <span style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; color: var(--color-warm-gold); font-weight: 700;">Complete Homecoming Package</span>
+          <h3 style="font-size: 1.8rem; margin: 0.5rem 0 1rem; color: #fff;">Akwaaba "Welcome Home" Diaspora Suite</h3>
+          <p style="margin: 0; font-size: 1rem; opacity: 0.9; line-height: 1.6;">
+            Includes full pre-arrival deep cleaning (up to 3 bedrooms), linen dressing, starter grocery stocking, and chilled Lacuizinee artisanal drinks pack. Starting from GH₵ 1,200.
+          </p>
+        </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button class="btn" onclick="window.bookAkwaabaConciergeWhatsApp('Akwaaba Welcome Home Diaspora Suite (GH₵ 1,200)')" style="background: var(--color-warm-gold); color: var(--color-terracotta-dark); font-weight: 700;">
+            Book Package via WhatsApp
+          </button>
+          <a href="#calculator" class="btn btn-secondary" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.4);">
+            Customize with Calculator
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE ARRIVAL & HOMECOMING COST CALCULATOR -->
+  <section class="section-calculator" id="calculator" style="padding: 5rem 1rem; background: var(--color-cream-warm);">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+        <span class="section-eyebrow" style="color: var(--color-terracotta);">Transparent Estimates</span>
+        <h2 class="section-title">Homecoming Concierge Calculator</h2>
+        <p class="section-desc">Customize your property specifications and select your desired readiness amenities for an instant quote.</p>
+      </div>
+
+      <div class="calculator-card" style="background: #fff; border-radius: 20px; padding: 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1.5px solid var(--color-cream-border);">
+        <form id="welcome-home-calc-form" oninput="window.updateWelcomeHomeTotal()">
+          
+          <!-- Step 1: Bedrooms -->
+          <div class="calc-section-group" style="margin-bottom: 2rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-neutral-900);">
+              1. Property Size / Number of Bedrooms:
+            </label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcBedrooms" value="650" checked>
+                <span><strong>1 - 2 Bedrooms</strong> (GH₵ 650)</span>
+              </label>
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcBedrooms" value="950">
+                <span><strong>3 - 4 Bedrooms</strong> (GH₵ 950)</span>
+              </label>
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcBedrooms" value="1450">
+                <span><strong>5+ Beds / Estate</strong> (GH₵ 1,450)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Cleaning Intensity -->
+          <div class="calc-section-group" style="margin-bottom: 2rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-neutral-900);">
+              2. Pre-Arrival Cleaning Depth:
+            </label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcCleaningType" value="standard" checked>
+                <span>Standard Deep Scrub & Sanitization</span>
+              </label>
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcCleaningType" value="post-reno">
+                <span>Post-Renovation / Heavy Dust (+GH₵ 300)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Pantry & Grocery Provisions -->
+          <div class="calc-section-group" style="margin-bottom: 2rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-neutral-900);">
+              3. Fresh Market & Refrigerator Stocking:
+            </label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcGrocery" value="0">
+                <span>None (Cleaning & Bedding only)</span>
+              </label>
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcGrocery" value="350" checked>
+                <span>Fresh Essentials Pack (GH₵ 350)</span>
+              </label>
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcGrocery" value="650">
+                <span>Full Gourmet Hamper & Pantry (GH₵ 650)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 4: Arrival Meal from Lacuizinee -->
+          <div class="calc-section-group" style="margin-bottom: 2.5rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.75rem; color: var(--color-neutral-900);">
+              4. Lacuizinee Arrival Feast & Artisanal Sobolo:
+            </label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcMeal" value="0">
+                <span>None</span>
+              </label>
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcMeal" value="120" checked>
+                <span>Artisanal Sobolo & Baobab Pack (GH₵ 120)</span>
+              </label>
+              <label class="calc-radio-label" style="display: flex; align-items: center; gap: 0.5rem; background: var(--color-cream-warm); padding: 0.75rem 1rem; border-radius: 10px; cursor: pointer; border: 1.5px solid var(--color-cream-border);">
+                <input type="radio" name="calcMeal" value="380">
+                <span>Hot Family Arrival Feast (GH₵ 380)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Total Display & Action -->
+          <div style="border-top: 2px dashed var(--color-cream-border); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem;">
+            <div>
+              <span style="font-size: 0.85rem; color: var(--color-neutral-600); text-transform: uppercase; font-weight: 600;">Estimated Package Cost</span>
+              <div style="font-size: 2.2rem; font-weight: 700; color: var(--color-terracotta-dark);" id="welcome-home-total-display">GH₵ 1,120.00</div>
+            </div>
+            <button type="button" class="btn btn-whatsapp" onclick="window.bookWelcomeHomeViaWhatsApp()" style="padding: 1rem 1.8rem; font-size: 1rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+              <span>Book Customized Plan on WhatsApp</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDALONE HOME CARE SERVICES GRID -->
+  <section class="section-home-services" id="services" style="padding: 5rem 1rem; background: #fff;">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 760px; margin: 0 auto 3.5rem;">
+        <span class="section-eyebrow" style="color: var(--color-terracotta);">Tailored Residential Solutions</span>
+        <h2 class="section-title">Comprehensive Property Care Services</h2>
+        <p class="section-desc">Beyond complete arrival suites, Akwaaba Fie provides focused individual property management and sanitation services throughout Accra.</p>
+      </div>
+
+      <div class="home-services-grid">
+        
+        <!-- Service 1: Pre-Arrival Deep Clean -->
+        <div class="home-service-card">
+          <div class="home-service-img-wrap">
+            <img src="assets/images/pre-arrival-cleaning.jpg" alt="Akwaaba Fie Pre-Arrival Deep Cleaning" class="home-service-img">
+            <span class="home-service-badge">Sanitized</span>
+          </div>
+          <div class="home-service-content">
+            <h3 class="home-service-title">Pre-Arrival Deep Clean & Sanitization</h3>
+            <p class="home-service-desc">
+              Comprehensive top-to-bottom scrub down: kitchen appliances, bathrooms descaled, tile grout cleaned, windows wiped, and fresh botanical scenting applied prior to guest check-in.
+            </p>
+            <div class="home-service-pricing">
+              <span class="home-service-price">From GH₵ 650.00</span>
+              <button class="btn btn-secondary btn-sm" onclick="window.bookAkwaabaConciergeWhatsApp('Pre-Arrival Deep Cleaning (From GH₵ 650)')">Book Service</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2: Refrigerator & Pantry Market Stocking -->
+        <div class="home-service-card">
+          <div class="home-service-img-wrap">
+            <img src="assets/images/hero-welcome-home.jpg" alt="Pantry and Refrigerator Stocking" class="home-service-img">
+            <span class="home-service-badge">Fresh Market</span>
+          </div>
+          <div class="home-service-content">
+            <h3 class="home-service-title">Pantry & Fresh Market Provisioning</h3>
+            <p class="home-service-desc">
+              Send us your grocery list or select our essentials kit: organic eggs, whole milk, artisan bread, fresh local fruits, butter, snacks, and pure drinking water neatly organized in your fridge.
+            </p>
+            <div class="home-service-pricing">
+              <span class="home-service-price">GH₵ 350.00</span>
+              <button class="btn btn-secondary btn-sm" onclick="window.bookAkwaabaConciergeWhatsApp('Pantry & Refrigerator Stocking (GH₵ 350)')">Request Provisioning</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3: Guest-Room Bedding & Premium Linen Dressing -->
+        <div class="home-service-card">
+          <div class="home-service-img-wrap">
+            <img src="assets/images/akwaaba-welcome-suite.jpg" alt="Guest-Room Bedding Setup" class="home-service-img">
+            <span class="home-service-badge">Crisp Cotton</span>
+          </div>
+          <div class="home-service-content">
+            <h3 class="home-service-title">Guest-Room Bedding & Linen Dressing</h3>
+            <p class="home-service-desc">
+              Full laundering, steam-pressing, and pristine hotel-style tucking for duvets, pillows, and sheets. Includes plush bathroom towels, bath sheets, and luxury guest soap presentation.
+            </p>
+            <div class="home-service-pricing">
+              <span class="home-service-price">GH₵ 250.00</span>
+              <button class="btn btn-secondary btn-sm" onclick="window.bookAkwaabaConciergeWhatsApp('Guest-Room Bedding & Linen Setup (GH₵ 250)')">Add Bedding Setup</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4: Post-Stay Turnover Cleaning -->
+        <div class="home-service-card">
+          <div class="home-service-img-wrap">
+            <img src="assets/images/about-menas-nest.jpg" alt="Post-Stay Property Turnover" class="home-service-img">
+            <span class="home-service-badge">Departure Care</span>
+          </div>
+          <div class="home-service-content">
+            <h3 class="home-service-title">Post-Stay Turnover & Reset</h3>
+            <p class="home-service-desc">
+              When your vacation ends or guests check out, we clear perishables from the fridge, wash and store linens, clean bathrooms, safely secure windows, and lock up your property.
+            </p>
+            <div class="home-service-pricing">
+              <span class="home-service-price">From GH₵ 500.00</span>
+              <button class="btn btn-secondary btn-sm" onclick="window.bookAkwaabaConciergeWhatsApp('Post-Stay Turnover & Reset (From GH₵ 500)')">Schedule Turnover</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5: Diaspora Home Airing & Routine Check -->
+        <div class="home-service-card">
+          <div class="home-service-img-wrap">
+            <img src="assets/images/hero-welcome-home.jpg" alt="Routine Diaspora Home Airing" class="home-service-img">
+            <span class="home-service-badge">Monthly Watch</span>
+          </div>
+          <div class="home-service-content">
+            <h3 class="home-service-title">Diaspora Monthly Property Airing</h3>
+            <p class="home-service-desc">
+              For diaspora homeowners abroad: we visit bi-weekly or monthly to air out rooms, test water taps and plumbing traps, inspect AC units, sweep dust, and provide photographic status reports.
+            </p>
+            <div class="home-service-pricing">
+              <span class="home-service-price">GH₵ 400.00 / mo</span>
+              <button class="btn btn-secondary btn-sm" onclick="window.bookAkwaabaConciergeWhatsApp('Diaspora Monthly Airing & Inspection (GH₵ 400/mo)')">Inquire Monthly</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 6: Curated VIP Welcome Hamper -->
+        <div class="home-service-card">
+          <div class="home-service-img-wrap">
+            <img src="assets/images/sobolo-artisanal.jpg" alt="VIP Homecoming Welcome Hamper" class="home-service-img">
+            <span class="home-service-badge">VIP Gift</span>
+          </div>
+          <div class="home-service-content">
+            <h3 class="home-service-title">VIP Homecoming Hamper & Drinks</h3>
+            <p class="home-service-desc">
+              A luxury woven basket with chilled Lacuizinee Hibiscus Sobolo, artisanal Ghanaian cocoa treats, fresh pineapple & mango, roasted cashews, plantain crisps, and a personalized greeting card.
+            </p>
+            <div class="home-service-pricing">
+              <span class="home-service-price">GH₵ 450.00</span>
+              <button class="btn btn-secondary btn-sm" onclick="window.bookAkwaabaConciergeWhatsApp('VIP Homecoming Hamper & Drinks (GH₵ 450)')">Order Hamper</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DYNAMIC PRODUCT CATALOG (FILTERED TO AKWAABA FIE VIA DATA-PAGE-BRAND) -->
+  <section class="section-catalog" id="packages" style="padding: 5rem 1rem; background: var(--color-cream-warm);">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 760px; margin: 0 auto 3rem;">
+        <span class="section-eyebrow" style="color: var(--color-terracotta);">Instant Booking Catalog</span>
+        <h2 class="section-title">Akwaaba Fie Packages & Add-Ons</h2>
+        <p class="section-desc">Add services directly to your digital cart or purchase via Mobile Money and WhatsApp with immediate concierge confirmation.</p>
+      </div>
+
+      <!-- Category Filter Pills & Search -->
+      <div class="catalog-controls-bar" style="margin-bottom: 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <div class="category-filters-scroll" id="category-filters-container">
+          <!-- Dynamically populated or interactive filters -->
+          <button class="filter-pill active" data-category="all">All Services</button>
+          <button class="filter-pill" data-category="concierge">Concierge Suites</button>
+          <button class="filter-pill" data-category="cleaning">Deep Cleaning</button>
+          <button class="filter-pill" data-category="pantry">Pantry Stocking</button>
+        </div>
+
+        <div class="catalog-sort-wrap" style="display: flex; gap: 0.5rem; align-items: center;">
+          <label for="catalog-sort-select" style="font-size: 0.85rem; color: var(--color-neutral-600); font-weight: 600;">Sort By:</label>
+          <select id="catalog-sort-select" class="currency-select" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">
+            <option value="featured">Featured First</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name">Service Name (A-Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Products Grid -->
+      <div class="products-grid" id="products-grid">
+        <!-- Rendered dynamically by app.js based on data-page-brand="akwaaba" -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SISTER BRAND BANNER: LACUIZINEE -->
+  <section class="sister-brand-banner" style="background: linear-gradient(135deg, #1E2D22 0%, #354C3B 100%);">
+    <div class="sister-banner-content">
+      <div class="sister-badge" style="background: rgba(201,174,128,0.25); color: var(--color-warm-gold);">
+        Sister Arm • Mena's Nest Group
+      </div>
+      <h2 class="sister-title">Complement Your Clean Home with Gourmet Food</h2>
+      <p class="sister-desc">
+        Planning an event, need healthy daily prepared meal subscriptions delivered to your door, or craving chilled bottles of artisanal hibiscus Sobolo? Discover our culinary specialist arm, <strong>LACUIZINEE</strong>.
+      </p>
+      <div class="sister-actions">
+        <a href="lacuizinee.html" class="btn btn-primary" style="background: var(--color-warm-gold); color: var(--color-forest-green-dark); border-color: var(--color-warm-gold); font-weight: 700;">
+          <span>Explore Lacuizinee Food & Drinks →</span>
+        </a>
+        <a href="index.html" class="btn btn-secondary" style="background: transparent; color: #fff; border-color: rgba(255,255,255,0.4);">
+          <span>View Mena's Nest Group Portal</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & CONCIERGE INQUIRY DESK -->
+  <section class="section-contact" id="contact" style="padding: 5rem 1rem; background: #fff;">
+    <div class="container" style="max-width: 1000px;">
+      <div class="section-header text-center" style="margin-bottom: 3rem;">
+        <span class="section-eyebrow" style="color: var(--color-terracotta);">Direct Liaison</span>
+        <h2 class="section-title">Schedule Your Homecoming Readiness</h2>
+        <p class="section-desc">Submit your property address, arrival dates, or custom requests. Our care concierge confirms within 2 hours.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        
+        <!-- Contact Information Card -->
+        <div style="background: var(--color-cream-warm); padding: 2.5rem; border-radius: 20px; border: 1.5px solid var(--color-cream-border);">
+          <h3 style="font-size: 1.4rem; color: var(--color-terracotta-dark); margin-bottom: 1.25rem;">Concierge Desk & Contacts</h3>
+          
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start;">
+            <div style="font-size: 1.5rem;">📞</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; color: var(--color-neutral-900);">Direct Phone & WhatsApp Hotline</strong>
+              <a href="tel:+233208386301" style="color: var(--color-terracotta-dark); font-weight: 700; font-size: 1.1rem; text-decoration: none;">020 838 6301</a>
+              <span style="display: block; font-size: 0.8rem; color: var(--color-neutral-600);">International: +233 20 838 6301</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start;">
+            <div style="font-size: 1.5rem;">✉️</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; color: var(--color-neutral-900);">Email Communications</strong>
+              <a href="mailto:menasnest@gmail.com" style="color: var(--color-terracotta-dark); font-weight: 600; text-decoration: none;">menasnest@gmail.com</a>
+              <span style="display: block; font-size: 0.8rem; color: var(--color-neutral-600);">Inquiries, key handovers & invoices</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start;">
+            <div style="font-size: 1.5rem;">📍</div>
+            <div>
+              <strong style="display: block; font-size: 0.95rem; color: var(--color-neutral-900);">Coverage Areas (Greater Accra)</strong>
+              <span style="display: block; font-size: 0.85rem; color: var(--color-neutral-700); line-height: 1.5;">
+                Airport Residential, East Legon, Cantonments, Labone, Dzorwulu, Roman Ridge, Tse Addo, Ridge, Spintex, Oyarifa, Haatso, and across Greater Accra.
+              </span>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-cream-border);">
+            <a href="https://wa.me/233208386301?text=Hello%20Akwaaba%20Fie!%20I'd%20love%20to%20discuss%20property%20care%20and%20home%20readiness." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+              <span>Instant Chat with Concierge</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Custom Request Form -->
+        <div style="background: #fff; padding: 2.5rem; border-radius: 20px; border: 1.5px solid var(--color-cream-border); box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+          <h3 style="font-size: 1.4rem; color: var(--color-neutral-900); margin-bottom: 1.5rem;">Request a Custom Property Proposal</h3>
+          <form id="contact-form" onsubmit="event.preventDefault(); window.showToast('Thank you! Your property concierge inquiry has been received. Our team will contact you shortly.', 'success'); this.reset();">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Full Name *</label>
+                <input type="text" id="contact-name" required placeholder="e.g. Kwame Mensah">
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">WhatsApp / Phone *</label>
+                <input type="tel" id="contact-phone" required placeholder="e.g. +44 7000 000000 or 020 838 6301">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-location">Property Neighborhood *</label>
+                <input type="text" id="contact-location" required placeholder="e.g. East Legon, Cantonments, Spintex">
+              </div>
+              <div class="form-group">
+                <label for="contact-date">Arrival / Service Date</label>
+                <input type="date" id="contact-date">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-service">Primary Service Interest</label>
+              <select id="contact-service" style="padding: 0.65rem 0.8rem; border-radius: 6px; border: 1.5px solid var(--color-cream-border); width: 100%; font-size: 0.9rem;">
+                <option value="welcome-suite">Akwaaba "Welcome Home" Diaspora Suite</option>
+                <option value="deep-clean">Pre-Arrival Deep Clean & Sanitization</option>
+                <option value="grocery-stock">Pantry & Refrigerator Grocery Stocking</option>
+                <option value="linen-dressing">Guest-Room Bedding & Linen Dressing</option>
+                <option value="diaspora-airing">Monthly Diaspora Property Airing & Inspection</option>
+                <option value="post-stay">Post-Stay / Departure Turnover Clean</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-notes">Notes / Special Instructions (Flight arrival, specific groceries, key access)</label>
+              <textarea id="contact-notes" rows="3" placeholder="Tell us about your property, flight details, or specific pantry preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full" style="background: var(--color-terracotta); border-color: var(--color-terracotta); padding: 0.85rem;">
+              <span>Submit Concierge Request</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN FOOTER -->
+  <footer class="site-footer" id="site-footer" style="background: #251B17; color: #E8DDD7; padding: 4.5rem 1rem 2.5rem;">
+    <div class="container footer-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; margin-bottom: 3.5rem;">
+      
+      <!-- Brand Summary -->
+      <div class="footer-col footer-about">
+        <div class="footer-brand-header" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <span style="font-size: 1.6rem;">🏡</span>
+          <div>
+            <strong style="font-size: 1.2rem; color: #fff; letter-spacing: 0.05em; display: block;">AKWAABA FIE</strong>
+            <span style="font-size: 0.75rem; color: var(--color-warm-gold);">A Mena’s Nest Group Specialist</span>
+          </div>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.85;">
+          Dedicated home readiness and diaspora homecoming concierge in Accra, Ghana. "Your home, our care."
+        </p>
+        <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-warm-gold);">
+          📞 WhatsApp: 020 838 6301
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4 style="color: #fff; font-size: 1.05rem; margin-bottom: 1.25rem;">Akwaaba Fie Services</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; line-height: 2; font-size: 0.9rem;">
+          <li><a href="#welcome-home" style="color: inherit; text-decoration: none; opacity: 0.85;">Welcome Home Suite</a></li>
+          <li><a href="#services" style="color: inherit; text-decoration: none; opacity: 0.85;">Pre-Arrival Deep Clean</a></li>
+          <li><a href="#services" style="color: inherit; text-decoration: none; opacity: 0.85;">Fresh Market Stocking</a></li>
+          <li><a href="#services" style="color: inherit; text-decoration: none; opacity: 0.85;">Guest Linen Dressing</a></li>
+          <li><a href="#calculator" style="color: inherit; text-decoration: none; opacity: 0.85;">Arrival Cost Calculator</a></li>
+        </ul>
+      </div>
+
+      <!-- Sister Arm & Group -->
+      <div class="footer-col">
+        <h4 style="color: #fff; font-size: 1.05rem; margin-bottom: 1.25rem;">Mena's Nest Group</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; line-height: 2; font-size: 0.9rem;">
+          <li><a href="index.html" style="color: inherit; text-decoration: none; opacity: 0.85;">Mena's Nest Overview Portal</a></li>
+          <li><a href="lacuizinee.html" style="color: #6EE7B7; text-decoration: none; font-weight: 600;">🍲 Lacuizinee (Food Arm)</a></li>
+          <li><a href="lacuizinee.html#catering" style="color: inherit; text-decoration: none; opacity: 0.85;">Event & Corporate Catering</a></li>
+          <li><a href="lacuizinee.html#beverages" style="color: inherit; text-decoration: none; opacity: 0.85;">Artisanal Hibiscus Sobolo</a></li>
+          <li><a href="lacuizinee.html#subscriptions" style="color: inherit; text-decoration: none; opacity: 0.85;">Weekly Meal Subscriptions</a></li>
+        </ul>
+      </div>
+
+      <!-- Operating Hours & Locations -->
+      <div class="footer-col">
+        <h4 style="color: #fff; font-size: 1.05rem; margin-bottom: 1.25rem;">Concierge Operation</h4>
+        <p style="font-size: 0.85rem; line-height: 1.6; opacity: 0.85; margin-bottom: 0.5rem;">
+          <strong>Cleaning & Service Hours:</strong><br>
+          Monday – Sunday: 7:00 AM – 7:00 PM<br>
+          24/7 Kotoka Airport Flight Handover Coordination
+        </p>
+        <p style="font-size: 0.85rem; line-height: 1.6; opacity: 0.85;">
+          <strong>Email:</strong> menasnest@gmail.com<br>
+          <strong>Phone:</strong> 020 838 6301
+        </p>
+      </div>
+
+    </div>
+
+    <div class="container" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.85rem; opacity: 0.75;">
+      <div>© 2026 Mena’s Nest Group. All rights reserved. Akwaaba Fie • Your Home, Our Care.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Group Portal</a>
+        <a href="lacuizinee.html" style="color: inherit; text-decoration: none;">Lacuizinee Food</a>
+        <a href="akwaaba-fie.html" style="color: inherit; text-decoration: none;">Akwaaba Fie Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART SLIDE-OVER DRAWER -->
+  <div class="cart-drawer-overlay hidden" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer hidden" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <h3>Your Cart</h3>
+        <span class="cart-item-count" id="drawer-item-count">0 items</span>
+      </div>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">✕</button>
+    </div>
+    
+    <div class="shipping-progress-box">
+      <p class="shipping-status-text" id="shipping-status-text">Add GH₵ 600.00 for FREE Delivery</p>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="shipping-progress-fill" style="width: 0%;"></div></div>
+    </div>
+    
+    <div class="cart-items-container" id="cart-items-container">
+      <!-- Items dynamically populated via app.js -->
+    </div>
+    
+    <div class="cart-promo-section">
+      <div class="cart-coupon-row">
+        <input type="text" id="cart-coupon-input" placeholder="Promo code (e.g. MAMA10, NESTLOVE)" uppercase>
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-apply-coupon">Apply</button>
+      </div>
+      <div class="coupon-feedback" id="coupon-feedback"></div>
+    </div>
+    
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-summary-lines">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal-price">GH₵ 0.00</span>
+        </div>
+        <div class="summary-line discount-line hidden" id="cart-discount-row">
+          <span>Discount Applied (<strong id="applied-coupon-name"></strong>)</span>
+          <span id="cart-discount-amount" class="discount-val">-GH₵ 0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Est. Shipping / Setup</span>
+          <span id="cart-shipping-price">Calculated at checkout</span>
+        </div>
+        <div class="summary-line total-line">
+          <strong>Estimated Total</strong>
+          <strong id="cart-grand-total">GH₵ 0.00</strong>
+        </div>
+      </div>
+
+      <div class="cart-action-buttons">
+        <button class="btn btn-primary w-full" id="web-checkout-btn">
+          <span>Proceed to Secure Checkout</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+        </button>
+
+        <button class="btn btn-whatsapp w-full" id="whatsapp-checkout-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+          <span>Order via WhatsApp (020 838 6301)</span>
+        </button>
+      </div>
+      <p class="cart-guarantee-note">🔒 256-Bit SSL Encrypted • Inspected Quality Guaranteed</p>
+    </div>
+  </aside>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="cart-drawer-overlay hidden" id="wishlist-overlay"></div>
+  <aside class="cart-drawer wishlist-drawer hidden" id="wishlist-drawer" aria-label="Saved Services Wishlist">
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <h3>Saved Services</h3>
+        <span class="cart-item-count" id="wishlist-item-count">0 items</span>
+      </div>
+      <button class="cart-close-btn" id="wishlist-close-btn" aria-label="Close wishlist">✕</button>
+    </div>
+    <div class="cart-items-container" id="wishlist-items-container"></div>
+    <div class="cart-drawer-footer">
+      <button class="btn btn-secondary w-full" id="btn-add-all-wishlist">
+        Add All In-Stock to Cart
+      </button>
+    </div>
+  </aside>
+
+  <!-- PRODUCT DETAIL / QUICK VIEW MODAL -->
+  <div class="modal-overlay hidden" id="product-modal-overlay">
+    <div class="modal-card product-modal-card" id="product-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="product-modal-close" aria-label="Close dialog">✕</button>
+      <div class="product-modal-layout" id="product-modal-layout">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPREHENSIVE 3-STEP E-COMMERCE CHECKOUT MODAL -->
+  <div class="modal-overlay hidden" id="checkout-modal-overlay">
+    <div class="modal-card checkout-modal-card-v2" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="checkout-modal-close" aria-label="Close checkout">✕</button>
+      
+      <div class="checkout-layout-grid">
+        <div class="checkout-main-flow">
+          <div class="checkout-stepper-nav">
+            <div class="checkout-step-tab active" data-step="1">
+              <span class="step-num">1</span>
+              <span class="step-txt">Client & Location</span>
+            </div>
+            <div class="checkout-step-sep">›</div>
+            <div class="checkout-step-tab" data-step="2">
+              <span class="step-num">2</span>
+              <span class="step-txt">Service Schedule</span>
+            </div>
+            <div class="checkout-step-sep">›</div>
+            <div class="checkout-step-tab" data-step="3">
+              <span class="step-num">3</span>
+              <span class="step-txt">Payment & Confirmation</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: Address & Contact Details -->
+          <div class="checkout-step-content active" id="checkout-step-1">
+            <div class="step-heading">
+              <h3>Service Location & Contact Information</h3>
+              <p>Where in Accra should our care team provide services or delivery?</p>
+            </div>
+            <form id="step-1-form" onsubmit="event.preventDefault(); window.goToCheckoutStep(2);">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-email">Email Address *</label>
+                  <input type="email" id="co-email" required placeholder="kwame@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="co-phone">Phone / WhatsApp *</label>
+                  <input type="tel" id="co-phone" required placeholder="020 838 6301 or +44...">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-fname">First Name *</label>
+                  <input type="text" id="co-fname" required placeholder="Kwame">
+                </div>
+                <div class="form-group">
+                  <label for="co-lname">Last Name *</label>
+                  <input type="text" id="co-lname" required placeholder="Mensah">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="co-address">Property Street Address & Landmark *</label>
+                <input type="text" id="co-address" required placeholder="e.g. House 14, Kofi Annan Ave, Airport Residential">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-city">Neighborhood / City *</label>
+                  <input type="text" id="co-city" required placeholder="e.g. Airport Residential, Accra">
+                </div>
+                <div class="form-group">
+                  <label for="co-postal">Digital Address / GhanaPost GPS</label>
+                  <input type="text" id="co-postal" placeholder="e.g. GA-183-9201">
+                </div>
+              </div>
+
+              <div class="checkout-next-row">
+                <button type="submit" class="btn btn-primary w-full" style="background: var(--color-terracotta); border-color: var(--color-terracotta);">
+                  Continue to Service Schedule →
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 2: Service Schedule / Delivery Speed -->
+          <div class="checkout-step-content" id="checkout-step-2">
+            <div class="step-heading">
+              <h3>Choose Readiness Timing</h3>
+              <p>Select your preferred preparation timeframe for the service team.</p>
+            </div>
+            <div class="shipping-methods-list">
+              <label class="shipping-method-card active">
+                <input type="radio" name="shippingMethod" value="standard" checked onchange="window.updateCheckoutShipping('standard')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Standard Advance Booking (2–4 Days Notice)</strong>
+                    <span class="shipping-cost" id="ship-cost-standard">FREE (over GH₵ 600)</span>
+                  </div>
+                  <p class="shipping-desc">Scheduled ahead of your arrival date with dedicated pre-arrival team.</p>
+                </div>
+              </label>
+
+              <label class="shipping-method-card">
+                <input type="radio" name="shippingMethod" value="express" onchange="window.updateCheckoutShipping('express')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Expedited Rush Arrival (24-Hour Notice)</strong>
+                    <span class="shipping-cost" id="ship-cost-express">GH₵ 90.00</span>
+                  </div>
+                  <p class="shipping-desc">Priority same-day dispatch and immediate cleaner deployment.</p>
+                </div>
+              </label>
+
+              <label class="shipping-method-card">
+                <input type="radio" name="shippingMethod" value="courier" onchange="window.updateCheckoutShipping('courier')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Key Collection & Personal Courier Handover</strong>
+                    <span class="shipping-cost" id="ship-cost-courier">GH₵ 55.00</span>
+                  </div>
+                  <p class="shipping-desc">Direct courier collection of keys from your family/caretaker.</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="checkout-nav-buttons">
+              <button type="button" class="btn btn-secondary" onclick="window.goToCheckoutStep(1)">← Back to Address</button>
+              <button type="button" class="btn btn-primary" onclick="window.goToCheckoutStep(3)" style="background: var(--color-terracotta); border-color: var(--color-terracotta);">Continue to Payment →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Payment Options -->
+          <div class="checkout-step-content" id="checkout-step-3">
+            <div class="step-heading">
+              <h3>Payment & Order Finalization</h3>
+              <p>Select your preferred secure payment method in Ghana Cedis.</p>
+            </div>
+
+            <div class="payment-tabs-bar">
+              <button type="button" class="payment-tab active" data-pay="momo" onclick="window.switchPaymentTab('momo')">
+                <span>📱 Mobile Money</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="card" onclick="window.switchPaymentTab('card')">
+                <span>💳 Card</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="cod" onclick="window.switchPaymentTab('cod')">
+                <span>📦 On-Site Pay</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="whatsapp" onclick="window.switchPaymentTab('whatsapp')">
+                <span>💬 WhatsApp</span>
+              </button>
+            </div>
+
+            <!-- MTN Mobile Money / Telecel Cash Option -->
+            <div class="payment-pane active" id="pane-pay-momo">
+              <div class="bank-details-card" style="border-color: #D97706; background: #FFFDF5;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;">
+                  <span style="font-size:1.6rem;">📱</span>
+                  <h4 style="margin:0; font-size:1.15rem;">Instant Mobile Money Payment</h4>
+                </div>
+                <div class="bank-row">
+                  <span>Merchant / MoMo Number:</span>
+                  <strong>020 838 6301</strong>
+                  <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText('0208386301'); window.showToast('MoMo number 020 838 6301 copied!', 'info');">Copy</button>
+                </div>
+                <div class="bank-row">
+                  <span>Account Name:</span>
+                  <strong>Mena’s Nest Botanical Wellness & Care</strong>
+                </div>
+                <div class="bank-row">
+                  <span>Order Reference:</span>
+                  <strong id="momo-ref-code">#AF-2026</strong>
+                </div>
+                <div class="form-group" style="margin-top:1rem;">
+                  <label for="momo-user-number">Your MoMo Number (For Prompt Authorization)</label>
+                  <input type="tel" id="momo-user-number" placeholder="e.g. 024 000 0000" style="padding:0.6rem 0.8rem; font-size:0.9rem; border:1.5px solid var(--color-cream-border); border-radius:6px; background:#fff;">
+                </div>
+                <p class="bank-note" style="color:#92400E;">Transfer directly to 020 838 6301 or await authorization prompt upon order submission.</p>
+              </div>
+            </div>
+
+            <!-- Card Payment Option -->
+            <div class="payment-pane" id="pane-pay-card">
+              <div class="card-visual-preview">
+                <div class="card-chip"></div>
+                <div class="card-brand-logo" id="preview-card-brand">VISA / MC</div>
+                <div class="card-number-display" id="preview-card-num">•••• •••• •••• 4242</div>
+                <div class="card-bottom-row">
+                  <div class="card-holder-display" id="preview-card-name">CARDHOLDER NAME</div>
+                  <div class="card-expiry-display" id="preview-card-exp">MM/YY</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pay on Site Option -->
+            <div class="payment-pane" id="pane-pay-cod">
+              <div class="cod-info-box">
+                <span class="cod-icon">🏡</span>
+                <h4>Cash or POS Card Payment Upon Key Handover</h4>
+                <p>Pay when our lead concierge conducts the initial inspection walkthrough or delivers your keys.</p>
+              </div>
+            </div>
+
+            <!-- WhatsApp Express Option -->
+            <div class="payment-pane" id="pane-pay-whatsapp">
+              <div class="cod-info-box whatsapp-box">
+                <span class="cod-icon">💬</span>
+                <h4>Direct WhatsApp Concierge Confirmation</h4>
+                <p>Your property booking details and chosen services are sent straight to 020 838 6301 for instant scheduling.</p>
+              </div>
+            </div>
+
+            <div class="checkout-nav-buttons" style="margin-top: 1.5rem;">
+              <button type="button" class="btn btn-secondary" onclick="window.goToCheckoutStep(2)">← Back to Schedule</button>
+              <button type="button" class="btn btn-primary" id="btn-submit-final-order" onclick="window.finalizeEcommerceOrder()" style="background: var(--color-terracotta); border-color: var(--color-terracotta);">
+                Confirm Booking & Schedule Care
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Live Order Summary Sidebar -->
+        <div class="checkout-summary-sidebar">
+          <div class="summary-card-header">
+            <h4>Booking Summary</h4>
+            <span class="summary-count" id="summary-badge-count">0 items</span>
+          </div>
+
+          <div class="checkout-items-list" id="checkout-items-list">
+            <!-- Populated via app.js -->
+          </div>
+
+          <div class="checkout-coupon-apply-row">
+            <input type="text" id="co-coupon-input" placeholder="Promo code (e.g. MAMA10)">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.applyCheckoutCoupon()">Apply</button>
+          </div>
+
+          <div class="checkout-calc-lines">
+            <div class="calc-line">
+              <span>Services Subtotal</span>
+              <span id="co-subtotal">GH₵ 0.00</span>
+            </div>
+            <div class="calc-line discount-line hidden" id="co-discount-row">
+              <span>Discount</span>
+              <span id="co-discount-amt" class="discount-val">-GH₵ 0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Schedule / Dispatch</span>
+              <span id="co-shipping-amt">GH₵ 0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Estimated Tax (5%)</span>
+              <span id="co-tax-amt">GH₵ 0.00</span>
+            </div>
+            <div class="calc-line grand-total-line">
+              <strong>Grand Total Payable</strong>
+              <strong id="co-grand-total" class="grand-total-val">GH₵ 0.00</strong>
+            </div>
+          </div>
+
+          <div class="checkout-security-guarantee">
+            <span>🏡 100% Inspected & Sanitized</span>
+            <span>🔑 Secure Key Custody</span>
+            <span>🛡️ Dedicated Accra Concierge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMATION & DIGITAL RECEIPT MODAL -->
+  <div class="modal-overlay hidden" id="order-receipt-modal">
+    <div class="modal-card receipt-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="receipt-modal-close" aria-label="Close receipt">✕</button>
+      
+      <div class="receipt-header text-center">
+        <div class="receipt-success-badge" style="background: var(--color-terracotta);">✓</div>
+        <span class="section-eyebrow">Booking Confirmed</span>
+        <h2 id="receipt-order-id">#AF-84920</h2>
+        <p class="receipt-lead">Thank you, <strong id="receipt-customer-name">Valued Client</strong>! Your Akwaaba Fie home readiness package has been logged. Our concierge is preparing your schedule.</p>
+      </div>
+
+      <div class="receipt-actions text-center" style="margin-top: 2rem;">
+        <button class="btn btn-primary" onclick="window.printDigitalReceipt()">Print / Save Confirmation</button>
+        <button class="btn btn-secondary" onclick="window.closeReceiptModal()">Return to Akwaaba Fie</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- MOBILE STICKY BOTTOM NAVIGATION BAR -->
+  <nav class="mobile-bottom-bar" id="mobile-bottom-bar" aria-label="Mobile Navigation">
+    <a href="index.html" class="bottom-nav-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Group</span>
+    </a>
+    <a href="#welcome-home" class="bottom-nav-item active">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9l9-7z"></path><path d="M9 22V12h6v10"></path></svg>
+      <span>Welcome</span>
+    </a>
+    <a href="#calculator" class="bottom-nav-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+      <span>Calculator</span>
+    </a>
+    <a href="lacuizinee.html" class="bottom-nav-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+      <span>Lacuizinee</span>
+    </a>
+    <button type="button" class="bottom-nav-item" id="bottom-nav-cart">
+      <div class="bottom-nav-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span class="bottom-badge" id="bottom-cart-badge">0</span>
+      </div>
+      <span>Cart</span>
+    </button>
+  </nav>
+
+  <!-- FLOATING WHATSAPP BUTTON WIDGET -->
+  <div class="floating-whatsapp-widget" id="floating-whatsapp-widget">
+    <a href="https://wa.me/233208386301?text=Hello%20Akwaaba%20Fie!%20I'd%20love%20to%20arrange%20home%20readiness%20and%20welcome%20home%20services." target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Chat on WhatsApp" style="background: #25D366;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+      <span class="whatsapp-tooltip">Akwaaba Fie Concierge (020 838 6301)</span>
+      <span class="whatsapp-ping"></span>
+    </a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

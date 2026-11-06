@@ -5177,3 +5177,277 @@ body.no-scroll {
   }
 }
 
+/* ==========================================================================
+   MULTI-PAGE ARCHITECTURE: BRAND SWITCHER & SPECIALIZED PAGES
+   ========================================================================== */
+.brand-nav-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.2rem 0.35rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-cream-border);
+}
+
+.brand-switch-pill {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  color: var(--color-neutral-700);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.brand-switch-pill:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-neutral-900);
+}
+
+.brand-switch-pill.active {
+  background: var(--color-forest-green);
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(53, 76, 59, 0.25);
+}
+
+.brand-switch-pill.active-akwaaba {
+  background: var(--color-terracotta);
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(183, 123, 87, 0.25);
+}
+
+/* Sister Brand Referral Banner */
+.sister-brand-banner {
+  margin: 5rem 0;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.sister-banner-lacuizinee {
+  background: linear-gradient(135deg, #FAF4F0 0%, #FFFFFF 50%, #F5F0E6 100%);
+  border: 2px solid var(--color-terracotta-light);
+}
+
+.sister-banner-akwaaba {
+  background: linear-gradient(135deg, #EFF4F0 0%, #FFFFFF 50%, #F5F0E6 100%);
+  border: 2px solid var(--color-forest-green-light);
+}
+
+.sister-banner-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .sister-banner-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .sister-brand-banner {
+    padding: 2rem 1.25rem;
+    margin: 3.5rem 0;
+  }
+}
+
+/* Specialized Page Hero Accents */
+.page-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.badge-lacuizinee {
+  background: var(--color-forest-green-subtle);
+  color: var(--color-forest-green-dark);
+  border: 1px solid var(--color-forest-green-light);
+}
+
+.badge-akwaaba {
+  background: var(--color-terracotta-subtle);
+  color: var(--color-terracotta-dark);
+  border: 1px solid var(--color-terracotta-light);
+}
+
+/* Subscription Cards Grid */
+.subscription-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.subscription-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-cream-border);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.subscription-card.popular {
+  border-color: var(--color-forest-green);
+  box-shadow: 0 8px 30px rgba(53, 76, 59, 0.12);
+  transform: translateY(-4px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--color-forest-green);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.sub-price-row {
+  margin: 1.25rem 0 1.5rem;
+}
+
+.sub-price {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-neutral-900);
+}
+
+.sub-period {
+  font-size: 0.85rem;
+  color: var(--color-neutral-600);
+}
+
+.sub-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+.sub-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--color-neutral-700);
+}
+
+.sub-feature-item svg {
+  color: var(--color-forest-green);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .subscription-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Home Services Grid */
+.home-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.home-service-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-cream-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.home-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-terracotta-light);
+}
+
+.home-service-media {
+  height: 200px;
+  overflow: hidden;
+  background: var(--color-warm-ivory);
+}
+
+.home-service-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.home-service-card:hover .home-service-media img {
+  transform: scale(1.04);
+}
+
+.home-service-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-service-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-neutral-900);
+  margin-bottom: 0.5rem;
+}
+
+.home-service-body p {
+  font-size: 0.88rem;
+  color: var(--color-neutral-600);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.home-service-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-cream-border);
+}
+
+.service-price-tag {
+  font-weight: 700;
+  color: var(--color-terracotta-dark);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .home-services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+

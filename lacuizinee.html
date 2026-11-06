@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#354C3B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>LACUIZINEE by Mena’s Nest | Good Food. Better Living. Catering, Meal Plans & Artisanal Drinks</title>
+  <meta name="description" content="Lacuizinee is the dedicated food and beverage specialist arm of Mena’s Nest Group. Corporate catering, healthy prepared meal subscriptions, custom dietary planning, and artisanal Ghanaian drinks (Sobolo, Tamarind, Baobab).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍲</text></svg>">
+</head>
+<body data-page-brand="lacuizinee">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" id="announcement-bar" style="background: var(--color-forest-green-dark);">
+    <div class="announcement-container">
+      <span class="announcement-badge" style="background: rgba(255,255,255,0.2);">Lacuizinee • Food Arm</span>
+      <p class="announcement-text">
+        ✨ Fresh Daily Kitchen Preparation • Corporate Catering & Artisanal Sobolo • Order / WhatsApp: 020 838 6301
+      </p>
+      <div class="announcement-controls">
+        <label for="currency-select" class="sr-only">Currency</label>
+        <select id="currency-select" class="currency-select" aria-label="Select Currency">
+          <option value="GHS" selected>GHS (GH₵)</option>
+          <option value="USD">USD ($)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="NGN">NGN (₦)</option>
+          <option value="CAD">CAD ($)</option>
+        </select>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="lacuizinee.html" class="brand-logo" id="brand-logo" aria-label="Lacuizinee Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" fill="var(--color-cream-warm)" stroke="var(--color-warm-gold)" stroke-width="1.5"/>
+            <path d="M20 7C14 13 11 20 13 27C14.5 32 19 33 22 31C26 28 28 22 26 15C25 11 22 8 20 7Z" fill="var(--color-forest-green)" opacity="0.95"/>
+            <circle cx="20" cy="20" r="3.5" fill="var(--color-warm-gold)"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name" style="color: var(--color-forest-green-dark);">LACUIZINEE</span>
+          <span class="brand-tagline">Good Food. Better Living.</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="main-nav" id="main-nav" aria-label="Lacuizinee Navigation">
+        <ul class="nav-links">
+          <li><a href="#menu" class="nav-link active">All Menu</a></li>
+          <li><a href="#beverages" class="nav-link">Artisanal Drinks</a></li>
+          <li><a href="#subscriptions" class="nav-link">Meal Subscriptions</a></li>
+          <li><a href="#catering" class="nav-link">Event Catering</a></li>
+          <li><a href="akwaaba-fie.html" class="nav-link" style="color: var(--color-terracotta-dark); font-weight: 700;">🏡 Akwaaba Fie (Home) ↗</a></li>
+          <li><a href="index.html" class="nav-link" style="color: var(--color-neutral-600);">Mena's Nest Group</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="nav-actions">
+        <div class="brand-nav-switcher">
+          <a href="index.html" class="brand-switch-pill">Group</a>
+          <a href="lacuizinee.html" class="brand-switch-pill active">🍲 Lacuizinee</a>
+          <a href="akwaaba-fie.html" class="brand-switch-pill">🏡 Akwaaba Fie</a>
+        </div>
+
+        <button class="icon-btn search-toggle" id="search-toggle-btn" aria-label="Search culinary items" title="Search items">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+
+        <button class="icon-btn wishlist-trigger-btn" id="wishlist-trigger-btn" aria-label="View Wishlist" title="Saved Items">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="wishlist-count-badge" id="wishlist-count-badge">0</span>
+        </button>
+
+        <a href="https://wa.me/233208386301?text=Hello%20Lacuizinee!%20I'd%20love%20to%20order%20or%20inquire%20about%20catering%20and%20drinks." target="_blank" rel="noopener noreferrer" class="whatsapp-nav-btn" id="whatsapp-nav-btn" title="WhatsApp 020 838 6301">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+          <span class="whatsapp-btn-text">Order</span>
+        </a>
+
+        <button class="cart-trigger-btn" id="cart-trigger-btn" aria-label="View Shopping Cart">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count-badge" id="cart-count-badge">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Search Bar (Dropdown) -->
+    <div class="search-dropdown-bar hidden" id="search-dropdown-bar">
+      <div class="search-input-wrapper">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="global-search-input" placeholder="Search Sobolo, Tamarind, Baobab, meal boxes, catering platters..." autocomplete="off">
+        <button class="close-search-btn" id="close-search-btn" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-suggestions" id="search-suggestions"></div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <span class="brand-name" style="color: var(--color-forest-green);">LACUIZINEE</span>
+      <button class="close-mobile-nav" id="close-mobile-nav" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-links">
+      <li><a href="#menu" class="mobile-link">Full Menu & Ordering</a></li>
+      <li><a href="#beverages" class="mobile-link">Artisanal Drinks (Sobolo, Tamarind, Baobab)</a></li>
+      <li><a href="#subscriptions" class="mobile-link">Weekly Meal Subscriptions</a></li>
+      <li><a href="#catering" class="mobile-link">Corporate & Event Catering</a></li>
+      <li><a href="akwaaba-fie.html" class="mobile-link" style="color: var(--color-terracotta);">🏡 Akwaaba Fie Home Care ↗</a></li>
+      <li><a href="index.html" class="mobile-link">Mena's Nest Group Home</a></li>
+      <li><a href="#contact" class="mobile-link">Contact & WhatsApp Orders</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <a href="https://wa.me/233208386301" target="_blank" class="btn btn-whatsapp w-full">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+        <span>WhatsApp Kitchen (020 838 6301)</span>
+      </a>
+    </div>
+  </div>
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-blobs">
+        <div class="blob blob-1" style="background: rgba(53, 76, 59, 0.08);"></div>
+        <div class="blob blob-2" style="background: rgba(201, 174, 128, 0.1);"></div>
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="page-hero-badge badge-lacuizinee">
+            <span class="badge-dot" style="background: var(--color-forest-green);"></span>
+            <span>Food & Beverage Specialist • Mena’s Nest</span>
+          </div>
+          <h1 class="hero-title" style="color: var(--color-forest-green-dark);">
+            Good food. Better living. Crafted with <em>Ghanaian soul</em>.
+          </h1>
+          <p class="hero-lead">
+            <strong>LACUIZINEE</strong> is the culinary arm of Mena’s Nest. We specialize in corporate & private event catering, healthy prepared meal prep subscriptions, custom dietary planning, and authentic small-batch artisanal beverages — cold-infused Sobolo, Velvet Tamarind, and Baobab.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#menu" class="btn btn-primary" id="hero-menu-btn">
+              <span>Explore Menu & Order</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
+            <a href="#catering" class="btn btn-secondary" id="hero-catering-btn">
+              <span>Event Catering Proposals</span>
+            </a>
+            <a href="#subscriptions" class="btn btn-terracotta" id="hero-sub-btn">
+              <span>Weekly Meal Subscriptions</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges Row -->
+          <div class="hero-trust-row">
+            <div class="trust-badge-item">
+              <span class="trust-icon">🌱</span>
+              <div>
+                <strong>Local Organic Sourcing</strong>
+                <span>Direct from Ghanaian Farmers</span>
+              </div>
+            </div>
+            <div class="trust-badge-item">
+              <span class="trust-icon">🍲</span>
+              <div>
+                <strong>Fresh Daily Atelier Prep</strong>
+                <span>Zero Artificial Additives</span>
+              </div>
+            </div>
+            <div class="trust-badge-item">
+              <span class="trust-icon">✨</span>
+              <div>
+                <strong>Bespoke Nutrition</strong>
+                <span>Custom Dietary Menus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            <div class="hero-image-frame">
+              <img src="assets/images/sobolo-artisanal.jpg" alt="Lacuizinee artisanal Sobolo with fresh ginger, mint, and spices" class="hero-main-img" loading="eager">
+              <div class="hero-gradient-overlay"></div>
+            </div>
+
+            <!-- Floating Micro Cards -->
+            <div class="floating-card floating-card-top">
+              <div class="floating-avatar">🍹</div>
+              <div>
+                <p class="floating-title">Chilled Artisanal Sobolo</p>
+                <p class="floating-meta">Cold-Infused with Ginger & Selim</p>
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-bottom">
+              <div class="floating-stars">★★★★★</div>
+              <p class="floating-quote">“Lacuizinee catered our 40-person executive retreat in Cantonments. The food presentation and cold sobolo bar were unforgettable.”</p>
+              <p class="floating-author">— Nana Kwesi, Managing Director</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 CORE SPECIALTY PILLARS STRIP -->
+    <section class="values-strip" style="background: #FFFFFF;">
+      <div class="container">
+        <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+          <span class="section-eyebrow">Culinary Craft</span>
+          <h2 class="section-title">What Lacuizinee Creates For You</h2>
+          <p class="section-desc">Every recipe balances authentic Ghanaian flavor, vibrant nutrition, and polished hospitality presentation.</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon-box" style="background: var(--color-forest-green-subtle); color: var(--color-forest-green);">
+              🍹
+            </div>
+            <h3>Artisanal Chilled Drinks</h3>
+            <p>House-steeped Sobolo with ginger & selim, tangy velvet tamarind, and superfood baobab citrus elixirs.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box" style="background: var(--color-forest-green-subtle); color: var(--color-forest-green);">
+              🍱
+            </div>
+            <h3>Healthy Meal Subscriptions</h3>
+            <p>Mon–Fri chef-prepared wholesome lunches and dinners delivered in eco-friendly packaging across Accra & Tema.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box" style="background: var(--color-forest-green-subtle); color: var(--color-forest-green);">
+              🍢
+            </div>
+            <h3>Executive & Event Catering</h3>
+            <p>From cocktail bite grazing boards and jollof feasts to live artisanal drink stations for celebrations and meetings.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box" style="background: var(--color-forest-green-subtle); color: var(--color-forest-green);">
+              🥗
+            </div>
+            <h3>Custom Dietary Planning</h3>
+            <p>Calorie-controlled, vegan, diabetic-conscious, and perinatal meal programs formulated alongside our nutritionist.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LACUIZINEE CULINARY CATALOG SECTION -->
+    <section class="shop-section" id="menu">
+      <span id="beverages"></span>
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Order Online • Fresh Daily Delivery</span>
+          <h2 class="section-title">Lacuizinee Menu & Apothecary</h2>
+          <p class="section-desc">
+            Select items to order directly, add to your cart, or build a custom catering package for your next gathering.
+          </p>
+        </div>
+
+        <!-- Shop Filters & Category Tabs -->
+        <div class="shop-filter-bar">
+          <div class="category-tabs" id="category-tabs" role="tablist">
+            <button class="category-tab active" data-category="all" role="tab" aria-selected="true">All Lacuizinee Creations</button>
+            <button class="category-tab" data-category="beverages-teas" role="tab" aria-selected="false">Artisanal Beverages & Teas</button>
+            <button class="category-tab" data-category="meals-catering" role="tab" aria-selected="false">Healthy Meals & Catering</button>
+            <button class="category-tab" data-category="wellness-blends" role="tab" aria-selected="false">Wellness Botanical Blends</button>
+          </div>
+
+          <div class="shop-search-box">
+            <input type="text" id="shop-filter-search" placeholder="Filter by drink, dish or ingredient..." aria-label="Filter products">
+            <span class="filter-count" id="product-count-display">Showing all items</span>
+          </div>
+        </div>
+
+        <!-- Product Grid (Automatically filtered to Lacuizinee by data-page-brand="lacuizinee") -->
+        <div class="products-grid" id="products-grid">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEKLY MEAL PREP SUBSCRIPTIONS SECTION -->
+    <section class="about-section" id="subscriptions" style="background: var(--color-warm-ivory); border-top: 1px solid var(--color-cream-border);">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-eyebrow" style="color: var(--color-forest-green);">Eat Well Every Day</span>
+          <h2 class="section-title">Lacuizinee Nourish Meal Subscriptions</h2>
+          <p class="section-desc">
+            No more grocery stress or cooking fatigue. Enjoy nutrient-rich, balanced Ghanaian lunches and dinners delivered fresh to your office or home in Accra and Tema.
+          </p>
+        </div>
+
+        <div class="subscription-cards-grid">
+          <!-- PLAN 1 -->
+          <div class="subscription-card">
+            <h3>Executive Lunch Plan</h3>
+            <p style="font-size: 0.88rem; color: var(--color-neutral-600);">Ideal for busy professionals in Airport City, Ridge, and East Legon.</p>
+            <div class="sub-price-row">
+              <span class="sub-price">GH₵ 850</span>
+              <span class="sub-period">/ week (5 Meals)</span>
+            </div>
+            <div class="sub-features-list">
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>5 Chef Lunches (Monday to Friday)</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Choice of Brown Jollof, Waakye & Grilled Proteins</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Daily 500ml Chilled Sobolo or Tamarind</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Insulated thermal drop-off by 12:00 PM</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-secondary w-full" onclick="window.sendMealSubscriptionWhatsApp('Executive Lunch Plan (5 Meals)', 850)">
+              <span>Subscribe on WhatsApp</span>
+            </button>
+          </div>
+
+          <!-- PLAN 2 (POPULAR) -->
+          <div class="subscription-card popular">
+            <span class="popular-badge">Most Popular</span>
+            <h3 style="color: var(--color-forest-green-dark);">Full Vitality Plan</h3>
+            <p style="font-size: 0.88rem; color: var(--color-neutral-600);">Complete lunch and dinner coverage for maximum convenience and nutrition.</p>
+            <div class="sub-price-row">
+              <span class="sub-price" style="color: var(--color-forest-green);">GH₵ 1,550</span>
+              <span class="sub-period">/ week (10 Meals)</span>
+            </div>
+            <div class="sub-features-list">
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>10 Gourmet Chef Meals (5 Lunches + 5 Dinners)</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>High-Protein & Balanced Micro-Nutrient Ratios</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Daily Artisanal Drink (Sobolo, Tamarind, Baobab)</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Free priority insulated delivery across Greater Accra</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary w-full" onclick="window.sendMealSubscriptionWhatsApp('Full Vitality Plan (10 Meals)', 1550)">
+              <span>Subscribe on WhatsApp</span>
+            </button>
+          </div>
+
+          <!-- PLAN 3 -->
+          <div class="subscription-card">
+            <h3>Custom Dietary & Nutritionist</h3>
+            <p style="font-size: 0.88rem; color: var(--color-neutral-600);">Tailored for diabetic health, hypertension, pregnancy, or fitness goals.</p>
+            <div class="sub-price-row">
+              <span class="sub-price">GH₵ 1,950</span>
+              <span class="sub-period">/ week (Tailored)</span>
+            </div>
+            <div class="sub-features-list">
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>1-on-1 Consultation with our Clinical Nutritionist</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Custom calorie, low-sodium, or plant-based formulation</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Custom therapeutic botanical teas & infusions</span>
+              </div>
+              <div class="sub-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Dedicated chef adjustments & weekly check-in</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-secondary w-full" onclick="window.sendMealSubscriptionWhatsApp('Custom Dietary Plan (Nutritionist Formulated)', 1950)">
+              <span>Consult on WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATERING & PRIVATE EVENTS SECTION -->
+    <section class="welcome-home-section" id="catering" style="background: #FFFFFF;">
+      <div class="container">
+        <div class="welcome-home-card" style="background: linear-gradient(135deg, #EFF4F0 0%, #FFFFFF 60%, #F5F0E6 100%); border-color: var(--color-forest-green-light);">
+          <div class="welcome-home-grid">
+            <div class="welcome-home-info">
+              <span class="section-eyebrow" style="color: var(--color-forest-green);">Corporate & Celebration Catering</span>
+              <h2 class="section-title" style="margin-top: 0.35rem;">Elevate Your Event With Lacuizinee</h2>
+              <p class="section-desc" style="margin-bottom: 1.25rem;">
+                From executive boardroom breakfasts and corporate luncheons to private naming ceremonies, birthday soirees, and diaspora welcome dinners. We craft memorable Ghanaian dining experiences with bespoke tableware and live drink stations.
+              </p>
+
+              <div class="welcome-home-banner-img" style="border-color: var(--color-forest-green-light);">
+                <img src="assets/images/catering-platter.jpg" alt="Lacuizinee executive catering grazing board with chicken skewers and kelewele" loading="lazy">
+              </div>
+
+              <div class="welcome-features-list">
+                <div class="welcome-feature-box">
+                  <div class="welcome-feature-icon" style="background: var(--color-forest-green-subtle); color: var(--color-forest-green);">🍲</div>
+                  <div>
+                    <strong>Signature Ghanaian Warm Buffets & Platters</strong>
+                    <span>Waakye feasts, smoked fish jollof, herb-braised beef, plantain tarts, and vibrant local salads.</span>
+                  </div>
+                </div>
+
+                <div class="welcome-feature-box">
+                  <div class="welcome-feature-icon" style="background: var(--color-forest-green-subtle); color: var(--color-forest-green);">🍹</div>
+                  <div>
+                    <strong>Live Artisanal Beverage Station</strong>
+                    <span>Chilled carafes of craft Sobolo, Velvet Tamarind, and Baobab with fresh citrus, mint, and edible botanicals.</span>
+                  </div>
+                </div>
+
+                <div class="welcome-feature-box">
+                  <div class="welcome-feature-icon" style="background: var(--color-forest-green-subtle); color: var(--color-forest-green);">👔</div>
+                  <div>
+                    <strong>Full Setup & Professional Service Staff</strong>
+                    <span>Uniformed, gracious hospitality personnel ensuring seamless flow from setup to post-event breakdown.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Catering Inquiry Box -->
+            <div class="welcome-booking-box">
+              <h4>Request a Catering Proposal</h4>
+              <p style="font-size: 0.88rem; color: var(--color-neutral-600); margin-bottom: 1rem;">
+                Tell us about your upcoming event and our culinary team will respond with a custom menu proposal.
+              </p>
+
+              <div class="form-group" style="margin-bottom: 0.85rem;">
+                <label for="cat-event-type" style="font-size: 0.82rem; font-weight: 600; color: var(--color-neutral-700);">Event Type</label>
+                <select id="cat-event-type" class="currency-select" style="width: 100%; border-radius: var(--radius-sm); padding: 0.55rem; background: var(--color-warm-ivory);">
+                  <option value="Executive Corporate Luncheon" selected>Executive Corporate Luncheon</option>
+                  <option value="Cocktail Bites & Beverage Bar">Cocktail Bites & Beverage Bar</option>
+                  <option value="Wedding / Engagement Reception">Wedding / Engagement Reception</option>
+                  <option value="Family Gathering / Homecoming Dinner">Family Gathering / Homecoming Dinner</option>
+                  <option value="Private Dinner Party">Private Dinner Party</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0.85rem;">
+                <label for="cat-guests" style="font-size: 0.82rem; font-weight: 600; color: var(--color-neutral-700);">Estimated Guest Count</label>
+                <select id="cat-guests" class="currency-select" style="width: 100%; border-radius: var(--radius-sm); padding: 0.55rem; background: var(--color-warm-ivory);">
+                  <option value="10 to 20 Guests">10 to 20 Guests</option>
+                  <option value="20 to 50 Guests" selected>20 to 50 Guests</option>
+                  <option value="50 to 100 Guests">50 to 100 Guests</option>
+                  <option value="100+ Guests">100+ Large Event</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0.85rem;">
+                <label for="cat-date" style="font-size: 0.82rem; font-weight: 600; color: var(--color-neutral-700);">Target Event Date</label>
+                <input type="date" id="cat-date" style="width: 100%; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-sm); padding: 0.5rem; background: var(--color-warm-ivory); font-family: inherit;">
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label for="cat-notes" style="font-size: 0.82rem; font-weight: 600; color: var(--color-neutral-700);">Menu Notes / Preferences</label>
+                <textarea id="cat-notes" rows="3" placeholder="Tell us about location, dietary requirements, or specific dishes..." style="width: 100%; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-sm); padding: 0.5rem; background: var(--color-warm-ivory); font-family: inherit; font-size: 0.85rem;"></textarea>
+              </div>
+
+              <button type="button" class="btn btn-primary w-full" onclick="window.sendCateringInquiryWhatsApp()" id="btn-submit-catering">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+                <span>Request Proposal on WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SISTER BRAND REFERRAL BANNER: AKWAABA FIE -->
+    <div class="container">
+      <section class="sister-brand-banner sister-banner-lacuizinee">
+        <div class="sister-banner-inner">
+          <div>
+            <span class="brand-tag-pill" style="background: var(--color-terracotta); color: #fff;">Sister Brand • Mena’s Nest</span>
+            <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-terracotta-dark); margin: 0.5rem 0 0.35rem;">
+              Need Home Deep Cleaning or Diaspora Arrival Care?
+            </h3>
+            <p style="color: var(--color-neutral-700); font-size: 0.95rem; max-width: 680px; line-height: 1.5;">
+              Explore our home readiness specialist arm <strong>AKWAABA FIE</strong>. From pre-arrival deep sanitization and fresh linen setup to full market pantry stocking across Ghana, walk into an immaculate sanctuary.
+            </p>
+          </div>
+          <div>
+            <a href="akwaaba-fie.html" class="btn btn-terracotta" style="white-space: nowrap;">
+              <span>Visit Akwaaba Fie Home Care →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info-panel">
+          <span class="section-eyebrow">Direct Contact</span>
+          <h2 class="section-title">Connect with Lacuizinee Kitchen</h2>
+          <p class="contact-lead">
+            Speak directly with our chef or catering director about upcoming orders, corporate accounts, or custom dietary requests.
+          </p>
+
+          <div class="contact-channels">
+            <a href="https://wa.me/233208386301" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+              <div class="contact-card-icon whatsapp-bg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+              </div>
+              <div class="contact-card-details">
+                <strong>WhatsApp Orders & Kitchen Desk</strong>
+                <span>020 838 6301 (+233 20 838 6301) • Mon–Sat, 7am–8pm</span>
+              </div>
+            </a>
+
+            <a href="mailto:menasnest@gmail.com" class="contact-card-link">
+              <div class="contact-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-card-details">
+                <strong>Email Culinary Orders</strong>
+                <span>menasnest@gmail.com • Invoices & Corporate Billing</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Form -->
+        <div class="contact-form-card">
+          <div class="form-header">
+            <h3>Quick Message to Lacuizinee</h3>
+            <p>We typically respond within 15 minutes during operating hours.</p>
+          </div>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Name <span class="required">*</span></label>
+                <input type="text" id="contact-name" name="name" placeholder="e.g. Kwame Mensah" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">WhatsApp / Phone <span class="required">*</span></label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="e.g. 020 838 6301" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Order or Question <span class="required">*</span></label>
+              <textarea id="contact-message" name="message" rows="3" placeholder="Tell us what you would like to order or request..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <div class="brand-logo">
+          <span class="brand-name" style="color: var(--color-forest-green-dark);">LACUIZINEE</span>
+          <span class="brand-tagline">Good Food. Better Living.</span>
+        </div>
+        <p class="footer-brand-desc">
+          The culinary specialist arm of Mena’s Nest. Good food, wholesome nutrition, corporate catering, and artisanal Ghanaian beverages.
+        </p>
+        <div class="footer-contact-links" style="margin: 0.85rem 0; font-size: 0.85rem; color: var(--color-neutral-600); display: flex; flex-direction: column; gap: 0.4rem;">
+          <span>WhatsApp / Call: 020 838 6301</span>
+          <span>Email: menasnest@gmail.com</span>
+          <span>Atelier: Accra, Ghana</span>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Lacuizinee Menu</h4>
+        <ul>
+          <li><a href="#beverages">Artisanal Sobolo & Drinks</a></li>
+          <li><a href="#subscriptions">Weekly Meal Subscriptions</a></li>
+          <li><a href="#catering">Event & Executive Catering</a></li>
+          <li><a href="#menu">Loose Leaf Wellness Teas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Mena's Nest Group</h4>
+        <ul>
+          <li><a href="index.html">Group Overview Portal</a></li>
+          <li><a href="akwaaba-fie.html">Akwaaba Fie Home Care</a></li>
+          <li><a href="akwaaba-fie.html#welcome-home">"Welcome Home" Package</a></li>
+          <li><a href="index.html#about">Group Values & Vision</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="https://wa.me/233208386301" target="_blank" rel="noopener noreferrer">WhatsApp Care Desk (020 838 6301)</a></li>
+          <li><a href="mailto:menasnest@gmail.com">Corporate Orders Email</a></li>
+          <li><a href="https://www.tiktok.com/@menas.nest" target="_blank" rel="noopener noreferrer">TikTok: @menas.nest</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="footer-copyright-row">
+        <p>© 2026 LACUIZINEE • Mena’s Nest Group. All rights reserved.</p>
+        <p class="footer-built-note">Food • Home • Hospitality across Ghana.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- REUSABLE CART, RECEIPT & MODALS (Reuses complete app.js engine) -->
+  <div class="cart-drawer-overlay hidden" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer hidden" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <h3>Your Cart</h3>
+        <span class="cart-item-count" id="drawer-item-count">0 items</span>
+      </div>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">✕</button>
+    </div>
+    <div class="shipping-progress-box">
+      <p class="shipping-status-text" id="shipping-status-text">Add GH₵ 600.00 for FREE Delivery</p>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="shipping-progress-fill" style="width: 0%;"></div></div>
+    </div>
+    <div class="cart-items-container" id="cart-items-container"></div>
+    <div class="cart-promo-section">
+      <div class="cart-coupon-row">
+        <input type="text" id="cart-coupon-input" placeholder="Promo code (e.g. MAMA10)" uppercase>
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-apply-coupon">Apply</button>
+      </div>
+      <div class="coupon-feedback" id="coupon-feedback"></div>
+    </div>
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-summary-lines">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal-price">GH₵ 0.00</span>
+        </div>
+        <div class="summary-line discount-line hidden" id="cart-discount-row">
+          <span>Discount Applied (<strong id="applied-coupon-name"></strong>)</span>
+          <span id="cart-discount-amount" class="discount-val">-GH₵ 0.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Est. Delivery</span>
+          <span id="cart-shipping-price">Calculated at checkout</span>
+        </div>
+        <div class="summary-line total-line">
+          <strong>Estimated Total</strong>
+          <strong id="cart-grand-total">GH₵ 0.00</strong>
+        </div>
+      </div>
+
+      <div class="cart-action-buttons">
+        <button class="btn btn-primary w-full" id="web-checkout-btn">
+          <span>Proceed to Secure Checkout</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+        </button>
+
+        <button class="btn btn-whatsapp w-full" id="whatsapp-checkout-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+          <span>Order via WhatsApp (020 838 6301)</span>
+        </button>
+      </div>
+      <p class="cart-guarantee-note">🔒 256-Bit SSL Encrypted • Kitchen Freshness Guaranteed</p>
+    </div>
+  </aside>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="cart-drawer-overlay hidden" id="wishlist-overlay"></div>
+  <aside class="cart-drawer wishlist-drawer hidden" id="wishlist-drawer" aria-label="Saved Items Wishlist">
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <h3>Saved Items</h3>
+        <span class="cart-item-count" id="wishlist-item-count">0 items</span>
+      </div>
+      <button class="cart-close-btn" id="wishlist-close-btn" aria-label="Close wishlist">✕</button>
+    </div>
+    <div class="cart-items-container" id="wishlist-items-container"></div>
+    <div class="cart-drawer-footer">
+      <button class="btn btn-secondary w-full" id="btn-add-all-wishlist">
+        Add All In-Stock to Cart
+      </button>
+    </div>
+  </aside>
+
+  <!-- PRODUCT DETAIL / QUICK VIEW MODAL -->
+  <div class="modal-overlay hidden" id="product-modal-overlay">
+    <div class="modal-card product-modal-card" id="product-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="product-modal-close" aria-label="Close dialog">✕</button>
+      <div class="product-modal-layout" id="product-modal-layout">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPREHENSIVE 3-STEP E-COMMERCE CHECKOUT MODAL -->
+  <div class="modal-overlay hidden" id="checkout-modal-overlay">
+    <div class="modal-card checkout-modal-card-v2" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="checkout-modal-close" aria-label="Close checkout">✕</button>
+      
+      <div class="checkout-layout-grid">
+        <div class="checkout-main-flow">
+          <div class="checkout-stepper-nav">
+            <div class="checkout-step-tab active" data-step="1">
+              <span class="step-num">1</span>
+              <span class="step-txt">Customer & Address</span>
+            </div>
+            <div class="checkout-step-sep">›</div>
+            <div class="checkout-step-tab" data-step="2">
+              <span class="step-num">2</span>
+              <span class="step-txt">Delivery Speed</span>
+            </div>
+            <div class="checkout-step-sep">›</div>
+            <div class="checkout-step-tab" data-step="3">
+              <span class="step-num">3</span>
+              <span class="step-txt">Payment & Order</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: Address & Contact Details -->
+          <div class="checkout-step-content active" id="checkout-step-1">
+            <div class="step-heading">
+              <h3>Shipping & Contact Information</h3>
+              <p>Where should we deliver your fresh gourmet culinary orders?</p>
+            </div>
+            <form id="step-1-form" onsubmit="event.preventDefault(); window.goToCheckoutStep(2);">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-email">Email Address *</label>
+                  <input type="email" id="co-email" required placeholder="sarah@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="co-phone">Phone / WhatsApp *</label>
+                  <input type="tel" id="co-phone" required placeholder="020 838 6301 or +233...">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-fname">First Name *</label>
+                  <input type="text" id="co-fname" required placeholder="Sarah">
+                </div>
+                <div class="form-group">
+                  <label for="co-lname">Last Name *</label>
+                  <input type="text" id="co-lname" required placeholder="Mensah">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="co-address">Delivery Street Address & Landmark *</label>
+                <input type="text" id="co-address" required placeholder="House number, street, apartment or suite">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="co-city">City / Area *</label>
+                  <input type="text" id="co-city" required placeholder="Accra, East Legon, etc.">
+                </div>
+                <div class="form-group">
+                  <label for="co-postal">Postal / Digital Address</label>
+                  <input type="text" id="co-postal" placeholder="e.g. GA-183-9201">
+                </div>
+              </div>
+
+              <div class="checkout-next-row">
+                <button type="submit" class="btn btn-primary w-full" style="background: var(--color-forest-green); border-color: var(--color-forest-green);">
+                  Continue to Delivery Speed →
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- STEP 2: Delivery Speed -->
+          <div class="checkout-step-content" id="checkout-step-2">
+            <div class="step-heading">
+              <h3>Choose Delivery Option</h3>
+              <p>Chilled artisanal drinks and freshly prepared culinary boxes.</p>
+            </div>
+            <div class="shipping-methods-list">
+              <label class="shipping-method-card active">
+                <input type="radio" name="shippingMethod" value="standard" checked onchange="window.updateCheckoutShipping('standard')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Standard Batch Dispatch</strong>
+                    <span class="shipping-cost" id="ship-cost-standard">FREE (over GH₵ 600)</span>
+                  </div>
+                  <p class="shipping-desc">Daily batch delivery across Accra neighborhoods.</p>
+                </div>
+              </label>
+
+              <label class="shipping-method-card">
+                <input type="radio" name="shippingMethod" value="express" onchange="window.updateCheckoutShipping('express')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Priority Chilled Dispatch</strong>
+                    <span class="shipping-cost" id="ship-cost-express">GH₵ 90.00</span>
+                  </div>
+                  <p class="shipping-desc">Express delivery with insulated thermal cooler protection.</p>
+                </div>
+              </label>
+
+              <label class="shipping-method-card">
+                <input type="radio" name="shippingMethod" value="courier" onchange="window.updateCheckoutShipping('courier')">
+                <div class="shipping-card-info">
+                  <div class="shipping-name-row">
+                    <strong>Doorstep Direct Courier</strong>
+                    <span class="shipping-cost" id="ship-cost-courier">GH₵ 55.00</span>
+                  </div>
+                  <p class="shipping-desc">Direct motorbike dispatch straight from our central kitchen.</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="checkout-nav-buttons">
+              <button type="button" class="btn btn-secondary" onclick="window.goToCheckoutStep(1)">← Back to Address</button>
+              <button type="button" class="btn btn-primary" onclick="window.goToCheckoutStep(3)" style="background: var(--color-forest-green); border-color: var(--color-forest-green);">Continue to Payment →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Payment Options -->
+          <div class="checkout-step-content" id="checkout-step-3">
+            <div class="step-heading">
+              <h3>Payment & Order Finalization</h3>
+              <p>Select your preferred secure payment method in Ghana Cedis.</p>
+            </div>
+
+            <div class="payment-tabs-bar">
+              <button type="button" class="payment-tab active" data-pay="momo" onclick="window.switchPaymentTab('momo')">
+                <span>📱 Mobile Money</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="card" onclick="window.switchPaymentTab('card')">
+                <span>💳 Card</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="cod" onclick="window.switchPaymentTab('cod')">
+                <span>📦 Pay on Delivery</span>
+              </button>
+              <button type="button" class="payment-tab" data-pay="whatsapp" onclick="window.switchPaymentTab('whatsapp')">
+                <span>💬 WhatsApp</span>
+              </button>
+            </div>
+
+            <!-- Mobile Money Option -->
+            <div class="payment-pane active" id="pane-pay-momo">
+              <div class="bank-details-card" style="border-color: #D97706; background: #FFFDF5;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;">
+                  <span style="font-size:1.6rem;">📱</span>
+                  <h4 style="margin:0; font-size:1.15rem;">Mobile Money Payment (Instant)</h4>
+                </div>
+                <div class="bank-row">
+                  <span>Merchant / MoMo Number:</span>
+                  <strong>020 838 6301</strong>
+                  <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText('0208386301'); window.showToast('MoMo number 020 838 6301 copied!', 'info');">Copy</button>
+                </div>
+                <div class="bank-row">
+                  <span>Account Name:</span>
+                  <strong>Mena’s Nest Culinary & Wellness</strong>
+                </div>
+                <div class="bank-row">
+                  <span>Order Reference:</span>
+                  <strong id="momo-ref-code">#LC-2026</strong>
+                </div>
+                <div class="form-group" style="margin-top:1rem;">
+                  <label for="momo-user-number">Your MoMo Number (For Payment Authorization Prompt)</label>
+                  <input type="tel" id="momo-user-number" placeholder="e.g. 024 000 0000" style="padding:0.6rem 0.8rem; font-size:0.9rem; border:1.5px solid var(--color-cream-border); border-radius:6px; background:#fff;">
+                </div>
+                <p class="bank-note" style="color:#92400E;">Transfer directly to 020 838 6301 or await prompt after order submission.</p>
+              </div>
+            </div>
+
+            <!-- Card Payment Option -->
+            <div class="payment-pane" id="pane-pay-card">
+              <div class="card-visual-preview">
+                <div class="card-chip"></div>
+                <div class="card-brand-logo" id="preview-card-brand">VISA / MC</div>
+                <div class="card-number-display" id="preview-card-num">•••• •••• •••• 4242</div>
+                <div class="card-bottom-row">
+                  <div class="card-holder-display" id="preview-card-name">CARDHOLDER NAME</div>
+                  <div class="card-expiry-display" id="preview-card-exp">MM/YY</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pay on Delivery -->
+            <div class="payment-pane" id="pane-pay-cod">
+              <div class="cod-info-box">
+                <span class="cod-icon">🏡</span>
+                <h4>Cash or POS Card Payment on Arrival</h4>
+                <p>Pay upon food delivery to our dispatch driver.</p>
+              </div>
+            </div>
+
+            <!-- WhatsApp Express Option -->
+            <div class="payment-pane" id="pane-pay-whatsapp">
+              <div class="cod-info-box whatsapp-box">
+                <span class="cod-icon">💬</span>
+                <h4>Direct WhatsApp Concierge Checkout</h4>
+                <p>Your order details will be forwarded directly to our kitchen desk at 020 838 6301.</p>
+              </div>
+            </div>
+
+            <div class="checkout-nav-buttons" style="margin-top: 1.5rem;">
+              <button type="button" class="btn btn-secondary" onclick="window.goToCheckoutStep(2)">← Back to Delivery</button>
+              <button type="button" class="btn btn-primary" id="btn-submit-final-order" onclick="window.finalizeEcommerceOrder()" style="background: var(--color-forest-green); border-color: var(--color-forest-green);">
+                Place Order & Confirm Dispatch
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Live Order Summary Sidebar -->
+        <div class="checkout-summary-sidebar">
+          <div class="summary-card-header">
+            <h4>Order Summary</h4>
+            <span class="summary-count" id="summary-badge-count">0 items</span>
+          </div>
+
+          <div class="checkout-items-list" id="checkout-items-list">
+            <!-- Populated via app.js -->
+          </div>
+
+          <div class="checkout-coupon-apply-row">
+            <input type="text" id="co-coupon-input" placeholder="Promo code (e.g. MAMA10)">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.applyCheckoutCoupon()">Apply</button>
+          </div>
+
+          <div class="checkout-calc-lines">
+            <div class="calc-line">
+              <span>Items Subtotal</span>
+              <span id="co-subtotal">GH₵ 0.00</span>
+            </div>
+            <div class="calc-line discount-line hidden" id="co-discount-row">
+              <span>Discount</span>
+              <span id="co-discount-amt" class="discount-val">-GH₵ 0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Delivery Speed</span>
+              <span id="co-shipping-amt">GH₵ 0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Estimated Tax (5%)</span>
+              <span id="co-tax-amt">GH₵ 0.00</span>
+            </div>
+            <div class="calc-line grand-total-line">
+              <strong>Grand Total Payable</strong>
+              <strong id="co-grand-total" class="grand-total-val">GH₵ 0.00</strong>
+            </div>
+          </div>
+
+          <div class="checkout-security-guarantee">
+            <span>🍲 Made Fresh Daily</span>
+            <span>🌿 All Natural Botanicals</span>
+            <span>🛡️ Small Batch Quality</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMATION & DIGITAL RECEIPT MODAL -->
+  <div class="modal-overlay hidden" id="order-receipt-modal">
+    <div class="modal-card receipt-modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="receipt-modal-close" aria-label="Close receipt">✕</button>
+      
+      <div class="receipt-header text-center">
+        <div class="receipt-success-badge" style="background: var(--color-forest-green);">✓</div>
+        <span class="section-eyebrow">Order Successfully Placed</span>
+        <h2 id="receipt-order-id">#LC-84920</h2>
+        <p class="receipt-lead">Thank you, <strong id="receipt-customer-name">Valued Customer</strong>! Your Lacuizinee culinary order has been received and sent to our kitchen team.</p>
+      </div>
+
+      <div class="receipt-actions text-center" style="margin-top: 2rem;">
+        <button class="btn btn-primary" onclick="window.printDigitalReceipt()">Print / Save Receipt</button>
+        <button class="btn btn-secondary" onclick="window.closeReceiptModal()">Return to Lacuizinee</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- MOBILE STICKY BOTTOM NAVIGATION BAR -->
+  <nav class="mobile-bottom-bar" id="mobile-bottom-bar" aria-label="Mobile Navigation">
+    <a href="index.html" class="bottom-nav-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Group</span>
+    </a>
+    <a href="#menu" class="bottom-nav-item active">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      <span>Menu</span>
+    </a>
+    <a href="#catering" class="bottom-nav-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+      <span>Catering</span>
+    </a>
+    <a href="akwaaba-fie.html" class="bottom-nav-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Akwaaba</span>
+    </a>
+    <button type="button" class="bottom-nav-item" id="bottom-nav-cart">
+      <div class="bottom-nav-icon-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span class="bottom-badge" id="bottom-cart-badge">0</span>
+      </div>
+      <span>Cart</span>
+    </button>
+  </nav>
+
+  <!-- FLOATING WHATSAPP BUTTON WIDGET -->
+  <div class="floating-whatsapp-widget" id="floating-whatsapp-widget">
+    <a href="https://wa.me/233208386301?text=Hello%20Lacuizinee!%20I'd%20love%20to%20order%20or%20inquire%20about%20catering." target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Chat on WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+      <span class="whatsapp-tooltip">Lacuizinee Kitchen Desk</span>
+      <span class="whatsapp-ping"></span>
+    </a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

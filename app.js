@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-sobolo',
       name: 'Chilled Artisanal Hibiscus Sobolo',
+      brand: 'lacuizinee',
       category: ['beverages-teas', 'all'],
       categoryLabel: 'Lacuizinee Beverages',
       priceGHS: 65.00,
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-tamarind',
       name: 'Velvet Tamarind & Citrus Nectar',
+      brand: 'lacuizinee',
       category: ['beverages-teas', 'all'],
       categoryLabel: 'Lacuizinee Beverages',
       priceGHS: 75.00,
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-baobab',
       name: 'Wild Baobab & Citrus Elixir',
+      brand: 'lacuizinee',
       category: ['beverages-teas', 'all'],
       categoryLabel: 'Lacuizinee Beverages',
       priceGHS: 70.00,
@@ -90,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-1',
       name: 'Nurture & Bloom Herbal Tea',
+      brand: 'lacuizinee',
       category: ['beverages-teas', 'wellness-blends', 'all'],
       categoryLabel: 'Artisanal Teas & Blends',
       priceGHS: 350.00,
@@ -117,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-2',
       name: 'Golden Flow Herbal Elixir',
+      brand: 'lacuizinee',
       category: ['wellness-blends', 'all'],
       categoryLabel: 'Lactation & Postpartum',
       priceGHS: 420.00,
@@ -143,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-meal-box',
       name: 'Lacuizinee Weekly Nourish Meal Subscription',
+      brand: 'lacuizinee',
       category: ['meals-catering', 'all'],
       categoryLabel: 'Lacuizinee Healthy Meals',
       priceGHS: 850.00,
@@ -170,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-catering-platter',
       name: 'Lacuizinee Gathering Catering Platter (10–12 pax)',
+      brand: 'lacuizinee',
       category: ['meals-catering', 'all'],
       categoryLabel: 'Lacuizinee Catering',
       priceGHS: 1800.00,
@@ -196,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-arrival-feast',
       name: 'Akwaaba Homecoming Arrival Feast (4–6 pax)',
+      brand: 'both',
       category: ['meals-catering', 'home-packages', 'all'],
       categoryLabel: 'Homecoming Specials',
       priceGHS: 950.00,
@@ -222,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-welcome-pkg',
       name: 'Akwaaba Fie Flagship "Welcome Home" Suite',
+      brand: 'akwaaba',
       category: ['home-packages', 'all'],
       categoryLabel: 'Akwaaba Fie Home Care',
       priceGHS: 1450.00,
@@ -249,6 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'prod-cleaning',
       name: 'Akwaaba Fie Pre-Arrival Deep Clean & Sanitation',
+      brand: 'akwaaba',
       category: ['home-packages', 'all'],
       categoryLabel: 'Akwaaba Fie Home Care',
       priceGHS: 450.00,
@@ -271,6 +281,60 @@ document.addEventListener('DOMContentLoaded', () => {
       sourcing: 'Executed by vetted, trained Akwaaba Fie home care personnel.',
       reviews: [
         { author: 'Kweku Addo', rating: 5, date: '1 week ago', text: 'Floor tiles were spotless and the bathrooms smelled like a luxury hotel!' }
+      ]
+    },
+    {
+      id: 'prod-grocery-stock',
+      name: 'Akwaaba Fie Grocery & Pantry Stocking Service',
+      brand: 'akwaaba',
+      category: ['home-packages', 'all'],
+      categoryLabel: 'Akwaaba Fie Home Care',
+      priceGHS: 350.00,
+      stock: 20,
+      image: 'assets/images/hero-welcome-home.jpg',
+      badge: 'Pantry Care',
+      variants: [
+        { id: 'v-gr-essentials', name: 'Essential Breakfast & Drink Stocking', priceGHS: 350.00, size: 'Milk, Eggs, Bread, Water' },
+        { id: 'v-gr-deluxe', name: 'Deluxe Family Grocery Provisioning', priceGHS: 650.00, size: 'Full Fridge & Pantry' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 5.0,
+      reviewsCount: 65,
+      shortDesc: 'Hand-picked local market shopping and pantry setup so you never step off a flight to an empty kitchen in Ghana.',
+      fullDesc: 'Our concierge team shops local farmer markets and specialty grocers for fresh bakery bread, free-range eggs, organic butter, seasonal pawpaw and mangoes, bottled mineral water, and your requested snacks.',
+      ingredients: 'Customized shopping tailored to your personal dietary list.',
+      directions: 'Items arranged in your refrigerator and pantry before your arrival.',
+      precautions: 'Provide any specific brand or allergy preferences upon booking.',
+      sourcing: 'Sourced from vetted Accra & Kumasi market suppliers.',
+      reviews: [
+        { author: 'Nana Yaa Boateng', rating: 5, date: '5 days ago', text: 'Opening the fridge to find fresh mangoes, eggs, and bread after a 10-hour flight was heaven!' }
+      ]
+    },
+    {
+      id: 'prod-linen-prep',
+      name: 'Akwaaba Fie Guest-Room & Bedding Setup',
+      brand: 'akwaaba',
+      category: ['home-packages', 'all'],
+      categoryLabel: 'Akwaaba Fie Home Care',
+      priceGHS: 250.00,
+      stock: 25,
+      image: 'assets/images/akwaaba-welcome-suite.jpg',
+      badge: 'Bedroom Care',
+      variants: [
+        { id: 'v-ln-single', name: 'Master Bedroom Suite Prep', priceGHS: 250.00, size: '1 Bed & Bath Suite' },
+        { id: 'v-ln-full', name: 'Complete 3-Bedroom Linen Setup', priceGHS: 550.00, size: 'Up to 3 Bedrooms' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 5.0,
+      reviewsCount: 42,
+      shortDesc: 'Freshly pressed crisp sheets, plush bathroom towels, luxury local botanical toiletries, and room aromatherapy.',
+      fullDesc: 'We prepare your bedrooms with meticulous hotel-grade care. Linens washed and pressed, pillows fluffed, bathrooms stocked with fresh plush towels and Ghanaian shea-infused soaps, and rooms delicately fragranced.',
+      ingredients: 'High-thread count linen care, local botanical aromatics, plush cotton towels.',
+      directions: 'Completed alongside pre-arrival home inspection.',
+      precautions: 'Client may provide personal linens or request Akwaaba Fie luxury sets.',
+      sourcing: 'Coordinated by Akwaaba Fie hospitality housekeeping leads.',
+      reviews: [
+        { author: 'Dr. Seth Kwakye', rating: 5, date: '1 week ago', text: 'Hotel-quality beds in my own family home. Outstanding attention to detail.' }
       ]
     }
   ];
@@ -991,7 +1055,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderProducts() {
     if (!productsGrid) return;
 
+    const pageBrand = document.body.dataset.pageBrand || 'all';
+
     const filtered = PRODUCTS.filter(product => {
+      // Filter by page brand scope if specified on body
+      if (pageBrand === 'lacuizinee' && product.brand !== 'lacuizinee' && product.brand !== 'both') {
+        return false;
+      }
+      if (pageBrand === 'akwaaba' && product.brand !== 'akwaaba' && product.brand !== 'both') {
+        return false;
+      }
+
       const matchesCategory = currentCategory === 'all' || product.category.includes(currentCategory);
       const matchesSearch = !currentSearchQuery || 
         product.name.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
@@ -1911,6 +1985,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     showToast(`Welcome to the Mena's Nest Wellness Circle! 🌿 Check your inbox soon for your 10% welcome gift.`, 'success');
     if (input) input.value = '';
+  };
+
+  /* Lacuizinee: Catering Inquiry via WhatsApp */
+  window.sendCateringInquiryWhatsApp = function() {
+    const eventType = document.getElementById('cat-event-type') ? document.getElementById('cat-event-type').value : 'Corporate / Private Event';
+    const guests = document.getElementById('cat-guests') ? document.getElementById('cat-guests').value : '15-30 Guests';
+    const date = document.getElementById('cat-date') ? document.getElementById('cat-date').value : 'Upcoming Date';
+    const notes = document.getElementById('cat-notes') ? document.getElementById('cat-notes').value : '';
+
+    const msg = `Hello Lacuizinee (Mena's Nest)! 🍲 I would like to request a catering proposal:%0A%0A` +
+      `• Event Type: ${encodeURIComponent(eventType)}%0A` +
+      `• Estimated Headcount: ${encodeURIComponent(guests)}%0A` +
+      `• Target Event Date: ${encodeURIComponent(date)}%0A` +
+      (notes ? `• Special Requests / Menu Notes: ${encodeURIComponent(notes)}%0A` : '') +
+      `%0APlease let me know your menu options and availability. Thank you!`;
+
+    window.open(`https://wa.me/233208386301?text=${msg}`, '_blank');
+  };
+
+  /* Lacuizinee: Meal Subscription Booking via WhatsApp */
+  window.sendMealSubscriptionWhatsApp = function(planName, priceGHS) {
+    const loc = document.getElementById('sub-location') ? document.getElementById('sub-location').value : 'Accra / Tema';
+    const pref = document.getElementById('sub-preference') ? document.getElementById('sub-preference').value : 'Balanced Ghanaian Wholesome';
+
+    const msg = `Hello Lacuizinee! 🥗 I am interested in subscribing to the ${encodeURIComponent(planName)} (GH₵ ${priceGHS}/week):%0A%0A` +
+      `• Delivery Location: ${encodeURIComponent(loc)}%0A` +
+      `• Dietary Preference: ${encodeURIComponent(pref)}%0A%0A` +
+      `Please let me know how to start my meal subscription!`;
+
+    window.open(`https://wa.me/233208386301?text=${msg}`, '_blank');
+  };
+
+  /* Akwaaba Fie: Concierge Home Service Booking via WhatsApp */
+  window.bookAkwaabaConciergeWhatsApp = function(serviceTitle) {
+    const address = document.getElementById('akw-address') ? document.getElementById('akw-address').value : 'Accra Area';
+    const date = document.getElementById('akw-date') ? document.getElementById('akw-date').value : 'Upcoming';
+    const notes = document.getElementById('akw-notes') ? document.getElementById('akw-notes').value : '';
+
+    const msg = `Hello Akwaaba Fie (Mena's Nest)! 🏡 I would like to book the following home care service:%0A%0A` +
+      `• Service: ${encodeURIComponent(serviceTitle || 'Home Care Readiness')}%0A` +
+      `• Location in Ghana: ${encodeURIComponent(address)}%0A` +
+      `• Preferred Date: ${encodeURIComponent(date)}%0A` +
+      (notes ? `• Notes & Access Instructions: ${encodeURIComponent(notes)}%0A` : '') +
+      `%0APlease confirm availability and schedule. Thank you!`;
+
+    window.open(`https://wa.me/233208386301?text=${msg}`, '_blank');
   };
 
   // Keyboard escape
