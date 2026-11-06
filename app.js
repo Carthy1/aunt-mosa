@@ -9,14 +9,93 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const PRODUCTS = [
     {
+      id: 'prod-sobolo',
+      name: 'Chilled Artisanal Hibiscus Sobolo',
+      category: ['beverages-teas', 'all'],
+      categoryLabel: 'Lacuizinee Beverages',
+      priceGHS: 65.00,
+      stock: 25,
+      image: 'assets/images/product-balance-tincture.jpg',
+      badge: 'Lacuizinee Signature',
+      variants: [
+        { id: 'v-sob-1l', name: '1 Litre Glass Carafe', priceGHS: 65.00, size: '1L Cold-Brewed' },
+        { id: 'v-sob-2l', name: '2 Litre Party Pitcher', priceGHS: 120.00, size: '2L Pitcher' },
+        { id: 'v-sob-crate', name: 'Case of 6 (1L Bottles)', priceGHS: 350.00, size: '6 x 1L Case' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 5.0,
+      reviewsCount: 164,
+      shortDesc: 'Slow-steeped organic hibiscus blossoms with crushed ginger, cloves, grains of paradise (selim) and slow-simmered pineapple reduction.',
+      fullDesc: 'Lacuizinee’s celebrated house sobolo honors traditional Ghanaian botanical beverage making. We slow-infuse sun-dried hibiscus flowers with invigorating fresh ginger root, black peppercorns, organic cloves, and selim pods, naturally sweetened with pure pineapple juice. Crisp, deeply restorative, and antioxidant-rich.',
+      ingredients: 'Sun-Dried Hibiscus Petals (Bissap), Fresh Ginger Root, African Grains of Selim, Organic Whole Cloves, Fresh Pressed Pineapple Reduction, Pure Spring Water.',
+      directions: 'Serve well chilled over ice with an orange slice or sprig of fresh mint. Perfect for family arrival toasts and everyday refreshment.',
+      precautions: 'Contains ginger. Keep refrigerated below 4°C and enjoy within 7 days of delivery.',
+      sourcing: 'Directly sourced from organic growers in Northern Ghana. Bottled in sterilised, reusable glass carafes.',
+      reviews: [
+        { author: 'Kwame Adjei', rating: 5, date: '2 days ago', text: 'Best sobolo in Accra! Rich ginger kick with no artificial sugar. Ordered a crate for my family homecoming.' }
+      ]
+    },
+    {
+      id: 'prod-tamarind',
+      name: 'Velvet Tamarind & Citrus Nectar',
+      category: ['beverages-teas', 'all'],
+      categoryLabel: 'Lacuizinee Beverages',
+      priceGHS: 75.00,
+      stock: 18,
+      image: 'assets/images/product-balance-tincture.jpg',
+      badge: 'Indigenous Superfood',
+      variants: [
+        { id: 'v-tam-1l', name: '1 Litre Glass Bottle', priceGHS: 75.00, size: '1L Bottle' },
+        { id: 'v-tam-pack', name: 'Homecoming 4-Bottle Pack', priceGHS: 280.00, size: '4 x 1L Pack' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 4.9,
+      reviewsCount: 92,
+      shortDesc: 'Wild-harvested Ghanaian velvet tamarind cold-blended with fresh lime and local wildflower honey for immune revitalization.',
+      fullDesc: 'Velvet tamarind (Yoyi) is one of West Africa’s most cherished botanical treasures. Packed with natural vitamin C, potassium, and tartaric acids, our nectar balances crisp acidity with the gentle amber sweetness of raw honey.',
+      ingredients: 'Wild Velvet Tamarind Pulp, Fresh Key Lime Juice, Raw Wildflower Honey, Purified Water.',
+      directions: 'Shake well before pouring. Serve over crushed ice.',
+      precautions: '100% natural, no preservatives. Keep cold.',
+      sourcing: 'Ethically wild-harvested during harvest season across Ghana’s savannah belt.',
+      reviews: [
+        { author: 'Sarah Mensah', rating: 5, date: '1 week ago', text: 'Brings back so many childhood memories. Tart, sweet and so refreshing in the heat.' }
+      ]
+    },
+    {
+      id: 'prod-baobab',
+      name: 'Wild Baobab & Citrus Elixir',
+      category: ['beverages-teas', 'all'],
+      categoryLabel: 'Lacuizinee Beverages',
+      priceGHS: 70.00,
+      stock: 20,
+      image: 'assets/images/product-lactation-drops.jpg',
+      badge: 'Prebiotic Power',
+      variants: [
+        { id: 'v-bao-1l', name: '1 Litre Bottle', priceGHS: 70.00, size: '1L Glass Carafe' },
+        { id: 'v-bao-trio', name: 'Trio Wellness Pack', priceGHS: 195.00, size: '3 x 1L Pack' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 4.9,
+      reviewsCount: 88,
+      shortDesc: 'Cold-pressed wild baobab fruit pulp combined with fresh lemon and mint. Loaded with bio-available vitamin C and natural electrolytes.',
+      fullDesc: 'The African Baobab tree is known as the Tree of Life. Our baobab elixir delivers 10x the vitamin C of oranges along with soluble prebiotic fiber that nourishes gut microbiome health.',
+      ingredients: 'Organic Wild Baobab Fruit Powder, Fresh Lemon Juice, Garden Mint, Raw Cane Honey, Spring Water.',
+      directions: 'Drink chilled in the morning or as an afternoon vitality boost.',
+      precautions: 'Gluten-free, vegan friendly. Shake gently before drinking.',
+      sourcing: 'Harvested by women-led cooperatives in Upper East Region, Ghana.',
+      reviews: [
+        { author: 'Dr. Nana Osei', rating: 5, date: '5 days ago', text: 'Incredible nutritional profile and very delicious. A staple in our family fridge.' }
+      ]
+    },
+    {
       id: 'prod-1',
-      name: 'Nurture & Bloom Pregnancy Tea',
-      category: ['pregnancy', 'teas'],
-      categoryLabel: 'Pregnancy Care',
+      name: 'Nurture & Bloom Herbal Tea',
+      category: ['beverages-teas', 'wellness-blends', 'all'],
+      categoryLabel: 'Artisanal Teas & Blends',
       priceGHS: 350.00,
-      stock: 7, // Low stock small batch!
+      stock: 12,
       image: 'assets/images/product-pregnancy-tea.jpg',
-      badge: 'Trimester 2 & 3 Essential',
+      badge: 'Mena’s Signature Blend',
       variants: [
         { id: 'v1-std', name: '8 oz Amber Glass Jar', priceGHS: 350.00, size: '8 oz / 226g' },
         { id: 'v1-lrg', name: '16 oz Refill Pouch (Save 15%)', priceGHS: 580.00, size: '16 oz / 450g' },
@@ -25,26 +104,25 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedVariantIndex: 0,
       rating: 4.9,
       reviewsCount: 128,
-      shortDesc: 'Certified organic red raspberry leaf, soothing chamomile blossoms, nettle & rose petals for maternal tone and gentle mineral hydration.',
-      fullDesc: 'Specially formulated for expectant mothers navigating the second and third trimesters. Red raspberry leaf has been revered for generations by midwives to tone and nourish the uterine muscle in preparation for birth, while oat straw, chamomile, and nettle infuse rich trace minerals and deep calmness to maternal physiology.',
-      ingredients: 'Organic Red Raspberry Leaf (Rubus idaeus), Organic German Chamomile (Matricaria chamomilla), Organic Stinging Nettle (Urtica dioica), Organic Rose Petals, Organic Spearmint.',
-      directions: 'Steep 1 rounded tablespoon in 8-10 oz of freshly boiled spring water for 10-15 minutes. Strain and enjoy warm or lightly iced. Midwives recommend 1-3 cups daily starting at week 24 through birth.',
-      precautions: 'Always consult your midwife or OB-GYN before introducing new herbs. Not intended for use during the first trimester.',
-      sourcing: 'Hand-blended in small micro-batches. Packed in recyclable UV-protective amber glass jars to protect delicate essential oils.',
+      shortDesc: 'Certified organic red raspberry leaf, soothing chamomile blossoms, nettle & rose petals for vitality and peaceful restoration.',
+      fullDesc: 'Specially blended in our workshop to nourish women, mothers, and busy households. Combines mineral-rich red raspberry leaf, oat straw, and calming chamomile for gentle daily restoration.',
+      ingredients: 'Organic Red Raspberry Leaf (Rubus idaeus), Organic German Chamomile (Matricaria chamomilla), Organic Stinging Nettle, Organic Rose Petals, Organic Spearmint.',
+      directions: 'Steep 1 rounded tablespoon in 8-10 oz of freshly boiled spring water for 10-15 minutes.',
+      precautions: 'Consult a physician if taking prescription medications.',
+      sourcing: 'Hand-blended in small batches and sealed in UV-protective amber glass.',
       reviews: [
-        { author: 'Akosua Mensah', rating: 5, date: '3 days ago', text: 'Drank this from week 28 in Accra. Delivery was smooth and recovery was so quick. Tastes sweet, floral and very calming!' },
-        { author: 'Emily Watson', rating: 5, date: '2 weeks ago', text: 'The loose leaf blend is so fresh you can literally see whole chamomile blossoms and dried rose petals. Heavenly.' }
+        { author: 'Akosua Mensah', rating: 5, date: '3 days ago', text: 'Drink this every evening. Tastes sweet, floral and very calming!' }
       ]
     },
     {
       id: 'prod-2',
-      name: 'Golden Flow Lactation Drops',
-      category: ['breastfeeding'],
-      categoryLabel: 'Breastfeeding Support',
+      name: 'Golden Flow Herbal Elixir',
+      category: ['wellness-blends', 'all'],
+      categoryLabel: 'Lactation & Postpartum',
       priceGHS: 420.00,
       stock: 14,
       image: 'assets/images/product-lactation-drops.jpg',
-      badge: 'Bestselling Elixir',
+      badge: 'Bestselling Tincture',
       variants: [
         { id: 'v2-std', name: '1 fl oz / 30 ml Dropper', priceGHS: 420.00, size: '30 ml (30 servings)' },
         { id: 'v2-lrg', name: '2 fl oz / 60 ml Family Size', priceGHS: 720.00, size: '60 ml (60 servings)' }
@@ -52,119 +130,120 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedVariantIndex: 0,
       rating: 5.0,
       reviewsCount: 214,
-      shortDesc: 'Fast-absorbing botanical tincture with fenugreek, fennel, oat straw & blessed thistle to gently boost rich breast milk supply.',
-      fullDesc: 'Formulated to nourish and support nursing mothers experiencing supply dips or navigating the demanding early cluster-feeding weeks. Crafted with cold-macerated galactagogue herbs that naturally encourage prolactin stimulation and ease maternal postpartum nervous exhaustion.',
-      ingredients: 'Organic Fenugreek Seed (Trigonella foenum-graecum), Organic Sweet Fennel Seed (Foeniculum vulgare), Organic Blessed Thistle, Organic Oat Straw (Avena sativa), Certified Organic Vegetable Glycerin, Mountain Spring Water.',
-      directions: 'Take 1 to 2 full droppers (1-2 ml) directly under the tongue or in 2 oz of warm water/juice, 2 to 3 times daily between feeding sessions.',
-      precautions: 'For nursing mothers only. Not suitable during pregnancy. Those with peanut allergies or active thyroid conditions should speak to their physician before use.',
-      sourcing: 'Extracted slowly for 6 weeks in glass carboys without artificial heat or denatured alcohol to protect bioactive botanical saponins.',
+      shortDesc: 'Cold-extracted botanical tincture with fenugreek, fennel, oat straw & blessed thistle to gently boost milk supply and maternal vitality.',
+      fullDesc: 'Formulated to nourish nursing mothers. Cold-macerated galactagogue herbs naturally encourage prolactin stimulation and ease maternal postpartum nervous exhaustion.',
+      ingredients: 'Organic Fenugreek Seed, Organic Sweet Fennel Seed, Organic Blessed Thistle, Organic Oat Straw, Vegetable Glycerin, Spring Water.',
+      directions: 'Take 1 to 2 full droppers (1-2 ml) in 2 oz of warm water 2 to 3 times daily.',
+      precautions: 'For nursing mothers only. Not suitable during pregnancy.',
+      sourcing: 'Macerated for 6 weeks in glass carboys without artificial heat.',
       reviews: [
-        { author: 'Abena Osei', rating: 5, date: '4 days ago', text: 'Delivered to Kumasi in 24 hours. My milk supply noticeably jumped within 2 days. Gentle on my baby’s tummy too!' },
-        { author: 'Hannah Davies, IBCLC', rating: 5, date: '3 weeks ago', text: 'I recommend Golden Flow to all my postpartum lactation clients. It works gently without causing stomach upset.' }
+        { author: 'Abena Osei', rating: 5, date: '4 days ago', text: 'My milk supply jumped within 2 days. Gentle on my baby’s tummy too!' }
       ]
     },
     {
-      id: 'prod-3',
-      name: 'Botanical Belly & Stretch Oil',
-      category: ['pregnancy', 'womens'],
-      categoryLabel: 'Pregnancy Care & Skin',
-      priceGHS: 480.00,
-      stock: 19,
+      id: 'prod-meal-box',
+      name: 'Lacuizinee Weekly Nourish Meal Subscription',
+      category: ['meals-catering', 'all'],
+      categoryLabel: 'Lacuizinee Healthy Meals',
+      priceGHS: 850.00,
+      stock: 10,
       image: 'assets/images/product-belly-oil.jpg',
-      badge: 'Award-Winning Care',
+      badge: 'Weekly Delivery',
       variants: [
-        { id: 'v3-std', name: '3.4 fl oz / 100 ml Pump', priceGHS: 480.00, size: '100 ml Bottle' },
-        { id: 'v3-lrg', name: '6.8 fl oz / 200 ml Double Size', priceGHS: 820.00, size: '200 ml Value Pump' }
-      ],
-      selectedVariantIndex: 0,
-      rating: 4.9,
-      reviewsCount: 182,
-      shortDesc: 'Velvety cold-pressed oil with sun-infused calendula, argan, rosehip and true lavender for expanding bellies and hips.',
-      fullDesc: 'An indulgent, deeply hydrating botanical body elixir designed to cushion stretching skin with essential omegas and natural antioxidants. Soothes the dry pregnancy itch, boosts epidermal resilience, and creates an affectionate daily connection ritual between mother and growing baby.',
-      ingredients: 'Cold-Pressed Golden Jojoba Oil, Organic Moroccan Argan Oil, Calendula Petals Slow-Infused in Sweet Almond Oil, Organic Cold-Pressed Rosehip Seed Oil, True English Lavender Flower Oil (0.25% gentle dilution).',
-      directions: 'Warm 3 to 4 pumps between clean hands. Gently massage onto the belly, breasts, hips, and lower back in mindful clockwise motions morning and night.',
-      precautions: 'Safe from the first trimester through postpartum. 100% natural and edible-grade safe around nursing infants. For external use only.',
-      sourcing: 'Made with heirloom organic calendula blossoms hand-picked at dawn and slow solar-infused for 40 sunny days.',
-      reviews: [
-        { author: 'Ama Serwaa', rating: 5, date: '1 week ago', text: 'Not a single stretch mark across my twin pregnancy! The lavender scent is delicate and heavenly.' }
-      ]
-    },
-    {
-      id: 'prod-4',
-      name: 'Little Nest Calming Baby Balm',
-      category: ['children'],
-      categoryLabel: 'Little Nest (Baby & Child)',
-      priceGHS: 300.00,
-      stock: 5, // Low stock small batch!
-      image: 'assets/images/product-baby-balm.jpg',
-      badge: 'Newborn Safe (0m+)',
-      variants: [
-        { id: 'v4-std', name: '2 oz / 60 ml Glass Pot', priceGHS: 300.00, size: '60 ml Pot' },
-        { id: 'v4-twin', name: 'Duo Pack (Nursery + Diaper Bag)', priceGHS: 520.00, size: '2 x 60 ml Pots' }
+        { id: 'v-mb-5', name: '5 Lunches (Mon–Fri Delivery)', priceGHS: 850.00, size: '5 Chef Meals' },
+        { id: 'v-mb-10', name: '10 Meals (Lunch & Dinner)', priceGHS: 1550.00, size: '10 Chef Meals' },
+        { id: 'v-mb-custom', name: 'Custom Dietary Program (With Nutritionist)', priceGHS: 1950.00, size: 'Tailored Plan' }
       ],
       selectedVariantIndex: 0,
       rating: 5.0,
-      reviewsCount: 96,
-      shortDesc: 'Ultra-pure whipped balm with organic fair-trade shea butter, blue chamomile & marshmallow root for diaper rash and sensitive cheeks.',
-      fullDesc: 'Gentle enough for premature, reactive, and sensitive newborn skin. Formulated with zero essential oils, no synthetic fragrance, no preservatives, and no petroleum by-products. Melts into a breathable barrier that comforts eczema, dry cradle cap, and teething dribble rashes.',
-      ingredients: 'Certified Organic Fair-Trade Nilotica Shea Butter, Local Biodynamic Beeswax, Calendula Officinalis Flower Infused Jojoba Oil, Marshmallow Root Extract, German Chamomile CO2.',
-      directions: 'Warm a pea-sized dab between clean fingertips. Smooth gently onto baby’s diaper area, cheeks, dry joints, or irritated skin folds.',
-      precautions: 'Pediatrician evaluated. 100% gentle and hypoallergenic. Store below 25°C in a cool, shaded environment.',
-      sourcing: 'Directly sourced from women’s fair-trade harvesting cooperatives in East Africa and small biodynamic apiaries.',
+      reviewsCount: 76,
+      shortDesc: 'Wholesome chef-prepared meals delivered fresh across Accra & Tema. Nutrient-rich Ghanaian recipes tailored for busy professionals and families.',
+      fullDesc: 'Enjoy delicious, balanced everyday eating without the stress of grocery shopping and cooking. Lacuizinee prepares wholesome dishes including steamed brown rice waakye, herb-roasted guinea fowl, garden egg stews, plantain parcels, and fresh side salads.',
+      ingredients: 'Fresh local vegetables, whole grains, cold-pressed oils, wild fish/lean meats, fragrant herbs.',
+      directions: 'Delivered chilled in insulated containers. Heat gently and enjoy.',
+      precautions: 'Notify our chef of any specific food allergies or dietary guidelines.',
+      sourcing: 'Procured fresh each dawn from vetted organic farming partners in Aburi and Dodowa.',
       reviews: [
-        { author: 'Efua Appiah', rating: 5, date: '5 days ago', text: 'Cleared my baby girl’s heat rash and teething dribble spots in 48 hours. The whipped texture is so soft!' }
+        { author: 'Kofi Owusu, Banker', rating: 5, date: '1 week ago', text: 'Transformed my work week in Airport City. Healthy, delicious, and always on time.' }
       ]
     },
     {
-      id: 'prod-5',
-      name: 'Vital Balance Women’s Tincture',
-      category: ['womens'],
-      categoryLabel: 'Women’s Wellness',
-      priceGHS: 450.00,
-      stock: 12,
-      image: 'assets/images/product-balance-tincture.jpg',
-      badge: 'Hormonal Harmony',
-      variants: [
-        { id: 'v5-std', name: '1.7 fl oz / 50 ml Dropper', priceGHS: 450.00, size: '50 ml Bottle' },
-        { id: 'v5-trio', name: '3-Month Cycle Reset (3 Bottles)', priceGHS: 1180.00, size: '3 x 50 ml Bottles' }
-      ],
-      selectedVariantIndex: 0,
-      rating: 4.8,
-      reviewsCount: 89,
-      shortDesc: 'Holistic botanical support with chasteberry (vitex), motherwort & cramp bark for regular cycles and emotional equilibrium.',
-      fullDesc: 'Crafted to harmonize cyclical rhythms throughout every season of womanhood—from postpartum cycle return to everyday premenstrual wellness. Nourishes the pituitary-ovarian axis, eases pelvic spasms, and promotes calm mood stability.',
-      ingredients: 'Organic Chaste Tree Berry (Vitex agnus-castus), Organic Motherwort Herb, Organic Cramp Bark, Organic Ashwagandha Root, Organic Cane Alcohol & Pure Spring Water.',
-      directions: 'Take 30 drops (approx. 1 ml) once daily in the morning in a splash of water or herbal tea. Most effective when taken consistently for 2-3 months.',
-      precautions: 'Not for use during pregnancy or alongside hormonal medications without consulting a licensed herbal practitioner.',
-      sourcing: 'Wildcrafted chasteberries harvested at peak ripeness from organic Mediterranean coastal groves.',
-      reviews: [
-        { author: 'Yaa Konadu', rating: 5, date: '2 weeks ago', text: 'Helped my monthly cycle return with zero painful cramps. Essential for any woman struggling with hormonal imbalance.' }
-      ]
-    },
-    {
-      id: 'prod-6',
-      name: 'Restful Slumber & Gentle Nest Tea',
-      category: ['teas', 'womens', 'children'],
-      categoryLabel: 'Herbal Teas & Infusions',
-      priceGHS: 320.00,
+      id: 'prod-catering-platter',
+      name: 'Lacuizinee Gathering Catering Platter (10–12 pax)',
+      category: ['meals-catering', 'all'],
+      categoryLabel: 'Lacuizinee Catering',
+      priceGHS: 1800.00,
       stock: 8,
-      image: 'assets/images/product-pregnancy-tea.jpg',
-      badge: 'Family Evening Ritual',
+      image: 'assets/images/about-founder.jpg',
+      badge: 'Events & Corporate',
       variants: [
-        { id: 'v6-std', name: '7 oz / 200g Loose Leaf', priceGHS: 320.00, size: '200g Jar' },
-        { id: 'v6-bndl', name: 'Slumber & Calm Twin Jars', priceGHS: 580.00, size: '2 x 200g Jars' }
+        { id: 'v-cat-sm', name: 'Executive Platter (10–12 Guests)', priceGHS: 1800.00, size: '10–12 Guests' },
+        { id: 'v-cat-med', name: 'Celebration Feast (20–25 Guests)', priceGHS: 3400.00, size: '20–25 Guests' }
       ],
       selectedVariantIndex: 0,
-      rating: 4.9,
-      reviewsCount: 112,
-      shortDesc: 'Serene botanical blend of lavender, linden flower, catnip & sweet lemon balm to quiet active nervous systems.',
-      fullDesc: 'A soothing evening tonic created for tired mothers, active nervous systems, and toddlers (ages 1+). Linden and lemon balm gently release tension, while French lavender and mild catnip invite deep restorative sleep without morning grogginess.',
-      ingredients: 'Organic Linden Flower, Organic French Lavender Blossoms, Organic Lemon Balm Leaf, Organic German Chamomile Flowers, Organic Catnip Herb.',
-      directions: 'Infuse 1 tablespoon in 8 oz hot water for 7-10 minutes. For toddlers over 12 months, prepare at half-strength (1/2 tsp in 4 oz water) and cool to lukewarm.',
-      precautions: 'Safe for nursing mothers and children aged 1+. If pregnant, consult your care provider before use.',
-      sourcing: 'Crafted with certified organic herbs grown on family herb farms in Provence and Oregon.',
+      rating: 5.0,
+      reviewsCount: 54,
+      shortDesc: 'Bespoke corporate and private occasion catering featuring assorted savory wraps, jollof delicacies, grilled skewers, and sobolo carafes.',
+      fullDesc: 'Whether hosting an executive meeting, family naming ceremony, or homecoming reception, Lacuizinee brings culinary finesse and warm Ghanaian hospitality to your event.',
+      ingredients: 'Customized event menu selected with your event coordinator.',
+      directions: 'Book at least 48 hours in advance for fresh preparation and on-time setup.',
+      precautions: 'Setup and dedicated service staff available upon request.',
+      sourcing: 'Premium local ingredients and bespoke tableware presentation.',
       reviews: [
-        { author: 'Khadija Boakye', rating: 5, date: '6 days ago', text: 'Our bedtime tea ritual every evening. The aroma relaxes our whole house and my toddler sleeps soundly.' }
+        { author: 'Ama Boakye', rating: 5, date: '3 weeks ago', text: 'Catered our family reunion in East Legon. The presentation and flavors were exceptional.' }
+      ]
+    },
+    {
+      id: 'prod-arrival-feast',
+      name: 'Akwaaba Homecoming Arrival Feast (4–6 pax)',
+      category: ['meals-catering', 'home-packages', 'all'],
+      categoryLabel: 'Homecoming Specials',
+      priceGHS: 950.00,
+      stock: 15,
+      image: 'assets/images/hero-mother.jpg',
+      badge: 'Welcome to Ghana',
+      variants: [
+        { id: 'v-arr-std', name: 'Family Dinner (4–6 Guests)', priceGHS: 950.00, size: '4–6 Servings' },
+        { id: 'v-arr-lrg', name: 'Extended Family Dinner (8–10 Guests)', priceGHS: 1650.00, size: '8–10 Servings' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 5.0,
+      reviewsCount: 83,
+      shortDesc: 'A comforting arrival dinner ready on your table when you step into your home in Ghana. Fragrant jollof, braised proteins, and fresh sobolo.',
+      fullDesc: 'Nothing says Welcome Home like stepping into a fresh home with a warm, authentic meal waiting. Prepared by Lacuizinee to coincide perfectly with your flight arrival.',
+      ingredients: 'Choice of Smoked Fish Jollof or Herb-Braised Beef, Fried Plantains, Kelewele, Steamed Local Spinach Stew, 2L Chilled Sobolo.',
+      directions: 'Coordinated seamlessly with your flight schedule by our concierge team.',
+      precautions: 'Vegetarian and pescatarian options happily accommodated.',
+      sourcing: 'Prepared fresh in our atelier hours before your arrival.',
+      reviews: [
+        { author: 'Emmanuel Darko (London to Accra)', rating: 5, date: '4 days ago', text: 'Landing at Kotoka at 8 PM and arriving home to hot jollof and cold sobolo was paradise!' }
+      ]
+    },
+    {
+      id: 'prod-welcome-pkg',
+      name: 'Akwaaba Fie Flagship "Welcome Home" Suite',
+      category: ['home-packages', 'all'],
+      categoryLabel: 'Akwaaba Fie Home Care',
+      priceGHS: 1450.00,
+      stock: 12,
+      image: 'assets/images/hero-mother.jpg',
+      badge: 'Flagship Service',
+      variants: [
+        { id: 'v-wh-essential', name: 'Essential (Deep Clean + Grocery Stocking)', priceGHS: 1450.00, size: 'Up to 3-Bed Home' },
+        { id: 'v-wh-full', name: 'Signature (Clean + Stock + Bed Prep + Dinner)', priceGHS: 2450.00, size: 'Full Homecoming' },
+        { id: 'v-wh-estate', name: 'Executive Estate (Multi-Story Home Readiness)', priceGHS: 3800.00, size: 'Estate Villa' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 5.0,
+      reviewsCount: 110,
+      shortDesc: 'A coordinated homecoming package for diaspora travelers and families: pre-arrival deep cleaning, fridge stocking, bedroom prep, and warm welcome meal.',
+      fullDesc: 'Designed for Ghanaians living abroad, international visitors, and homeowners. We inspect your home, execute deep sanitization, stock your fridge with fresh produce, dress beds with crisp linens, and welcome you with complete care.',
+      ingredients: 'Deep cleaning equipment, eco-friendly sanitizers, fresh local groceries, clean linen coordination.',
+      directions: 'Book 3 to 7 days ahead of your arrival date. Our concierge coordinates entry and updates you with photos upon completion.',
+      precautions: 'Service available across Greater Accra, Tema, Kumasi, and surrounding towns.',
+      sourcing: 'Executed by vetted, trained Ghanaian hospitality professionals.',
+      reviews: [
+        { author: 'Akua Gyasi (Diaspora, New York)', rating: 5, date: '2 weeks ago', text: 'My home smelled divine, the fridge was full of fresh fruit and water, and the beds were crisp. True peace of mind.' }
       ]
     }
   ];
@@ -312,26 +391,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const FAQS = [
     {
-      q: 'Are your herbal formulations safe during the first trimester of pregnancy?',
-      a: 'During the first trimester (weeks 1–13), we advocate a low-intervention approach. Our Botanical Belly Oil is 100% safe from day one. However, internal herbal remedies such as our Nurture & Bloom Tea are formulated specifically for weeks 24 onwards. Always consult your healthcare provider.'
+      q: 'What is Mena’s Nest and how do Lacuizinee and Akwaaba Fie work together?',
+      a: 'MENA’S NEST is our parent Ghanaian hospitality group coordinating strategy, high standards, and customer care. LACUIZINEE is our culinary arm providing wholesome meals, catering, and artisanal beverages/teas. AKWAABA FIE is our home preparation arm ensuring clean, comfortable, and stocked homes. Together, they create seamless care—for example, Akwaaba Fie prepares your home for arrival while Lacuizinee delivers fresh welcome meals and sobolo.'
     },
     {
-      q: 'How quickly do the Golden Flow Lactation Drops begin working?',
-      a: 'Most nursing mothers observe fuller breasts and increased yield within 24 to 72 hours of consistent use when paired with adequate water intake and frequent nursing or pumping sessions.'
+      q: 'What is included in the Akwaaba Fie "Welcome Home" package for diaspora arrivals?',
+      a: 'The Welcome Home flagship service coordinates pre-arrival deep cleaning, fridge and pantry stocking with your favorite local groceries, guest-room linen preparation, and a warm arrival meal by Lacuizinee waiting when your flight lands in Ghana. Everything is scheduled to your flight itinerary.'
     },
     {
-      q: 'Can the Little Nest Calming Baby Balm be used on newborns?',
-      a: 'Yes! Formulated with 0% essential oils, fragrances, or chemical preservatives. It relies solely on edible-grade organic shea butter, beeswax, and slow-infused calendula, making it completely newborn safe.'
+      q: 'Does Lacuizinee cater for dietary requirements and corporate workplaces?',
+      a: 'Yes! Founded from a private-chef service for clients with specific dietary needs, Lacuizinee offers custom meal plans, corporate meeting platters, weekly meal subscriptions, and private occasion catering crafted with wholesome Ghanaian ingredients and herbs.'
     },
     {
       q: 'How do Mobile Money (MTN MoMo / Telecel) and deliveries in Ghana work?',
-      a: 'You can complete your order using MTN Mobile Money, Telecel Cash, or direct WhatsApp assistant. We offer nationwide delivery across Accra, Tema, Kumasi, Takoradi, and all regions. Orders over GH₵ 600 qualify for free delivery!'
+      a: 'You can complete your order using MTN Mobile Money, Telecel Cash, Debit/Credit Card, or direct WhatsApp concierge (020 838 6301). We offer nationwide dispatch across Accra, Tema, Kumasi, Takoradi, and all regions. Orders over GH₵ 600 qualify for free delivery!'
     },
     {
-      q: 'How do I track my order once placed?',
-      a: 'Every confirmed order generates an Order Reference Number (e.g. #MN-84920). You can enter this into our "Track Order" lookup section anytime to view real-time laboratory blending and courier transit.'
+      q: 'How do I track my food order or home readiness booking?',
+      a: 'Every confirmed order generates an Order/Booking Reference Number (e.g. #MN-84920). You can enter this into our "Track Order & Booking" section anytime to see real-time updates from preparation to arrival readiness.'
     }
   ];
+
+  /* ==========================================================================
+     AKWAABA FIE "WELCOME HOME" PACKAGE INTERACTIVE CALCULATOR
+     ========================================================================== */
+  window.updateWelcomeHomeTotal = function() {
+    const checkboxes = document.querySelectorAll('.booking-service-cb');
+    let total = 0;
+    checkboxes.forEach(cb => {
+      if (cb.checked) {
+        total += parseFloat(cb.dataset.price || 0);
+      }
+    });
+    const totalDisplay = document.getElementById('welcome-home-total-disp');
+    if (totalDisplay) {
+      totalDisplay.textContent = formatPrice(total);
+    }
+  };
+
+  window.bookWelcomeHomeViaWhatsApp = function() {
+    const city = document.getElementById('wh-city')?.value || 'Accra';
+    const arrivalDate = document.getElementById('wh-date')?.value || 'Upcoming Arrival';
+    const checkboxes = document.querySelectorAll('.booking-service-cb:checked');
+    const selectedServices = Array.from(checkboxes).map(cb => cb.dataset.name).join(', ') || 'Custom Homecoming Package';
+    const totalDisp = document.getElementById('welcome-home-total-disp')?.textContent || 'GH₵ 0.00';
+
+    const msg = `Hello Mena's Nest & Akwaaba Fie! 🌿 I would like to book the Welcome Home Package for my visit to Ghana.\n\n📍 City/Area: ${city}\n📅 Estimated Arrival Date: ${arrivalDate}\n✨ Selected Services: ${selectedServices}\n💰 Estimated Total: ${totalDisp}\n\nPlease let me know availability and next steps. Thank you!`;
+    window.open(`https://wa.me/233208386301?text=${encodeURIComponent(msg)}`, '_blank');
+  };
 
   /* ==========================================================================
      CURRENCY RATES & FORMATTER (GHANA CEDIS BASE)

@@ -4,34 +4,53 @@
    ========================================================================== */
 
 :root {
-  /* Brand Color Palette */
-  --color-lavender-subtle: #F4F0FA;
-  --color-lavender-light: #E7DEF5;
-  --color-lavender-medium: #A493D1;
-  --color-lavender-primary: #8572B8;
-  --color-lavender-dark: #584587;
-  --color-lavender-deep: #3B2A61;
+  /* Official Brand Color Palette (Mena's Nest Deck) */
+  --color-forest-green: #354C3B;
+  --color-forest-green-dark: #243529;
+  --color-forest-green-deep: #18231B;
+  --color-forest-green-light: #DCE5DF;
+  --color-forest-green-subtle: #EEF3F0;
 
-  --color-sage-subtle: #EEF4F0;
-  --color-sage-light: #D6E5DB;
-  --color-sage-medium: #6E947A;
-  --color-sage-dark: #476652;
-  --color-sage-deep: #2A4032;
+  --color-terracotta: #B77B57;
+  --color-terracotta-dark: #915A3A;
+  --color-terracotta-deep: #6D4127;
+  --color-terracotta-light: #F3E6DE;
+  --color-terracotta-subtle: #FAF4F0;
 
-  --color-cream-warm: #FBF9F5;
+  --color-warm-gold: #C9AE80;
+  --color-warm-gold-dark: #A68D60;
+  --color-warm-gold-light: #EFE6D5;
+  --color-warm-gold-subtle: #FBF8F2;
+
+  --color-warm-ivory: #F5F0E6;
+  --color-cream-warm: #F5F0E6;
   --color-cream-card: #FFFFFF;
-  --color-cream-sand: #F4EFE6;
-  --color-cream-border: #E8E2D5;
+  --color-cream-sand: #EAE3D5;
+  --color-cream-border: #DED6C7;
 
-  --color-plum-muted: #64435C;
-  --color-plum-dark: #43283D;
+  /* Harmonized Theme Mappings */
+  --color-lavender-subtle: #EEF3F0;
+  --color-lavender-light: #DCE5DF;
+  --color-lavender-medium: #6E8875;
+  --color-lavender-primary: #354C3B; /* Forest Green as Primary Brand Accent */
+  --color-lavender-dark: #243529;
+  --color-lavender-deep: #18231B;
 
-  --color-neutral-900: #262220;
-  --color-neutral-800: #3E3834;
-  --color-neutral-700: #5C544E;
-  --color-neutral-500: #887E76;
-  --color-neutral-300: #D8D2C9;
-  --color-neutral-100: #F3EFE9;
+  --color-sage-subtle: #FAF4F0;
+  --color-sage-light: #F3E6DE;
+  --color-sage-medium: #B77B57; /* Terracotta as Warm Brand Accent */
+  --color-sage-dark: #915A3A;
+  --color-sage-deep: #6D4127;
+
+  --color-plum-muted: #B77B57;
+  --color-plum-dark: #6D4127;
+
+  --color-neutral-900: #1F1B18;
+  --color-neutral-800: #332D29;
+  --color-neutral-700: #544C45;
+  --color-neutral-500: #7C736A;
+  --color-neutral-300: #D5CDC2;
+  --color-neutral-100: #ECE6DC;
 
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
@@ -74,13 +93,13 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream-warm);
+  background-color: var(--color-warm-ivory);
   color: var(--color-neutral-800);
   line-height: 1.65;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(at 10% 20%, rgba(231, 222, 245, 0.4) 0px, transparent 50%),
-    radial-gradient(at 90% 80%, rgba(214, 229, 219, 0.35) 0px, transparent 50%);
+    radial-gradient(at 10% 20%, rgba(53, 76, 59, 0.05) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(183, 123, 87, 0.06) 0px, transparent 50%);
   background-attachment: fixed;
 }
 
@@ -1245,6 +1264,267 @@ h1, h2, h3, h4, .brand-name {
   font-weight: 600;
   color: var(--color-lavender-deep);
   background: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   MENA'S NEST GROUP STRUCTURE & TWO SPECIALIST BRANDS
+   ========================================================================== */
+.group-structure-section {
+  padding: 5.5rem 0;
+  background: var(--color-warm-ivory);
+  border-top: 1px solid var(--color-cream-border);
+  border-bottom: 1px solid var(--color-cream-border);
+}
+
+.group-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.brand-showcase-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-cream-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  position: relative;
+}
+
+.brand-showcase-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.brand-card-header {
+  padding: 2.5rem 2rem 2rem;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.brand-card-header.header-lacuizinee {
+  background: linear-gradient(135deg, #354C3B 0%, #243529 100%);
+  border-bottom: 4px solid var(--color-warm-gold);
+}
+
+.brand-card-header.header-akwaaba {
+  background: linear-gradient(135deg, #B77B57 0%, #7D4D32 100%);
+  border-bottom: 4px solid var(--color-warm-gold);
+}
+
+.brand-tag-pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.brand-card-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.brand-card-slogan {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-warm-gold-light);
+  display: block;
+}
+
+.brand-card-body {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+}
+
+.brand-offerings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.25rem 0 2rem;
+  flex: 1;
+}
+
+.brand-offering-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--color-neutral-700);
+}
+
+.offering-check {
+  color: var(--color-forest-green);
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.header-akwaaba ~ .brand-card-body .offering-check {
+  color: var(--color-terracotta);
+}
+
+.btn-terracotta {
+  background: linear-gradient(135deg, #B77B57 0%, #915A3A 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(183, 123, 87, 0.35);
+}
+
+.btn-terracotta:hover {
+  background: linear-gradient(135deg, #915A3A 0%, #6D4127 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(183, 123, 87, 0.45);
+}
+
+/* ==========================================================================
+   AKWAABA FIE FLAGSHIP: WELCOME HOME SUITE
+   ========================================================================== */
+.welcome-home-section {
+  padding: 6rem 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-cream-border);
+}
+
+.welcome-home-card {
+  background: linear-gradient(135deg, #FAF4F0 0%, #FFFFFF 60%, #F5F0E6 100%);
+  border: 1.5px solid var(--color-terracotta-light);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.welcome-home-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.welcome-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 1.75rem 0 2.25rem;
+}
+
+.welcome-feature-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.welcome-feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-terracotta-light);
+  color: var(--color-terracotta-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.welcome-feature-box strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-neutral-900);
+  margin-bottom: 0.2rem;
+}
+
+.welcome-feature-box p {
+  font-size: 0.88rem;
+  color: var(--color-neutral-700);
+  line-height: 1.45;
+}
+
+/* Interactive Homecoming Booking Calculator Box */
+.welcome-booking-box {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-cream-border);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.welcome-booking-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 0.35rem;
+  color: var(--color-forest-green-dark);
+}
+
+.booking-service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.booking-option-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-cream-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-warm-ivory);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.booking-option-label:has(input:checked) {
+  border-color: var(--color-terracotta);
+  background: #FAF4F0;
+}
+
+.booking-option-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-neutral-800);
+}
+
+.booking-option-price {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-terracotta-dark);
+}
+
+.booking-total-box {
+  border-top: 1.5px dashed var(--color-cream-border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-total-val {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-forest-green-deep);
 }
 
 /* ==========================================================================
@@ -3924,10 +4204,39 @@ body.no-scroll {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  .group-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .welcome-home-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 }
 
 /* Tablets & Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
+  .welcome-home-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .welcome-booking-box {
+    padding: 1.5rem 1.15rem;
+  }
+
+  .brand-card-header {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .brand-card-body {
+    padding: 1.5rem;
+  }
+
+  .brand-card-title {
+    font-size: 1.85rem;
+  }
   /* Body bottom padding to account for fixed mobile bottom nav bar */
   body {
     padding-bottom: 68px;
