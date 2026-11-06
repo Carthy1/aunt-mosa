@@ -120,29 +120,29 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'prod-2',
-      name: 'Golden Flow Herbal Elixir',
+      name: 'Ginger Lemongrass Vitality Elixir',
       brand: 'lacuizinee',
-      category: ['wellness-blends', 'all'],
-      categoryLabel: 'Lactation & Postpartum',
-      priceGHS: 420.00,
+      category: ['beverages-teas', 'wellness-blends', 'all'],
+      categoryLabel: 'Artisanal Teas & Infusions',
+      priceGHS: 280.00,
       stock: 14,
-      image: 'assets/images/product-lactation-drops.jpg',
-      badge: 'Bestselling Tincture',
+      image: 'assets/images/product-balance-tincture.jpg',
+      badge: 'Artisanal Blend',
       variants: [
-        { id: 'v2-std', name: '1 fl oz / 30 ml Dropper', priceGHS: 420.00, size: '30 ml (30 servings)' },
-        { id: 'v2-lrg', name: '2 fl oz / 60 ml Family Size', priceGHS: 720.00, size: '60 ml (60 servings)' }
+        { id: 'v2-std', name: '16 oz Glass Bottle', priceGHS: 280.00, size: '500 ml' },
+        { id: 'v2-lrg', name: '1 Litre Family Carafe', priceGHS: 480.00, size: '1000 ml' }
       ],
       selectedVariantIndex: 0,
       rating: 5.0,
-      reviewsCount: 214,
-      shortDesc: 'Cold-extracted botanical tincture with fenugreek, fennel, oat straw & blessed thistle to gently boost milk supply and maternal vitality.',
-      fullDesc: 'Formulated to nourish nursing mothers. Cold-macerated galactagogue herbs naturally encourage prolactin stimulation and ease maternal postpartum nervous exhaustion.',
-      ingredients: 'Organic Fenugreek Seed, Organic Sweet Fennel Seed, Organic Blessed Thistle, Organic Oat Straw, Vegetable Glycerin, Spring Water.',
-      directions: 'Take 1 to 2 full droppers (1-2 ml) in 2 oz of warm water 2 to 3 times daily.',
-      precautions: 'For nursing mothers only. Not suitable during pregnancy.',
-      sourcing: 'Macerated for 6 weeks in glass carboys without artificial heat.',
+      reviewsCount: 142,
+      shortDesc: 'Slow-simmered organic Ghanaian ginger, fragrant wild lemongrass, raw cane honey & clove for immune vitality and digestive restoration.',
+      fullDesc: 'Crafted in small batches by Lacuizinee using sun-dried lemongrass stalks and pungent Volta ginger. Naturally uplifting, anti-inflammatory, and comforting served hot or over ice.',
+      ingredients: 'Organic Volta Ginger Root, Wild Ghanaian Lemongrass (Cymbopogon), Clove Buds, Raw Honey, Purified Spring Water.',
+      directions: 'Serve chilled over crushed ice with fresh mint, or warm gently for soothing evening comfort.',
+      precautions: 'Shake well before serving. Keep refrigerated and consume within 7 days of opening.',
+      sourcing: 'Lemongrass harvested sustainably by smallholder farmers in the Volta Region.',
       reviews: [
-        { author: 'Abena Osei', rating: 5, date: '4 days ago', text: 'My milk supply jumped within 2 days. Gentle on my baby’s tummy too!' }
+        { author: 'Abena Osei', rating: 5, date: '4 days ago', text: 'The kick from the ginger and aroma of lemongrass is so refreshing. Drink this daily!' }
       ]
     },
     {
