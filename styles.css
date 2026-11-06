@@ -1527,6 +1527,48 @@ h1, h2, h3, h4, .brand-name {
   color: var(--color-forest-green-deep);
 }
 
+.brand-card-media {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-warm-ivory);
+}
+
+.brand-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.brand-showcase-card:hover .brand-card-media img {
+  transform: scale(1.05);
+}
+
+.welcome-home-banner-img {
+  width: 100%;
+  height: 260px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 1.25rem 0 1.75rem;
+  box-shadow: var(--shadow-md);
+  border: 1.5px solid var(--color-terracotta-light);
+}
+
+.welcome-home-banner-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.welcome-home-banner-img:hover img {
+  transform: scale(1.03);
+}
+
 /* ==========================================================================
    ABOUT SECTION
    ========================================================================== */

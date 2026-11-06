@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryLabel: 'Lacuizinee Beverages',
       priceGHS: 65.00,
       stock: 25,
-      image: 'assets/images/product-balance-tincture.jpg',
+      image: 'assets/images/sobolo-artisanal.jpg',
       badge: 'Lacuizinee Signature',
       variants: [
         { id: 'v-sob-1l', name: '1 Litre Glass Carafe', priceGHS: 65.00, size: '1L Cold-Brewed' },
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryLabel: 'Lacuizinee Beverages',
       priceGHS: 75.00,
       stock: 18,
-      image: 'assets/images/product-balance-tincture.jpg',
+      image: 'assets/images/tamarind-nectar.jpg',
       badge: 'Indigenous Superfood',
       variants: [
         { id: 'v-tam-1l', name: '1 Litre Glass Bottle', priceGHS: 75.00, size: '1L Bottle' },
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryLabel: 'Lacuizinee Beverages',
       priceGHS: 70.00,
       stock: 20,
-      image: 'assets/images/product-lactation-drops.jpg',
+      image: 'assets/images/baobab-elixir.jpg',
       badge: 'Prebiotic Power',
       variants: [
         { id: 'v-bao-1l', name: '1 Litre Bottle', priceGHS: 70.00, size: '1L Glass Carafe' },
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryLabel: 'Lacuizinee Healthy Meals',
       priceGHS: 850.00,
       stock: 10,
-      image: 'assets/images/product-belly-oil.jpg',
+      image: 'assets/images/wholesome-meal-box.jpg',
       badge: 'Weekly Delivery',
       variants: [
         { id: 'v-mb-5', name: '5 Lunches (Mon–Fri Delivery)', priceGHS: 850.00, size: '5 Chef Meals' },
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryLabel: 'Lacuizinee Catering',
       priceGHS: 1800.00,
       stock: 8,
-      image: 'assets/images/about-founder.jpg',
+      image: 'assets/images/catering-platter.jpg',
       badge: 'Events & Corporate',
       variants: [
         { id: 'v-cat-sm', name: 'Executive Platter (10–12 Guests)', priceGHS: 1800.00, size: '10–12 Guests' },
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryLabel: 'Homecoming Specials',
       priceGHS: 950.00,
       stock: 15,
-      image: 'assets/images/hero-mother.jpg',
+      image: 'assets/images/catering-platter.jpg',
       badge: 'Welcome to Ghana',
       variants: [
         { id: 'v-arr-std', name: 'Family Dinner (4–6 Guests)', priceGHS: 950.00, size: '4–6 Servings' },
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryLabel: 'Akwaaba Fie Home Care',
       priceGHS: 1450.00,
       stock: 12,
-      image: 'assets/images/hero-mother.jpg',
+      image: 'assets/images/akwaaba-welcome-suite.jpg',
       badge: 'Flagship Service',
       variants: [
         { id: 'v-wh-essential', name: 'Essential (Deep Clean + Grocery Stocking)', priceGHS: 1450.00, size: 'Up to 3-Bed Home' },
@@ -244,6 +244,33 @@ document.addEventListener('DOMContentLoaded', () => {
       sourcing: 'Executed by vetted, trained Ghanaian hospitality professionals.',
       reviews: [
         { author: 'Akua Gyasi (Diaspora, New York)', rating: 5, date: '2 weeks ago', text: 'My home smelled divine, the fridge was full of fresh fruit and water, and the beds were crisp. True peace of mind.' }
+      ]
+    },
+    {
+      id: 'prod-cleaning',
+      name: 'Akwaaba Fie Pre-Arrival Deep Clean & Sanitation',
+      category: ['home-packages', 'all'],
+      categoryLabel: 'Akwaaba Fie Home Care',
+      priceGHS: 450.00,
+      stock: 14,
+      image: 'assets/images/pre-arrival-cleaning.jpg',
+      badge: 'Home Care Essential',
+      variants: [
+        { id: 'v-cl-apt', name: 'Apartment / Flat (1–2 Bed)', priceGHS: 450.00, size: '1–2 Bed' },
+        { id: 'v-cl-house', name: 'Family House (3–4 Bed)', priceGHS: 750.00, size: '3–4 Bed' },
+        { id: 'v-cl-villa', name: 'Luxury Villa / Compound', priceGHS: 1200.00, size: 'Large Villa' }
+      ],
+      selectedVariantIndex: 0,
+      rating: 5.0,
+      reviewsCount: 78,
+      shortDesc: 'Comprehensive pre-arrival deep cleaning, floor scrub, bathroom sanitation, and fresh ventilation before you unlock the door.',
+      fullDesc: 'Walk into a sparkling, fresh-smelling home. Our vetted hospitality cleaning team scrubs tile and hardwood floors, sanitizes all bathrooms, details kitchen countertops and cabinets, polishes windows, and airs out rooms for crisp freshness.',
+      ingredients: 'Non-toxic eco-friendly sanitizers, HEPA filtration vacuums, microfiber systems, organic room aromatics.',
+      directions: 'Scheduled 24 to 48 hours before your flight arrival date.',
+      precautions: 'Requires water & power supply on site. Key collection handled with full discretion.',
+      sourcing: 'Executed by vetted, trained Akwaaba Fie home care personnel.',
+      reviews: [
+        { author: 'Kweku Addo', rating: 5, date: '1 week ago', text: 'Floor tiles were spotless and the bathrooms smelled like a luxury hotel!' }
       ]
     }
   ];
