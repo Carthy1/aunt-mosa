@@ -1,0 +1,38 @@
+[
+  {
+    "code": "MAMA10",
+    "type": "pct",
+    "val": 0.10,
+    "desc": "10% Off Entire Nest Order",
+    "minOrder": 0,
+    "active": true,
+    "expiry": "2027-12-31"
+  },
+  {
+    "code": "NESTLOVE",
+    "type": "fixed",
+    "val": 50.00,
+    "desc": "GH₵ 50 Flat Discount on Orders",
+    "minOrder": 200,
+    "active": true,
+    "expiry": "2027-12-31"
+  },
+  {
+    "code": "FREESHIP",
+    "type": "freeship",
+    "val": 0,
+    "desc": "Complimentary Free Nationwide Delivery",
+    "minOrder": 150,
+    "active": true,
+    "expiry": "2027-12-31"
+  },
+  {
+    "code": "AKWAABA15",
+    "type": "pct",
+    "val": 0.15,
+    "desc": "15% Special Welcome Homecoming Discount",
+    "minOrder": 500,
+    "active": true,
+    "expiry": "2027-12-31"
+  }
+]

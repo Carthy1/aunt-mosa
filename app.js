@@ -450,77 +450,110 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      DATA: WELLNESS ARTICLES & GLOSSARY & FAQS
      ========================================================================== */
-  const ARTICLES = [
+  let ARTICLES = [
     {
-      id: 'art-1',
-      category: 'pregnancy',
-      categoryLabel: 'Pregnancy Care',
-      title: 'The Midwife’s Guide to Red Raspberry Leaf Across Trimesters',
+      id: 'art-kotoka-checklist',
+      category: 'diaspora',
+      categoryLabel: 'Diaspora Living & Arrival',
+      title: 'The Kotoka Homecoming Master Checklist: What to Prepare 14 Days Before Flying into Accra',
       readTime: '5 min read',
-      snippet: 'Unpack the science behind the most famous uterine tonic in obstetric phytotherapy, including exact timing and dosage recommendations.',
+      image: 'assets/images/hero-welcome-home.jpg',
+      snippet: 'Avoid midnight arrival stress. From pre-flight utility testing to airport transfers and stocked pantries, here is how diaspora families touch down in total comfort.',
       body: `
-        <p>Red Raspberry Leaf (<em>Rubus idaeus</em>) holds an ancient, venerated place in obstetric herbalism. Known as the premier uterine tonic, its leaves contain rich concentrations of fragarine—an alkaloid compound known to tone and balance pelvic muscles.</p>
-        <p>Far from inducing preterm contractions, raspberry leaf acts as a mild amphoteric regulator: it helps uterine tissue contract with coordinated efficiency during labor while facilitating gentle relaxation between surges.</p>
+        <p>Touching down at Kotoka International Airport after an eight to twelve-hour transatlantic flight is exhilarating—until you unlock the front door of your Accra home or family residence at 1:30 AM to darkness, stale trapped air, dead AC batteries, and not a single bottle of chilled drinking water in sight.</p>
+        <p>Over five years of welcoming returnees through <strong>Akwaaba Fie</strong>, we have distilled the ultimate 14-day protocol for a frictionless arrival.</p>
         <div class="article-takeaways-box">
-          <h4>Key Clinical Takeaways:</h4>
+          <h4>Essential 14-Day Preparation Milestones:</h4>
           <ul>
-            <li><strong>First Trimester:</strong> Best avoided or used only under the direct supervision of an obstetric herbalist.</li>
-            <li><strong>Second Trimester (Week 14–27):</strong> 1 cup daily of mild infusion provides iron, calcium, and magnesium.</li>
-            <li><strong>Third Trimester (Week 28+):</strong> 2 to 3 cups daily encourages tissue tone and postpartum recovery speed.</li>
-            <li><strong>Postpartum:</strong> Continues to aid uterine involution and reduce lingering lochia bleeding.</li>
+            <li><strong>Day 14: Utility Pre-Checks:</strong> Send our concierge team to test ECG electricity meters, pre-purchase prepaid units, verify water borehole pressure, and test inverter batteries.</li>
+            <li><strong>Day 7: Deep Allergen Sanitization:</strong> In Ghana’s tropical climate, closed rooms gather unseen humidity, dust mites, and mildew. A hospital-grade sanitization clears AC vents, steam-presses mattresses, and airs out bedrooms.</li>
+            <li><strong>Day 3: Pantry & Refrigerator Provisioning:</strong> Chilled pure drinking water dispenser bottles, fresh local bread, eggs, seasonal fruits, and Lacuizinee artisanal drinks chilled and ready.</li>
+            <li><strong>Day 0 (Landing Night):</strong> Hot home-cooked welcome soup waiting in thermal warmers, crisp high-thread-count bedsheets turned down, and a warm bath ready.</li>
           </ul>
         </div>
+        <p>When you land, you deserve a homecoming that feels like a five-star sanctuary. Book our Welcome Home Suite at least 72 hours prior to takeoff.</p>
       `
     },
     {
-      id: 'art-2',
-      category: 'lactation',
-      categoryLabel: 'Breastfeeding & Postpartum',
-      title: 'Nourishing the Fourth Trimester: Science-Backed Galactagogues',
+      id: 'art-superfoods-ghana',
+      category: 'culinary',
+      categoryLabel: 'Artisanal Nutrition & Botanicals',
+      title: 'From Hibiscus to Baobab: Unlocking West Africa’s Indigenous Superfoods & Digestion Elixirs',
       readTime: '6 min read',
-      snippet: 'Discover how botanical herbs like fenugreek, fennel, and oat straw synergize to support milk ejection and maternal vitality.',
+      image: 'assets/images/baobab-elixir.jpg',
+      snippet: 'Discover the clinically proven antioxidant, cardiovascular, and gut-health benefits of authentic Ghanaian botanical tonics crafted by Lacuizinee.',
       body: `
-        <p>The postpartum period—often termed the Fourth Trimester—is a time of intense physiological metamorphosis. Breast milk production requires enormous caloric energy, hydration, and precise neurohormonal coordination involving prolactin and oxytocin.</p>
+        <p>Long before commercial sodas and artificial energy drinks flooded market stalls, West African ancestral wellness was anchored by indigenous botanicals steeped slowly in earthenware pots. At <strong>Lacuizinee</strong>, Aunt Mosa has revitalized these timeless elixirs using 100% natural, preservative-free cold infusion techniques.</p>
         <div class="article-takeaways-box">
-          <h4>Holistic Lactation Protocol:</h4>
+          <h4>The Power of Four Ghanaian Botanicals:</h4>
           <ul>
-            <li><strong>Hydration Base:</strong> Drink warm herbal infusions containing fennel and oat straw 30 minutes before nursing.</li>
-            <li><strong>Frequent Milk Removal:</strong> Herbs work best as amplifiers; regular latching or pumping remains essential.</li>
-            <li><strong>Nervous System Rest:</strong> High cortisol can block letdown. Chamomile drops soothe maternal adrenaline.</li>
+            <li><strong>Hibiscus Sabdariffa (Sobolo):</strong> Abundant in anthocyanins and bioflavonoids that actively support healthy blood pressure, liver detoxification, and systemic anti-inflammatory resilience.</li>
+            <li><strong>Baobab Pulp (Adansonia digitata):</strong> Boasting six times more Vitamin C than oranges and exceptionally high prebiotic soluble fiber to nourish beneficial bifidobacteria in your digestive tract.</li>
+            <li><strong>Tamarind Pods:</strong> Nature’s supreme digestive tonic, rich in tartaric acid to gently support bile secretion and relieve travel-related sluggish digestion.</li>
+            <li><strong>Ginger Root & Grains of Selim (Hwentia):</strong> Powerful thermogenic carminatives that promote peripheral circulation, soothe joint stiffness, and enhance deep restful recovery.</li>
           </ul>
         </div>
+        <p>Every bottle of Lacuizinee is pressed fresh in small batches without chemical shelf-stabilizers, delivering vitality straight from the soil of Ghana to your glass.</p>
       `
     },
     {
-      id: 'art-3',
-      category: 'children',
-      categoryLabel: 'Children\'s Wellbeing',
-      title: 'Gentle Calming Botanicals for Teething & Restless Little Ones',
+      id: 'art-sanitization-guide',
+      category: 'homecare',
+      categoryLabel: 'Home Sanctuary & Clean Air',
+      title: 'Pre-Arrival Sanitization vs. Standard Cleaning: Why Hospital-Grade Air & Linen Care Matters for Families',
       readTime: '4 min read',
-      snippet: 'Safe, low-dose herbal solutions for soothing swollen infant gums, sensitive diaper areas, and turbulent bedtimes.',
+      image: 'assets/images/pre-arrival-cleaning.jpg',
+      snippet: 'Why a standard sweep-and-mop is insufficient for properties closed for months. How HEPA air filtration and botanical sanitizers protect children and elderly parents.',
       body: `
-        <p>Infant skin and nervous systems are extraordinarily receptive and delicate. Our golden rule at Mena’s Nest is: low dose, pure ingredients, zero harsh essential oils, and maximum nourishment.</p>
+        <p>When a home or apartment sits vacant for weeks or months in coastal Accra, moisture levels fluctuate between 60% and 90%. Microscopic mold spores thrive behind wardrobes, inside split-unit air conditioner blower wheels, and deep within mattress ticking.</p>
+        <p>A routine domestic sweep-and-mop only disturbs these allergens, suspending them into the breathing zone just as your tired family goes to sleep on night one.</p>
         <div class="article-takeaways-box">
-          <h4>Pediatric Safe Guidelines:</h4>
+          <h4>The Akwaaba Fie Medical-Grade Clean Standard:</h4>
           <ul>
-            <li><strong>External Comfort:</strong> Use whipped pure calendula and shea balm on irritated diaper zones and teething chins.</li>
-            <li><strong>Mild Infusions:</strong> For children over 12 months, dilute chamomile-lemon balm tea gently soothes evening agitation.</li>
+            <li><strong>Disassembled AC Coil Sanitization:</strong> We strip AC filters and chemically sanitize indoor cooling coils with non-toxic botanical antimicrobials before running them, preventing respiratory irritation and coughs.</li>
+            <li><strong>UV-C & High-Heat Steam Extraction:</strong> High-temperature pressurized steam penetrates 4 inches into mattresses and soft upholstery, neutralizing dust mite colonies without toxic pesticides.</li>
+            <li><strong>Hospital-Grade Food Surface Decontamination:</strong> Kitchen prep counters, refrigerator seals, and pantries are treated with food-safe botanical degreasers.</li>
+            <li><strong>Pure Water Plumbing Flush:</strong> Stagnant water in hot water heaters and kitchen taps is thoroughly flushed and aerated.</li>
           </ul>
         </div>
+        <p>Give your children and loved ones clean air from their first breath back on Ghanaian soil.</p>
       `
     },
     {
-      id: 'art-4',
-      category: 'herbs',
-      categoryLabel: 'Herbal Guides',
-      title: 'Herbal Adaptogens & Tonics: Reclaiming Energy in Motherhood',
+      id: 'art-maternal-fourth-trimester',
+      category: 'maternal',
+      categoryLabel: 'Maternal Wellness & Postpartum',
+      title: 'Nourishing the Fourth Trimester: Science-Backed Galactagogues and Restorative Healing Broths',
       readTime: '7 min read',
-      snippet: 'How gentle nourishing adaptogens help mothers balance adrenal depletion, sleep disruption, and mood fluctuations.',
+      image: 'assets/images/wholesome-meal-box.jpg',
+      snippet: 'How botanical herbs, ancestral light broths, and hormone-supporting nutrition restore maternal vitality and milk supply after childbirth.',
       body: `
-        <p>Between nighttime feedings, infant care, and life demands, maternal depletion is a real phenomenon recognized by postpartum practitioners globally. Adaptogenic and nervine herbs assist the body in modulating cortisol and recovering from chronic sleep fragmentation.</p>
+        <p>The postpartum period—termed the Fourth Trimester—is a sacred physiological transition requiring deep tissue remineralization, blood rebuilding, and gentle nervous system calibration. In Ghanaian tradition, new mothers were wrapped in warm cloths and fed restorative botanical broths steeped with medicinal aromatics.</p>
+        <div class="article-takeaways-box">
+          <h4>Foundational Postpartum Nutrition Principles:</h4>
+          <ul>
+            <li><strong>Warmth Over Cold:</strong> Digestive enzymes are suppressed post-delivery; warm light broths, ginger infusions, and stewed roots digest effortlessly while replenishing blood volume.</li>
+            <li><strong>Galactagogue Synergy:</strong> Gentle seed extracts including fennel, fenugreek, and milk thistle support neurohormonal let-down reflex without overloading digestion.</li>
+            <li><strong>Magnesium & Adrenal Support:</strong> High levels of bioavailable minerals in baobab and moringa soothe the midnight anxiety and muscle aches common during sleep deprivation.</li>
+          </ul>
+        </div>
+        <p>Explore our curated Wholesome Postpartum Meal Subscription boxes prepared daily in our hygienic commercial kitchen.</p>
       `
     }
   ];
+
+  // Dynamically load custom articles if saved in localStorage
+  try {
+    const savedArticles = localStorage.getItem('menas_articles');
+    if (savedArticles) {
+      const parsed = JSON.parse(savedArticles);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        ARTICLES = parsed;
+      }
+    }
+  } catch (e) {
+    console.warn('Articles local load error:', e);
+  }
 
   const GLOSSARY = [
     {
@@ -655,11 +688,35 @@ document.addEventListener('DOMContentLoaded', () => {
   let appliedCoupon = null; // { code: 'MAMA10', type: 'pct', val: 0.10 } or { code: 'NESTLOVE', type: 'fixed', val: 50.0 }
   let selectedShippingMethod = 'standard'; // 'standard', 'express', 'courier'
 
-  const COUPONS = {
+  const DEFAULT_COUPONS = {
     'MAMA10': { type: 'pct', val: 0.10, desc: '10% Off Your Entire Nest' },
     'NESTLOVE': { type: 'fixed', val: 50.00, desc: 'GH₵ 50 Off Order' },
-    'FREESHIP': { type: 'freeship', val: 0, desc: 'Complimentary Free Nationwide Delivery' }
+    'FREESHIP': { type: 'freeship', val: 0, desc: 'Complimentary Free Nationwide Delivery' },
+    'AKWAABA15': { type: 'pct', val: 0.15, desc: '15% Off Welcome Home Suite' },
+    'WELCOME10': { type: 'pct', val: 0.10, desc: '10% Off First-Time Orders' }
   };
+
+  function getDynamicCoupons() {
+    let custom = {};
+    try {
+      const saved = localStorage.getItem('menas_coupons');
+      if (saved) {
+        const list = JSON.parse(saved);
+        if (Array.isArray(list)) {
+          list.forEach(c => {
+            if (c && c.active !== false && c.code) {
+              custom[c.code.toUpperCase()] = {
+                type: c.type || 'pct',
+                val: parseFloat(c.val || 0),
+                desc: c.desc || `${c.code} Discount`
+              };
+            }
+          });
+        }
+      }
+    } catch (e) {}
+    return { ...DEFAULT_COUPONS, ...custom };
+  }
 
   function loadStorage() {
     try {
@@ -940,11 +997,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyCouponCode(codeStr) {
     if (!codeStr) return;
     const code = codeStr.trim().toUpperCase();
-    if (COUPONS[code]) {
-      appliedCoupon = { code, ...COUPONS[code] };
+    const activeCoupons = getDynamicCoupons();
+    if (activeCoupons[code]) {
+      appliedCoupon = { code, ...activeCoupons[code] };
       if (couponFeedback) {
         couponFeedback.className = 'coupon-feedback success';
-        couponFeedback.textContent = `✓ Coupon "${code}" applied: ${COUPONS[code].desc}!`;
+        couponFeedback.textContent = `✓ Coupon "${code}" applied: ${activeCoupons[code].desc}!`;
       }
       updateCartUI();
       updateCheckoutSummary();
@@ -952,8 +1010,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       if (couponFeedback) {
         couponFeedback.className = 'coupon-feedback error';
-        couponFeedback.textContent = 'Invalid promo code. Try "MAMA10" or "NESTLOVE".';
+        couponFeedback.textContent = 'Invalid or expired promo code. Try "MAMA10", "NESTLOVE" or "AKWAABA15".';
       }
+      showToast(`Coupon "${code}" not found or expired.`, 'warning');
     }
   }
 
@@ -1943,26 +2002,30 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      RENDER ARTICLES, GLOSSARY, FAQS & INITIALIZE
      ========================================================================== */
-  const articlesGrid = document.getElementById('articles-grid');
-  if (articlesGrid) {
+  /* Render Articles / Vlogs / Homecoming Guides */
+  function renderArticlesGrid() {
+    const articlesGrid = document.getElementById('articles-grid');
+    if (!articlesGrid) return;
     articlesGrid.innerHTML = ARTICLES.map(art => `
-      <div class="article-card" onclick="window.openArticleModal('${art.id}')">
-        <div class="article-card-header">
-          <span>🌿</span>
-          <span class="article-read-time">${art.readTime}</span>
+      <div class="article-card" onclick="window.openArticleModal('${art.id}')" role="button" tabindex="0">
+        <div class="article-card-header" ${art.image ? `style="background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.45)), url('${art.image}') center/cover no-repeat; height: 160px;"` : ''}>
+          ${art.image ? '' : '<span style="font-size: 2.5rem;">🌿</span>'}
+          <span class="article-read-time" style="background: rgba(255,255,255,0.92); color: var(--color-purple-deep); font-weight: 700;">${art.readTime || '5 min read'}</span>
         </div>
         <div class="article-card-body">
-          <span class="article-category">${art.categoryLabel}</span>
-          <h3 class="article-title">${art.title}</h3>
-          <p class="article-snippet">${art.snippet}</p>
-          <div class="article-footer">
-            <span>Read Evidence Guide</span>
+          <span class="article-category" style="color: var(--color-purple-deep);">${art.categoryLabel || 'Wellness Guide'}</span>
+          <h3 class="article-title" style="font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; color: var(--color-neutral-900);">${art.title}</h3>
+          <p class="article-snippet" style="font-size: 0.88rem; color: var(--color-neutral-600); line-height: 1.6; margin-bottom: 1.25rem; flex: 1;">${art.snippet}</p>
+          <div class="article-footer" style="display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 0.85rem; color: var(--color-purple-deep);">
+            <span>Read Complete Guide</span>
             <span>→</span>
           </div>
         </div>
       </div>
     `).join('');
   }
+  renderArticlesGrid();
+  window.renderArticlesGrid = renderArticlesGrid;
 
   const glossaryGrid = document.getElementById('glossary-grid');
   if (glossaryGrid) {
@@ -2138,7 +2201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  /* Newsletter submit handler */
+  /* Newsletter submit handler with persistent storage & API sync */
   window.handleNewsletterSubmit = function(e) {
     if (e && e.preventDefault) e.preventDefault();
     const input = document.getElementById('newsletter-email');
@@ -2147,6 +2210,37 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('Please enter a valid email address.', 'warning');
       return;
     }
+
+    const sourcePage = window.location.pathname.split('/').pop() || 'index.html';
+    const newSub = {
+      email: val,
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+      source: sourcePage
+    };
+
+    // 1. Save locally to browser storage for instant persistence
+    try {
+      let subs = [];
+      const saved = localStorage.getItem('menas_subscribers');
+      if (saved) subs = JSON.parse(saved);
+      const exists = subs.some(s => (s.email || '').toLowerCase() === val.toLowerCase());
+      if (!exists) {
+        subs.unshift(newSub);
+        localStorage.setItem('menas_subscribers', JSON.stringify(subs));
+      }
+    } catch (err) {
+      console.warn('Subscriber local store error:', err);
+    }
+
+    // 2. Asynchronously sync with server API if hosted on PHP/Hostinger
+    try {
+      fetch('api/subscribers.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'subscribe', email: val, source: sourcePage })
+      }).catch(() => {});
+    } catch (err) {}
+
     showToast(`Welcome to the Mena's Nest Wellness Circle! 🌿 Check your inbox soon for your 10% welcome gift.`, 'success');
     if (input) input.value = '';
   };

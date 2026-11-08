@@ -527,10 +527,22 @@
       <span class="tab-badge" id="products-count-badge">12</span>
     </button>
     <button class="admin-tab-btn" data-tab="add-product" onclick="openAddProductTab()">
-      <span>➕ Add New Item / Package</span>
+      <span>➕ Add New Item</span>
+    </button>
+    <button class="admin-tab-btn" data-tab="articles" onclick="switchAdminTab('articles')">
+      <span>📖 Blog & Articles</span>
+      <span class="tab-badge" id="articles-count-badge">4</span>
+    </button>
+    <button class="admin-tab-btn" data-tab="subscribers" onclick="switchAdminTab('subscribers')">
+      <span>📬 Subscribers</span>
+      <span class="tab-badge" id="subscribers-count-badge">0</span>
+    </button>
+    <button class="admin-tab-btn" data-tab="coupons" onclick="switchAdminTab('coupons')">
+      <span>🏷️ Promotions & Coupons</span>
+      <span class="tab-badge" id="coupons-count-badge">4</span>
     </button>
     <button class="admin-tab-btn" data-tab="media" onclick="switchAdminTab('media')">
-      <span>📤 Photo & Media Uploader</span>
+      <span>📤 Media Uploader</span>
     </button>
   </nav>
 
@@ -545,7 +557,7 @@
         <div class="stat-sub">Ghana Cedis Base</div>
       </div>
       <div class="stat-card">
-        <span class="stat-label">Total Orders Logged</span>
+        <span class="stat-label">Orders Logged</span>
         <div class="stat-value" id="kpi-orders-count">0</div>
         <div class="stat-sub" id="kpi-orders-sub">All channels</div>
       </div>
@@ -555,9 +567,14 @@
         <div class="stat-sub">Lacuizinee & Akwaaba Fie</div>
       </div>
       <div class="stat-card">
-        <span class="stat-label">WhatsApp Concierge</span>
-        <div class="stat-value" style="font-size: 1.3rem; margin-top: 0.2rem;">020 838 6301</div>
-        <div class="stat-sub">Direct Line Active</div>
+        <span class="stat-label">Newsletter Circle</span>
+        <div class="stat-value" id="kpi-subscribers-count">0</div>
+        <div class="stat-sub">Subscribers Joined</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Active Promotions</span>
+        <div class="stat-value" id="kpi-coupons-count">4</div>
+        <div class="stat-sub">Live Promo Codes</div>
       </div>
     </div>
 
@@ -714,7 +731,8 @@
           <!-- PHOTO UPLOAD & PREVIEW -->
           <div class="form-group">
             <label class="form-label">Product Photo / Image *</label>
-            <div class="upload-zone" id="product-upload-dropzone" onclick="document.getElementById('product-file-input').click()">
+            <div class="upload-zone" id="product-upload-dropzone"
+              onclick="document.getElementById('product-file-input').click()">
               <input type="file" id="product-file-input" accept="image/jpeg,image/png,image/webp" style="display: none;"
                 onchange="handleProductPhotoUpload(this.files[0])">
               <div class="upload-icon">📷</div>
@@ -733,7 +751,8 @@
                 <span id="product-preview-status" style="font-size: 0.78rem; color: #10B981;">Ready to save</span>
               </div>
               <input type="hidden" id="prod-image-url" value="assets/images/sobolo-artisanal.jpg">
-              <button type="button" class="btn-admin btn-admin-sm btn-admin-light" style="color: var(--color-neutral-700);"
+              <button type="button" class="btn-admin btn-admin-sm btn-admin-light"
+                style="color: var(--color-neutral-700);"
                 onclick="document.getElementById('product-file-input').click()">Replace</button>
             </div>
           </div>
@@ -797,6 +816,209 @@
       </div>
     </section>
 
+    <!-- TAB 5: BLOG & ARTICLES / VLOBS MANAGER -->
+    <section id="tab-articles" class="admin-tab-content" style="display: none;">
+      <div class="admin-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Wellness Journal & Homecoming Guides Publisher</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Publish diaspora guides, culinary insights, and herbal nutrition articles directly to the live website.
+            </p>
+          </div>
+          <button class="btn-admin btn-admin-primary" onclick="openArticleEditorModal()">
+            <span>➕ Write New Article</span>
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">Cover</th>
+                <th>Title & Category</th>
+                <th>Read Time</th>
+                <th>Excerpt</th>
+                <th style="width: 140px;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="articles-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: NEWSLETTER SUBSCRIBERS -->
+    <section id="tab-subscribers" class="admin-tab-content" style="display: none;">
+      <div class="admin-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Mena’s Nest Wellness Circle Subscribers</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Emails submitted by visitors and clients interested in diaspora arrivals, food drops, and seasonal batches.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn-admin btn-admin-light" onclick="copyAllSubscriberEmails()">
+              <span>📋 Copy All Emails</span>
+            </button>
+            <button class="btn-admin btn-admin-primary" onclick="exportSubscribersCsv()">
+              <span>📥 Export CSV</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">#</th>
+                <th>Email Address</th>
+                <th>Date Subscribed</th>
+                <th>Signup Source</th>
+                <th style="width: 90px;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="subscribers-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: PROMOTIONS & DISCOUNT COUPONS -->
+    <section id="tab-coupons" class="admin-tab-content" style="display: none;">
+      <div class="admin-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Promotions, Discounts & Coupons</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Manage coupon codes for the online shopping cart and diaspora welcome suite checkout.
+            </p>
+          </div>
+          <button class="btn-admin btn-admin-primary" onclick="openCouponModal()">
+            <span>➕ Create Promo Code</span>
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Coupon Code</th>
+                <th>Discount Type</th>
+                <th>Value</th>
+                <th>Min. Order</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th style="width: 120px;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="coupons-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLE EDITOR MODAL -->
+    <div id="article-editor-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem; overflow-y: auto;">
+      <div style="background: #FFFFFF; border-radius: var(--radius-lg); max-width: 720px; width: 100%; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h3 id="article-modal-title" style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--admin-primary); margin: 0;">Write New Article</h3>
+          <button type="button" onclick="closeArticleModal()" style="font-size: 1.5rem; color: var(--color-neutral-500); cursor: pointer;">✕</button>
+        </div>
+        <form id="article-edit-form" onsubmit="saveArticle(event)">
+          <input type="hidden" id="art-id">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Article Title *</label>
+            <input type="text" id="art-title" class="form-control" placeholder="e.g. The 14-Day Kotoka Pre-Arrival Checklist" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select id="art-category" class="form-control">
+                <option value="diaspora">Diaspora Living & Arrival</option>
+                <option value="culinary">Artisanal Nutrition & Botanicals</option>
+                <option value="homecare">Home Sanctuary & Clean Air</option>
+                <option value="maternal">Maternal Wellness & Postpartum</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Read Time</label>
+              <input type="text" id="art-read-time" class="form-control" placeholder="e.g. 5 min read" value="5 min read">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Cover Image Path / URL</label>
+            <input type="text" id="art-image" class="form-control" placeholder="assets/images/hero-welcome-home.jpg" value="assets/images/hero-welcome-home.jpg">
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Short Excerpt (Summary for Cards) *</label>
+            <textarea id="art-snippet" class="form-control" rows="2" placeholder="Brief summary of what readers will learn..." required></textarea>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label">Article Content (HTML / Paragraphs) *</label>
+            <textarea id="art-body" class="form-control" rows="8" placeholder="<p>Full article paragraphs...</p>" required></textarea>
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+            <button type="button" class="btn-admin btn-admin-light" onclick="closeArticleModal()">Cancel</button>
+            <button type="submit" class="btn-admin btn-admin-primary">💾 Save & Publish Article</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- COUPON EDITOR MODAL -->
+    <div id="coupon-editor-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem;">
+      <div style="background: #FFFFFF; border-radius: var(--radius-lg); max-width: 520px; width: 100%; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--admin-primary); margin: 0;">Create Promotional Coupon</h3>
+          <button type="button" onclick="closeCouponModal()" style="font-size: 1.5rem; color: var(--color-neutral-500); cursor: pointer;">✕</button>
+        </div>
+        <form id="coupon-edit-form" onsubmit="saveCoupon(event)">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Promo Code * (e.g. DECEMBER15)</label>
+            <input type="text" id="coup-code" class="form-control" placeholder="MAMA10" style="text-transform: uppercase;" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Discount Type</label>
+              <select id="coup-type" class="form-control" onchange="adjustCouponTypeHelper()">
+                <option value="pct">Percentage Off (%)</option>
+                <option value="fixed">Fixed Cedis Off (GH₵)</option>
+                <option value="freeship">Free Delivery</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" id="coup-val-label">Discount Value (e.g. 0.15 = 15%)</label>
+              <input type="number" id="coup-val" class="form-control" step="0.01" min="0" placeholder="0.10" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Minimum Order Amount (GH₵)</label>
+            <input type="number" id="coup-min" class="form-control" step="1" min="0" value="0">
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Description / Offer Details *</label>
+            <input type="text" id="coup-desc" class="form-control" placeholder="15% Off Diaspora Welcome Suite" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label">Expiry Date</label>
+            <input type="date" id="coup-expiry" class="form-control" value="2027-12-31">
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+            <button type="button" class="btn-admin btn-admin-light" onclick="closeCouponModal()">Cancel</button>
+            <button type="submit" class="btn-admin btn-admin-primary">💾 Save Promo Code</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </main>
 
   <!-- JAVASCRIPT STATE ENGINE -->
@@ -805,6 +1027,9 @@
     const ADMIN_PASSCODE = 'menas2026';
     let allProducts = [];
     let allOrders = [];
+    let allArticles = [];
+    let allSubscribers = [];
+    let allCoupons = [];
 
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
@@ -818,6 +1043,9 @@
         modal.style.display = 'none';
         loadAllProducts();
         loadAllOrders();
+        loadAllArticles();
+        loadAllSubscribers();
+        loadAllCoupons();
       } else {
         modal.style.display = 'flex';
       }
@@ -830,6 +1058,9 @@
         document.getElementById('admin-login-modal').style.display = 'none';
         loadAllProducts();
         loadAllOrders();
+        loadAllArticles();
+        loadAllSubscribers();
+        loadAllCoupons();
       } else {
         alert('Incorrect passcode. Please try again or check your default PIN.');
       }
@@ -884,7 +1115,7 @@
           if (Array.isArray(parsed) && parsed.length > 0) {
             allProducts = parsed;
           }
-        } catch (e) {}
+        } catch (e) { }
       }
 
       renderProductsTable(allProducts);
@@ -899,14 +1130,14 @@
       }
 
       tbody.innerHTML = items.map(p => {
-        const brandBadge = p.brand === 'lacuizinee' 
+        const brandBadge = p.brand === 'lacuizinee'
           ? `<span class="status-pill" style="background:#EBF3EE; color:var(--color-forest-green-dark);">Lacuizinee</span>`
-          : (p.brand === 'akwaaba' 
+          : (p.brand === 'akwaaba'
             ? `<span class="status-pill" style="background:#F7EEF6; color:var(--color-purple-dark);">Akwaaba Fie</span>`
             : `<span class="status-pill" style="background:#FDF8E8; color:#92400E;">Both Arms</span>`);
 
         const inStock = (p.stock !== undefined ? p.stock : 10) > 0;
-        const stockBadge = inStock 
+        const stockBadge = inStock
           ? `<span class="status-pill status-dispatched">In Stock (${p.stock || 20})</span>`
           : `<span class="status-pill status-new" style="background:#FEE2E2; color:#991B1B;">Out of Stock</span>`;
 
@@ -919,7 +1150,7 @@
             </td>
             <td>${brandBadge}</td>
             <td style="color: var(--color-neutral-600);">${p.categoryLabel || p.category?.[0] || 'General'}</td>
-            <td><strong>GH₵ ${Number(p.priceGHS || 0).toLocaleString('en-GH', {minimumFractionDigits: 2})}</strong></td>
+            <td><strong>GH₵ ${Number(p.priceGHS || 0).toLocaleString('en-GH', { minimumFractionDigits: 2 })}</strong></td>
             <td>${stockBadge}</td>
             <td>
               <div style="display: flex; gap: 0.4rem;">
@@ -1055,7 +1286,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'save_all', products: allProducts })
-      }).catch(() => {});
+      }).catch(() => { });
     }
 
     // ---------- PHOTO UPLOADER (POWERED BY api/upload.php) ----------
@@ -1091,7 +1322,7 @@
             return;
           }
         }
-      } catch (e) {}
+      } catch (e) { }
 
       // Fallback: If server is static node, keep data URL
       statusEl.textContent = 'Photo attached successfully';
@@ -1124,7 +1355,7 @@
           alert('File uploaded successfully!');
           return;
         }
-      } catch (e) {}
+      } catch (e) { }
 
       alert('Upload failed or server is in local static test mode.');
     }
@@ -1139,7 +1370,7 @@
         if (res.ok) {
           orders = await res.json();
         }
-      } catch (e) {}
+      } catch (e) { }
 
       // 2. Also merge from localStorage
       try {
@@ -1153,7 +1384,7 @@
             }
           });
         }
-      } catch (e) {}
+      } catch (e) { }
 
       allOrders = orders;
       renderOrdersList();
@@ -1164,7 +1395,7 @@
       const tbody = document.getElementById('orders-table-body');
       const q = document.getElementById('order-search-input')?.value.toLowerCase() || '';
 
-      const filtered = allOrders.filter(o => 
+      const filtered = allOrders.filter(o =>
         (o.orderId && o.orderId.toLowerCase().includes(q)) ||
         (o.customerName && o.customerName.toLowerCase().includes(q)) ||
         (o.phone && o.phone.toLowerCase().includes(q))
@@ -1196,7 +1427,7 @@
             </td>
             <td><small>${o.address || 'Greater Accra'}</small></td>
             <td style="font-size:0.82rem; line-height:1.4;">${itemsSummary}</td>
-            <td><strong>GH₵ ${Number(o.totalGHS || 0).toLocaleString('en-GH', {minimumFractionDigits:2})}</strong></td>
+            <td><strong>GH₵ ${Number(o.totalGHS || 0).toLocaleString('en-GH', { minimumFractionDigits: 2 })}</strong></td>
             <td>
               <select class="form-control" style="padding:0.3rem 0.5rem; font-size:0.78rem;" onchange="updateOrderStatus('${o.orderId}', this.value)">
                 <option value="New Order Received" ${o.status === 'New Order Received' ? 'selected' : ''}>New Order</option>
@@ -1228,12 +1459,414 @@
 
     function updateKpis() {
       const totalRev = allOrders.reduce((acc, o) => acc + (Number(o.totalGHS) || 0), 0);
-      document.getElementById('kpi-revenue').textContent = `GH₵ ${totalRev.toLocaleString('en-GH', {minimumFractionDigits: 2})}`;
+      document.getElementById('kpi-revenue').textContent = `GH₵ ${totalRev.toLocaleString('en-GH', { minimumFractionDigits: 2 })}`;
       document.getElementById('kpi-orders-count').textContent = allOrders.length;
       document.getElementById('kpi-orders-sub').textContent = `${allOrders.length} confirmed orders`;
+      if (document.getElementById('kpi-subscribers-count')) {
+        document.getElementById('kpi-subscribers-count').textContent = allSubscribers.length;
+      }
+      if (document.getElementById('kpi-coupons-count')) {
+        const activeC = allCoupons.filter(c => c.active !== false).length;
+        document.getElementById('kpi-coupons-count').textContent = activeC;
+      }
+    }
+
+    // ---------- ARTICLES / VLOBS CONTROLLER ----------
+    async function loadAllArticles() {
+      try {
+        const res = await fetch('data/articles.json');
+        if (res.ok) allArticles = await res.json();
+      } catch (e) { }
+
+      const saved = localStorage.getItem('menas_articles');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) allArticles = parsed;
+        } catch (e) { }
+      }
+
+      renderArticlesTable(allArticles);
+      updateKpis();
+    }
+
+    function renderArticlesTable(items) {
+      const tbody = document.getElementById('articles-table-body');
+      if (!tbody) return;
+      if (!items || items.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2.5rem; color: var(--color-neutral-500);">No articles published yet. Click "Write New Article" to start.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = items.map(art => `
+        <tr>
+          <td><img src="${art.image || 'assets/images/hero-welcome-home.jpg'}" alt="${art.title}" class="prod-thumb"></td>
+          <td>
+            <strong style="color: var(--color-neutral-900); display: block; font-size: 0.95rem;">${art.title}</strong>
+            <span class="status-pill" style="background: rgba(107, 52, 98, 0.1); color: var(--color-purple-deep); font-size: 0.72rem;">${art.categoryLabel || art.category}</span>
+          </td>
+          <td style="font-size: 0.82rem; color: var(--color-neutral-600); white-space: nowrap;">⏱️ ${art.readTime || '5 min read'}</td>
+          <td style="font-size: 0.85rem; color: var(--color-neutral-700); line-height: 1.4; max-width: 320px;">
+            ${(art.snippet || '').substring(0, 110)}...
+          </td>
+          <td>
+            <div style="display: flex; gap: 0.4rem;">
+              <button class="btn-admin btn-admin-sm btn-admin-light" onclick="editArticle('${art.id}')">✏️ Edit</button>
+              <button class="btn-admin btn-admin-sm btn-admin-light" style="color: #DC2626;" onclick="deleteArticle('${art.id}')">🗑️</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('articles-count-badge').textContent = items.length;
+    }
+
+    function openArticleEditorModal() {
+      document.getElementById('article-modal-title').textContent = 'Write New Article';
+      document.getElementById('article-edit-form').reset();
+      document.getElementById('art-id').value = '';
+      document.getElementById('art-image').value = 'assets/images/hero-welcome-home.jpg';
+      document.getElementById('art-read-time').value = '5 min read';
+      document.getElementById('article-editor-modal').style.display = 'flex';
+    }
+
+    function closeArticleModal() {
+      document.getElementById('article-editor-modal').style.display = 'none';
+    }
+
+    function editArticle(artId) {
+      const art = allArticles.find(a => a.id === artId);
+      if (!art) return;
+      document.getElementById('article-modal-title').textContent = 'Edit Article';
+      document.getElementById('art-id').value = art.id;
+      document.getElementById('art-title').value = art.title || '';
+      document.getElementById('art-category').value = art.category || 'diaspora';
+      document.getElementById('art-read-time').value = art.readTime || '5 min read';
+      document.getElementById('art-image').value = art.image || 'assets/images/hero-welcome-home.jpg';
+      document.getElementById('art-snippet').value = art.snippet || '';
+      document.getElementById('art-body').value = art.body || '';
+      document.getElementById('article-editor-modal').style.display = 'flex';
+    }
+
+    async function saveArticle(e) {
+      e.preventDefault();
+      const id = document.getElementById('art-id').value.trim() || ('art-' + Date.now());
+      const cat = document.getElementById('art-category').value;
+      const catLabels = {
+        'diaspora': 'Diaspora Living & Arrival',
+        'culinary': 'Artisanal Nutrition & Botanicals',
+        'homecare': 'Home Sanctuary & Clean Air',
+        'maternal': 'Maternal Wellness & Postpartum'
+      };
+
+      const articleObj = {
+        id,
+        category: cat,
+        categoryLabel: catLabels[cat] || 'Wellness Guide',
+        title: document.getElementById('art-title').value.trim(),
+        readTime: document.getElementById('art-read-time').value.trim(),
+        image: document.getElementById('art-image').value.trim(),
+        snippet: document.getElementById('art-snippet').value.trim(),
+        body: document.getElementById('art-body').value.trim()
+      };
+
+      const idx = allArticles.findIndex(a => a.id === id);
+      if (idx >= 0) {
+        allArticles[idx] = articleObj;
+      } else {
+        allArticles.unshift(articleObj);
+      }
+
+      // Persist in localStorage
+      localStorage.setItem('menas_articles', JSON.stringify(allArticles));
+
+      // Attempt async backend save
+      try {
+        await fetch('api/articles.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'save', article: articleObj })
+        });
+      } catch (err) { }
+
+      renderArticlesTable(allArticles);
+      closeArticleModal();
+      alert('Article published successfully! It is now live on the storefront.');
+    }
+
+    async function deleteArticle(artId) {
+      if (!confirm('Are you sure you want to delete this article?')) return;
+      allArticles = allArticles.filter(a => a.id !== artId);
+      localStorage.setItem('menas_articles', JSON.stringify(allArticles));
+
+      try {
+        await fetch('api/articles.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'delete', id: artId })
+        });
+      } catch (err) { }
+
+      renderArticlesTable(allArticles);
+    }
+
+    // ---------- NEWSLETTER SUBSCRIBERS CONTROLLER ----------
+    async function loadAllSubscribers() {
+      try {
+        const res = await fetch('data/subscribers.json');
+        if (res.ok) allSubscribers = await res.json();
+      } catch (e) { }
+
+      const saved = localStorage.getItem('menas_subscribers');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            // merge unique by email
+            const map = new Map();
+            [...allSubscribers, ...parsed].forEach(s => {
+              if (s && s.email) map.set(s.email.toLowerCase(), s);
+            });
+            allSubscribers = Array.from(map.values());
+          }
+        } catch (e) { }
+      }
+
+      renderSubscribersTable(allSubscribers);
+      updateKpis();
+    }
+
+    function renderSubscribersTable(items) {
+      const tbody = document.getElementById('subscribers-table-body');
+      if (!tbody) return;
+      if (!items || items.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2.5rem; color: var(--color-neutral-500);">No newsletter subscribers logged yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = items.map((s, idx) => `
+        <tr>
+          <td>${idx + 1}</td>
+          <td><strong style="color: var(--admin-primary);">${s.email}</strong></td>
+          <td style="font-size: 0.85rem; color: var(--color-neutral-600);">${s.date || 'Recent'}</td>
+          <td><span class="status-pill" style="background: rgba(53, 76, 59, 0.1); color: var(--color-forest-green-dark);">${s.source || 'Website'}</span></td>
+          <td>
+            <button class="btn-admin btn-admin-sm btn-admin-light" style="color: #DC2626;" onclick="deleteSubscriber('${s.email}')">🗑️</button>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('subscribers-count-badge').textContent = items.length;
+    }
+
+    function copyAllSubscriberEmails() {
+      if (!allSubscribers || allSubscribers.length === 0) {
+        alert('No subscribers to copy.');
+        return;
+      }
+      const list = allSubscribers.map(s => s.email).filter(Boolean).join(', ');
+      navigator.clipboard.writeText(list).then(() => {
+        alert(`Copied ${allSubscribers.length} subscriber email(s) to clipboard!\n\nYou can now paste directly into Gmail, Mailchimp, or your email client.`);
+      }).catch(() => {
+        prompt('Copy emails manually below:', list);
+      });
+    }
+
+    function exportSubscribersCsv() {
+      if (!allSubscribers || allSubscribers.length === 0) {
+        alert('No subscribers to export.');
+        return;
+      }
+      const headers = ['Email', 'Date Subscribed', 'Source'];
+      const rows = allSubscribers.map(s => [
+        `"${(s.email || '').replace(/"/g, '""')}"`,
+        `"${(s.date || '').replace(/"/g, '""')}"`,
+        `"${(s.source || '').replace(/"/g, '""')}"`
+      ]);
+      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `menas_nest_subscribers_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    async function deleteSubscriber(email) {
+      if (!confirm(`Remove "${email}" from the subscriber list?`)) return;
+      allSubscribers = allSubscribers.filter(s => s.email.toLowerCase() !== email.toLowerCase());
+      localStorage.setItem('menas_subscribers', JSON.stringify(allSubscribers));
+
+      try {
+        await fetch('api/subscribers.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'delete', email })
+        });
+      } catch (err) { }
+
+      renderSubscribersTable(allSubscribers);
+      updateKpis();
+    }
+
+    // ---------- PROMOTIONS & COUPONS CONTROLLER ----------
+    async function loadAllCoupons() {
+      try {
+        const res = await fetch('data/coupons.json');
+        if (res.ok) allCoupons = await res.json();
+      } catch (e) { }
+
+      const saved = localStorage.getItem('menas_coupons');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) allCoupons = parsed;
+        } catch (e) { }
+      }
+
+      renderCouponsTable(allCoupons);
+      updateKpis();
+    }
+
+    function renderCouponsTable(items) {
+      const tbody = document.getElementById('coupons-table-body');
+      if (!tbody) return;
+      if (!items || items.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2.5rem; color: var(--color-neutral-500);">No promo codes found. Click "Create Promo Code" to add one.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = items.map(c => {
+        const typeLabel = c.type === 'pct' ? `${Math.round((c.val || 0) * 100)}% Off` : (c.type === 'fixed' ? `GH₵ ${c.val} Off` : 'Free Delivery');
+        const isActive = c.active !== false;
+        const statusBadge = isActive
+          ? `<button class="btn-admin btn-admin-sm btn-admin-green" onclick="toggleCouponStatus('${c.code}')">Active (Enabled)</button>`
+          : `<button class="btn-admin btn-admin-sm btn-admin-light" style="color: #991B1B;" onclick="toggleCouponStatus('${c.code}')">Disabled</button>`;
+
+        return `
+          <tr>
+            <td><strong style="color: var(--admin-primary); font-family: monospace; font-size: 1.05rem;">${c.code}</strong></td>
+            <td><span class="status-pill" style="background: rgba(107, 52, 98, 0.1); color: var(--color-purple-deep);">${c.type}</span></td>
+            <td><strong>${typeLabel}</strong></td>
+            <td>GH₵ ${c.minOrder || 0}</td>
+            <td style="color: var(--color-neutral-700); font-size: 0.85rem;">${c.desc || ''}</td>
+            <td>${statusBadge}</td>
+            <td>
+              <button class="btn-admin btn-admin-sm btn-admin-light" style="color: #DC2626;" onclick="deleteCoupon('${c.code}')">🗑️ Delete</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('coupons-count-badge').textContent = items.length;
+    }
+
+    function openCouponModal() {
+      document.getElementById('coupon-edit-form').reset();
+      document.getElementById('coup-expiry').value = '2027-12-31';
+      document.getElementById('coupon-editor-modal').style.display = 'flex';
+    }
+
+    function closeCouponModal() {
+      document.getElementById('coupon-editor-modal').style.display = 'none';
+    }
+
+    function adjustCouponTypeHelper() {
+      const type = document.getElementById('coup-type').value;
+      const label = document.getElementById('coup-val-label');
+      const valInput = document.getElementById('coup-val');
+      if (type === 'pct') {
+        label.textContent = 'Discount Value (e.g. 0.15 = 15%)';
+        valInput.placeholder = '0.10';
+        valInput.value = '0.10';
+      } else if (type === 'fixed') {
+        label.textContent = 'Discount Cedis Amount (GH₵)';
+        valInput.placeholder = '50';
+        valInput.value = '50';
+      } else {
+        label.textContent = 'Shipping Waiver Value';
+        valInput.value = '0';
+      }
+    }
+
+    async function saveCoupon(e) {
+      e.preventDefault();
+      const code = document.getElementById('coup-code').value.trim().toUpperCase();
+      const type = document.getElementById('coup-type').value;
+      const val = parseFloat(document.getElementById('coup-val').value) || 0;
+      const minOrder = parseFloat(document.getElementById('coup-min').value) || 0;
+      const desc = document.getElementById('coup-desc').value.trim();
+      const expiry = document.getElementById('coup-expiry').value;
+
+      const couponObj = {
+        code,
+        type,
+        val,
+        minOrder,
+        desc,
+        expiry,
+        active: true
+      };
+
+      const idx = allCoupons.findIndex(c => c.code === code);
+      if (idx >= 0) {
+        allCoupons[idx] = couponObj;
+      } else {
+        allCoupons.unshift(couponObj);
+      }
+
+      localStorage.setItem('menas_coupons', JSON.stringify(allCoupons));
+
+      try {
+        await fetch('api/coupons.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'save', coupon: couponObj })
+        });
+      } catch (err) { }
+
+      renderCouponsTable(allCoupons);
+      updateKpis();
+      closeCouponModal();
+      alert(`Coupon code "${code}" saved successfully! It is now active on the storefront.`);
+    }
+
+    async function toggleCouponStatus(code) {
+      const coupon = allCoupons.find(c => c.code === code);
+      if (!coupon) return;
+      coupon.active = !(coupon.active !== false);
+      localStorage.setItem('menas_coupons', JSON.stringify(allCoupons));
+
+      try {
+        await fetch('api/coupons.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'toggle', code })
+        });
+      } catch (err) { }
+
+      renderCouponsTable(allCoupons);
+      updateKpis();
+    }
+
+    async function deleteCoupon(code) {
+      if (!confirm(`Delete coupon code "${code}"?`)) return;
+      allCoupons = allCoupons.filter(c => c.code !== code);
+      localStorage.setItem('menas_coupons', JSON.stringify(allCoupons));
+
+      try {
+        await fetch('api/coupons.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'delete', code })
+        });
+      } catch (err) { }
+
+      renderCouponsTable(allCoupons);
+      updateKpis();
     }
   </script>
 </body>
 
 </html>
-
