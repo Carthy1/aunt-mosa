@@ -51,6 +51,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $action = $payload['action'];
 
+    // 0. SAVE ENTIRE CATALOG (Full batch update from Admin Portal)
+    if ($action === 'save_all') {
+        $newProducts = $payload['products'] ?? null;
+        if (is_array($newProducts)) {
+            file_put_contents($dataFile, json_encode($newProducts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+            echo json_encode(['success' => true, 'message' => 'Catalog updated successfully', 'count' => count($newProducts)]);
+            exit;
+        }
+    }
+
     // 1. SAVE / UPDATE PRODUCT
     if ($action === 'save') {
         $item = $payload['product'] ?? null;
@@ -125,3 +135,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(['success' => false, 'message' => 'Unknown action']);
     exit;
 }
+

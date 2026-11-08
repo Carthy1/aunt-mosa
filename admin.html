@@ -526,7 +526,7 @@
       <span>🛍️ Products & Services</span>
       <span class="tab-badge" id="products-count-badge">12</span>
     </button>
-    <button class="admin-tab-btn" data-tab="add-product" onclick="switchAdminTab('add-product')">
+    <button class="admin-tab-btn" data-tab="add-product" onclick="openAddProductTab()">
       <span>➕ Add New Item / Package</span>
     </button>
     <button class="admin-tab-btn" data-tab="media" onclick="switchAdminTab('media')">
@@ -621,7 +621,7 @@
           <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
             <input type="text" id="product-search-input" class="form-control" placeholder="Filter items by name..."
               style="width: 220px; padding: 0.45rem 0.75rem; font-size: 0.82rem;" oninput="filterProductsTable()">
-            <button class="btn-admin btn-admin-sm" onclick="switchAdminTab('add-product')">
+            <button class="btn-admin btn-admin-sm" onclick="openAddProductTab()">
               <span>➕ Add Item</span>
             </button>
           </div>
@@ -849,6 +849,21 @@
       });
     }
 
+    function openAddProductTab() {
+      resetProductForm();
+      switchAdminTab('add-product');
+    }
+
+    function resetProductForm() {
+      const form = document.getElementById('product-editor-form');
+      if (form) form.reset();
+      document.getElementById('edit-prod-id').value = '';
+      document.getElementById('prod-image-url').value = 'assets/images/sobolo-artisanal.jpg';
+      const preview = document.getElementById('product-preview-wrap');
+      if (preview) preview.style.display = 'none';
+      document.getElementById('form-header-title').textContent = 'Add New Product or Home Care Package';
+    }
+
     // ---------- PRODUCTS CONTROLLER ----------
     async function loadAllProducts() {
       // 1. Try fetching from server data/products.json or api/products.php
@@ -958,63 +973,89 @@
     }
 
     function saveProductFromForm() {
-      const editId = document.getElementById('edit-prod-id').value;
-      const id = editId || ('prod-' + Date.now());
-      const name = document.getElementById('prod-name').value.trim();
-      const brand = document.getElementById('prod-brand').value;
-      const priceGHS = parseFloat(document.getElementById('prod-price').value) || 0;
-      const stock = parseInt(document.getElementById('prod-stock').value, 10) || 0;
-      const category = [document.getElementById('prod-category').value, 'all'];
-      const categoryLabel = document.getElementById('prod-category').options[document.getElementById('prod-category').selectedIndex].text;
-      const badge = document.getElementById('prod-badge').value.trim();
-      const image = document.getElementById('prod-image-url').value || 'assets/images/sobolo-artisanal.jpg';
-      const shortDesc = document.getElementById('prod-short-desc').value.trim();
-      const fullDesc = document.getElementById('prod-full-desc').value.trim();
+      try {
+        const editId = document.getElementById('edit-prod-id').value;
+        const id = editId || ('prod-' + Date.now());
+        const name = (document.getElementById('prod-name').value || '').trim();
+        if (!name) {
+          alert('Please enter a Product / Service Name.');
+          return;
+        }
 
-      const item = {
-        id,
-        name,
-        brand,
-        priceGHS,
-        stock,
-        category,
-        categoryLabel,
-        badge,
-        image,
-        shortDesc,
-        fullDesc
-      };
+        const brand = document.getElementById('prod-brand').value || 'lacuizinee';
+        const priceGHS = parseFloat(document.getElementById('prod-price').value) || 0;
+        const stockInput = parseInt(document.getElementById('prod-stock').value, 10);
+        const stock = isNaN(stockInput) ? 20 : stockInput;
 
-      const existingIndex = allProducts.findIndex(p => p.id === id);
-      if (existingIndex >= 0) {
-        allProducts[existingIndex] = { ...allProducts[existingIndex], ...item };
-      } else {
-        allProducts.unshift(item);
+        const catSelect = document.getElementById('prod-category');
+        const catVal = catSelect ? catSelect.value : 'beverages-teas';
+        const catLabel = catSelect && catSelect.selectedIndex >= 0 ? catSelect.options[catSelect.selectedIndex].text : 'General';
+
+        const badge = (document.getElementById('prod-badge').value || '').trim() || (brand === 'lacuizinee' ? 'Lacuizinee Offering' : 'Akwaaba Fie Care');
+        const image = document.getElementById('prod-image-url').value || 'assets/images/sobolo-artisanal.jpg';
+        const shortDesc = (document.getElementById('prod-short-desc').value || '').trim() || name;
+        const fullDesc = (document.getElementById('prod-full-desc').value || '').trim() || shortDesc;
+
+        // Ensure variants array is always populated so storefront never crashes
+        const variants = [
+          { id: `v-${id}-std`, name: 'Standard Option', priceGHS: priceGHS, size: 'Standard' }
+        ];
+
+        const item = {
+          id,
+          name,
+          brand,
+          priceGHS,
+          stock,
+          category: [catVal, 'all'],
+          categoryLabel: catLabel,
+          badge,
+          image,
+          variants,
+          selectedVariantIndex: 0,
+          rating: 5.0,
+          reviewsCount: 1,
+          shortDesc,
+          fullDesc,
+          ingredients: fullDesc,
+          directions: 'Prepared fresh and coordinated by our concierge team.',
+          precautions: 'Crafted with natural ingredients and hospital-grade care.',
+          sourcing: 'Locally procured and crafted in Ghana.'
+        };
+
+        const existingIndex = allProducts.findIndex(p => p.id === id);
+        if (existingIndex >= 0) {
+          allProducts[existingIndex] = { ...allProducts[existingIndex], ...item };
+        } else {
+          allProducts.unshift(item);
+        }
+
+        saveCatalogState();
+        resetProductForm();
+
+        alert(`"${name}" saved successfully to catalog!`);
+        switchAdminTab('products');
+        renderProductsTable(allProducts);
+      } catch (err) {
+        console.error('Error saving product:', err);
+        alert('Could not save product: ' + err.message);
       }
-
-      saveCatalogState();
-      document.getElementById('product-editor-form').reset();
-      document.getElementById('edit-prod-id').value = '';
-      document.getElementById('product-preview-wrap').style.display = 'none';
-      document.getElementById('form-header-title').textContent = 'Add New Product or Home Care Package';
-
-      alert(`"${name}" saved successfully to catalog!`);
-      switchAdminTab('products');
-      renderProductsTable(allProducts);
     }
 
-    async function saveCatalogState() {
+    function saveCatalogState() {
       // 1. Save in localStorage so storefront immediately reflects updates
-      localStorage.setItem('menas_nest_custom_products', JSON.stringify(allProducts));
+      try {
+        localStorage.setItem('menas_nest_custom_products', JSON.stringify(allProducts));
+      } catch (e) {
+        console.warn('LocalStorage error:', e);
+      }
 
       // 2. Also attempt saving to PHP API endpoint if on Hostinger / PHP server
-      try {
-        await fetch('api/products.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'save_all', products: allProducts })
-        });
-      } catch (e) {}
+      fetch('api/products.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'save_all', products: allProducts })
+      }).catch(() => {});
     }
 
     // ---------- PHOTO UPLOADER (POWERED BY api/upload.php) ----------
@@ -1195,3 +1236,4 @@
 </body>
 
 </html>
+

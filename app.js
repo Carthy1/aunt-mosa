@@ -436,6 +436,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  // Merge or override with custom products saved from Admin Portal
+  try {
+    const customSaved = localStorage.getItem('menas_nest_custom_products');
+    if (customSaved) {
+      const parsed = JSON.parse(customSaved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        PRODUCTS = parsed;
+      }
+    }
+  } catch (e) {}
+
   /* ==========================================================================
      DATA: WELLNESS ARTICLES & GLOSSARY & FAQS
      ========================================================================== */
@@ -1204,11 +1215,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
       }
 
-      const matchesCategory = currentCategory === 'all' || product.category.includes(currentCategory);
+      const matchesCategory = currentCategory === 'all' || (product.category && product.category.includes(currentCategory));
       const matchesSearch = !currentSearchQuery || 
-        product.name.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-        product.ingredients.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-        product.shortDesc.toLowerCase().includes(currentSearchQuery.toLowerCase());
+        (product.name && product.name.toLowerCase().includes(currentSearchQuery.toLowerCase())) ||
+        (product.ingredients && product.ingredients.toLowerCase().includes(currentSearchQuery.toLowerCase())) ||
+        (product.shortDesc && product.shortDesc.toLowerCase().includes(currentSearchQuery.toLowerCase()));
       return matchesCategory && matchesSearch;
     });
 
@@ -1230,12 +1241,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     productsGrid.innerHTML = filtered.map(prod => {
       const isWish = wishlist.includes(prod.id);
-      const selVariant = prod.variants[prod.selectedVariantIndex || 0];
+      const variants = (prod.variants && Array.isArray(prod.variants) && prod.variants.length > 0)
+        ? prod.variants
+        : [{ id: prod.id + '-std', name: 'Standard Option', priceGHS: Number(prod.priceGHS || 0), size: 'Standard' }];
+      const vIndex = (prod.selectedVariantIndex !== undefined && variants[prod.selectedVariantIndex]) ? prod.selectedVariantIndex : 0;
+      const selVariant = variants[vIndex];
       const isLowStock = prod.stock && prod.stock <= 8;
 
       return `
         <div class="product-card" data-id="${prod.id}">
-          <span class="product-card-badge">${prod.badge}</span>
+          <span class="product-card-badge">${prod.badge || 'Featured'}</span>
           
           <!-- Wishlist Heart Button -->
           <button class="btn-wishlist-toggle ${isWish ? 'active' : ''}" onclick="window.toggleWishlist('${prod.id}')" aria-label="Save to wishlist" title="Save remedy">
@@ -1243,7 +1258,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </button>
 
           <div class="product-image-wrapper">
-            <img src="${prod.image}" alt="${prod.name}" loading="lazy">
+            <img src="${prod.image || 'assets/images/sobolo-artisanal.jpg'}" alt="${prod.name}" loading="lazy">
             <div class="product-quick-view-overlay">
               <button class="btn-quick-view" onclick="window.openProductModal('${prod.id}')">
                 Quick View & Reviews
@@ -1252,16 +1267,16 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
 
           <div class="product-card-body">
-            <span class="product-category-tag">${prod.categoryLabel}</span>
+            <span class="product-category-tag">${prod.categoryLabel || 'General'}</span>
             <h3 class="product-card-title" onclick="window.openProductModal('${prod.id}')">${prod.name}</h3>
-            <p class="product-card-desc">${prod.shortDesc}</p>
+            <p class="product-card-desc">${prod.shortDesc || ''}</p>
             
             <!-- Variant Selector Chips on Card -->
             <div class="variant-selector-wrap">
               <span class="variant-label">Select Option:</span>
               <div class="variant-chips-row">
-                ${prod.variants.map((v, vIdx) => `
-                  <button type="button" class="variant-chip ${vIdx === (prod.selectedVariantIndex || 0) ? 'active' : ''}" onclick="window.setProductVariant('${prod.id}', ${vIdx})">
+                ${variants.map((v, vIdx) => `
+                  <button type="button" class="variant-chip ${vIdx === vIndex ? 'active' : ''}" onclick="window.setProductVariant('${prod.id}', ${vIdx})">
                     ${v.name.split(' (')[0]}
                   </button>
                 `).join('')}
@@ -1271,7 +1286,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-meta-row">
               <div class="product-stars-row">
                 <span class="product-stars">★★★★★</span>
-                <span>${prod.rating} (${prod.reviewsCount})</span>
+                <span>${prod.rating || 5.0} (${prod.reviewsCount || 1})</span>
               </div>
               <span class="stock-status-pill ${isLowStock ? 'low-stock' : ''}">
                 <span class="stock-pulse-dot"></span>
@@ -1282,9 +1297,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="product-card-footer">
               <div class="product-price-box">
                 <span class="product-price">${formatPrice(selVariant.priceGHS)}</span>
-                <span style="font-size:0.72rem; color:var(--color-neutral-500);">${selVariant.size}</span>
+                <span style="font-size:0.72rem; color:var(--color-neutral-500);">${selVariant.size || 'Standard'}</span>
               </div>
-              <button class="btn btn-primary btn-add-cart" onclick="window.addToCart('${prod.id}', 1, ${prod.selectedVariantIndex || 0})">
+              <button class="btn btn-primary btn-add-cart" onclick="window.addToCart('${prod.id}', 1, ${vIndex})">
                 Add to Cart
               </button>
             </div>
@@ -1336,28 +1351,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const product = PRODUCTS.find(p => p.id === productId);
     if (!product || !productModalLayout) return;
 
-    const selVariant = product.variants[product.selectedVariantIndex || 0];
+    const variants = (product.variants && Array.isArray(product.variants) && product.variants.length > 0)
+      ? product.variants
+      : [{ id: product.id + '-std', name: 'Standard Option', priceGHS: Number(product.priceGHS || 0), size: 'Standard' }];
+    const vIndex = (product.selectedVariantIndex !== undefined && variants[product.selectedVariantIndex]) ? product.selectedVariantIndex : 0;
+    const selVariant = variants[vIndex];
 
     productModalLayout.innerHTML = `
       <div class="product-modal-gallery">
-        <img src="${product.image}" alt="${product.name}" class="product-modal-img">
+        <img src="${product.image || 'assets/images/sobolo-artisanal.jpg'}" alt="${product.name}" class="product-modal-img">
       </div>
       <div class="product-modal-details">
-        <span class="modal-product-cat">${product.categoryLabel}</span>
+        <span class="modal-product-cat">${product.categoryLabel || 'General'}</span>
         <h2 class="modal-product-title">${product.name}</h2>
         <div class="product-stars-row" style="margin-bottom: 0.75rem;">
           <span class="product-stars">★★★★★</span>
-          <span>${product.rating} Rating (${product.reviewsCount} customer reviews) • <strong style="color:var(--color-sage-dark);">Small Batch Certified</strong></span>
+          <span>${product.rating || 5.0} Rating (${product.reviewsCount || 1} customer reviews) • <strong style="color:var(--color-sage-dark);">Small Batch Certified</strong></span>
         </div>
         <div class="modal-product-price" id="modal-price-display">${formatPrice(selVariant.priceGHS)}</div>
-        <p class="modal-product-desc">${product.fullDesc}</p>
+        <p class="modal-product-desc">${product.fullDesc || product.shortDesc || ''}</p>
 
         <!-- Variants on modal -->
         <div class="variant-selector-wrap" style="margin-bottom: 1.25rem;">
           <span class="variant-label">Choose Size / Package:</span>
           <div class="variant-chips-row">
-            ${product.variants.map((v, vIdx) => `
-              <button type="button" class="variant-chip ${vIdx === (product.selectedVariantIndex || 0) ? 'active' : ''}" onclick="window.selectModalVariant('${product.id}', ${vIdx})">
+            ${variants.map((v, vIdx) => `
+              <button type="button" class="variant-chip ${vIdx === vIndex ? 'active' : ''}" onclick="window.selectModalVariant('${product.id}', ${vIdx})">
                 ${v.name} — ${formatPrice(v.priceGHS)}
               </button>
             `).join('')}
