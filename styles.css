@@ -6189,3 +6189,65 @@ body.no-scroll {
   background: var(--color-cream-warm);
   color: var(--color-forest-green-dark);
 }
+
+/* ---------- Layout, Visibility & Contrast Polish ---------- */
+
+/* Calculator radio label interaction and active state */
+.calc-radio-label {
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.calc-radio-label:hover {
+  border-color: var(--color-purple) !important;
+  background: var(--color-purple-subtle) !important;
+}
+
+.calc-radio-label:has(input:checked) {
+  border-color: var(--color-purple) !important;
+  background: var(--color-purple-subtle) !important;
+  box-shadow: 0 4px 12px rgba(107, 52, 98, 0.12);
+}
+
+/* Ensure calculator total display is sharp and high-contrast */
+#welcome-home-total-display {
+  color: var(--color-purple-dark) !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+#welcome-home-total-disp {
+  color: var(--color-purple-dark) !important;
+  font-weight: 700;
+}
+
+/* Cross-Brand Sister Banners (High Contrast on Both Light & Dark) */
+.sister-brand-banner .sister-title {
+  color: #FFFFFF !important;
+}
+
+.sister-brand-banner .sister-desc {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.sister-brand-banner .sister-badge {
+  display: inline-block;
+  color: #F7E7CE !important;
+}
+
+/* Smooth anchor scrolling offset accounting for sticky navigation */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 130px;
+}
+
+/* WhatsApp Floating & Inline Action Badges */
+.btn-whatsapp {
+  background: #25D366;
+  color: #FFFFFF !important;
+}
+
+.btn-whatsapp:hover {
+  background: #20BA5C;
+  color: #FFFFFF !important;
+}

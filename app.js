@@ -4,6 +4,103 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ---------- Calculator Functions (Homecoming & Arrival Concierge) ----------
+  window.updateWelcomeHomeTotal = function() {
+    // 1. Akwaaba Fie Page Calculator (Radio-based)
+    const calcForm = document.getElementById('welcome-home-calc-form');
+    if (calcForm) {
+      const getRadio = (name) => {
+        const el = calcForm.querySelector(`input[name="${name}"]:checked`);
+        return el ? el.value : null;
+      };
+      const bedroom = parseInt(getRadio('calcBedrooms'), 10) || 0;
+      const cleaning = getRadio('calcCleaningType') === 'post-reno' ? 300 : 0;
+      const grocery = parseInt(getRadio('calcGrocery'), 10) || 0;
+      const meal = parseInt(getRadio('calcMeal'), 10) || 0;
+      const total = bedroom + cleaning + grocery + meal;
+
+      const display = document.getElementById('welcome-home-total-display');
+      if (display) {
+        display.textContent = `GH₵ ${total.toLocaleString('en-GH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      }
+    }
+
+    // 2. Index / Overview Page Booking Calculator (Checkbox-based)
+    const indexBookingBox = document.querySelector('.welcome-booking-box');
+    if (indexBookingBox) {
+      let indexTotal = 0;
+      const cleanCb = document.getElementById('wh-opt-clean');
+      const stockCb = document.getElementById('wh-opt-stock');
+      const linenCb = document.getElementById('wh-opt-linen');
+      const feastCb = document.getElementById('wh-opt-feast');
+
+      if (cleanCb && cleanCb.checked) indexTotal += (parseInt(cleanCb.value, 10) || 0);
+      if (stockCb && stockCb.checked) indexTotal += (parseInt(stockCb.value, 10) || 0);
+      if (linenCb && linenCb.checked) indexTotal += (parseInt(linenCb.value, 10) || 0);
+      if (feastCb && feastCb.checked) indexTotal += (parseInt(feastCb.value, 10) || 0);
+
+      const dispEl = document.getElementById('welcome-home-total-disp');
+      if (dispEl) {
+        dispEl.textContent = `GH₵ ${indexTotal.toLocaleString('en-GH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      }
+    }
+  };
+
+  window.bookAkwaabaConciergeWhatsApp = function(serviceTitle) {
+    const message = `Hello Akwaaba Fie! I would like to inquire about booking: ${serviceTitle}. Please share availability and details.`;
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/233208386301?text=${encoded}`, '_blank');
+  };
+
+  window.bookWelcomeHomeViaWhatsApp = function() {
+    // Check if on Akwaaba Fie detailed calculator page
+    const calcForm = document.getElementById('welcome-home-calc-form');
+    let message = '';
+    if (calcForm) {
+      const getRadioLabel = (name) => {
+        const el = calcForm.querySelector(`input[name="${name}"]:checked`);
+        return el && el.parentElement ? el.parentElement.textContent.trim().replace(/\s+/g, ' ') : '';
+      };
+      const totalDisplay = document.getElementById('welcome-home-total-display');
+      const total = totalDisplay ? totalDisplay.textContent.trim() : 'Quote';
+      const bed = getRadioLabel('calcBedrooms');
+      const clean = getRadioLabel('calcCleaningType');
+      const groc = getRadioLabel('calcGrocery');
+      const meal = getRadioLabel('calcMeal');
+
+      message = `Hello Akwaaba Fie! I customized a Homecoming Suite on your website:\n` +
+        `• Property: ${bed}\n` +
+        `• Cleaning Depth: ${clean}\n` +
+        `• Pantry Stocking: ${groc}\n` +
+        `• Arrival Feast: ${meal}\n` +
+        `• Estimated Total: ${total}\n\n` +
+        `I would like to confirm dates and arrange this booking.`;
+    } else {
+      // On Index portal page
+      const dispEl = document.getElementById('welcome-home-total-disp');
+      const total = dispEl ? dispEl.textContent.trim() : 'GH₵ 1,450.00';
+      const city = document.getElementById('wh-city') ? document.getElementById('wh-city').value : 'Accra';
+      const date = document.getElementById('wh-date') ? document.getElementById('wh-date').value : 'Upcoming Arrival';
+
+      message = `Hello Akwaaba Fie! I would like to book the Homecoming Care package:\n` +
+        `• Area: ${city}\n` +
+        `• Arrival Date: ${date || 'Flexible'}\n` +
+        `• Estimated Total: ${total}\n\n` +
+        `Please confirm availability.`;
+    }
+
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/233208386301?text=${encoded}`, '_blank');
+  };
+
+  // Attach change listeners to calculator inputs across pages
+  document.querySelectorAll('#welcome-home-calc-form input, .welcome-booking-box input').forEach(input => {
+    input.addEventListener('change', window.updateWelcomeHomeTotal);
+    input.addEventListener('input', window.updateWelcomeHomeTotal);
+  });
+
+  // Run initial calculation once DOM is ready
+  window.updateWelcomeHomeTotal();
   /* ==========================================================================
      DATA: PRODUCTS APOTHECARY WITH VARIANTS, STOCK & REVIEWS (GHANA CEDIS BASE)
      ========================================================================== */
@@ -506,30 +603,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      AKWAABA FIE "WELCOME HOME" PACKAGE INTERACTIVE CALCULATOR
      ========================================================================== */
-  window.updateWelcomeHomeTotal = function() {
-    const checkboxes = document.querySelectorAll('.booking-service-cb');
-    let total = 0;
-    checkboxes.forEach(cb => {
-      if (cb.checked) {
-        total += parseFloat(cb.dataset.price || 0);
-      }
+  // (Maintained by unified window.updateWelcomeHomeTotal & window.bookWelcomeHomeViaWhatsApp)
+  const bookingCheckboxes = document.querySelectorAll('.booking-service-cb');
+  if (bookingCheckboxes.length > 0) {
+    bookingCheckboxes.forEach(cb => {
+      cb.addEventListener('change', window.updateWelcomeHomeTotal);
     });
-    const totalDisplay = document.getElementById('welcome-home-total-disp');
-    if (totalDisplay) {
-      totalDisplay.textContent = formatPrice(total);
-    }
-  };
-
-  window.bookWelcomeHomeViaWhatsApp = function() {
-    const city = document.getElementById('wh-city')?.value || 'Accra';
-    const arrivalDate = document.getElementById('wh-date')?.value || 'Upcoming Arrival';
-    const checkboxes = document.querySelectorAll('.booking-service-cb:checked');
-    const selectedServices = Array.from(checkboxes).map(cb => cb.dataset.name).join(', ') || 'Custom Homecoming Package';
-    const totalDisp = document.getElementById('welcome-home-total-disp')?.textContent || 'GH₵ 0.00';
-
-    const msg = `Hello Mena's Nest & Akwaaba Fie! 🌿 I would like to book the Welcome Home Package for my visit to Ghana.\n\n📍 City/Area: ${city}\n📅 Estimated Arrival Date: ${arrivalDate}\n✨ Selected Services: ${selectedServices}\n💰 Estimated Total: ${totalDisp}\n\nPlease let me know availability and next steps. Thank you!`;
-    window.open(`https://wa.me/233208386301?text=${encodeURIComponent(msg)}`, '_blank');
-  };
+  }
 
   /* ==========================================================================
      CURRENCY RATES & FORMATTER (GHANA CEDIS BASE)
