@@ -139,3 +139,4 @@ if (move_uploaded_file($file['tmp_name'], $destinationPath)) {
         'message' => 'Failed to save uploaded file. Check folder permissions.'
     ]);
 }
+

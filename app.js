@@ -925,9 +925,9 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Mobile Navigation Drawer */
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
-  const closeMobileNavBtn = document.getElementById('close-mobile-nav');
+  const closeMobileNavBtn = document.getElementById('close-mobile-nav') || document.getElementById('mobile-nav-close');
   const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
-  const mobileNavLinks = document.querySelectorAll('.mobile-link');
+  const mobileNavLinks = document.querySelectorAll('.mobile-link, .mobile-nav-item, .mobile-portal-card');
 
   function openMobileNav() {
     if (mobileNavDrawer) mobileNavDrawer.classList.add('open');
@@ -969,6 +969,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.openMobileNav = openMobileNav;
   window.closeMobileNav = closeMobileNav;
+
+  /* Floating Back-to-Top Button */
+  const backToTopBtn = document.getElementById('back-to-top-btn');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 380) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* Subnav Sticky Scroll Spy */
+  const subnavPills = document.querySelectorAll('.subnav-pill[href^="#"]');
+  if (subnavPills.length > 0) {
+    const sectionIds = Array.from(subnavPills)
+      .map(pill => pill.getAttribute('href').slice(1))
+      .filter(id => id && document.getElementById(id));
+
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 180;
+      let currentSectionId = '';
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          currentSectionId = sectionIds[i];
+          break;
+        }
+      }
+
+      if (currentSectionId) {
+        subnavPills.forEach(pill => {
+          if (pill.getAttribute('href') === `#${currentSectionId}`) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }
+    }, { passive: true });
+  }
 
   /* Mobile Sticky Bottom Bar Interaction */
   const bottomNavHome = document.getElementById('bottom-nav-home');

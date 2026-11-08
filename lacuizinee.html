@@ -136,26 +136,73 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
+  <!-- Sticky Quick-Jump Navigation Bar -->
+  <nav class="subnav-sticky" id="subnav-sticky" aria-label="Lacuizinee Menu Navigation">
+    <div class="subnav-container">
+      <span class="subnav-label">Explore:</span>
+      <a href="#menu" class="subnav-pill active">🍲 Full Menu & Shop</a>
+      <a href="#beverages" class="subnav-pill">🌺 Sobolo & Chilled Drinks</a>
+      <a href="#subscriptions" class="subnav-pill">🍱 Meal Subscriptions</a>
+      <a href="#catering" class="subnav-pill">🍽️ Executive Event Catering</a>
+      <a href="akwaaba-fie.html" class="subnav-pill pill-akwaaba" title="Visit Akwaaba Fie Specialized Portal">🏡 Akwaaba Fie Home Care ↗</a>
+      <a href="index.html" class="subnav-pill">🌐 Group Overview</a>
+      <a href="#contact" class="subnav-pill">📞 Order Desk</a>
+    </div>
+  </nav>
+
+  <!-- Executive Mobile Drawer Menu -->
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
     <div class="mobile-nav-header">
-      <span class="brand-name" style="color: var(--color-forest-green);">LACUIZINEE</span>
+      <div class="brand-text">
+        <span class="brand-name" style="color: var(--color-forest-green-dark); font-size: 1.4rem;">LACUIZINEE</span>
+        <span class="brand-tagline" style="font-size: 0.65rem; color: var(--color-neutral-600); display: block;">Culinary Division of Mena's Nest</span>
+      </div>
       <button class="close-mobile-nav" id="close-mobile-nav" aria-label="Close menu">✕</button>
     </div>
-    <ul class="mobile-links">
-      <li><a href="#menu" class="mobile-link">Full Menu & Ordering</a></li>
-      <li><a href="#beverages" class="mobile-link">Artisanal Drinks (Sobolo, Tamarind, Baobab)</a></li>
-      <li><a href="#subscriptions" class="mobile-link">Weekly Meal Subscriptions</a></li>
-      <li><a href="#catering" class="mobile-link">Corporate & Event Catering</a></li>
-      <li><a href="akwaaba-fie.html" class="mobile-link" style="color: var(--color-terracotta);">🏡 Akwaaba Fie Home Care ↗</a></li>
-      <li><a href="index.html" class="mobile-link">Mena's Nest Group Home</a></li>
-      <li><a href="#contact" class="mobile-link">Contact & WhatsApp Orders</a></li>
-    </ul>
-    <div class="mobile-nav-footer">
-      <a href="https://wa.me/233208386301" target="_blank" class="btn btn-whatsapp w-full">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
-        <span>WhatsApp Kitchen (020 838 6301)</span>
+
+    <!-- Specialized Portals -->
+    <div class="mobile-nav-section-title">Brand Portals</div>
+    <div class="mobile-brand-portals">
+      <a href="lacuizinee.html" class="mobile-portal-card card-lacuizinee active">
+        <div class="mobile-portal-info">
+          <span class="mobile-portal-icon">🍲</span>
+          <div class="mobile-portal-text">
+            <span class="mobile-portal-name">Lacuizinee</span>
+            <span class="mobile-portal-desc">Current Portal (Food & Catering)</span>
+          </div>
+        </div>
+        <span class="mobile-portal-badge" style="background: var(--color-forest-green); color: #fff;">Active</span>
       </a>
+
+      <a href="akwaaba-fie.html" class="mobile-portal-card card-akwaaba">
+        <div class="mobile-portal-info">
+          <span class="mobile-portal-icon">🏡</span>
+          <div class="mobile-portal-text">
+            <span class="mobile-portal-name">Akwaaba Fie</span>
+            <span class="mobile-portal-desc">Home Deep Cleaning & Diaspora Care</span>
+          </div>
+        </div>
+        <span class="mobile-portal-badge" style="color: var(--color-terracotta-dark);">Switch ↗</span>
+      </a>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="mobile-nav-section-title">Menu & Culinary Services</div>
+    <ul class="mobile-nav-list">
+      <li><a href="#menu" class="mobile-nav-item">🍲 Full Culinary Menu</a></li>
+      <li><a href="#beverages" class="mobile-nav-item">🌺 Chilled Artisanal Drinks & Sobolo</a></li>
+      <li><a href="#subscriptions" class="mobile-nav-item">🍱 Weekly Meal Subscriptions</a></li>
+      <li><a href="#catering" class="mobile-nav-item">🍽️ Corporate & Event Catering</a></li>
+      <li><a href="index.html" class="mobile-nav-item">🌐 Mena's Nest Group Home</a></li>
+      <li><a href="#contact" class="mobile-nav-item">📞 Contact & WhatsApp Orders</a></li>
+    </ul>
+
+    <div class="mobile-nav-footer">
+      <a href="https://wa.me/233208386301?text=Hello%20Lacuizinee!%20I'd%20love%20to%20order%20or%20inquire%20about%20catering%20and%20drinks." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.528 1.838.808 2.789.809 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.768-5.768-5.794zm10.222 5.769c-.004 5.65-4.596 10.24-10.245 10.24-1.792 0-3.535-.467-5.068-1.353l-5.632 1.475 1.503-5.485c-.974-1.583-1.488-3.411-1.488-5.285.004-5.65 4.596-10.24 10.245-10.24 2.735.001 5.307 1.066 7.24 2.999 1.934 1.934 2.996 4.505 2.997 7.243z"/></svg>
+        <span>Kitchen WhatsApp (020 838 6301)</span>
+      </a>
+      <p class="mobile-care-note">Fresh Daily Prep • Greater Accra & Kumasi Delivery</p>
     </div>
   </div>
   <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
@@ -1059,6 +1106,11 @@
       <span>Cart</span>
     </button>
   </nav>
+
+  <!-- Floating Back-to-Top Button -->
+  <button type="button" class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top" title="Scroll back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <!-- FLOATING WHATSAPP BUTTON WIDGET -->
   <div class="floating-whatsapp-widget" id="floating-whatsapp-widget">

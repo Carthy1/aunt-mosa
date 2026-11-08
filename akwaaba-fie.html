@@ -160,34 +160,79 @@
     </div>
   </header>
 
-  <!-- Mobile Navigation Drawer -->
+  <!-- Sticky Quick-Jump Navigation Bar -->
+  <nav class="subnav-sticky" id="subnav-sticky" aria-label="Akwaaba Fie Services Navigation">
+    <div class="subnav-container">
+      <span class="subnav-label">Explore:</span>
+      <a href="#welcome-home" class="subnav-pill active">🇬🇭 Welcome Home Suite</a>
+      <a href="#calculator" class="subnav-pill">🧮 Cost Calculator</a>
+      <a href="#services" class="subnav-pill">🧼 Deep Cleaning & Sanitation</a>
+      <a href="#services" class="subnav-pill">🧺 Pantry Grocery Stocking</a>
+      <a href="#packages" class="subnav-pill">📦 Packages & Rates</a>
+      <a href="lacuizinee.html" class="subnav-pill pill-lacuizinee" title="Visit Lacuizinee Specialized Portal">🍲 Lacuizinee Catering & Drinks ↗</a>
+      <a href="index.html" class="subnav-pill">🌐 Group Overview</a>
+      <a href="#contact" class="subnav-pill">📞 Concierge Desk</a>
+    </div>
+  </nav>
+
+  <!-- Executive Mobile Navigation Drawer -->
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
     <div class="mobile-nav-header">
-      <span class="mobile-nav-title">Akwaaba Fie • Home Care</span>
-      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">✕</button>
+      <div class="brand-text">
+        <span class="brand-name" style="color: var(--color-terracotta-dark); font-size: 1.4rem;">AKWAABA FIE</span>
+        <span class="brand-tagline" style="font-size: 0.65rem; color: var(--color-neutral-600); display: block;">Home Care Division of Mena's Nest</span>
+      </div>
+      <button class="close-mobile-nav" id="close-mobile-nav" aria-label="Close menu">✕</button>
     </div>
-    <div class="mobile-brand-pills">
-      <a href="index.html" class="mobile-brand-pill">Mena's Nest Group</a>
-      <a href="lacuizinee.html" class="mobile-brand-pill">🍲 Lacuizinee (Food)</a>
-      <a href="akwaaba-fie.html" class="mobile-brand-pill active">🏡 Akwaaba Fie (Home)</a>
+
+    <!-- Specialized Portals -->
+    <div class="mobile-nav-section-title">Brand Portals</div>
+    <div class="mobile-brand-portals">
+      <a href="akwaaba-fie.html" class="mobile-portal-card card-akwaaba active">
+        <div class="mobile-portal-info">
+          <span class="mobile-portal-icon">🏡</span>
+          <div class="mobile-portal-text">
+            <span class="mobile-portal-name">Akwaaba Fie</span>
+            <span class="mobile-portal-desc">Current Portal (Home Care & Concierge)</span>
+          </div>
+        </div>
+        <span class="mobile-portal-badge" style="background: var(--color-terracotta); color: #fff;">Active</span>
+      </a>
+
+      <a href="lacuizinee.html" class="mobile-portal-card card-lacuizinee">
+        <div class="mobile-portal-info">
+          <span class="mobile-portal-icon">🍲</span>
+          <div class="mobile-portal-text">
+            <span class="mobile-portal-name">Lacuizinee</span>
+            <span class="mobile-portal-desc">Catering, Prepared Meals & Artisanal Sobolo</span>
+          </div>
+        </div>
+        <span class="mobile-portal-badge" style="color: var(--color-forest-green-dark);">Switch ↗</span>
+      </a>
     </div>
+
+    <!-- Quick Navigation -->
+    <div class="mobile-nav-section-title">Home Readiness Services</div>
     <ul class="mobile-nav-list">
-      <li><a href="#welcome-home" class="mobile-nav-item">✨ Welcome Home Suite</a></li>
-      <li><a href="#services" class="mobile-nav-item">🧼 Home Care Services</a></li>
-      <li><a href="#calculator" class="mobile-nav-item">🧮 Arrival Cost Calculator</a></li>
-      <li><a href="#packages" class="mobile-nav-item">📦 Service Packages & Rates</a></li>
-      <li><a href="lacuizinee.html" class="mobile-nav-item" style="color: var(--color-forest-green);">🍲 Visit
-          Lacuizinee Food & Drinks ↗</a></li>
-      <li><a href="index.html" class="mobile-nav-item">🌐 Mena's Nest Group Portal</a></li>
-      <li><a href="#contact" class="mobile-nav-item">📞 Contact & Concierge Desk</a></li>
+      <li><a href="#welcome-home" class="mobile-nav-item">🇬🇭 Flagship "Welcome Home" Suite</a></li>
+      <li><a href="#calculator" class="mobile-nav-item">🧮 Interactive Arrival Calculator</a></li>
+      <li><a href="#services" class="mobile-nav-item">🧼 Pre-Arrival Deep Cleaning</a></li>
+      <li><a href="#services" class="mobile-nav-item">🧺 Fridge & Pantry Grocery Stocking</a></li>
+      <li><a href="#services" class="mobile-nav-item">🛏️ Guest-Room Linen & Bedding</a></li>
+      <li><a href="#packages" class="mobile-nav-item">📦 Concierge Packages & Rates</a></li>
+      <li><a href="index.html" class="mobile-nav-item">🌐 Mena's Nest Group Home</a></li>
+      <li><a href="#contact" class="mobile-nav-item">📞 Contact Concierge Desk</a></li>
     </ul>
+
     <div class="mobile-nav-footer">
       <a href="https://wa.me/233208386301?text=Hello%20Akwaaba%20Fie!%20I'd%20love%20to%20book%20a%20home%20readiness%20package."
         target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full">
-        Chat Concierge on WhatsApp (020 838 6301)
+        WhatsApp Concierge (020 838 6301)
       </a>
+      <p class="mobile-care-note">Greater Accra & Kumasi • Discrete, Trusted Home Care</p>
     </div>
   </div>
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
 
   <!-- HERO SECTION -->
   <section class="hero-section" id="hero"
@@ -1394,6 +1439,11 @@
       <span>Cart</span>
     </button>
   </nav>
+
+  <!-- Floating Back-to-Top Button -->
+  <button type="button" class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top" title="Scroll back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <!-- FLOATING WHATSAPP BUTTON WIDGET -->
   <div class="floating-whatsapp-widget" id="floating-whatsapp-widget">
