@@ -87,10 +87,10 @@
       gap: 1rem;
     }
 
-    .btn-admin-light {
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+    .admin-header .btn-admin-light {
+      background: rgba(255, 255, 255, 0.15) !important;
+      color: #fff !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
       padding: 0.45rem 0.9rem;
       border-radius: var(--radius-sm);
       font-size: 0.82rem;
@@ -101,9 +101,9 @@
       gap: 0.4rem;
     }
 
-    .btn-admin-light:hover {
-      background: rgba(255, 255, 255, 0.28);
-      color: #fff;
+    .admin-header .btn-admin-light:hover {
+      background: rgba(255, 255, 255, 0.28) !important;
+      color: #fff !important;
     }
 
     /* Admin Navigation Tabs */
@@ -387,13 +387,42 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      border: none;
+      border: 1px solid transparent;
       cursor: pointer;
       transition: all var(--transition-fast);
+      text-decoration: none;
     }
 
     .btn-admin:hover {
       background: var(--admin-primary-dark);
+      transform: translateY(-1px);
+      color: #fff;
+    }
+
+    .btn-admin-primary {
+      background: var(--admin-primary);
+      color: #fff;
+    }
+
+    .btn-admin-primary:hover {
+      background: var(--admin-primary-dark);
+      color: #fff;
+    }
+
+    /* Light / Secondary button style (Clean white, dark text, subtle border) */
+    .btn-admin-light,
+    .btn-admin-secondary {
+      background: #FFFFFF !important;
+      color: #1F2937 !important;
+      border: 1.5px solid #D1D5DB !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-admin-light:hover,
+    .btn-admin-secondary:hover {
+      background: #F3F4F6 !important;
+      color: #111827 !important;
+      border-color: #9CA3AF !important;
       transform: translateY(-1px);
     }
 
@@ -404,6 +433,7 @@
 
     .btn-admin-green:hover {
       background: var(--color-forest-green-dark);
+      color: #fff;
     }
 
     .btn-admin-sm {
@@ -773,9 +803,9 @@
           </div>
 
           <div style="display: flex; gap: 1rem; align-items: center; justify-content: flex-end; margin-top: 2rem;">
-            <button type="button" class="btn-admin btn-admin-light" style="color: var(--color-neutral-700);"
+            <button type="button" class="btn-admin btn-admin-light"
               onclick="switchAdminTab('products')">Cancel</button>
-            <button type="submit" class="btn-admin" id="btn-save-prod">
+            <button type="submit" class="btn-admin btn-admin-primary" id="btn-save-prod">
               <span>💾 Save Item to Portal</span>
             </button>
           </div>
