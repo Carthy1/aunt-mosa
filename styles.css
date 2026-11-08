@@ -32,13 +32,15 @@
   --color-lavender-subtle: #EEF3F0;
   --color-lavender-light: #DCE5DF;
   --color-lavender-medium: #6E8875;
-  --color-lavender-primary: #354C3B; /* Forest Green as Primary Brand Accent */
+  --color-lavender-primary: #354C3B;
+  /* Forest Green as Primary Brand Accent */
   --color-lavender-dark: #243529;
   --color-lavender-deep: #18231B;
 
   --color-sage-subtle: #FAF4F0;
   --color-sage-light: #F3E6DE;
-  --color-sage-medium: #B77B57; /* Terracotta as Warm Brand Accent */
+  --color-sage-medium: #B77B57;
+  /* Terracotta as Warm Brand Accent */
   --color-sage-dark: #915A3A;
   --color-sage-deep: #6D4127;
 
@@ -79,7 +81,9 @@
 }
 
 /* Base Resets */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -97,7 +101,7 @@ body {
   color: var(--color-neutral-800);
   line-height: 1.65;
   overflow-x: hidden;
-  background-image: 
+  background-image:
     radial-gradient(at 10% 20%, rgba(53, 76, 59, 0.05) 0px, transparent 50%),
     radial-gradient(at 90% 80%, rgba(183, 123, 87, 0.06) 0px, transparent 50%);
   background-attachment: fixed;
@@ -165,7 +169,11 @@ ul {
 }
 
 /* Typography Presets */
-h1, h2, h3, h4, .brand-name {
+h1,
+h2,
+h3,
+h4,
+.brand-name {
   font-family: var(--font-serif);
   color: var(--color-neutral-900);
   font-weight: 600;
@@ -432,7 +440,8 @@ h1, h2, h3, h4, .brand-name {
   transition: all var(--transition-fast);
 }
 
-.currency-select:hover, .currency-select:focus {
+.currency-select:hover,
+.currency-select:focus {
   background: rgba(255, 255, 255, 0.22);
   border-color: var(--color-warm-gold);
 }
@@ -541,7 +550,8 @@ h1, h2, h3, h4, .brand-name {
   transition: color var(--transition-fast);
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--color-forest-green-dark);
 }
 
@@ -557,7 +567,8 @@ h1, h2, h3, h4, .brand-name {
   transition: width var(--transition-fast);
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
@@ -1077,8 +1088,13 @@ h1, h2, h3, h4, .brand-name {
 }
 
 @keyframes floatCard {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-8px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
 }
 
 /* ==========================================================================
@@ -2111,7 +2127,8 @@ h1, h2, h3, h4, .brand-name {
   transition: all var(--transition-fast);
 }
 
-.filter-pill:hover, .filter-pill.active {
+.filter-pill:hover,
+.filter-pill.active {
   background: var(--color-lavender-dark);
   color: #FFFFFF;
   border-color: var(--color-lavender-dark);
@@ -2277,7 +2294,8 @@ h1, h2, h3, h4, .brand-name {
   color: var(--color-neutral-700);
 }
 
-.stage-pill:hover, .stage-pill.active {
+.stage-pill:hover,
+.stage-pill.active {
   background: var(--color-sage-dark);
   color: #FFFFFF;
   border-color: var(--color-sage-dark);
@@ -2677,8 +2695,8 @@ h1, h2, h3, h4, .brand-name {
   color: #DC2626;
 }
 
-.form-group input, 
-.form-group select, 
+.form-group input,
+.form-group select,
 .form-group textarea {
   padding: 0.75rem 1rem;
   border: 1.5px solid var(--color-cream-border);
@@ -2690,8 +2708,8 @@ h1, h2, h3, h4, .brand-name {
   transition: border-color var(--transition-fast);
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
+.form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--color-lavender-primary);
   background: #FFFFFF;
@@ -3407,7 +3425,9 @@ h1, h2, h3, h4, .brand-name {
 }
 
 @keyframes ping {
-  75%, 100% {
+
+  75%,
+  100% {
     transform: scale(1.4);
     opacity: 0;
   }
@@ -3455,6 +3475,7 @@ h1, h2, h3, h4, .brand-name {
     opacity: 0;
     transform: translateY(12px) scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -3525,7 +3546,8 @@ body.no-scroll {
   transition: all var(--transition-fast);
 }
 
-.btn-wishlist-toggle:hover, .btn-wishlist-toggle.active {
+.btn-wishlist-toggle:hover,
+.btn-wishlist-toggle.active {
   color: #E11D48;
   background: #FFFFFF;
   transform: scale(1.1);
@@ -3601,8 +3623,17 @@ body.no-scroll {
 }
 
 @keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
 }
 
 /* Cart Upsell, Promo & Gift Section */
@@ -4063,7 +4094,7 @@ body.no-scroll {
   font-family: monospace;
   font-size: 1.2rem;
   letter-spacing: 3px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .card-bottom-row {
@@ -4078,7 +4109,8 @@ body.no-scroll {
   display: block;
 }
 
-.card-name-display, .card-exp-display {
+.card-name-display,
+.card-exp-display {
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4361,8 +4393,15 @@ body.no-scroll {
 }
 
 @keyframes slideTicker {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .ticker-avatar {
@@ -4630,12 +4669,15 @@ body.no-scroll {
   .nav-links {
     gap: 1.25rem;
   }
+
   .nav-link {
     font-size: 0.86rem;
   }
+
   .cart-btn-label {
     display: none;
   }
+
   .whatsapp-nav-btn {
     padding: 0.45rem 0.8rem;
     font-size: 0.78rem;
@@ -4644,25 +4686,31 @@ body.no-scroll {
 
 /* Tablets & Mobile Landscape (<= 992px) */
 @media (max-width: 992px) {
+
   .main-nav,
   .whatsapp-nav-btn {
     display: none !important;
   }
+
   .mobile-menu-btn {
     display: flex !important;
   }
+
   .top-bar-utilities {
     display: none;
   }
+
   .top-bar-container {
     justify-content: center;
   }
+
   .brand-gateway-switcher {
     width: 100%;
     justify-content: center;
     overflow-x: auto;
     scrollbar-width: none;
   }
+
   .brand-gateway-switcher::-webkit-scrollbar {
     display: none;
   }
@@ -4673,22 +4721,27 @@ body.no-scroll {
   .site-top-bar {
     padding: 0.25rem 0.5rem;
   }
+
   .gateway-tab {
     padding: 0.22rem 0.55rem;
     font-size: 0.72rem;
   }
+
   .gateway-tag {
     display: none;
   }
+
   .cart-trigger-btn {
     padding: 0.4rem;
     width: 38px;
     height: 38px;
     justify-content: center;
   }
+
   .cart-btn-label {
     display: none;
   }
+
   .welcome-home-card {
     padding: 1.75rem 1.25rem;
   }
@@ -4708,6 +4761,7 @@ body.no-scroll {
   .brand-card-title {
     font-size: 1.85rem;
   }
+
   /* Body bottom padding to account for fixed mobile bottom nav bar */
   body {
     padding-bottom: 68px;
@@ -5584,6 +5638,7 @@ body.no-scroll {
 
 /* Touch Device Target Sizing (WCAG 2.1 AAA Compliant) */
 @media (hover: none) and (pointer: coarse) {
+
   .btn,
   .variant-chip,
   .payment-tab,
@@ -5680,6 +5735,7 @@ body.no-scroll {
     gap: 1.5rem;
     text-align: center;
   }
+
   .sister-brand-banner {
     padding: 2rem 1.25rem;
     margin: 3.5rem 0;
@@ -5879,4 +5935,3 @@ body.no-scroll {
     gap: 1.5rem;
   }
 }
-

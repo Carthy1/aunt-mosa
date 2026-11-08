@@ -15,3 +15,8 @@ Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
+
+# Customer and User Uploads
+uploads/*
+!uploads/.gitkeep
+
