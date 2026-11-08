@@ -541,6 +541,9 @@
       <span>🏷️ Promotions & Coupons</span>
       <span class="tab-badge" id="coupons-count-badge">4</span>
     </button>
+    <button class="admin-tab-btn" data-tab="forex" onclick="switchAdminTab('forex')">
+      <span>💱 Live Forex & Rates</span>
+    </button>
     <button class="admin-tab-btn" data-tab="media" onclick="switchAdminTab('media')">
       <span>📤 Media Uploader</span>
     </button>
@@ -857,7 +860,8 @@
           <div>
             <h2 class="panel-title">Mena’s Nest Wellness Circle Subscribers</h2>
             <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
-              Emails submitted by visitors and clients interested in diaspora arrivals, food drops, and seasonal batches.
+              Emails submitted by visitors and clients interested in diaspora arrivals, food drops, and seasonal
+              batches.
             </p>
           </div>
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -925,18 +929,178 @@
       </div>
     </section>
 
+    <!-- TAB 8: LIVE FOREX & EXCHANGE RATES -->
+    <section id="tab-forex" class="admin-tab-content" style="display: none;">
+      <div class="admin-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Automated Live Currency Exchange & Forex Rates</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Prices across Mena’s Nest, Lacuizinee, and Akwaaba Fie are based in Ghana Cedis (GH₵) and converted automatically using real-time global forex market rates.
+            </p>
+          </div>
+          <button class="btn-admin btn-admin-primary" onclick="forceRefreshLiveForex()">
+            <span>🔄 Sync Live Forex Rates Now</span>
+          </button>
+        </div>
+
+        <!-- Sync Status Strip -->
+        <div style="background: rgba(53, 76, 59, 0.08); border: 1px solid rgba(53, 76, 59, 0.2); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #10B981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);"></span>
+            <strong style="color: var(--color-forest-green-dark); font-size: 0.92rem;">Automated Daily Feed Active</strong>
+            <span style="font-size: 0.82rem; color: var(--color-neutral-600);">(Source: Open Forex Exchange API / Bank of Ghana Market Index)</span>
+          </div>
+          <div style="font-size: 0.82rem; color: var(--color-neutral-600);">
+            Last Market Update: <strong id="forex-last-sync-display">Fetching live rates...</strong>
+          </div>
+        </div>
+
+        <!-- Live Conversion Rate Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+          <!-- USD Card -->
+          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.5rem;">🇺🇸</span>
+              <span class="status-pill" style="background: rgba(107, 52, 98, 0.1); color: var(--color-purple-deep);">USD ($)</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 US Dollar Equals</div>
+            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-usd">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-usd">0.0000</code></div>
+          </div>
+
+          <!-- GBP Card -->
+          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.5rem;">🇬🇧</span>
+              <span class="status-pill" style="background: rgba(53, 76, 59, 0.1); color: var(--color-forest-green-dark);">GBP (£)</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 British Pound Equals</div>
+            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-gbp">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-gbp">0.0000</code></div>
+          </div>
+
+          <!-- EUR Card -->
+          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.5rem;">🇪🇺</span>
+              <span class="status-pill" style="background: #EFF6FF; color: #1D4ED8;">EUR (€)</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 Euro Equals</div>
+            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-eur">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-eur">0.0000</code></div>
+          </div>
+
+          <!-- CAD Card -->
+          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.5rem;">🇨🇦</span>
+              <span class="status-pill" style="background: #FEF2F2; color: #B91C1C;">CAD (CA$)</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 Canadian Dollar Equals</div>
+            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-cad">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-cad">0.0000</code></div>
+          </div>
+
+          <!-- NGN Card -->
+          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.5rem;">🇳🇬</span>
+              <span class="status-pill" style="background: #F0FDF4; color: #15803D;">NGN (₦)</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 Ghana Cedi Equals</div>
+            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-ngn">₦ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-ngn">0.0000</code></div>
+          </div>
+        </div>
+
+        <!-- Diaspora Payment Buffer & Custom Rates Form -->
+        <div style="background: #FFFFFF; border: 1px solid var(--color-cream-border); border-radius: var(--radius-lg); padding: 2rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--admin-primary); margin-bottom: 0.5rem;">
+            Diaspora Payment Protection & Forex Controls
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--color-neutral-600); margin-bottom: 1.5rem; line-height: 1.6;">
+            International credit cards (Visa, Mastercard) and foreign bank remittances typically deduct a 2%–3.5% foreign exchange spread. You can apply an optional safety buffer so conversions on the site match what customers actually pay.
+          </p>
+
+          <form id="forex-controls-form" onsubmit="saveForexBufferSettings(event)">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label">Payment Processing Buffer Spread</label>
+                <select id="forex-buffer-select" class="form-control">
+                  <option value="0">0% — Exact Mid-Market Forex (No buffer)</option>
+                  <option value="0.02">+2% Remittance Buffer</option>
+                  <option value="0.03" selected>+3% Card Processing Spread (Recommended)</option>
+                  <option value="0.05">+5% Conservative Forex Buffer</option>
+                </select>
+                <small style="color: var(--color-neutral-500); display: block; margin-top: 0.35rem;">
+                  Automatically adjusts the live exchange rate calculation across all pages.
+                </small>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Conversion Mode</label>
+                <select id="forex-mode-select" class="form-control" onchange="toggleManualForexFields()">
+                  <option value="auto" selected>🟢 100% Automated Live Forex (Updates Daily)</option>
+                  <option value="manual">⚙️ Custom Manual Fixed Rates (Owner Specified)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Manual Overrides (Hidden by default) -->
+            <div id="manual-forex-fields" style="display: none; background: #FAF8F5; border: 1px dashed var(--color-cream-border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; color: var(--admin-primary); margin-bottom: 0.75rem;">Manual Rate Overrides (GH₵ per 1 Foreign Unit)</h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label">1 USD in GH₵</label>
+                  <input type="number" id="manual-rate-usd" class="form-control" step="0.1" placeholder="e.g. 15.5">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">1 GBP in GH₵</label>
+                  <input type="number" id="manual-rate-gbp" class="form-control" step="0.1" placeholder="e.g. 19.5">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">1 EUR in GH₵</label>
+                  <input type="number" id="manual-rate-eur" class="form-control" step="0.1" placeholder="e.g. 16.5">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">1 CAD in GH₵</label>
+                  <input type="number" id="manual-rate-cad" class="form-control" step="0.1" placeholder="e.g. 11.2">
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+              <button type="button" class="btn-admin btn-admin-light" onclick="resetForexToAutomated()">
+                ↺ Reset to 100% Automated Live Market
+              </button>
+              <button type="submit" class="btn-admin btn-admin-primary">
+                💾 Save Exchange Rate Settings
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <!-- ARTICLE EDITOR MODAL -->
-    <div id="article-editor-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem; overflow-y: auto;">
-      <div style="background: #FFFFFF; border-radius: var(--radius-lg); max-width: 720px; width: 100%; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
+    <div id="article-editor-modal"
+      style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem; overflow-y: auto;">
+      <div
+        style="background: #FFFFFF; border-radius: var(--radius-lg); max-width: 720px; width: 100%; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-          <h3 id="article-modal-title" style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--admin-primary); margin: 0;">Write New Article</h3>
-          <button type="button" onclick="closeArticleModal()" style="font-size: 1.5rem; color: var(--color-neutral-500); cursor: pointer;">✕</button>
+          <h3 id="article-modal-title"
+            style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--admin-primary); margin: 0;">Write New
+            Article</h3>
+          <button type="button" onclick="closeArticleModal()"
+            style="font-size: 1.5rem; color: var(--color-neutral-500); cursor: pointer;">✕</button>
         </div>
         <form id="article-edit-form" onsubmit="saveArticle(event)">
           <input type="hidden" id="art-id">
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Article Title *</label>
-            <input type="text" id="art-title" class="form-control" placeholder="e.g. The 14-Day Kotoka Pre-Arrival Checklist" required>
+            <input type="text" id="art-title" class="form-control"
+              placeholder="e.g. The 14-Day Kotoka Pre-Arrival Checklist" required>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
             <div class="form-group">
@@ -950,20 +1114,24 @@
             </div>
             <div class="form-group">
               <label class="form-label">Read Time</label>
-              <input type="text" id="art-read-time" class="form-control" placeholder="e.g. 5 min read" value="5 min read">
+              <input type="text" id="art-read-time" class="form-control" placeholder="e.g. 5 min read"
+                value="5 min read">
             </div>
           </div>
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Cover Image Path / URL</label>
-            <input type="text" id="art-image" class="form-control" placeholder="assets/images/hero-welcome-home.jpg" value="assets/images/hero-welcome-home.jpg">
+            <input type="text" id="art-image" class="form-control" placeholder="assets/images/hero-welcome-home.jpg"
+              value="assets/images/hero-welcome-home.jpg">
           </div>
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Short Excerpt (Summary for Cards) *</label>
-            <textarea id="art-snippet" class="form-control" rows="2" placeholder="Brief summary of what readers will learn..." required></textarea>
+            <textarea id="art-snippet" class="form-control" rows="2"
+              placeholder="Brief summary of what readers will learn..." required></textarea>
           </div>
           <div class="form-group" style="margin-bottom: 1.5rem;">
             <label class="form-label">Article Content (HTML / Paragraphs) *</label>
-            <textarea id="art-body" class="form-control" rows="8" placeholder="<p>Full article paragraphs...</p>" required></textarea>
+            <textarea id="art-body" class="form-control" rows="8" placeholder="<p>Full article paragraphs...</p>"
+              required></textarea>
           </div>
           <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
             <button type="button" class="btn-admin btn-admin-light" onclick="closeArticleModal()">Cancel</button>
@@ -974,16 +1142,21 @@
     </div>
 
     <!-- COUPON EDITOR MODAL -->
-    <div id="coupon-editor-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem;">
-      <div style="background: #FFFFFF; border-radius: var(--radius-lg); max-width: 520px; width: 100%; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+    <div id="coupon-editor-modal"
+      style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem;">
+      <div
+        style="background: #FFFFFF; border-radius: var(--radius-lg); max-width: 520px; width: 100%; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--admin-primary); margin: 0;">Create Promotional Coupon</h3>
-          <button type="button" onclick="closeCouponModal()" style="font-size: 1.5rem; color: var(--color-neutral-500); cursor: pointer;">✕</button>
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--admin-primary); margin: 0;">Create
+            Promotional Coupon</h3>
+          <button type="button" onclick="closeCouponModal()"
+            style="font-size: 1.5rem; color: var(--color-neutral-500); cursor: pointer;">✕</button>
         </div>
         <form id="coupon-edit-form" onsubmit="saveCoupon(event)">
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Promo Code * (e.g. DECEMBER15)</label>
-            <input type="text" id="coup-code" class="form-control" placeholder="MAMA10" style="text-transform: uppercase;" required>
+            <input type="text" id="coup-code" class="form-control" placeholder="MAMA10"
+              style="text-transform: uppercase;" required>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
             <div class="form-group">
@@ -1005,7 +1178,8 @@
           </div>
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Description / Offer Details *</label>
-            <input type="text" id="coup-desc" class="form-control" placeholder="15% Off Diaspora Welcome Suite" required>
+            <input type="text" id="coup-desc" class="form-control" placeholder="15% Off Diaspora Welcome Suite"
+              required>
           </div>
           <div class="form-group" style="margin-bottom: 1.5rem;">
             <label class="form-label">Expiry Date</label>
@@ -1046,6 +1220,7 @@
         loadAllArticles();
         loadAllSubscribers();
         loadAllCoupons();
+        loadForexSettings();
       } else {
         modal.style.display = 'flex';
       }
@@ -1061,6 +1236,7 @@
         loadAllArticles();
         loadAllSubscribers();
         loadAllCoupons();
+        loadForexSettings();
       } else {
         alert('Incorrect passcode. Please try again or check your default PIN.');
       }
@@ -1850,21 +2026,156 @@
       updateKpis();
     }
 
-    async function deleteCoupon(code) {
-      if (!confirm(`Delete coupon code "${code}"?`)) return;
-      allCoupons = allCoupons.filter(c => c.code !== code);
-      localStorage.setItem('menas_coupons', JSON.stringify(allCoupons));
+    // ---------- LIVE FOREX & EXCHANGE RATES CONTROLLER ----------
+    let currentForexRates = {
+      USD: 0.0854,
+      GBP: 0.0637,
+      EUR: 0.0764,
+      CAD: 0.1202,
+      NGN: 115.5
+    };
+
+    async function loadForexSettings() {
+      // Check cached rates or custom overrides
+      const cached = localStorage.getItem('menas_cached_forex_rates');
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          currentForexRates = { ...currentForexRates, ...parsed };
+        } catch (e) { }
+      }
+
+      const customRates = localStorage.getItem('menas_custom_forex_rates');
+      if (customRates) {
+        try {
+          const parsed = JSON.parse(customRates);
+          currentForexRates = { ...currentForexRates, ...parsed };
+          document.getElementById('forex-mode-select').value = 'manual';
+          document.getElementById('manual-forex-fields').style.display = 'block';
+          if (parsed.USD) document.getElementById('manual-rate-usd').value = (1 / parsed.USD).toFixed(2);
+          if (parsed.GBP) document.getElementById('manual-rate-gbp').value = (1 / parsed.GBP).toFixed(2);
+          if (parsed.EUR) document.getElementById('manual-rate-eur').value = (1 / parsed.EUR).toFixed(2);
+          if (parsed.CAD) document.getElementById('manual-rate-cad').value = (1 / parsed.CAD).toFixed(2);
+        } catch (e) { }
+      }
+
+      const savedBuffer = localStorage.getItem('menas_forex_buffer') || '0.03';
+      const bufferSelect = document.getElementById('forex-buffer-select');
+      if (bufferSelect) bufferSelect.value = savedBuffer;
+
+      renderForexCards();
+
+      // If never fetched or cached, trigger background live sync
+      if (!cached) {
+        forceRefreshLiveForex(false);
+      }
+    }
+
+    function renderForexCards() {
+      const buffer = parseFloat(localStorage.getItem('menas_forex_buffer') || '0');
+      // Buffer slightly adjusts the multiplier to protect against remittance/card spreads
+      const effectiveUSD = currentForexRates.USD * (1 - buffer);
+      const effectiveGBP = currentForexRates.GBP * (1 - buffer);
+      const effectiveEUR = currentForexRates.EUR * (1 - buffer);
+      const effectiveCAD = currentForexRates.CAD * (1 - buffer);
+
+      if (document.getElementById('card-rate-usd')) {
+        document.getElementById('card-rate-usd').textContent = `GH₵ ${(1 / effectiveUSD).toFixed(2)}`;
+        document.getElementById('card-mult-usd').textContent = effectiveUSD.toFixed(5);
+
+        document.getElementById('card-rate-gbp').textContent = `GH₵ ${(1 / effectiveGBP).toFixed(2)}`;
+        document.getElementById('card-mult-gbp').textContent = effectiveGBP.toFixed(5);
+
+        document.getElementById('card-rate-eur').textContent = `GH₵ ${(1 / effectiveEUR).toFixed(2)}`;
+        document.getElementById('card-mult-eur').textContent = effectiveEUR.toFixed(5);
+
+        document.getElementById('card-rate-cad').textContent = `GH₵ ${(1 / effectiveCAD).toFixed(2)}`;
+        document.getElementById('card-mult-cad').textContent = effectiveCAD.toFixed(5);
+
+        document.getElementById('card-rate-ngn').textContent = `₦ ${Math.round(currentForexRates.NGN).toLocaleString()}`;
+        document.getElementById('card-mult-ngn').textContent = currentForexRates.NGN.toFixed(2);
+
+        const lastUtc = localStorage.getItem('menas_forex_last_sync_utc') || new Date().toUTCString();
+        document.getElementById('forex-last-sync-display').textContent = `${lastUtc} (Automated)`;
+      }
+    }
+
+    async function forceRefreshLiveForex(showFeedback = true) {
+      if (showFeedback) {
+        document.getElementById('forex-last-sync-display').textContent = 'Connecting to Global Forex API...';
+      }
 
       try {
-        await fetch('api/coupons.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'delete', code })
-        });
-      } catch (err) { }
+        let data = null;
+        try {
+          const res = await fetch('https://open.er-api.com/v6/latest/GHS');
+          if (res.ok) data = await res.json();
+        } catch (e) {
+          const fallback = await fetch('https://api.exchangerate-api.com/v4/latest/GHS');
+          if (fallback.ok) data = await fallback.json();
+        }
 
-      renderCouponsTable(allCoupons);
-      updateKpis();
+        if (data && data.rates) {
+          const r = data.rates;
+          ['USD', 'GBP', 'EUR', 'CAD', 'NGN'].forEach(cur => {
+            if (r[cur]) currentForexRates[cur] = parseFloat(r[cur]);
+          });
+
+          localStorage.setItem('menas_cached_forex_rates', JSON.stringify(currentForexRates));
+          localStorage.setItem('menas_forex_last_updated', Date.now().toString());
+          localStorage.setItem('menas_forex_last_sync_utc', data.time_last_update_utc || new Date().toUTCString());
+
+          renderForexCards();
+          if (showFeedback) {
+            alert(`Live Forex Rates Synchronized Successfully!\n\n• $1 USD = GH₵ ${(1 / currentForexRates.USD).toFixed(2)}\n• £1 GBP = GH₵ ${(1 / currentForexRates.GBP).toFixed(2)}\n• €1 EUR = GH₵ ${(1 / currentForexRates.EUR).toFixed(2)}\n• CA$1 CAD = GH₵ ${(1 / currentForexRates.CAD).toFixed(2)}`);
+          }
+        }
+      } catch (err) {
+        alert('Could not reach live forex network. Check your internet connection.');
+      }
+    }
+
+    function toggleManualForexFields() {
+      const mode = document.getElementById('forex-mode-select').value;
+      document.getElementById('manual-forex-fields').style.display = mode === 'manual' ? 'block' : 'none';
+    }
+
+    function saveForexBufferSettings(e) {
+      e.preventDefault();
+      const buffer = document.getElementById('forex-buffer-select').value;
+      localStorage.setItem('menas_forex_buffer', buffer);
+
+      const mode = document.getElementById('forex-mode-select').value;
+      if (mode === 'manual') {
+        const usdRate = parseFloat(document.getElementById('manual-rate-usd').value);
+        const gbpRate = parseFloat(document.getElementById('manual-rate-gbp').value);
+        const eurRate = parseFloat(document.getElementById('manual-rate-eur').value);
+        const cadRate = parseFloat(document.getElementById('manual-rate-cad').value);
+
+        const customObj = {};
+        if (usdRate > 0) customObj.USD = 1 / usdRate;
+        if (gbpRate > 0) customObj.GBP = 1 / gbpRate;
+        if (eurRate > 0) customObj.EUR = 1 / eurRate;
+        if (cadRate > 0) customObj.CAD = 1 / cadRate;
+
+        localStorage.setItem('menas_custom_forex_rates', JSON.stringify(customObj));
+        currentForexRates = { ...currentForexRates, ...customObj };
+        alert('Custom manual exchange rates and buffer saved!');
+      } else {
+        localStorage.removeItem('menas_custom_forex_rates');
+        alert('Automated live market exchange rates enabled with ' + (parseFloat(buffer) * 100) + '% buffer!');
+      }
+
+      renderForexCards();
+    }
+
+    function resetForexToAutomated() {
+      localStorage.removeItem('menas_custom_forex_rates');
+      localStorage.removeItem('menas_forex_buffer');
+      document.getElementById('forex-mode-select').value = 'auto';
+      document.getElementById('manual-forex-fields').style.display = 'none';
+      document.getElementById('forex-buffer-select').value = '0.03';
+      forceRefreshLiveForex(true);
     }
   </script>
 </body>

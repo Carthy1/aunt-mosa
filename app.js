@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ---------- Calculator Functions (Homecoming & Arrival Concierge) ----------
-  window.updateWelcomeHomeTotal = function() {
+  window.updateWelcomeHomeTotal = function () {
     // 1. Akwaaba Fie Page Calculator (Radio-based)
     const calcForm = document.getElementById('welcome-home-calc-form');
     if (calcForm) {
@@ -46,13 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.bookAkwaabaConciergeWhatsApp = function(serviceTitle) {
+  window.bookAkwaabaConciergeWhatsApp = function (serviceTitle) {
     const message = `Hello Akwaaba Fie! I would like to inquire about booking: ${serviceTitle}. Please share availability and details.`;
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/233208386301?text=${encoded}`, '_blank');
   };
 
-  window.bookWelcomeHomeViaWhatsApp = function() {
+  window.bookWelcomeHomeViaWhatsApp = function () {
     // Check if on Akwaaba Fie detailed calculator page
     const calcForm = document.getElementById('welcome-home-calc-form');
     let message = '';
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
         PRODUCTS = parsed;
       }
     }
-  } catch (e) {}
+  } catch (e) { }
 
   /* ==========================================================================
      DATA: WELLNESS ARTICLES & GLOSSARY & FAQS
@@ -656,17 +656,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     CURRENCY RATES & FORMATTER (GHANA CEDIS BASE)
+     CURRENCY RATES & FORMATTER (GHANA CEDIS BASE + AUTOMATED LIVE FOREX)
      ========================================================================== */
-  const CURRENCY_RATES = {
-    GHS: { symbol: 'GH₵ ', rate: 1.0 },
-    USD: { symbol: '$', rate: 0.065 },
-    GBP: { symbol: '£', rate: 0.052 },
-    EUR: { symbol: '€', rate: 0.061 },
-    NGN: { symbol: '₦', rate: 100 },
-    CAD: { symbol: 'CA$', rate: 0.090 }
+  const DEFAULT_CURRENCY_RATES = {
+    GHS: { symbol: 'GH₵ ', rate: 1.0, label: 'Ghana Cedi' },
+    USD: { symbol: '$', rate: 0.0854, label: 'US Dollar' },
+    GBP: { symbol: '£', rate: 0.0637, label: 'British Pound' },
+    EUR: { symbol: '€', rate: 0.0764, label: 'Euro' },
+    CAD: { symbol: 'CA$', rate: 0.1202, label: 'Canadian Dollar' },
+    NGN: { symbol: '₦', rate: 115.5, label: 'Nigerian Naira' }
   };
-  let currentCurrency = 'GHS'; // Default Ghana Cedis!
+
+  let CURRENCY_RATES = { ...DEFAULT_CURRENCY_RATES };
+  let currentCurrency = localStorage.getItem('menas_selected_currency') || 'GHS';
 
   function formatPrice(amountGHS) {
     const { symbol, rate } = CURRENCY_RATES[currentCurrency] || CURRENCY_RATES.GHS;
@@ -679,6 +681,88 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return `${symbol}${converted.toFixed(2)}`;
   }
+
+  /* Automated Live Exchange Rates Auto-Fetcher */
+  async function fetchLiveExchangeRates(force = false) {
+    // 1. Check custom override from Admin
+    try {
+      const customRates = localStorage.getItem('menas_custom_forex_rates');
+      if (customRates) {
+        const parsed = JSON.parse(customRates);
+        if (parsed && typeof parsed === 'object') {
+          Object.keys(parsed).forEach(cur => {
+            if (CURRENCY_RATES[cur] && parsed[cur] > 0) {
+              CURRENCY_RATES[cur].rate = parseFloat(parsed[cur]);
+            }
+          });
+          return;
+        }
+      }
+    } catch (e) { }
+
+    // 2. Check 12-hour cache
+    const cacheKey = 'menas_cached_forex_rates';
+    const cacheTimestampKey = 'menas_forex_last_updated';
+    const now = Date.now();
+    const twelveHoursMs = 12 * 60 * 60 * 1000;
+
+    if (!force) {
+      try {
+        const cached = localStorage.getItem(cacheKey);
+        const lastUpdated = parseInt(localStorage.getItem(cacheTimestampKey) || '0', 10);
+        if (cached && (now - lastUpdated < twelveHoursMs)) {
+          const parsed = JSON.parse(cached);
+          Object.keys(parsed).forEach(cur => {
+            if (CURRENCY_RATES[cur] && parsed[cur] > 0) {
+              CURRENCY_RATES[cur].rate = parseFloat(parsed[cur]);
+            }
+          });
+          return;
+        }
+      } catch (e) { }
+    }
+
+    // 3. Live Forex API Query (open.er-api.com with fallback to exchangerate-api.com)
+    try {
+      let data = null;
+      try {
+        const res = await fetch('https://open.er-api.com/v6/latest/GHS');
+        if (res.ok) data = await res.json();
+      } catch (e) {
+        const fallback = await fetch('https://api.exchangerate-api.com/v4/latest/GHS');
+        if (fallback.ok) data = await fallback.json();
+      }
+
+      if (data && data.rates) {
+        const rates = data.rates;
+        const newRates = {};
+        ['USD', 'GBP', 'EUR', 'CAD', 'NGN'].forEach(cur => {
+          if (rates[cur]) {
+            CURRENCY_RATES[cur].rate = parseFloat(rates[cur]);
+            newRates[cur] = parseFloat(rates[cur]);
+          }
+        });
+
+        localStorage.setItem(cacheKey, JSON.stringify(newRates));
+        localStorage.setItem(cacheTimestampKey, now.toString());
+        localStorage.setItem('menas_forex_last_sync_utc', data.time_last_update_utc || new Date().toUTCString());
+
+        // Refresh UI if a non-GHS currency is currently chosen
+        if (currentCurrency !== 'GHS') {
+          if (typeof renderProducts === 'function') renderProducts();
+          if (typeof updateCartUI === 'function') updateCartUI();
+          if (typeof updateCheckoutSummary === 'function') updateCheckoutSummary();
+        }
+      }
+    } catch (err) {
+      console.warn('Live forex feed temporarily unavailable, using baseline rates.', err);
+    }
+  }
+
+  // Auto-fetch live rates in background
+  fetchLiveExchangeRates();
+  window.fetchLiveExchangeRates = fetchLiveExchangeRates;
+  window.getCurrencyRates = () => CURRENCY_RATES;
 
   /* ==========================================================================
      STATE: CART, WISHLIST, COUPONS & SHIPPING (GHANA CEDIS)
@@ -714,7 +798,7 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       }
-    } catch (e) {}
+    } catch (e) { }
     return { ...DEFAULT_COUPONS, ...custom };
   }
 
@@ -736,14 +820,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function saveCart() {
     try {
       localStorage.setItem('menas_nest_cart_ghs', JSON.stringify(cart));
-    } catch (e) {}
+    } catch (e) { }
     updateCartUI();
   }
 
   function saveWishlist() {
     try {
       localStorage.setItem('menas_nest_wishlist_ghs', JSON.stringify(wishlist));
-    } catch (e) {}
+    } catch (e) { }
     updateWishlistUI();
   }
 
@@ -1022,7 +1106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.applyCheckoutCoupon = function() {
+  window.applyCheckoutCoupon = function () {
     const coInput = document.getElementById('co-coupon-input');
     if (coInput) applyCouponCode(coInput.value);
   };
@@ -1261,7 +1345,7 @@ document.addEventListener('DOMContentLoaded', () => {
           PRODUCTS = parsed;
         }
       }
-    } catch (e) {}
+    } catch (e) { }
 
     const pageBrand = document.body.dataset.pageBrand || 'all';
 
@@ -1275,7 +1359,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const matchesCategory = currentCategory === 'all' || (product.category && product.category.includes(currentCategory));
-      const matchesSearch = !currentSearchQuery || 
+      const matchesSearch = !currentSearchQuery ||
         (product.name && product.name.toLowerCase().includes(currentSearchQuery.toLowerCase())) ||
         (product.ingredients && product.ingredients.toLowerCase().includes(currentSearchQuery.toLowerCase())) ||
         (product.shortDesc && product.shortDesc.toLowerCase().includes(currentSearchQuery.toLowerCase()));
@@ -1368,7 +1452,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
   }
 
-  window.setProductVariant = function(productId, variantIndex) {
+  window.setProductVariant = function (productId, variantIndex) {
     const prod = PRODUCTS.find(p => p.id === productId);
     if (!prod) return;
     prod.selectedVariantIndex = variantIndex;
@@ -1391,7 +1475,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.resetShopFilters = function() {
+  window.resetShopFilters = function () {
     currentCategory = 'all';
     currentSearchQuery = '';
     if (shopSearch) shopSearch.value = '';
@@ -1406,7 +1490,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const productModalClose = document.getElementById('product-modal-close');
   const productModalLayout = document.getElementById('product-modal-layout');
 
-  window.openProductModal = function(productId) {
+  window.openProductModal = function (productId) {
     const product = PRODUCTS.find(p => p.id === productId);
     if (!product || !productModalLayout) return;
 
@@ -1519,14 +1603,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
   };
 
-  window.selectModalVariant = function(productId, vIdx) {
+  window.selectModalVariant = function (productId, vIdx) {
     const prod = PRODUCTS.find(p => p.id === productId);
     if (!prod) return;
     prod.selectedVariantIndex = vIdx;
     window.openProductModal(productId);
   };
 
-  window.submitCustomerReview = function(productId, form) {
+  window.submitCustomerReview = function (productId, form) {
     const prod = PRODUCTS.find(p => p.id === productId);
     if (!prod) return;
     const name = form.reviewerName.value.trim();
@@ -1541,7 +1625,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.openProductModal(productId);
   };
 
-  window.closeProductModal = function() {
+  window.closeProductModal = function () {
     if (productModalOverlay) productModalOverlay.classList.add('hidden');
     document.body.style.overflow = '';
   };
@@ -1610,7 +1694,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  window.goToCheckoutStep = function(stepNum) {
+  window.goToCheckoutStep = function (stepNum) {
     currentCheckoutStep = stepNum;
     for (let i = 1; i <= 3; i++) {
       const pane = document.getElementById(`checkout-step-${i}`);
@@ -1620,20 +1704,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.updateCheckoutShipping = function(method) {
+  window.updateCheckoutShipping = function (method) {
     selectedShippingMethod = method;
     updateCheckoutSummary();
     updateCartUI();
   };
 
-  window.switchPaymentTab = function(method) {
+  window.switchPaymentTab = function (method) {
     currentPaymentMethod = method;
     document.querySelectorAll('.payment-tab').forEach(t => t.classList.toggle('active', t.dataset.pay === method));
     document.querySelectorAll('.payment-pane').forEach(p => p.classList.toggle('active', p.id === `pane-pay-${method}`));
   };
 
   /* Interactive Card Formatting */
-  window.formatCardNumber = function(input) {
+  window.formatCardNumber = function (input) {
     let val = input.value.replace(/\D/g, '');
     let formatted = val.match(/.{1,4}/g)?.join(' ') || val;
     input.value = formatted.slice(0, 19);
@@ -1651,12 +1735,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.updateCardHolder = function(input) {
+  window.updateCardHolder = function (input) {
     const preview = document.getElementById('preview-card-name');
     if (preview) preview.textContent = (input.value || 'AKOSUA MENSAH').toUpperCase();
   };
 
-  window.formatCardExpiry = function(input) {
+  window.formatCardExpiry = function (input) {
     let val = input.value.replace(/\D/g, '');
     if (val.length >= 2) {
       val = val.slice(0, 2) + '/' + val.slice(2, 4);
@@ -1688,7 +1772,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* Finalize Ecommerce Order Submission */
-  window.finalizeEcommerceOrder = function() {
+  window.finalizeEcommerceOrder = function () {
     const fname = document.getElementById('co-fname')?.value.trim() || 'Akosua';
     const lname = document.getElementById('co-lname')?.value.trim() || 'Mensah';
     const email = document.getElementById('co-email')?.value.trim() || 'client@example.com';
@@ -1739,8 +1823,8 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'create', order: orderData })
-      }).catch(() => {});
-    } catch (e) {}
+      }).catch(() => { });
+    } catch (e) { }
 
     // Reset Cart
     cart = [];
@@ -1805,7 +1889,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.jumpToOrderTracking = function() {
+  window.jumpToOrderTracking = function () {
     if (receiptModal) receiptModal.classList.add('hidden');
     document.body.style.overflow = '';
     const trackerEl = document.getElementById('order-tracker');
@@ -1819,13 +1903,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      ORDER TRACKER LOOKUP ENGINE
      ========================================================================== */
-  window.fillDemoTracker = function(orderId) {
+  window.fillDemoTracker = function (orderId) {
     const input = document.getElementById('tracker-order-id-input');
     if (input) input.value = orderId;
     window.lookupOrderStatus();
   };
 
-  window.lookupOrderStatus = function() {
+  window.lookupOrderStatus = function () {
     const input = document.getElementById('tracker-order-id-input');
     if (!input || !input.value) return;
 
@@ -1837,7 +1921,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const orders = JSON.parse(localStorage.getItem('menas_nest_orders_ghs') || '[]');
       orderMatch = orders.find(o => o.orderId.toUpperCase() === orderId);
-    } catch (e) {}
+    } catch (e) { }
 
     if (!orderMatch) {
       // Demo order mocks
@@ -2074,15 +2158,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Currency Switcher */
+  /* Currency Switcher with Persistent Memory */
   const currencySelect = document.getElementById('currency-select');
   if (currencySelect) {
+    if (currentCurrency && currencySelect.querySelector(`option[value="${currentCurrency}"]`)) {
+      currencySelect.value = currentCurrency;
+    }
     currencySelect.addEventListener('change', (e) => {
       currentCurrency = e.target.value;
+      localStorage.setItem('menas_selected_currency', currentCurrency);
       renderProducts();
       updateCartUI();
       updateCheckoutSummary();
-      showToast(`Prices converted to ${currentCurrency}`, 'info');
+
+      const rateInfo = CURRENCY_RATES[currentCurrency];
+      if (currentCurrency !== 'GHS' && rateInfo && rateInfo.rate > 0) {
+        const cediEquivalent = (1 / rateInfo.rate).toFixed(2);
+        showToast(`Prices converted to ${currentCurrency} (1 ${currentCurrency} ≈ GH₵ ${cediEquivalent} live)`, 'info');
+      } else {
+        showToast('Prices displayed in Ghana Cedis (GH₵ base)', 'info');
+      }
     });
   }
 
@@ -2188,7 +2283,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.closeArticleModal = closeArticleModal;
 
   /* Filter from footer */
-  window.filterFromFooter = function(catKey) {
+  window.filterFromFooter = function (catKey) {
     activeCategory = catKey;
     categoryTabs.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.category === catKey);
@@ -2202,7 +2297,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* Newsletter submit handler with persistent storage & API sync */
-  window.handleNewsletterSubmit = function(e) {
+  window.handleNewsletterSubmit = function (e) {
     if (e && e.preventDefault) e.preventDefault();
     const input = document.getElementById('newsletter-email');
     const val = input ? input.value.trim() : '';
@@ -2238,15 +2333,15 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'subscribe', email: val, source: sourcePage })
-      }).catch(() => {});
-    } catch (err) {}
+      }).catch(() => { });
+    } catch (err) { }
 
     showToast(`Welcome to the Mena's Nest Wellness Circle! 🌿 Check your inbox soon for your 10% welcome gift.`, 'success');
     if (input) input.value = '';
   };
 
   /* Lacuizinee: Catering Inquiry via WhatsApp */
-  window.sendCateringInquiryWhatsApp = function() {
+  window.sendCateringInquiryWhatsApp = function () {
     const eventType = document.getElementById('cat-event-type') ? document.getElementById('cat-event-type').value : 'Corporate / Private Event';
     const guests = document.getElementById('cat-guests') ? document.getElementById('cat-guests').value : '15-30 Guests';
     const date = document.getElementById('cat-date') ? document.getElementById('cat-date').value : 'Upcoming Date';
@@ -2263,7 +2358,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* Lacuizinee: Meal Subscription Booking via WhatsApp */
-  window.sendMealSubscriptionWhatsApp = function(planName, priceGHS) {
+  window.sendMealSubscriptionWhatsApp = function (planName, priceGHS) {
     const loc = document.getElementById('sub-location') ? document.getElementById('sub-location').value : 'Accra / Tema';
     const pref = document.getElementById('sub-preference') ? document.getElementById('sub-preference').value : 'Balanced Ghanaian Wholesome';
 
@@ -2276,7 +2371,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* Akwaaba Fie: Concierge Home Service Booking via WhatsApp */
-  window.bookAkwaabaConciergeWhatsApp = function(serviceTitle) {
+  window.bookAkwaabaConciergeWhatsApp = function (serviceTitle) {
     const address = document.getElementById('akw-address') ? document.getElementById('akw-address').value : 'Accra Area';
     const date = document.getElementById('akw-date') ? document.getElementById('akw-date').value : 'Upcoming';
     const notes = document.getElementById('akw-notes') ? document.getElementById('akw-notes').value : '';
