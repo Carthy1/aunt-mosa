@@ -1,0 +1,247 @@
+[
+  {
+    "id": "prod-sobolo",
+    "name": "Chilled Artisanal Hibiscus Sobolo",
+    "brand": "lacuizinee",
+    "category": ["beverages-teas", "all"],
+    "categoryLabel": "Lacuizinee Beverages",
+    "priceGHS": 65.0,
+    "stock": 25,
+    "image": "assets/images/sobolo-artisanal.jpg",
+    "badge": "Lacuizinee Signature",
+    "variants": [
+      { "id": "v-sob-1l", "name": "1 Litre Glass Carafe", "priceGHS": 65.0, "size": "1L Cold-Brewed" },
+      { "id": "v-sob-2l", "name": "2 Litre Party Pitcher", "priceGHS": 120.0, "size": "2L Pitcher" },
+      { "id": "v-sob-crate", "name": "Case of 6 (1L Bottles)", "priceGHS": 350.0, "size": "6 x 1L Case" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 164,
+    "shortDesc": "Slow-steeped organic hibiscus blossoms with crushed ginger, cloves, grains of paradise (selim) and slow-simmered pineapple reduction.",
+    "fullDesc": "Lacuizinee’s celebrated house sobolo honors traditional Ghanaian botanical beverage making. We slow-infuse sun-dried hibiscus flowers with invigorating fresh ginger root, black peppercorns, organic cloves, and selim pods, naturally sweetened with pure pineapple juice. Crisp, deeply restorative, and antioxidant-rich."
+  },
+  {
+    "id": "prod-tamarind",
+    "name": "Velvet Tamarind & Citrus Nectar",
+    "brand": "lacuizinee",
+    "category": ["beverages-teas", "all"],
+    "categoryLabel": "Lacuizinee Beverages",
+    "priceGHS": 75.0,
+    "stock": 18,
+    "image": "assets/images/tamarind-nectar.jpg",
+    "badge": "Indigenous Superfood",
+    "variants": [
+      { "id": "v-tam-1l", "name": "1 Litre Glass Bottle", "priceGHS": 75.0, "size": "1L Bottle" },
+      { "id": "v-tam-pack", "name": "Homecoming 4-Bottle Pack", "priceGHS": 280.0, "size": "4 x 1L Pack" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 4.9,
+    "reviewsCount": 92,
+    "shortDesc": "Wild-harvested Ghanaian velvet tamarind cold-blended with fresh lime and local wildflower honey for immune revitalization.",
+    "fullDesc": "Velvet tamarind (Yoyi) is one of West Africa’s most cherished botanical treasures. Packed with natural vitamin C, potassium, and tartaric acids, our nectar balances crisp acidity with the gentle amber sweetness of raw honey."
+  },
+  {
+    "id": "prod-baobab",
+    "name": "Wild Baobab & Citrus Elixir",
+    "brand": "lacuizinee",
+    "category": ["beverages-teas", "all"],
+    "categoryLabel": "Lacuizinee Beverages",
+    "priceGHS": 70.0,
+    "stock": 20,
+    "image": "assets/images/baobab-elixir.jpg",
+    "badge": "Prebiotic Power",
+    "variants": [
+      { "id": "v-bao-1l", "name": "1 Litre Bottle", "priceGHS": 70.0, "size": "1L Glass Carafe" },
+      { "id": "v-bao-trio", "name": "Trio Wellness Pack", "priceGHS": 195.0, "size": "3 x 1L Pack" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 4.9,
+    "reviewsCount": 88,
+    "shortDesc": "Cold-pressed wild baobab fruit pulp combined with fresh lemon and mint. Loaded with bio-available vitamin C and natural electrolytes.",
+    "fullDesc": "The African Baobab tree is known as the Tree of Life. Our baobab elixir delivers 10x the vitamin C of oranges along with soluble prebiotic fiber that nourishes gut microbiome health."
+  },
+  {
+    "id": "prod-1",
+    "name": "Nurture & Bloom Herbal Tea",
+    "brand": "lacuizinee",
+    "category": ["beverages-teas", "wellness-blends", "all"],
+    "categoryLabel": "Artisanal Teas & Blends",
+    "priceGHS": 350.0,
+    "stock": 12,
+    "image": "assets/images/product-pregnancy-tea.jpg",
+    "badge": "Mena’s Signature Blend",
+    "variants": [
+      { "id": "v1-std", "name": "8 oz Amber Glass Jar", "priceGHS": 350.0, "size": "8 oz / 226g" },
+      { "id": "v1-lrg", "name": "16 oz Refill Pouch (Save 15%)", "priceGHS": 580.0, "size": "16 oz / 450g" },
+      { "id": "v1-bndl", "name": "3-Month Nesting Bundle (3 Jars)", "priceGHS": 900.0, "size": "24 oz Total" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 4.9,
+    "reviewsCount": 128,
+    "shortDesc": "Certified organic red raspberry leaf, soothing chamomile blossoms, nettle & rose petals for vitality and peaceful restoration.",
+    "fullDesc": "Specially blended in our workshop to nourish women, mothers, and busy households. Combines mineral-rich red raspberry leaf, oat straw, and calming chamomile for gentle daily restoration."
+  },
+  {
+    "id": "prod-2",
+    "name": "Ginger Lemongrass Vitality Elixir",
+    "brand": "lacuizinee",
+    "category": ["beverages-teas", "wellness-blends", "all"],
+    "categoryLabel": "Artisanal Teas & Infusions",
+    "priceGHS": 280.0,
+    "stock": 14,
+    "image": "assets/images/product-balance-tincture.jpg",
+    "badge": "Artisanal Blend",
+    "variants": [
+      { "id": "v2-std", "name": "16 oz Glass Bottle", "priceGHS": 280.0, "size": "500 ml" },
+      { "id": "v2-lrg", "name": "1 Litre Family Carafe", "priceGHS": 480.0, "size": "1000 ml" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 142,
+    "shortDesc": "Slow-simmered organic Ghanaian ginger, fragrant wild lemongrass, raw cane honey & clove for immune vitality and digestive restoration.",
+    "fullDesc": "Crafted in small batches by Lacuizinee using sun-dried lemongrass stalks and pungent Volta ginger. Naturally uplifting, anti-inflammatory, and comforting served hot or over ice."
+  },
+  {
+    "id": "prod-meal-box",
+    "name": "Lacuizinee Weekly Nourish Meal Subscription",
+    "brand": "lacuizinee",
+    "category": ["meals-catering", "all"],
+    "categoryLabel": "Lacuizinee Healthy Meals",
+    "priceGHS": 850.0,
+    "stock": 10,
+    "image": "assets/images/wholesome-meal-box.jpg",
+    "badge": "Weekly Delivery",
+    "variants": [
+      { "id": "v-mb-5", "name": "5 Lunches (Mon–Fri Delivery)", "priceGHS": 850.0, "size": "5 Chef Meals" },
+      { "id": "v-mb-10", "name": "10 Meals (Lunch & Dinner)", "priceGHS": 1550.0, "size": "10 Chef Meals" },
+      { "id": "v-mb-custom", "name": "Custom Dietary Program (With Nutritionist)", "priceGHS": 1950.0, "size": "Tailored Plan" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 76,
+    "shortDesc": "Wholesome chef-prepared meals delivered fresh across Accra & Tema. Nutrient-rich Ghanaian recipes tailored for busy professionals and families.",
+    "fullDesc": "Enjoy delicious, balanced everyday eating without the stress of grocery shopping and cooking. Lacuizinee prepares wholesome dishes including steamed brown rice waakye, herb-roasted guinea fowl, garden egg stews, plantain parcels, and fresh side salads."
+  },
+  {
+    "id": "prod-catering-platter",
+    "name": "Lacuizinee Gathering Catering Platter (10–12 pax)",
+    "brand": "lacuizinee",
+    "category": ["meals-catering", "all"],
+    "categoryLabel": "Lacuizinee Catering",
+    "priceGHS": 1800.0,
+    "stock": 8,
+    "image": "assets/images/catering-platter.jpg",
+    "badge": "Events & Corporate",
+    "variants": [
+      { "id": "v-cat-sm", "name": "Executive Platter (10–12 Guests)", "priceGHS": 1800.0, "size": "10–12 Guests" },
+      { "id": "v-cat-med", "name": "Celebration Feast (20–25 Guests)", "priceGHS": 3400.0, "size": "20–25 Guests" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 54,
+    "shortDesc": "Bespoke corporate and private occasion catering featuring assorted savory wraps, jollof delicacies, grilled skewers, and sobolo carafes.",
+    "fullDesc": "Whether hosting an executive meeting, family naming ceremony, or homecoming reception, Lacuizinee brings culinary finesse and warm Ghanaian hospitality to your event."
+  },
+  {
+    "id": "prod-arrival-feast",
+    "name": "Akwaaba Homecoming Arrival Feast (4–6 pax)",
+    "brand": "both",
+    "category": ["meals-catering", "home-packages", "all"],
+    "categoryLabel": "Homecoming Specials",
+    "priceGHS": 950.0,
+    "stock": 15,
+    "image": "assets/images/catering-platter.jpg",
+    "badge": "Welcome to Ghana",
+    "variants": [
+      { "id": "v-arr-std", "name": "Family Dinner (4–6 Guests)", "priceGHS": 950.0, "size": "4–6 Servings" },
+      { "id": "v-arr-lrg", "name": "Extended Family Dinner (8–10 Guests)", "priceGHS": 1650.0, "size": "8–10 Servings" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 83,
+    "shortDesc": "A comforting arrival dinner ready on your table when you step into your home in Ghana. Fragrant jollof, braised proteins, and fresh sobolo.",
+    "fullDesc": "Nothing says Welcome Home like stepping into a fresh home with a warm, authentic meal waiting. Prepared by Lacuizinee to coincide perfectly with your flight arrival."
+  },
+  {
+    "id": "prod-welcome-pkg",
+    "name": "Akwaaba Fie Flagship \"Welcome Home\" Suite",
+    "brand": "akwaaba",
+    "category": ["home-packages", "all"],
+    "categoryLabel": "Akwaaba Fie Home Care",
+    "priceGHS": 1450.0,
+    "stock": 12,
+    "image": "assets/images/akwaaba-welcome-suite.jpg",
+    "badge": "Flagship Service",
+    "variants": [
+      { "id": "v-wh-essential", "name": "Essential (Deep Clean + Grocery Stocking)", "priceGHS": 1450.0, "size": "Up to 3-Bed Home" },
+      { "id": "v-wh-full", "name": "Signature (Clean + Stock + Bed Prep + Dinner)", "priceGHS": 2450.0, "size": "Full Homecoming" },
+      { "id": "v-wh-estate", "name": "Executive Estate (Multi-Story Home Readiness)", "priceGHS": 3800.0, "size": "Estate Villa" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 110,
+    "shortDesc": "A coordinated homecoming package for diaspora travelers and families: pre-arrival deep cleaning, fridge stocking, bedroom prep, and warm welcome meal.",
+    "fullDesc": "Designed for Ghanaians living abroad, international visitors, and homeowners. We inspect your home, execute deep sanitization, stock your fridge with fresh produce, dress beds with crisp linens, and welcome you with complete care."
+  },
+  {
+    "id": "prod-cleaning",
+    "name": "Akwaaba Fie Pre-Arrival Deep Clean & Sanitation",
+    "brand": "akwaaba",
+    "category": ["home-packages", "all"],
+    "categoryLabel": "Akwaaba Fie Home Care",
+    "priceGHS": 450.0,
+    "stock": 14,
+    "image": "assets/images/pre-arrival-cleaning.jpg",
+    "badge": "Home Care Essential",
+    "variants": [
+      { "id": "v-cl-apt", "name": "Apartment / Flat (1–2 Bed)", "priceGHS": 450.0, "size": "1–2 Bed" },
+      { "id": "v-cl-house", "name": "Family House (3–4 Bed)", "priceGHS": 750.0, "size": "3–4 Bed" },
+      { "id": "v-cl-villa", "name": "Luxury Villa / Compound", "priceGHS": 1200.0, "size": "Large Villa" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 78,
+    "shortDesc": "Comprehensive pre-arrival deep cleaning, floor scrub, bathroom sanitation, and fresh ventilation before you unlock the door.",
+    "fullDesc": "Walk into a sparkling, fresh-smelling home. Our vetted hospitality cleaning team scrubs tile and hardwood floors, sanitizes all bathrooms, details kitchen countertops and cabinets, polishes windows, and airs out rooms for crisp freshness."
+  },
+  {
+    "id": "prod-grocery-stock",
+    "name": "Akwaaba Fie Grocery & Pantry Stocking Service",
+    "brand": "akwaaba",
+    "category": ["home-packages", "all"],
+    "categoryLabel": "Akwaaba Fie Home Care",
+    "priceGHS": 350.0,
+    "stock": 20,
+    "image": "assets/images/hero-welcome-home.jpg",
+    "badge": "Pantry Care",
+    "variants": [
+      { "id": "v-gr-essentials", "name": "Essential Breakfast & Drink Stocking", "priceGHS": 350.0, "size": "Milk, Eggs, Bread, Water" },
+      { "id": "v-gr-deluxe", "name": "Deluxe Family Grocery Provisioning", "priceGHS": 650.0, "size": "Full Fridge & Pantry" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 65,
+    "shortDesc": "Hand-picked local market shopping and pantry setup so you never step off a flight to an empty kitchen in Ghana.",
+    "fullDesc": "Our concierge team shops local farmer markets and specialty grocers for fresh bakery bread, free-range eggs, organic butter, seasonal pawpaw and mangoes, bottled mineral water, and your requested snacks."
+  },
+  {
+    "id": "prod-linen-prep",
+    "name": "Akwaaba Fie Guest-Room & Bedding Setup",
+    "brand": "akwaaba",
+    "category": ["home-packages", "all"],
+    "categoryLabel": "Akwaaba Fie Home Care",
+    "priceGHS": 250.0,
+    "stock": 25,
+    "image": "assets/images/akwaaba-welcome-suite.jpg",
+    "badge": "Bedroom Care",
+    "variants": [
+      { "id": "v-ln-single", "name": "Master Bedroom Suite Prep", "priceGHS": 250.0, "size": "1 Bed & Bath Suite" },
+      { "id": "v-ln-full", "name": "Complete 3-Bedroom Linen Setup", "priceGHS": 550.0, "size": "Up to 3 Bedrooms" }
+    ],
+    "selectedVariantIndex": 0,
+    "rating": 5.0,
+    "reviewsCount": 42,
+    "shortDesc": "Freshly pressed crisp sheets, plush bathroom towels, luxury local botanical toiletries, and room aromatherapy.",
+    "fullDesc": "We prepare your bedrooms with meticulous hotel-grade care. Linens washed and pressed, pillows fluffed, bathrooms stocked with fresh plush towels and Ghanaian shea-infused soaps, and rooms delicately fragranced."
+  }
+]

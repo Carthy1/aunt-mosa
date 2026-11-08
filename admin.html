@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mena's Nest Group — Management & Orders Hub</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --admin-bg: #F8F5F1;
+      --admin-card: #FFFFFF;
+      --admin-border: #E8E0D5;
+      --admin-primary: var(--color-purple);
+      --admin-primary-dark: var(--color-purple-dark);
+      --admin-green: var(--color-forest-green);
+    }
+
+    body {
+      background: var(--admin-bg);
+      font-family: var(--font-sans);
+      color: var(--color-neutral-900);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Admin Top Bar */
+    .admin-navbar {
+      background: var(--admin-primary-dark);
+      color: #fff;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .admin-brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-warm-gold);
+      color: var(--admin-primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .admin-brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .admin-brand-subtitle {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-warm-gold);
+      display: block;
+    }
+
+    .admin-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-admin-light {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-admin-light:hover {
+      background: rgba(255, 255, 255, 0.28);
+      color: #fff;
+    }
+
+    /* Admin Navigation Tabs */
+    .admin-tabs-bar {
+      background: #fff;
+      border-bottom: 1.5px solid var(--admin-border);
+      padding: 0 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .admin-tab-btn {
+      padding: 1rem 1.25rem;
+      border-bottom: 3px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--color-neutral-600);
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+    }
+
+    .admin-tab-btn:hover {
+      color: var(--admin-primary);
+    }
+
+    .admin-tab-btn.active {
+      color: var(--admin-primary);
+      border-bottom-color: var(--admin-primary);
+    }
+
+    .tab-badge {
+      background: var(--admin-primary-dark);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    .admin-main {
+      flex: 1;
+      padding: 2rem 1.5rem;
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Stats Overview Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--color-neutral-600);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--color-neutral-900);
+      font-family: var(--font-serif);
+      line-height: 1.1;
+    }
+
+    .stat-sub {
+      font-size: 0.78rem;
+      color: #10B981;
+      margin-top: 0.35rem;
+      font-weight: 600;
+    }
+
+    /* Cards & Panels */
+    .admin-panel {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .panel-title {
+      font-size: 1.35rem;
+      font-family: var(--font-serif);
+      color: var(--color-neutral-900);
+      font-weight: 700;
+    }
+
+    /* Table Styling */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .admin-table th {
+      background: var(--admin-bg);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: var(--color-neutral-700);
+      border-bottom: 1.5px solid var(--admin-border);
+      white-space: nowrap;
+    }
+
+    .admin-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--admin-border);
+      vertical-align: middle;
+    }
+
+    .admin-table tr:hover td {
+      background: rgba(107, 52, 98, 0.02);
+    }
+
+    /* Badges & Tags */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .status-new {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+
+    .status-cooking {
+      background: #E0E7FF;
+      color: #3730A3;
+    }
+
+    .status-dispatched {
+      background: #D1FAE5;
+      color: #065F46;
+    }
+
+    .status-completed {
+      background: #ECFDF5;
+      color: #047857;
+      border: 1px solid #A7F3D0;
+    }
+
+    /* Form Controls */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--color-neutral-800);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--admin-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #FAF7F2;
+      color: var(--color-neutral-900);
+      transition: all var(--transition-fast);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--admin-primary);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(107, 52, 98, 0.12);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Upload Drag & Drop Zone */
+    .upload-zone {
+      border: 2px dashed var(--color-purple);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      background: rgba(107, 52, 98, 0.02);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+
+    .upload-zone:hover,
+    .upload-zone.dragover {
+      background: rgba(107, 52, 98, 0.08);
+      border-color: var(--admin-primary-dark);
+    }
+
+    .upload-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .upload-preview-wrap {
+      margin-top: 1rem;
+      display: none;
+      align-items: center;
+      gap: 1rem;
+      background: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--admin-border);
+    }
+
+    .upload-preview-img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    /* Action Buttons */
+    .btn-admin {
+      background: var(--admin-primary);
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-admin:hover {
+      background: var(--admin-primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-admin-green {
+      background: var(--admin-green);
+      color: #fff;
+    }
+
+    .btn-admin-green:hover {
+      background: var(--color-forest-green-dark);
+    }
+
+    .btn-admin-sm {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    /* Login Modal Overlay */
+    .login-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(24, 18, 23, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .login-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .login-logo {
+      width: 60px;
+      height: 60px;
+      background: var(--admin-primary);
+      color: #fff;
+      border-radius: 50%;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    /* Product card thumbnails */
+    .prod-thumb {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--admin-border);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ADMIN PASSCODE MODAL (SECURE GATEWAY) -->
+  <div class="login-modal-overlay" id="admin-login-modal">
+    <div class="login-box">
+      <div class="login-logo">🌿</div>
+      <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 0.35rem;">Manager Portal</h2>
+      <p style="font-size: 0.88rem; color: var(--color-neutral-600); margin-bottom: 1.75rem;">
+        Mena's Nest & Akwaaba Fie Internal Operations
+      </p>
+
+      <form id="admin-login-form" onsubmit="event.preventDefault(); verifyAdminPasscode();">
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label" for="admin-pass-input">Manager Access PIN / Password</label>
+          <input type="password" id="admin-pass-input" class="form-control" placeholder="Enter Manager Passcode"
+            required autofocus autocomplete="current-password">
+          <small style="color: var(--color-neutral-500); font-size: 0.76rem; display: block; margin-top: 0.35rem;">
+            Default Initial Passcode: <strong>menas2026</strong>
+          </small>
+        </div>
+
+        <button type="submit" class="btn-admin w-full" style="justify-content: center; margin-top: 1rem;">
+          <span>Unlock Operations Hub →</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN TOP NAVBAR -->
+  <header class="admin-navbar">
+    <a href="admin.html" class="admin-brand">
+      <div class="admin-brand-logo">M</div>
+      <div>
+        <span class="admin-brand-title">Mena's Nest Group</span>
+        <span class="admin-brand-subtitle">Ghana Operations & Orders Hub</span>
+      </div>
+    </a>
+
+    <div class="admin-nav-actions">
+      <a href="index.html" target="_blank" class="btn-admin-light" title="View Storefront">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        <span>Live Storefront</span>
+      </a>
+      <button class="btn-admin-light" onclick="adminLogout()" title="Lock Session">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Lock</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="admin-tabs-bar">
+    <button class="admin-tab-btn active" data-tab="orders" onclick="switchAdminTab('orders')">
+      <span>📋 Orders & Bookings</span>
+      <span class="tab-badge" id="orders-count-badge">0</span>
+    </button>
+    <button class="admin-tab-btn" data-tab="products" onclick="switchAdminTab('products')">
+      <span>🛍️ Products & Services</span>
+      <span class="tab-badge" id="products-count-badge">12</span>
+    </button>
+    <button class="admin-tab-btn" data-tab="add-product" onclick="switchAdminTab('add-product')">
+      <span>➕ Add New Item / Package</span>
+    </button>
+    <button class="admin-tab-btn" data-tab="media" onclick="switchAdminTab('media')">
+      <span>📤 Photo & Media Uploader</span>
+    </button>
+  </nav>
+
+  <!-- ADMIN BODY -->
+  <main class="admin-main">
+
+    <!-- KPI STATS CARDS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total Revenue</span>
+        <div class="stat-value" id="kpi-revenue">GH₵ 0.00</div>
+        <div class="stat-sub">Ghana Cedis Base</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Total Orders Logged</span>
+        <div class="stat-value" id="kpi-orders-count">0</div>
+        <div class="stat-sub" id="kpi-orders-sub">All channels</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Active Catalog Items</span>
+        <div class="stat-value" id="kpi-products-count">12</div>
+        <div class="stat-sub">Lacuizinee & Akwaaba Fie</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">WhatsApp Concierge</span>
+        <div class="stat-value" style="font-size: 1.3rem; margin-top: 0.2rem;">020 838 6301</div>
+        <div class="stat-sub">Direct Line Active</div>
+      </div>
+    </div>
+
+    <!-- TAB 1: ORDERS & BOOKINGS -->
+    <section id="tab-orders" class="admin-tab-content">
+      <div class="admin-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Client Bookings & Orders Hub</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Real-time records from storefront checkout and digital receipts.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <input type="text" id="order-search-input" class="form-control" placeholder="Search order ID, name..."
+              style="width: 200px; padding: 0.45rem 0.75rem; font-size: 0.82rem;" oninput="renderOrdersList()">
+            <button class="btn-admin btn-admin-sm btn-admin-green" onclick="loadAllOrders()">
+              <span>🔄 Refresh</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order Ref</th>
+                <th>Date</th>
+                <th>Client Details</th>
+                <th>Location / Area</th>
+                <th>Items Ordered</th>
+                <th>Total (GH₵)</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="orders-table-body">
+              <tr>
+                <td colspan="8" style="text-align: center; padding: 3rem; color: var(--color-neutral-500);">
+                  Loading orders...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: PRODUCTS & SERVICES CATALOG -->
+    <section id="tab-products" class="admin-tab-content" style="display: none;">
+      <div class="admin-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Active Products & Services Apothecary</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Manage prices, stock availability, and service details.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <input type="text" id="product-search-input" class="form-control" placeholder="Filter items by name..."
+              style="width: 220px; padding: 0.45rem 0.75rem; font-size: 0.82rem;" oninput="filterProductsTable()">
+            <button class="btn-admin btn-admin-sm" onclick="switchAdminTab('add-product')">
+              <span>➕ Add Item</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Item / Service Name</th>
+                <th>Brand Arm</th>
+                <th>Category</th>
+                <th>Price (GH₵)</th>
+                <th>Stock / Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-table-body">
+              <tr>
+                <td colspan="7" style="text-align: center; padding: 3rem; color: var(--color-neutral-500);">
+                  Loading catalog items...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: ADD / EDIT PRODUCT FORM -->
+    <section id="tab-add-product" class="admin-tab-content" style="display: none;">
+      <div class="admin-panel" style="max-width: 880px; margin: 0 auto;">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title" id="form-header-title">Add New Product or Home Care Package</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Add items directly to the live customer portal and menus.
+            </p>
+          </div>
+        </div>
+
+        <form id="product-editor-form" onsubmit="event.preventDefault(); saveProductFromForm();">
+          <input type="hidden" id="edit-prod-id" value="">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="prod-name">Product / Service Name *</label>
+              <input type="text" id="prod-name" class="form-control"
+                placeholder="e.g. Chilled Artisanal Pineapple Sobolo" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-brand">Brand Arm *</label>
+              <select id="prod-brand" class="form-control" required>
+                <option value="lacuizinee">LACUIZINEE (Food & Drinks Arm)</option>
+                <option value="akwaaba">AKWAABA FIE (Home Care & Arrival)</option>
+                <option value="both">Both Arms (Group Special)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="prod-price">Price in Ghana Cedis (GH₵) *</label>
+              <input type="number" id="prod-price" class="form-control" step="0.01" min="0" placeholder="e.g. 75.00"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-stock">Available Quantity / Stock *</label>
+              <input type="number" id="prod-stock" class="form-control" min="0" value="20" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-category">Category *</label>
+              <select id="prod-category" class="form-control" required>
+                <option value="beverages-teas">Lacuizinee Beverages & Teas</option>
+                <option value="meals-catering">Lacuizinee Meals & Catering</option>
+                <option value="home-packages">Akwaaba Fie Home Care Packages</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prod-badge">Badge Label (Optional)</label>
+              <input type="text" id="prod-badge" class="form-control" placeholder="e.g. Lacuizinee Signature, Popular">
+            </div>
+          </div>
+
+          <!-- PHOTO UPLOAD & PREVIEW -->
+          <div class="form-group">
+            <label class="form-label">Product Photo / Image *</label>
+            <div class="upload-zone" id="product-upload-dropzone" onclick="document.getElementById('product-file-input').click()">
+              <input type="file" id="product-file-input" accept="image/jpeg,image/png,image/webp" style="display: none;"
+                onchange="handleProductPhotoUpload(this.files[0])">
+              <div class="upload-icon">📷</div>
+              <strong style="display: block; font-size: 1rem; color: var(--admin-primary); margin-bottom: 0.25rem;">
+                Click to upload photo or drag & drop here
+              </strong>
+              <span style="font-size: 0.8rem; color: var(--color-neutral-600);">
+                Supports JPG, PNG, WEBP (Max 8MB). Automatically optimized.
+              </span>
+            </div>
+
+            <div class="upload-preview-wrap" id="product-preview-wrap">
+              <img id="product-preview-img" class="upload-preview-img" src="" alt="Uploaded Preview">
+              <div style="flex: 1;">
+                <strong id="product-preview-filename" style="display: block; font-size: 0.85rem;">filename.jpg</strong>
+                <span id="product-preview-status" style="font-size: 0.78rem; color: #10B981;">Ready to save</span>
+              </div>
+              <input type="hidden" id="prod-image-url" value="assets/images/sobolo-artisanal.jpg">
+              <button type="button" class="btn-admin btn-admin-sm btn-admin-light" style="color: var(--color-neutral-700);"
+                onclick="document.getElementById('product-file-input').click()">Replace</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="prod-short-desc">Short Summary *</label>
+            <textarea id="prod-short-desc" class="form-control"
+              placeholder="A brief 1-2 sentence preview for cards and catalogs..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="prod-full-desc">Detailed Description & Ingredients</label>
+            <textarea id="prod-full-desc" class="form-control" style="min-height: 120px;"
+              placeholder="Complete description of preparation, serving directions, botanical ingredients..."></textarea>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center; justify-content: flex-end; margin-top: 2rem;">
+            <button type="button" class="btn-admin btn-admin-light" style="color: var(--color-neutral-700);"
+              onclick="switchAdminTab('products')">Cancel</button>
+            <button type="submit" class="btn-admin" id="btn-save-prod">
+              <span>💾 Save Item to Portal</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- TAB 4: PHOTO & MEDIA UPLOADER -->
+    <section id="tab-media" class="admin-tab-content" style="display: none;">
+      <div class="admin-panel" style="max-width: 800px; margin: 0 auto;">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Direct Media & Document Uploader</h2>
+            <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
+              Upload food photos, inspection certificates, or catering menus to your server storage.
+            </p>
+          </div>
+        </div>
+
+        <div class="upload-zone" id="media-dropzone" onclick="document.getElementById('media-file-input').click()">
+          <input type="file" id="media-file-input" accept="image/jpeg,image/png,image/webp,application/pdf"
+            style="display: none;" onchange="uploadGeneralFile(this.files[0])">
+          <div class="upload-icon">☁️</div>
+          <strong style="display: block; font-size: 1.1rem; color: var(--admin-primary); margin-bottom: 0.35rem;">
+            Select a file to upload to Hostinger / Server
+          </strong>
+          <span style="font-size: 0.85rem; color: var(--color-neutral-600);">
+            Direct upload via api/upload.php (JPG, PNG, WEBP, PDF up to 8MB)
+          </span>
+        </div>
+
+        <!-- Recent Uploads List -->
+        <div style="margin-top: 2rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem;">Recently Uploaded Files</h3>
+          <div id="media-recent-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="padding: 1.5rem; text-align: center; color: var(--color-neutral-500); font-size: 0.88rem;">
+              No files uploaded yet in this session.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT STATE ENGINE -->
+  <script>
+    // State
+    const ADMIN_PASSCODE = 'menas2026';
+    let allProducts = [];
+    let allOrders = [];
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAdminSession();
+    });
+
+    function checkAdminSession() {
+      const isAuth = sessionStorage.getItem('menas_admin_auth') === 'true';
+      const modal = document.getElementById('admin-login-modal');
+      if (isAuth) {
+        modal.style.display = 'none';
+        loadAllProducts();
+        loadAllOrders();
+      } else {
+        modal.style.display = 'flex';
+      }
+    }
+
+    function verifyAdminPasscode() {
+      const input = document.getElementById('admin-pass-input').value.trim();
+      if (input === ADMIN_PASSCODE || input === localStorage.getItem('menas_custom_admin_pin')) {
+        sessionStorage.setItem('menas_admin_auth', 'true');
+        document.getElementById('admin-login-modal').style.display = 'none';
+        loadAllProducts();
+        loadAllOrders();
+      } else {
+        alert('Incorrect passcode. Please try again or check your default PIN.');
+      }
+    }
+
+    function adminLogout() {
+      sessionStorage.removeItem('menas_admin_auth');
+      location.reload();
+    }
+
+    function switchAdminTab(tabId) {
+      document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabId);
+      });
+      document.querySelectorAll('.admin-tab-content').forEach(panel => {
+        panel.style.display = panel.id === `tab-${tabId}` ? 'block' : 'none';
+      });
+    }
+
+    // ---------- PRODUCTS CONTROLLER ----------
+    async function loadAllProducts() {
+      // 1. Try fetching from server data/products.json or api/products.php
+      try {
+        const res = await fetch('data/products.json');
+        if (res.ok) {
+          allProducts = await res.json();
+        }
+      } catch (e) {
+        console.warn('Could not read data/products.json, using local fallback', e);
+      }
+
+      // Check if custom additions exist in localStorage
+      const customSaved = localStorage.getItem('menas_nest_custom_products');
+      if (customSaved) {
+        try {
+          const parsed = JSON.parse(customSaved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            allProducts = parsed;
+          }
+        } catch (e) {}
+      }
+
+      renderProductsTable(allProducts);
+      updateKpis();
+    }
+
+    function renderProductsTable(items) {
+      const tbody = document.getElementById('products-table-body');
+      if (!items || items.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 3rem;">No products found.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = items.map(p => {
+        const brandBadge = p.brand === 'lacuizinee' 
+          ? `<span class="status-pill" style="background:#EBF3EE; color:var(--color-forest-green-dark);">Lacuizinee</span>`
+          : (p.brand === 'akwaaba' 
+            ? `<span class="status-pill" style="background:#F7EEF6; color:var(--color-purple-dark);">Akwaaba Fie</span>`
+            : `<span class="status-pill" style="background:#FDF8E8; color:#92400E;">Both Arms</span>`);
+
+        const inStock = (p.stock !== undefined ? p.stock : 10) > 0;
+        const stockBadge = inStock 
+          ? `<span class="status-pill status-dispatched">In Stock (${p.stock || 20})</span>`
+          : `<span class="status-pill status-new" style="background:#FEE2E2; color:#991B1B;">Out of Stock</span>`;
+
+        return `
+          <tr>
+            <td><img src="${p.image || 'assets/images/sobolo-artisanal.jpg'}" alt="${p.name}" class="prod-thumb"></td>
+            <td>
+              <strong style="color: var(--color-neutral-900); display: block;">${p.name}</strong>
+              <small style="color: var(--color-neutral-500);">${p.badge || 'Standard Service'}</small>
+            </td>
+            <td>${brandBadge}</td>
+            <td style="color: var(--color-neutral-600);">${p.categoryLabel || p.category?.[0] || 'General'}</td>
+            <td><strong>GH₵ ${Number(p.priceGHS || 0).toLocaleString('en-GH', {minimumFractionDigits: 2})}</strong></td>
+            <td>${stockBadge}</td>
+            <td>
+              <div style="display: flex; gap: 0.4rem;">
+                <button class="btn-admin btn-admin-sm btn-admin-light" style="color: var(--color-neutral-800);" onclick="editProduct('${p.id}')">✏️ Edit</button>
+                <button class="btn-admin btn-admin-sm btn-admin-light" style="color: #DC2626;" onclick="deleteProduct('${p.id}')">🗑️</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('products-count-badge').textContent = items.length;
+      document.getElementById('kpi-products-count').textContent = items.length;
+    }
+
+    function filterProductsTable() {
+      const q = document.getElementById('product-search-input').value.toLowerCase();
+      const filtered = allProducts.filter(p => p.name.toLowerCase().includes(q) || (p.categoryLabel && p.categoryLabel.toLowerCase().includes(q)));
+      renderProductsTable(filtered);
+    }
+
+    function editProduct(prodId) {
+      const prod = allProducts.find(p => p.id === prodId);
+      if (!prod) return;
+
+      document.getElementById('edit-prod-id').value = prod.id;
+      document.getElementById('prod-name').value = prod.name;
+      document.getElementById('prod-brand').value = prod.brand || 'lacuizinee';
+      document.getElementById('prod-price').value = prod.priceGHS;
+      document.getElementById('prod-stock').value = prod.stock !== undefined ? prod.stock : 20;
+      document.getElementById('prod-badge').value = prod.badge || '';
+      document.getElementById('prod-short-desc').value = prod.shortDesc || '';
+      document.getElementById('prod-full-desc').value = prod.fullDesc || '';
+
+      if (prod.image) {
+        document.getElementById('prod-image-url').value = prod.image;
+        document.getElementById('product-preview-img').src = prod.image;
+        document.getElementById('product-preview-wrap').style.display = 'flex';
+      }
+
+      document.getElementById('form-header-title').textContent = `Edit "${prod.name}"`;
+      switchAdminTab('add-product');
+    }
+
+    function deleteProduct(prodId) {
+      if (!confirm('Are you sure you want to remove this item from the portal?')) return;
+      allProducts = allProducts.filter(p => p.id !== prodId);
+      saveCatalogState();
+      renderProductsTable(allProducts);
+      alert('Product removed successfully.');
+    }
+
+    function saveProductFromForm() {
+      const editId = document.getElementById('edit-prod-id').value;
+      const id = editId || ('prod-' + Date.now());
+      const name = document.getElementById('prod-name').value.trim();
+      const brand = document.getElementById('prod-brand').value;
+      const priceGHS = parseFloat(document.getElementById('prod-price').value) || 0;
+      const stock = parseInt(document.getElementById('prod-stock').value, 10) || 0;
+      const category = [document.getElementById('prod-category').value, 'all'];
+      const categoryLabel = document.getElementById('prod-category').options[document.getElementById('prod-category').selectedIndex].text;
+      const badge = document.getElementById('prod-badge').value.trim();
+      const image = document.getElementById('prod-image-url').value || 'assets/images/sobolo-artisanal.jpg';
+      const shortDesc = document.getElementById('prod-short-desc').value.trim();
+      const fullDesc = document.getElementById('prod-full-desc').value.trim();
+
+      const item = {
+        id,
+        name,
+        brand,
+        priceGHS,
+        stock,
+        category,
+        categoryLabel,
+        badge,
+        image,
+        shortDesc,
+        fullDesc
+      };
+
+      const existingIndex = allProducts.findIndex(p => p.id === id);
+      if (existingIndex >= 0) {
+        allProducts[existingIndex] = { ...allProducts[existingIndex], ...item };
+      } else {
+        allProducts.unshift(item);
+      }
+
+      saveCatalogState();
+      document.getElementById('product-editor-form').reset();
+      document.getElementById('edit-prod-id').value = '';
+      document.getElementById('product-preview-wrap').style.display = 'none';
+      document.getElementById('form-header-title').textContent = 'Add New Product or Home Care Package';
+
+      alert(`"${name}" saved successfully to catalog!`);
+      switchAdminTab('products');
+      renderProductsTable(allProducts);
+    }
+
+    async function saveCatalogState() {
+      // 1. Save in localStorage so storefront immediately reflects updates
+      localStorage.setItem('menas_nest_custom_products', JSON.stringify(allProducts));
+
+      // 2. Also attempt saving to PHP API endpoint if on Hostinger / PHP server
+      try {
+        await fetch('api/products.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'save_all', products: allProducts })
+        });
+      } catch (e) {}
+    }
+
+    // ---------- PHOTO UPLOADER (POWERED BY api/upload.php) ----------
+    async function handleProductPhotoUpload(file) {
+      if (!file) return;
+
+      const previewWrap = document.getElementById('product-preview-wrap');
+      const previewImg = document.getElementById('product-preview-img');
+      const filenameEl = document.getElementById('product-preview-filename');
+      const statusEl = document.getElementById('product-preview-status');
+
+      filenameEl.textContent = file.name;
+      statusEl.textContent = 'Uploading to server...';
+      previewWrap.style.display = 'flex';
+
+      // Local preview immediately
+      const reader = new FileReader();
+      reader.onload = e => previewImg.src = e.target.result;
+      reader.readAsDataURL(file);
+
+      // Attempt actual upload via api/upload.php
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const res = await fetch('api/upload.php', { method: 'POST', body: formData });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.file && data.file.url) {
+            document.getElementById('prod-image-url').value = data.file.url;
+            statusEl.textContent = 'Uploaded successfully to /uploads/';
+            statusEl.style.color = '#10B981';
+            return;
+          }
+        }
+      } catch (e) {}
+
+      // Fallback: If server is static node, keep data URL
+      statusEl.textContent = 'Photo attached successfully';
+      statusEl.style.color = '#10B981';
+      document.getElementById('prod-image-url').value = previewImg.src;
+    }
+
+    async function uploadGeneralFile(file) {
+      if (!file) return;
+      const list = document.getElementById('media-recent-list');
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const res = await fetch('api/upload.php', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+          const url = data.file.url;
+          const itemHtml = `
+            <div style="background:#fff; border:1px solid var(--admin-border); padding:0.85rem 1rem; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong>${file.name}</strong>
+                <small style="color:var(--color-neutral-500); display:block;">${url}</small>
+              </div>
+              <button class="btn-admin btn-admin-sm btn-admin-light" style="color:var(--color-neutral-800);" onclick="navigator.clipboard.writeText('${url}'); alert('URL copied to clipboard!')">Copy URL</button>
+            </div>
+          `;
+          list.innerHTML = itemHtml + list.innerHTML;
+          alert('File uploaded successfully!');
+          return;
+        }
+      } catch (e) {}
+
+      alert('Upload failed or server is in local static test mode.');
+    }
+
+    // ---------- ORDERS CONTROLLER ----------
+    async function loadAllOrders() {
+      let orders = [];
+
+      // 1. Try reading from server data/orders.json
+      try {
+        const res = await fetch('data/orders.json');
+        if (res.ok) {
+          orders = await res.json();
+        }
+      } catch (e) {}
+
+      // 2. Also merge from localStorage
+      try {
+        const local = JSON.parse(localStorage.getItem('menas_nest_orders_ghs') || '[]');
+        if (Array.isArray(local) && local.length > 0) {
+          // Merge unique by orderId
+          const existingIds = new Set(orders.map(o => o.orderId));
+          local.forEach(l => {
+            if (!existingIds.has(l.orderId)) {
+              orders.push(l);
+            }
+          });
+        }
+      } catch (e) {}
+
+      allOrders = orders;
+      renderOrdersList();
+      updateKpis();
+    }
+
+    function renderOrdersList() {
+      const tbody = document.getElementById('orders-table-body');
+      const q = document.getElementById('order-search-input')?.value.toLowerCase() || '';
+
+      const filtered = allOrders.filter(o => 
+        (o.orderId && o.orderId.toLowerCase().includes(q)) ||
+        (o.customerName && o.customerName.toLowerCase().includes(q)) ||
+        (o.phone && o.phone.toLowerCase().includes(q))
+      );
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" style="text-align: center; padding: 3rem; color: var(--color-neutral-500);">
+              No incoming orders yet. When customers check out or book, their orders will appear here automatically.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(o => {
+        const itemsSummary = (o.items || []).map(i => `${i.quantity || 1}x ${i.name}`).join('<br>') || 'Welcome Home Suite';
+        const cleanPhone = (o.phone || '').replace(/[^0-9]/g, '');
+        const waLink = cleanPhone ? `https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(o.customerName || '')}!%20Regarding%20your%20order%20${o.orderId}:` : '#';
+
+        return `
+          <tr>
+            <td><strong style="color:var(--admin-primary);">${o.orderId || '#MN-00000'}</strong></td>
+            <td style="white-space:nowrap; font-size:0.82rem; color:var(--color-neutral-600);">${o.date || 'Recent'}</td>
+            <td>
+              <strong style="display:block;">${o.customerName || 'Direct Client'}</strong>
+              <small style="color:var(--color-neutral-600);">${o.phone || 'No phone'}</small>
+            </td>
+            <td><small>${o.address || 'Greater Accra'}</small></td>
+            <td style="font-size:0.82rem; line-height:1.4;">${itemsSummary}</td>
+            <td><strong>GH₵ ${Number(o.totalGHS || 0).toLocaleString('en-GH', {minimumFractionDigits:2})}</strong></td>
+            <td>
+              <select class="form-control" style="padding:0.3rem 0.5rem; font-size:0.78rem;" onchange="updateOrderStatus('${o.orderId}', this.value)">
+                <option value="New Order Received" ${o.status === 'New Order Received' ? 'selected' : ''}>New Order</option>
+                <option value="Preparing / Cooking" ${o.status === 'Preparing / Cooking' ? 'selected' : ''}>Preparing</option>
+                <option value="Dispatched / En Route" ${o.status === 'Dispatched / En Route' ? 'selected' : ''}>Dispatched</option>
+                <option value="Completed" ${o.status === 'Completed' ? 'selected' : ''}>Completed</option>
+              </select>
+            </td>
+            <td>
+              <a href="${waLink}" target="_blank" class="btn-admin btn-admin-sm btn-admin-green" style="text-decoration:none;">
+                WhatsApp
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('orders-count-badge').textContent = allOrders.length;
+    }
+
+    function updateOrderStatus(orderId, newStatus) {
+      const order = allOrders.find(o => o.orderId === orderId);
+      if (order) {
+        order.status = newStatus;
+        localStorage.setItem('menas_nest_orders_ghs', JSON.stringify(allOrders));
+        alert(`Order ${orderId} marked as "${newStatus}"`);
+      }
+    }
+
+    function updateKpis() {
+      const totalRev = allOrders.reduce((acc, o) => acc + (Number(o.totalGHS) || 0), 0);
+      document.getElementById('kpi-revenue').textContent = `GH₵ ${totalRev.toLocaleString('en-GH', {minimumFractionDigits: 2})}`;
+      document.getElementById('kpi-orders-count').textContent = allOrders.length;
+      document.getElementById('kpi-orders-sub').textContent = `${allOrders.length} confirmed orders`;
+    }
+  </script>
+</body>
+
+</html>

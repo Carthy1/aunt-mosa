@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      DATA: PRODUCTS APOTHECARY WITH VARIANTS, STOCK & REVIEWS (GHANA CEDIS BASE)
      ========================================================================== */
-  const PRODUCTS = [
+  let PRODUCTS = [
     {
       id: 'prod-sobolo',
       name: 'Chilled Artisanal Hibiscus Sobolo',
@@ -1182,6 +1182,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderProducts() {
     if (!productsGrid) return;
 
+    // Load any custom additions / edits made via Admin Portal
+    try {
+      const customSaved = localStorage.getItem('menas_nest_custom_products');
+      if (customSaved) {
+        const parsed = JSON.parse(customSaved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          PRODUCTS = parsed;
+        }
+      }
+    } catch (e) {}
+
     const pageBrand = document.body.dataset.pageBrand || 'all';
 
     const filtered = PRODUCTS.filter(product => {
@@ -1644,6 +1655,13 @@ document.addEventListener('DOMContentLoaded', () => {
       let orders = JSON.parse(localStorage.getItem('menas_nest_orders_ghs') || '[]');
       orders.unshift(orderData);
       localStorage.setItem('menas_nest_orders_ghs', JSON.stringify(orders));
+
+      // Asynchronously persist to server backend (Hostinger)
+      fetch('api/orders.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'create', order: orderData })
+      }).catch(() => {});
     } catch (e) {}
 
     // Reset Cart
