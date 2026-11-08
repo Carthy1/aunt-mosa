@@ -11,11 +11,19 @@
   --color-forest-green-light: #DCE5DF;
   --color-forest-green-subtle: #EEF3F0;
 
-  --color-terracotta: #B77B57;
-  --color-terracotta-dark: #915A3A;
-  --color-terracotta-deep: #6D4127;
-  --color-terracotta-light: #F3E6DE;
-  --color-terracotta-subtle: #FAF4F0;
+  /* Royal Plum / Regal Purple Palette (Owner Preference: Green + Purple Theme) */
+  --color-purple: #6B3462;
+  --color-purple-dark: #502248;
+  --color-purple-deep: #35132F;
+  --color-purple-light: #EFE4ED;
+  --color-purple-subtle: #F9F3F8;
+
+  /* Aliased so all existing component references smoothly adopt the purple palette */
+  --color-terracotta: var(--color-purple);
+  --color-terracotta-dark: var(--color-purple-dark);
+  --color-terracotta-deep: var(--color-purple-deep);
+  --color-terracotta-light: var(--color-purple-light);
+  --color-terracotta-subtle: var(--color-purple-subtle);
 
   --color-warm-gold: #C9AE80;
   --color-warm-gold-dark: #A68D60;
@@ -37,15 +45,15 @@
   --color-lavender-dark: #243529;
   --color-lavender-deep: #18231B;
 
-  --color-sage-subtle: #FAF4F0;
-  --color-sage-light: #F3E6DE;
-  --color-sage-medium: #B77B57;
-  /* Terracotta as Warm Brand Accent */
-  --color-sage-dark: #915A3A;
-  --color-sage-deep: #6D4127;
+  --color-sage-subtle: #F9F3F8;
+  --color-sage-light: #EFE4ED;
+  --color-sage-medium: #6B3462;
+  /* Royal Purple Brand Accent */
+  --color-sage-dark: #502248;
+  --color-sage-deep: #35132F;
 
-  --color-plum-muted: #B77B57;
-  --color-plum-dark: #6D4127;
+  --color-plum-muted: #6B3462;
+  --color-plum-dark: #35132F;
 
   --color-neutral-900: #1F1B18;
   --color-neutral-800: #332D29;
@@ -104,7 +112,7 @@ body {
   overflow-x: hidden;
   background-image:
     radial-gradient(at 10% 20%, rgba(53, 76, 59, 0.05) 0px, transparent 50%),
-    radial-gradient(at 90% 80%, rgba(183, 123, 87, 0.06) 0px, transparent 50%);
+    radial-gradient(at 90% 80%, rgba(107, 52, 98, 0.05) 0px, transparent 50%);
   background-attachment: fixed;
 }
 
@@ -297,7 +305,7 @@ h4,
 }
 
 .site-top-bar.bar-akwaaba {
-  background: #381E13;
+  background: #2D1227;
   border-bottom: 1px solid rgba(201, 174, 128, 0.2);
 }
 
@@ -1537,7 +1545,7 @@ h4,
 }
 
 .brand-card-header.header-akwaaba {
-  background: linear-gradient(135deg, #A86D49 0%, #6E4028 100%);
+  background: linear-gradient(135deg, #6B3462 0%, #44183E 100%);
   border-bottom: 3px solid var(--color-warm-gold);
 }
 
@@ -1766,15 +1774,15 @@ h4,
 }
 
 .btn-terracotta {
-  background: linear-gradient(135deg, #B77B57 0%, #915A3A 100%);
+  background: linear-gradient(135deg, #6B3462 0%, #502248 100%);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(183, 123, 87, 0.35);
+  box-shadow: 0 4px 14px rgba(107, 52, 98, 0.35);
 }
 
 .btn-terracotta:hover {
-  background: linear-gradient(135deg, #915A3A 0%, #6D4127 100%);
+  background: linear-gradient(135deg, #502248 0%, #35132F 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(183, 123, 87, 0.45);
+  box-shadow: 0 6px 20px rgba(107, 52, 98, 0.45);
 }
 
 /* ==========================================================================
@@ -5700,7 +5708,7 @@ body.no-scroll {
 .brand-switch-pill.active-akwaaba {
   background: var(--color-terracotta);
   color: #FFFFFF;
-  box-shadow: 0 2px 6px rgba(183, 123, 87, 0.25);
+  box-shadow: 0 2px 6px rgba(107, 52, 98, 0.25);
 }
 
 /* Sister Brand Referral Banner */
