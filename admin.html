@@ -670,8 +670,14 @@
 
           <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
             <input type="text" id="product-search-input" class="form-control" placeholder="Filter items by name..."
-              style="width: 220px; padding: 0.45rem 0.75rem; font-size: 0.82rem;" oninput="filterProductsTable()">
-            <button class="btn-admin btn-admin-sm" onclick="openAddProductTab()">
+              style="width: 200px; padding: 0.45rem 0.75rem; font-size: 0.82rem;" oninput="filterProductsTable()">
+            <button class="btn-admin btn-admin-sm btn-admin-light" onclick="copyCatalogJson()" title="Copy all products JSON to clipboard">
+              <span>📋 Copy JSON</span>
+            </button>
+            <button class="btn-admin btn-admin-sm btn-admin-light" onclick="exportCatalogJson()" title="Download products.json file">
+              <span>📥 Export JSON</span>
+            </button>
+            <button class="btn-admin btn-admin-sm btn-admin-primary" onclick="openAddProductTab()">
               <span>➕ Add Item</span>
             </button>
           </div>
@@ -1493,6 +1499,33 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'save_all', products: allProducts })
       }).catch(() => { });
+    }
+
+    function exportCatalogJson() {
+      if (!allProducts || allProducts.length === 0) {
+        alert('No products available to export.');
+        return;
+      }
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(allProducts, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute('href', dataStr);
+      downloadAnchor.setAttribute('download', 'products.json');
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    function copyCatalogJson() {
+      if (!allProducts || allProducts.length === 0) {
+        alert('No products to copy.');
+        return;
+      }
+      const jsonStr = JSON.stringify(allProducts, null, 2);
+      navigator.clipboard.writeText(jsonStr).then(() => {
+        alert(`Copied full catalog (${allProducts.length} items) to clipboard as JSON!`);
+      }).catch(() => {
+        prompt('Copy products JSON manually below:', jsonStr);
+      });
     }
 
     // ---------- PHOTO UPLOADER (POWERED BY api/upload.php) ----------

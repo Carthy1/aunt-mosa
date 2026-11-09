@@ -447,6 +447,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch (e) { }
 
+  // Asynchronously fetch shared catalog from data/products.json
+  async function loadRemoteProductsCatalog() {
+    try {
+      const res = await fetch('data/products.json');
+      if (res.ok) {
+        const list = await res.json();
+        if (Array.isArray(list) && list.length > 0) {
+          const localSaved = localStorage.getItem('menas_nest_custom_products');
+          if (localSaved) {
+            const localList = JSON.parse(localSaved);
+            if (Array.isArray(localList)) {
+              const map = new Map();
+              list.forEach(p => map.set(p.id, p));
+              localList.forEach(p => map.set(p.id, p));
+              PRODUCTS = Array.from(map.values());
+            } else {
+              PRODUCTS = list;
+            }
+          } else {
+            PRODUCTS = list;
+          }
+          if (typeof renderProducts === 'function') renderProducts();
+        }
+      }
+    } catch (e) {
+      console.warn('Could not load data/products.json, using fallback catalog.', e);
+    }
+  }
+  loadRemoteProductsCatalog();
+
   /* ==========================================================================
      DATA: WELLNESS ARTICLES & GLOSSARY & FAQS
      ========================================================================== */
