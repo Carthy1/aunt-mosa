@@ -411,6 +411,8 @@
 
     /* Light / Secondary button style (Clean white, dark text, subtle border) */
     .btn-admin-light,
+    .btn-admin.btn-admin-light,
+    button.btn-admin-light,
     .btn-admin-secondary {
       background: #FFFFFF !important;
       color: #1F2937 !important;
@@ -419,6 +421,8 @@
     }
 
     .btn-admin-light:hover,
+    .btn-admin.btn-admin-light:hover,
+    button.btn-admin-light:hover,
     .btn-admin-secondary:hover {
       background: #F3F4F6 !important;
       color: #111827 !important;
@@ -671,10 +675,12 @@
           <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
             <input type="text" id="product-search-input" class="form-control" placeholder="Filter items by name..."
               style="width: 200px; padding: 0.45rem 0.75rem; font-size: 0.82rem;" oninput="filterProductsTable()">
-            <button class="btn-admin btn-admin-sm btn-admin-light" onclick="copyCatalogJson()" title="Copy all products JSON to clipboard">
+            <button class="btn-admin btn-admin-sm btn-admin-light" onclick="copyCatalogJson()"
+              title="Copy all products JSON to clipboard">
               <span>📋 Copy JSON</span>
             </button>
-            <button class="btn-admin btn-admin-sm btn-admin-light" onclick="exportCatalogJson()" title="Download products.json file">
+            <button class="btn-admin btn-admin-sm btn-admin-light" onclick="exportCatalogJson()"
+              title="Download products.json file">
               <span>📥 Export JSON</span>
             </button>
             <button class="btn-admin btn-admin-sm btn-admin-primary" onclick="openAddProductTab()">
@@ -809,8 +815,7 @@
           </div>
 
           <div style="display: flex; gap: 1rem; align-items: center; justify-content: flex-end; margin-top: 2rem;">
-            <button type="button" class="btn-admin btn-admin-light"
-              onclick="switchAdminTab('products')">Cancel</button>
+            <button type="button" class="btn-admin btn-admin-light" style="background: #FFFFFF !important; color: #1F2937 !important; border: 1.5px solid #D1D5DB !important;" onclick="switchAdminTab('products')">Cancel</button>
             <button type="submit" class="btn-admin btn-admin-primary" id="btn-save-prod">
               <span>💾 Save Item to Portal</span>
             </button>
@@ -972,7 +977,8 @@
           <div>
             <h2 class="panel-title">Automated Live Currency Exchange & Forex Rates</h2>
             <p style="font-size: 0.85rem; color: var(--color-neutral-600); margin: 0;">
-              Prices across Mena’s Nest, Lacuizinee, and Akwaaba Fie are based in Ghana Cedis (GH₵) and converted automatically using real-time global forex market rates.
+              Prices across Mena’s Nest, Lacuizinee, and Akwaaba Fie are based in Ghana Cedis (GH₵) and converted
+              automatically using real-time global forex market rates.
             </p>
           </div>
           <button class="btn-admin btn-admin-primary" onclick="forceRefreshLiveForex()">
@@ -981,11 +987,15 @@
         </div>
 
         <!-- Sync Status Strip -->
-        <div style="background: rgba(53, 76, 59, 0.08); border: 1px solid rgba(53, 76, 59, 0.2); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+        <div
+          style="background: rgba(53, 76, 59, 0.08); border: 1px solid rgba(53, 76, 59, 0.2); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #10B981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);"></span>
-            <strong style="color: var(--color-forest-green-dark); font-size: 0.92rem;">Automated Daily Feed Active</strong>
-            <span style="font-size: 0.82rem; color: var(--color-neutral-600);">(Source: Open Forex Exchange API / Bank of Ghana Market Index)</span>
+            <span
+              style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #10B981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);"></span>
+            <strong style="color: var(--color-forest-green-dark); font-size: 0.92rem;">Automated Daily Feed
+              Active</strong>
+            <span style="font-size: 0.82rem; color: var(--color-neutral-600);">(Source: Open Forex Exchange API / Bank
+              of Ghana Market Index)</span>
           </div>
           <div style="font-size: 0.82rem; color: var(--color-neutral-600);">
             Last Market Update: <strong id="forex-last-sync-display">Fetching live rates...</strong>
@@ -993,74 +1003,112 @@
         </div>
 
         <!-- Live Conversion Rate Cards -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
           <!-- USD Card -->
-          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <div
+            style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.5rem;">🇺🇸</span>
-              <span class="status-pill" style="background: rgba(107, 52, 98, 0.1); color: var(--color-purple-deep);">USD ($)</span>
+              <span class="status-pill" style="background: rgba(107, 52, 98, 0.1); color: var(--color-purple-deep);">USD
+                ($)</span>
             </div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 US Dollar Equals</div>
-            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-usd">GH₵ --.--</div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-usd">0.0000</code></div>
+            <div
+              style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">
+              1 US Dollar Equals</div>
+            <div
+              style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;"
+              id="card-rate-usd">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code
+                id="card-mult-usd">0.0000</code></div>
           </div>
 
           <!-- GBP Card -->
-          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <div
+            style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.5rem;">🇬🇧</span>
-              <span class="status-pill" style="background: rgba(53, 76, 59, 0.1); color: var(--color-forest-green-dark);">GBP (£)</span>
+              <span class="status-pill"
+                style="background: rgba(53, 76, 59, 0.1); color: var(--color-forest-green-dark);">GBP (£)</span>
             </div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 British Pound Equals</div>
-            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-gbp">GH₵ --.--</div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-gbp">0.0000</code></div>
+            <div
+              style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">
+              1 British Pound Equals</div>
+            <div
+              style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;"
+              id="card-rate-gbp">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code
+                id="card-mult-gbp">0.0000</code></div>
           </div>
 
           <!-- EUR Card -->
-          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <div
+            style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.5rem;">🇪🇺</span>
               <span class="status-pill" style="background: #EFF6FF; color: #1D4ED8;">EUR (€)</span>
             </div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 Euro Equals</div>
-            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-eur">GH₵ --.--</div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-eur">0.0000</code></div>
+            <div
+              style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">
+              1 Euro Equals</div>
+            <div
+              style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;"
+              id="card-rate-eur">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code
+                id="card-mult-eur">0.0000</code></div>
           </div>
 
           <!-- CAD Card -->
-          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <div
+            style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.5rem;">🇨🇦</span>
               <span class="status-pill" style="background: #FEF2F2; color: #B91C1C;">CAD (CA$)</span>
             </div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 Canadian Dollar Equals</div>
-            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-cad">GH₵ --.--</div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-cad">0.0000</code></div>
+            <div
+              style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">
+              1 Canadian Dollar Equals</div>
+            <div
+              style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;"
+              id="card-rate-cad">GH₵ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code
+                id="card-mult-cad">0.0000</code></div>
           </div>
 
           <!-- NGN Card -->
-          <div style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <div
+            style="background: #FFFFFF; border: 1.5px solid var(--color-cream-border); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
               <span style="font-size: 1.5rem;">🇳🇬</span>
               <span class="status-pill" style="background: #F0FDF4; color: #15803D;">NGN (₦)</span>
             </div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">1 Ghana Cedi Equals</div>
-            <div style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;" id="card-rate-ngn">₦ --.--</div>
-            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code id="card-mult-ngn">0.0000</code></div>
+            <div
+              style="font-size: 0.75rem; color: var(--color-neutral-500); text-transform: uppercase; font-weight: 600;">
+              1 Ghana Cedi Equals</div>
+            <div
+              style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-neutral-900); margin: 0.25rem 0;"
+              id="card-rate-ngn">₦ --.--</div>
+            <div style="font-size: 0.75rem; color: var(--color-neutral-500);">Multiplier: <code
+                id="card-mult-ngn">0.0000</code></div>
           </div>
         </div>
 
         <!-- Diaspora Payment Buffer & Custom Rates Form -->
-        <div style="background: #FFFFFF; border: 1px solid var(--color-cream-border); border-radius: var(--radius-lg); padding: 2rem;">
-          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--admin-primary); margin-bottom: 0.5rem;">
+        <div
+          style="background: #FFFFFF; border: 1px solid var(--color-cream-border); border-radius: var(--radius-lg); padding: 2rem;">
+          <h3
+            style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--admin-primary); margin-bottom: 0.5rem;">
             Diaspora Payment Protection & Forex Controls
           </h3>
           <p style="font-size: 0.88rem; color: var(--color-neutral-600); margin-bottom: 1.5rem; line-height: 1.6;">
-            International credit cards (Visa, Mastercard) and foreign bank remittances typically deduct a 2%–3.5% foreign exchange spread. You can apply an optional safety buffer so conversions on the site match what customers actually pay.
+            International credit cards (Visa, Mastercard) and foreign bank remittances typically deduct a 2%–3.5%
+            foreign exchange spread. You can apply an optional safety buffer so conversions on the site match what
+            customers actually pay.
           </p>
 
           <form id="forex-controls-form" onsubmit="saveForexBufferSettings(event)">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
               <div class="form-group">
                 <label class="form-label">Payment Processing Buffer Spread</label>
                 <select id="forex-buffer-select" class="form-control">
@@ -1084,8 +1132,10 @@
             </div>
 
             <!-- Manual Overrides (Hidden by default) -->
-            <div id="manual-forex-fields" style="display: none; background: #FAF8F5; border: 1px dashed var(--color-cream-border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
-              <h4 style="font-size: 1rem; color: var(--admin-primary); margin-bottom: 0.75rem;">Manual Rate Overrides (GH₵ per 1 Foreign Unit)</h4>
+            <div id="manual-forex-fields"
+              style="display: none; background: #FAF8F5; border: 1px dashed var(--color-cream-border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1rem; color: var(--admin-primary); margin-bottom: 0.75rem;">Manual Rate Overrides
+                (GH₵ per 1 Foreign Unit)</h4>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
                 <div class="form-group">
                   <label class="form-label">1 USD in GH₵</label>
@@ -1170,7 +1220,7 @@
               required></textarea>
           </div>
           <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-            <button type="button" class="btn-admin btn-admin-light" onclick="closeArticleModal()">Cancel</button>
+            <button type="button" class="btn-admin btn-admin-light" style="background: #FFFFFF !important; color: #1F2937 !important; border: 1.5px solid #D1D5DB !important;" onclick="closeArticleModal()">Cancel</button>
             <button type="submit" class="btn-admin btn-admin-primary">💾 Save & Publish Article</button>
           </div>
         </form>
@@ -1222,7 +1272,7 @@
             <input type="date" id="coup-expiry" class="form-control" value="2027-12-31">
           </div>
           <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-            <button type="button" class="btn-admin btn-admin-light" onclick="closeCouponModal()">Cancel</button>
+            <button type="button" class="btn-admin btn-admin-light" style="background: #FFFFFF !important; color: #1F2937 !important; border: 1.5px solid #D1D5DB !important;" onclick="closeCouponModal()">Cancel</button>
             <button type="submit" class="btn-admin btn-admin-primary">💾 Save Promo Code</button>
           </div>
         </form>
@@ -1230,6 +1280,11 @@
     </div>
 
   </main>
+
+  <!-- FIREBASE CLOUD FIRESTORE SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-db.js"></script>
 
   <!-- JAVASCRIPT STATE ENGINE -->
   <script>
@@ -1309,11 +1364,30 @@
 
     // ---------- PRODUCTS CONTROLLER ----------
     async function loadAllProducts() {
-      // 1. Try fetching from server data/products.json or api/products.php
+      // 1. Try Firebase Cloud Firestore live catalog first
+      if (typeof FirebaseDB !== 'undefined') {
+        try {
+          const cloudItems = await FirebaseDB.getProducts();
+          if (Array.isArray(cloudItems) && cloudItems.length > 0) {
+            allProducts = cloudItems;
+            renderProductsTable(allProducts);
+            updateKpis();
+            return;
+          }
+        } catch (err) {
+          console.warn('FirebaseDB getProducts error, falling back:', err);
+        }
+      }
+
+      // 2. Try fetching from server data/products.json or api/products.php
       try {
         const res = await fetch('data/products.json');
         if (res.ok) {
           allProducts = await res.json();
+          // Auto-seed Firestore if Firestore is active but empty
+          if (typeof FirebaseDB !== 'undefined' && FirebaseDB.isReady() && allProducts.length > 0) {
+            FirebaseDB.seedInitialProducts(allProducts).catch(() => {});
+          }
         }
       } catch (e) {
         console.warn('Could not read data/products.json, using local fallback', e);
@@ -1411,6 +1485,9 @@
       if (!confirm('Are you sure you want to remove this item from the portal?')) return;
       allProducts = allProducts.filter(p => p.id !== prodId);
       saveCatalogState();
+      if (typeof FirebaseDB !== 'undefined') {
+        FirebaseDB.deleteProduct(prodId).catch(err => console.warn('Firebase deleteProduct error:', err));
+      }
       renderProductsTable(allProducts);
       alert('Product removed successfully.');
     }
@@ -1474,6 +1551,11 @@
         }
 
         saveCatalogState();
+        if (typeof FirebaseDB !== 'undefined') {
+          FirebaseDB.saveProduct(item).then(() => {
+            console.log('✓ Product synced live to Cloud Firestore:', item.id);
+          }).catch(err => console.warn('Firebase saveProduct error:', err));
+        }
         resetProductForm();
 
         alert(`"${name}" saved successfully to catalog!`);
@@ -1603,15 +1685,29 @@
     async function loadAllOrders() {
       let orders = [];
 
-      // 1. Try reading from server data/orders.json
-      try {
-        const res = await fetch('data/orders.json');
-        if (res.ok) {
-          orders = await res.json();
+      // 1. Try Firebase Cloud Firestore live sync
+      if (typeof FirebaseDB !== 'undefined') {
+        try {
+          const cloudOrders = await FirebaseDB.getOrders();
+          if (Array.isArray(cloudOrders) && cloudOrders.length > 0) {
+            orders = cloudOrders;
+          }
+        } catch (err) {
+          console.warn('FirebaseDB getOrders error, falling back:', err);
         }
-      } catch (e) { }
+      }
 
-      // 2. Also merge from localStorage
+      // 2. Try reading from server data/orders.json
+      if (orders.length === 0) {
+        try {
+          const res = await fetch('data/orders.json');
+          if (res.ok) {
+            orders = await res.json();
+          }
+        } catch (e) { }
+      }
+
+      // 3. Also merge from localStorage
       try {
         const local = JSON.parse(localStorage.getItem('menas_nest_orders_ghs') || '[]');
         if (Array.isArray(local) && local.length > 0) {
@@ -1692,6 +1788,9 @@
       if (order) {
         order.status = newStatus;
         localStorage.setItem('menas_nest_orders_ghs', JSON.stringify(allOrders));
+        if (typeof FirebaseDB !== 'undefined') {
+          FirebaseDB.updateOrderStatus(orderId, newStatus).catch(err => console.warn('Firebase updateOrderStatus error:', err));
+        }
         alert(`Order ${orderId} marked as "${newStatus}"`);
       }
     }
@@ -1712,6 +1811,21 @@
 
     // ---------- ARTICLES / VLOBS CONTROLLER ----------
     async function loadAllArticles() {
+      // 1. Try Firebase Cloud Firestore live sync
+      if (typeof FirebaseDB !== 'undefined') {
+        try {
+          const cloudArts = await FirebaseDB.getArticles();
+          if (Array.isArray(cloudArts) && cloudArts.length > 0) {
+            allArticles = cloudArts;
+            renderArticlesTable(allArticles);
+            updateKpis();
+            return;
+          }
+        } catch (err) {
+          console.warn('FirebaseDB getArticles error, falling back:', err);
+        }
+      }
+
       try {
         const res = await fetch('data/articles.json');
         if (res.ok) allArticles = await res.json();
@@ -1819,6 +1933,10 @@
       // Persist in localStorage
       localStorage.setItem('menas_articles', JSON.stringify(allArticles));
 
+      if (typeof FirebaseDB !== 'undefined') {
+        FirebaseDB.saveArticle(articleObj).catch(err => console.warn('Firebase saveArticle error:', err));
+      }
+
       // Attempt async backend save
       try {
         await fetch('api/articles.php', {
@@ -1838,6 +1956,10 @@
       allArticles = allArticles.filter(a => a.id !== artId);
       localStorage.setItem('menas_articles', JSON.stringify(allArticles));
 
+      if (typeof FirebaseDB !== 'undefined') {
+        FirebaseDB.deleteArticle(artId).catch(err => console.warn('Firebase deleteArticle error:', err));
+      }
+
       try {
         await fetch('api/articles.php', {
           method: 'POST',
@@ -1851,6 +1973,21 @@
 
     // ---------- NEWSLETTER SUBSCRIBERS CONTROLLER ----------
     async function loadAllSubscribers() {
+      // 1. Try Firebase Cloud Firestore
+      if (typeof FirebaseDB !== 'undefined') {
+        try {
+          const cloudSubs = await FirebaseDB.getSubscribers();
+          if (Array.isArray(cloudSubs) && cloudSubs.length > 0) {
+            allSubscribers = cloudSubs;
+            renderSubscribersTable(allSubscribers);
+            updateKpis();
+            return;
+          }
+        } catch (err) {
+          console.warn('FirebaseDB getSubscribers error, falling back:', err);
+        }
+      }
+
       try {
         const res = await fetch('data/subscribers.json');
         if (res.ok) allSubscribers = await res.json();
@@ -1937,6 +2074,10 @@
       allSubscribers = allSubscribers.filter(s => s.email.toLowerCase() !== email.toLowerCase());
       localStorage.setItem('menas_subscribers', JSON.stringify(allSubscribers));
 
+      if (typeof FirebaseDB !== 'undefined') {
+        FirebaseDB.deleteSubscriber(email).catch(err => console.warn('Firebase deleteSubscriber error:', err));
+      }
+
       try {
         await fetch('api/subscribers.php', {
           method: 'POST',
@@ -1951,6 +2092,21 @@
 
     // ---------- PROMOTIONS & COUPONS CONTROLLER ----------
     async function loadAllCoupons() {
+      // 1. Try Firebase Cloud Firestore
+      if (typeof FirebaseDB !== 'undefined') {
+        try {
+          const cloudCoups = await FirebaseDB.getCoupons();
+          if (Array.isArray(cloudCoups) && cloudCoups.length > 0) {
+            allCoupons = cloudCoups;
+            renderCouponsTable(allCoupons);
+            updateKpis();
+            return;
+          }
+        } catch (err) {
+          console.warn('FirebaseDB getCoupons error, falling back:', err);
+        }
+      }
+
       try {
         const res = await fetch('data/coupons.json');
         if (res.ok) allCoupons = await res.json();
@@ -2057,6 +2213,10 @@
 
       localStorage.setItem('menas_coupons', JSON.stringify(allCoupons));
 
+      if (typeof FirebaseDB !== 'undefined') {
+        FirebaseDB.saveCoupon(couponObj).catch(err => console.warn('Firebase saveCoupon error:', err));
+      }
+
       try {
         await fetch('api/coupons.php', {
           method: 'POST',
@@ -2077,11 +2237,36 @@
       coupon.active = !(coupon.active !== false);
       localStorage.setItem('menas_coupons', JSON.stringify(allCoupons));
 
+      if (typeof FirebaseDB !== 'undefined') {
+        FirebaseDB.saveCoupon(coupon).catch(err => console.warn('Firebase toggleCoupon error:', err));
+      }
+
       try {
         await fetch('api/coupons.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: 'toggle', code })
+        });
+      } catch (err) { }
+
+      renderCouponsTable(allCoupons);
+      updateKpis();
+    }
+
+    async function deleteCoupon(code) {
+      if (!confirm(`Delete coupon "${code}"?`)) return;
+      allCoupons = allCoupons.filter(c => c.code !== code);
+      localStorage.setItem('menas_coupons', JSON.stringify(allCoupons));
+
+      if (typeof FirebaseDB !== 'undefined') {
+        FirebaseDB.deleteCoupon(code).catch(err => console.warn('Firebase deleteCoupon error:', err));
+      }
+
+      try {
+        await fetch('api/coupons.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'delete', code })
         });
       } catch (err) { }
 

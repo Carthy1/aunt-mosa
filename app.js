@@ -447,8 +447,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch (e) { }
 
-  // Asynchronously fetch shared catalog from data/products.json
+  // Asynchronously fetch shared catalog from Firebase Cloud Firestore or data/products.json
   async function loadRemoteProductsCatalog() {
+    if (window.FirebaseDB) {
+      try {
+        const cloudList = await FirebaseDB.getProducts();
+        if (Array.isArray(cloudList) && cloudList.length > 0) {
+          PRODUCTS = cloudList;
+          if (typeof renderProducts === 'function') renderProducts();
+          return;
+        }
+      } catch (err) {
+        console.warn('Firebase Cloud Firestore catalog fetch error:', err);
+      }
+    }
+
     try {
       const res = await fetch('data/products.json');
       if (res.ok) {
@@ -1848,6 +1861,11 @@ document.addEventListener('DOMContentLoaded', () => {
       orders.unshift(orderData);
       localStorage.setItem('menas_nest_orders_ghs', JSON.stringify(orders));
 
+      // Sync to Firebase Cloud Firestore for real-time live admin dashboard
+      if (window.FirebaseDB) {
+        FirebaseDB.saveOrder(orderData);
+      }
+
       // Asynchronously persist to server backend (Hostinger)
       fetch('api/orders.php', {
         method: 'POST',
@@ -2357,7 +2375,12 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('Subscriber local store error:', err);
     }
 
-    // 2. Asynchronously sync with server API if hosted on PHP/Hostinger
+    // 2. Sync to Firebase Cloud Firestore
+    if (window.FirebaseDB) {
+      FirebaseDB.addSubscriber(newSub);
+    }
+
+    // 3. Asynchronously sync with server API if hosted on PHP/Hostinger
     try {
       fetch('api/subscribers.php', {
         method: 'POST',
