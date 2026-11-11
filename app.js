@@ -454,6 +454,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const cloudList = await FirebaseDB.getProducts();
         if (Array.isArray(cloudList) && cloudList.length > 0) {
           PRODUCTS = cloudList;
+          window.__loadedFromCloud = true;
+          try {
+            localStorage.setItem('menas_nest_custom_products', JSON.stringify(cloudList));
+          } catch (e) {}
           if (typeof renderProducts === 'function') renderProducts();
           return;
         }
@@ -1379,16 +1383,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderProducts() {
     if (!productsGrid) return;
 
-    // Load any custom additions / edits made via Admin Portal
-    try {
-      const customSaved = localStorage.getItem('menas_nest_custom_products');
-      if (customSaved) {
-        const parsed = JSON.parse(customSaved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          PRODUCTS = parsed;
+    // Load any custom additions / edits made via Admin Portal (if not already loaded from live cloud)
+    if (!window.__loadedFromCloud) {
+      try {
+        const customSaved = localStorage.getItem('menas_nest_custom_products');
+        if (customSaved) {
+          const parsed = JSON.parse(customSaved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            PRODUCTS = parsed;
+          }
         }
-      }
-    } catch (e) { }
+      } catch (e) { }
+    }
 
     const pageBrand = document.body.dataset.pageBrand || 'all';
 

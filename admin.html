@@ -1471,6 +1471,11 @@
       document.getElementById('prod-short-desc').value = prod.shortDesc || '';
       document.getElementById('prod-full-desc').value = prod.fullDesc || '';
 
+      if (prod.category && prod.category[0]) {
+        const catSelect = document.getElementById('prod-category');
+        if (catSelect) catSelect.value = prod.category[0];
+      }
+
       if (prod.image) {
         document.getElementById('prod-image-url').value = prod.image;
         document.getElementById('product-preview-img').src = prod.image;
@@ -1516,12 +1521,19 @@
         const shortDesc = (document.getElementById('prod-short-desc').value || '').trim() || name;
         const fullDesc = (document.getElementById('prod-full-desc').value || '').trim() || shortDesc;
 
-        // Ensure variants array is always populated so storefront never crashes
-        const variants = [
+        const existingIndex = allProducts.findIndex(p => p.id === id);
+        const existingProd = existingIndex >= 0 ? allProducts[existingIndex] : null;
+
+        // Ensure variants array is preserved for existing items or created for new ones
+        let variants = [
           { id: `v-${id}-std`, name: 'Standard Option', priceGHS: priceGHS, size: 'Standard' }
         ];
+        if (existingProd && Array.isArray(existingProd.variants) && existingProd.variants.length > 0) {
+          variants = existingProd.variants.map((v, i) => i === 0 ? { ...v, priceGHS: priceGHS } : v);
+        }
 
         const item = {
+          ...(existingProd || {}),
           id,
           name,
           brand,
@@ -1532,33 +1544,36 @@
           badge,
           image,
           variants,
-          selectedVariantIndex: 0,
-          rating: 5.0,
-          reviewsCount: 1,
+          selectedVariantIndex: existingProd && existingProd.selectedVariantIndex !== undefined ? existingProd.selectedVariantIndex : 0,
+          rating: existingProd && existingProd.rating ? existingProd.rating : 5.0,
+          reviewsCount: existingProd && existingProd.reviewsCount ? existingProd.reviewsCount : 1,
           shortDesc,
           fullDesc,
           ingredients: fullDesc,
-          directions: 'Prepared fresh and coordinated by our concierge team.',
-          precautions: 'Crafted with natural ingredients and hospital-grade care.',
-          sourcing: 'Locally procured and crafted in Ghana.'
+          directions: existingProd && existingProd.directions ? existingProd.directions : 'Prepared fresh and coordinated by our concierge team.',
+          precautions: existingProd && existingProd.precautions ? existingProd.precautions : 'Crafted with natural ingredients and hospital-grade care.',
+          sourcing: existingProd && existingProd.sourcing ? existingProd.sourcing : 'Locally procured and crafted in Ghana.'
         };
 
-        const existingIndex = allProducts.findIndex(p => p.id === id);
         if (existingIndex >= 0) {
-          allProducts[existingIndex] = { ...allProducts[existingIndex], ...item };
+          allProducts[existingIndex] = item;
         } else {
           allProducts.unshift(item);
         }
 
         saveCatalogState();
         if (typeof FirebaseDB !== 'undefined') {
-          FirebaseDB.saveProduct(item).then(() => {
-            console.log('✓ Product synced live to Cloud Firestore:', item.id);
+          FirebaseDB.saveProduct(item).then((ok) => {
+            if (ok) {
+              console.log('✓ Product synced live to Cloud Firestore:', item.id);
+            } else {
+              console.warn('Notice: Product saved locally, but Firestore permissions pending.');
+            }
           }).catch(err => console.warn('Firebase saveProduct error:', err));
         }
         resetProductForm();
 
-        alert(`"${name}" saved successfully to catalog!`);
+        alert(`"${name}" saved successfully!`);
         switchAdminTab('products');
         renderProductsTable(allProducts);
       } catch (err) {
